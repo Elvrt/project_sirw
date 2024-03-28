@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('resources/css/app.css')
 </head>
-<body bgcolor="#FCFBF9">
+<body class="bg-login">
 <div class="min-h-screen flex items-center justify-center">
-    <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-lg">
+    <div class="max-w-md w-full p-6 bg-login2 rounded-lg shadow-lg">
       <div class="flex justify-center mb-8">
         <img src="https://media.discordapp.net/attachments/1222905897848934450/1222905957999448104/image.png?ex=6617eaec&is=660575ec&hm=8e777d9cbfc437095d117221a8b0ea3ea959102031c1e36df0f1c9e36e8a6249&=&format=webp&quality=lossless" alt="Logo" class="w-30 h-20">
       </div>
