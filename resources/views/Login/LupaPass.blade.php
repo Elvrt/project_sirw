@@ -14,13 +14,13 @@
       <h1 class="text-2xl font-semibold text-center text-SiRW mt-4 mb-4">Sistem Informasi Rukun Warga</h1>
       <form>
         <div class="mb-6">
-          <label for="username" class="block mb-2 text-sm text-gray-600">Username</label>
-          <input type="username" id="username" name="username" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" placeholder="Ketikkan Username..."  required>
+          <label for="email" class="block mb-2 text-sm text-gray-600">Username</label>
+          <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" placeholder="Ketikkan Username..."  required>
         </div>
         <div class="mb-6">
           <label for="password" class="block mb-2 text-sm text-gray-600">Password</label>
           <input type="password" id="password" name="password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" placeholder="Ketikkan Password..." required>
-          <a href="forgotpassword" class="block text-right text-xs text-cyan-600 mt-2">Lupa Password?</a>
+          <a href="#" class="block text-right text-xs text-cyan-600 mt-2">Lupa Password?</a>
         </div>
         <button type="submit" class="w-32 bg-gradient-to-r from-cyan-400 to-cyan-600 text-white py-2 rounded-lg mx-auto block focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-4 mb-6">Login</button>
   </div>
