@@ -7,11 +7,7 @@ export default {
   ],
   theme: {
     extend: {},
-    colors:{
-      SiRW : '#4f5045',
-      Kolom : '#F1EAE2',
-      Button : '#AD8C63',
-    }
+
   },
   plugins: [],
 }
