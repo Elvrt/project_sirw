@@ -8,7 +8,6 @@ export default {
   theme: {
     extend: {},
     colors:{
-      SiRW : '#4f5045',
     }
   },
   plugins: [],
