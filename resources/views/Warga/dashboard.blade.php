@@ -91,7 +91,7 @@
   </div>
   <!-- BERITADANAGENDA -->
   <p class="text-center text-army-gelap font-extrabold text-2xl drop-shadow-md">BERITA DAN INFORMASI</p>
-  <div class=" bg-login2 w-auto">
+  <div class=" bg-login2 w-auto mr-32 ml-32 rounded-lg">
     <div class="h-80 grid grid-cols-3 gap-7  mx-auto px-80 content-center">
       <a href="#" class="mr-4 block cursor-pointer antialiased ">
         <img src="https://media.discordapp.net/attachments/1222905897848934450/1223285805473333392/image.png?ex=66194caf&is=6606d7af&hm=63738e9fadc5bccb42aedeeadeac788d7f6b943044e01a204ab8983e6bc50800&=&format=webp&quality=lossless" width="400"">
@@ -112,25 +112,25 @@
     </div>
         <button class=" w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-5 mb-6">Selengkapnya</button>
         <p class="text-center text-army-gelap font-extrabold text-2xl drop-shadow-md">AGENDA</p>
-        <div class="h-56 grid grid-cols-2  px-80 content-center ">
+        <div class="h-56 grid grid-cols-2 gap-19 px-80 item-center ">
           <div>
-            <a href=" #" class="mr-4 block cursor-pointer antialiased ">
+            <a href=" #" class="block cursor-pointer antialiased ">
               <img src="https://media.discordapp.net/attachments/1222905897848934450/1223296562461937786/image.png?ex=661956b4&is=6606e1b4&hm=7092eee4967237538efa1f099c0079892cfcf289033e90088d00f6da73837523&=&format=webp&quality=lossless&width=550&height=237" width="400"">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, accusantium?</p>
         </a>
       </div>
       <div>
-      <a href=" #" class="mr-4 block cursor-pointer antialiased ">
+      <a href=" #" class=" block cursor-pointer antialiased ">
               <img src="https://media.discordapp.net/attachments/1222905897848934450/1223296598746988685/image.png?ex=661956bc&is=6606e1bc&hm=fedff68b4d1852397ff05c360197d58a93c6087074fc40975ae9680024ba0c89&=&format=webp&quality=lossless&width=550&height=237" width="400"">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, officiis!</p>
         </a>
       </div>
     </div>
-        <button class=" w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-5 mb-6">Selengkapnya</button>
+        <button class=" w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-10 mb-6">Selengkapnya</button>
           </div>
           <!-- LAYANAN -->
-          <p class="text-center text-army-gelap font-extrabold text-2xl drop-shadow-md">LAYANAN</p>
-          <div class="bg-login2 bg-clip-content">
+          <p class="text-center text-army-gelap font-extrabold text-2xl drop-shadow-md ">FASILITAS UMUM</p>
+          <div class="bg-login2 bg-clip-content mr-32 ml-32 rounded-lg">
             <div class="h-140 grid grid-cols-3 gap-7  mx-auto px-80 content-center ">
               <div>
                 <a href=" #" class="mr-4 block cursor-pointer antialiased ">
@@ -152,14 +152,14 @@
       </div>
       </div>
   
-        <button class=" w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-5 mb-6">Selengkapnya</button>
+        <button class=" w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-5 mb-6 mb-10">Selengkapnya</button>
               </div>
             </div>
 
 
             <!-- LAYANAN -->
             <p class="text-center text-army-gelap font-extrabold text-2xl drop-shadow-md">LAYANAN</p>
-            <div class="bg-login2 bg-clip-content shadow-lg">
+            <div class="bg-login2 bg-clip-content shadow-lg mr-32 ml-32 mb-32  rounded-lg">
               <div class="h-140 grid grid-cols-4 gap-7  mx-auto px-80 content-center">
                 <div class="items-center">
                   <a href="#" class="block cursor-pointer antialiased ">
