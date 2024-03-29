@@ -24,3 +24,7 @@ Route::get('/forgotpassword', function () {
 Route::get('/', function () {
     return view('warga.dashboard');
 });
+
+Route::get('/test', function () {
+    return view('warga.test');
+});
