@@ -81,6 +81,25 @@
   </div>
 </nav>
 
+<!-- CONTENT -->
+<main class="relative self-center mt-28 mb-20 w-full max-w-[1180px] max-md:my-10 max-md:max-w-full">
+    <div class="flex gap-5 max-md:flex-col max-md:gap-0">
+      <figure class="flex flex-col w-[56%] max-md:ml-0 max-md:w-full">
+        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b3b893672dae1176369389448ec3bc3822a0aafed4c7736ebf0e0d07cd4125c3?apiKey=ac6e1a934e4640bea8ec0c07c9d8ab26&" alt="Main image" class="w-full aspect-[1.79] max-md:mt-10 max-md:max-w-full" />
+      </figure>
+      <div class="flex flex-col ml-5 w-[44%] max-md:ml-0 max-md:w-full">
+        <div class="flex relative flex-col grow px-5 mt-14 text-xl text-white max-md:mt-10 max-md:max-w-full">
+          <p class="max-md:max-w-full">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore<br />
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con<br />
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu
+          </p>
+          <a href="#" class="justify-center self-end px-14 py-5 mt-28 font-medium whitespace-nowrap rounded-xl bg-stone-500 max-md:px-5 max-md:mt-10">Selengkapnya</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
 
 </body>
 </html>
