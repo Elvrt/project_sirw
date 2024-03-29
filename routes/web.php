@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', function () {
     return view('login.login');
 });
+
+Route::get('/forgotpassword', function () {
+    return view('login.LupaPass');
+});
+
+Route::get('/', function () {
+    return view('warga.dashboard');
+});
