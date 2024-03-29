@@ -18,22 +18,22 @@
     <div class=" hidden lg:block">
           <ul class="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
             <li class="flex items-center p-1 font-sans text-lg antialiased font-semibold leading-normal gap-x-2 text-blue-gray-90 text-army-gelap">
-              <a href="#" class="flex items-center">
+              <a href="dashboard" class="flex items-center">
                 Beranda
               </a>
             </li>
             <li class="flex items-center p-1 font-sans text-lg antialiased font-semibold leading-normal gap-x-2  text-army-gelap">
-              <a href="#" class="flex items-center">
+              <a href="profil" class="flex items-center">
                 Profil
               </a>
             </li>
             <li class="flex items-center p-1 font-sans text-lg antialiased font-semibold leading-normal gap-x-2  text-army-gelap">
-              <a href="#" class="flex items-center">
+              <a href="info" class="flex items-center">
                 Info
               </a>
             </li>
             <li class="flex items-center p-1 font-sans text-lg antialiased font-semibold leading-normal gap-x-2  text-army-gelap">
-              <a href="#" class="flex items-center">
+              <a href="layanan" class="flex items-center">
                 Layanan
               </a>
             </li>
