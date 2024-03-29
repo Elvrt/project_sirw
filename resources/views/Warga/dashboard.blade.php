@@ -5,44 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('resources/css/app.css')
 </head>
-<body>
+<body bgcolor="#D9D9D9">
 <!-- NAVBAR -->
 <nav
-  class="block w-full max-w-screen px-4 py-2 mx-auto text-white bg-white  shadow-md  bg-opacity-80 backdrop-blur-2xl backdrop-saturate-200 lg:px-8 lg:py-4">
+  class="block w-full max-w-screen px-4 py-2 mx-auto text-white bg-abu-putih  shadow-md  bg-opacity-80 backdrop-blur-2xl backdrop-saturate-200 lg:px-8 lg:py-4">
   <div class="container flex flex-wrap items-center justify-between mx-auto text-blue-gray-900">
     <div><a href="#"
-      class="mr-4 block cursor-pointer size-1/4 antialiased ">
-      <img src="https://media.discordapp.net/attachments/1222905897848934450/1222963153282007253/image.png?ex=66182031&is=6605ab31&hm=f4af8680efc61632c4355145fa6858fdad24200856cb97b4d1b3990e12a3f38d&=&format=webp&quality=lossless" ">
+      class="mr-4 block cursor-pointer antialiased ">
+      <img src="https://media.discordapp.net/attachments/1222905897848934450/1223143600188293180/image.png?ex=6618c83f&is=6606533f&hm=cab0f89b323bb3787adb4d760c00cc6813d8177267af06ac34416b8a20f35241&=&format=webp&quality=lossless"  width="200"">
     </a>
     </div>
     <div class="hidden lg:block">
       <ul class="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
         <li
-          class="flex items-center p-1 font-sans text-sm antialiased font-medium leading-normal gap-x-2 text-blue-gray-900">
+          class="flex items-center p-1 font-sans text-lg antialiased font-semibold leading-normal gap-x-2 text-blue-gray-90 text-army-gelap">
           <a href="#" class="flex items-center">
             Beranda
           </a>
         </li>
         <li
-          class="flex items-center p-1 font-sans text-sm antialiased font-medium leading-normal gap-x-2 text-blue-gray-900">
+          class="flex items-center p-1 font-sans text-lg antialiased font-semibold leading-normal gap-x-2  text-army-gelap">
           <a href="#" class="flex items-center">
             Profil
           </a>
         </li>
         <li
-        class="flex items-center p-1 font-sans text-sm antialiased font-medium leading-normal gap-x-2 text-blue-gray-900">
+        class="flex items-center p-1 font-sans text-lg antialiased font-semibold leading-normal gap-x-2  text-army-gelap">
           <a href="#" class="flex items-center">
             Info
           </a>
         </li>
         <li
-          class="flex items-center p-1 font-sans text-sm antialiased font-medium leading-normal gap-x-2 text-blue-gray-900">
+          class="flex items-center p-1 font-sans text-lg antialiased font-semibold leading-normal gap-x-2  text-army-gelap">
           <a href="#" class="flex items-center">
             Layanan
           </a>
         </li>
         <li
-          class="flex items-center p-1 font-sans text-sm antialiased font-medium leading-normal gap-x-2 text-blue-gray-900">
+          class="flex items-center p-1 font-sans text-lg antialiased font-semibold leading-normal gap-x-2  text-army-gelap">
           <a href="login" class="flex items-center">
             Login
           </a>
@@ -82,7 +82,8 @@
 </nav>
 
 <!-- CONTENT -->
-<main class="relative self-center mt-28 mb-20 w-full max-w-[1180px] max-md:my-10 max-md:max-w-full">
+<div class="items-center ">
+  <main class="relative self-center mt-28 mb-20 w-full max-w-[1180px] max-md:my-10 max-md:max-w-full">
     <div class="flex gap-5 max-md:flex-col max-md:gap-0">
       <figure class="flex flex-col w-[56%] max-md:ml-0 max-md:w-full">
         <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b3b893672dae1176369389448ec3bc3822a0aafed4c7736ebf0e0d07cd4125c3?apiKey=ac6e1a934e4640bea8ec0c07c9d8ab26&" alt="Main image" class="w-full aspect-[1.79] max-md:mt-10 max-md:max-w-full" />
@@ -94,11 +95,12 @@
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con<br />
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu
           </p>
-          <a href="#" class="justify-center self-end px-14 py-5 mt-28 font-medium whitespace-nowrap rounded-xl bg-stone-500 max-md:px-5 max-md:mt-10">Selengkapnya</a>
+          <button  class="w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-5 mb-6">Selengkapnya</button>
         </div>
       </div>
     </div>
   </main>
+</div>
 </section>
 
 </body>

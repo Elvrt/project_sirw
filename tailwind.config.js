@@ -12,7 +12,7 @@ export default {
       'cream' : '#E0CCBE',
       'army-kuning' : '#D4D6A1',
       'abu-abu' : '#D9D9D9',
-      'abu-putih' : '#EEEDEB',
+      'abu-putih' : '#EEEDEB', 
       'army-gelap' : '#4F5045',
       'army-muda' : '#AFB39D',
       'cream-muda' : '#F2E6D9',
