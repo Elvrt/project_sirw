@@ -1,28 +1,31 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('resources/css/app.css')
 </head>
+
 <body class="bg-login">
-<div class="min-h-screen flex items-center justify-center">
+  <div class="min-h-screen flex items-center justify-center">
     <div class="max-w-md w-full p-6 bg-login2 rounded-lg shadow-lg">
       <div class="flex justify-center mb-8">
-        <img src="https://media.discordapp.net/attachments/1222905897848934450/1222905957999448104/image.png?ex=6617eaec&is=660575ec&hm=8e777d9cbfc437095d117221a8b0ea3ea959102031c1e36df0f1c9e36e8a6249&=&format=webp&quality=lossless" alt="Logo" class="w-30 h-20">
+        <img src="https://media.discordapp.net/attachments/1222905897848934450/1223143600188293180/image.png?ex=6618c83f&is=6606533f&hm=cab0f89b323bb3787adb4d760c00cc6813d8177267af06ac34416b8a20f35241&=&format=webp&quality=lossless" alt="Logo" class="w-80 h-40">
       </div>
-      <h1 class="text-2xl font-semibold text-center text-SiRW mt-4 mb-4">Sistem Informasi Rukun Warga</h1>
       <form>
         <div class="mb-6">
           <label for="username" class="block mb-2 text-sm text-gray-600">Username</label>
-          <input type="username" id="username" name="username" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" placeholder="Ketikkan Username..."  required>
+          <input type="username" id="username" name="username" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" placeholder="Ketikkan Username..." required>
+
         </div>
         <div class="mb-6">
           <label for="password" class="block mb-2 text-sm text-gray-600">Password</label>
           <input type="password" id="password" name="password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" placeholder="Ketikkan Password..." required>
-          <a href="forgotpassword" class="block text-right text-xs text-cyan-600 mt-2">Lupa Password?</a>
+          <a href="forgotpassword" class="block text-right text-sm text-cyan-600 mt-2">Lupa Password?</a>
         </div>
-        <button type="submit" class="w-32 bg-gradient-to-r from-cyan-400 to-cyan-600 text-white py-2 rounded-lg mx-auto block focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-4 mb-6">Login</button>
-  </div>
+        <button type="submit" class="w-32 bg-coklat-muda text-cream-muda font-bold py-2 rounded-lg mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-4 mb-6">Login</button>
+    </div>
 </body>
+
 </html>

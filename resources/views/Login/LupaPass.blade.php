@@ -5,24 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('resources/css/app.css')
 </head>
-<body bgcolor="#FCFBF9">
-<div class="min-h-screen flex items-center justify-center">
-    <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-lg">
-      <div class="flex justify-center mb-8">
-        <img src="https://media.discordapp.net/attachments/1222905897848934450/1222905957999448104/image.png?ex=6617eaec&is=660575ec&hm=8e777d9cbfc437095d117221a8b0ea3ea959102031c1e36df0f1c9e36e8a6249&=&format=webp&quality=lossless" alt="Logo" class="w-30 h-20">
+<body>
+<section>
+  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 bg-login">
+      <div class="w-full p-6 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md dark:bg-gray-800 dark:border-gray-700 sm:p-8 bg-login2">
+        <div class="flex justify-center mb-8">
+        <img src="https://media.discordapp.net/attachments/1222905897848934450/1223143600188293180/image.png?ex=6618c83f&is=6606533f&hm=cab0f89b323bb3787adb4d760c00cc6813d8177267af06ac34416b8a20f35241&=&format=webp&quality=lossless" class="h-30 w-60">
+        </div>
+          <form class="mt-4 space-y-4 lg:mt-5 md:space-y-5" action="#">
+              <div>
+                  <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+                  <input type="username" name="Username" id="Username" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Ketikkan Username..." required="">
+              </div>
+              <div>
+                  <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password Baru</label>
+                  <input type="password" name="password" id="password" placeholder="Ketikkan Password Baru" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required="">
+              </div>
+              <div>
+                  <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Konfirmasi Password</label>
+                  <input type="confirm-password" name="confirm-password" id="confirm-password" placeholder="Konfirmasi Password" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+              </div>
+              <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <input id="newsletter" aria-describedby="newsletter" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required="">
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <label for="newsletter" class="font-light text-gray-500 dark:text-gray-300">I accept the <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and Conditions</a></label>
+                  </div>
+              </div>
+              <button type="submit" class="w-32 bg-coklat-muda text-cream-muda font-bold py-2 rounded-lg mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-4 mb-6">Reset Password</button>
+          </form>
       </div>
-      <h1 class="text-2xl font-semibold text-center text-SiRW mt-4 mb-4">Sistem Informasi Rukun Warga</h1>
-      <form>
-        <div class="mb-6">
-          <label for="email" class="block mb-2 text-sm text-gray-600">Username</label>
-          <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" placeholder="Ketikkan Username..."  required>
-        </div>
-        <div class="mb-6">
-          <label for="password" class="block mb-2 text-sm text-gray-600">Password</label>
-          <input type="password" id="password" name="password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" placeholder="Ketikkan Password..." required>
-          <a href="#" class="block text-right text-xs text-cyan-600 mt-2">Lupa Password?</a>
-        </div>
-        <button type="submit" class="w-32 bg-gradient-to-r from-cyan-400 to-cyan-600 text-white py-2 rounded-lg mx-auto block focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-4 mb-6">Login</button>
   </div>
+</section>
 </body>
 </html>
