@@ -21,10 +21,10 @@ Route::get('/forgotpassword', function () {
     return view('login.LupaPass');
 });
 
-Route::get('/landingpage', function () {
+Route::get('/dashboard', function () {
     return view('warga.dashboard');
 });
 
-Route::get('/test', function () {
-    return view('warga.test');
+Route::get('/profil', function () {
+    return view('warga.ProfilRW');
 });
