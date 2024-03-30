@@ -21,7 +21,7 @@ Route::get('/forgotpassword', function () {
     return view('login.LupaPass');
 });
 
-Route::get('/', function () {
+Route::get('/landingpage', function () {
     return view('warga.dashboard');
 });
 

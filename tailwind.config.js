@@ -27,7 +27,21 @@ export default {
       'login' : '#FCFBF9',
       'login2' : '#F1EAE2'
 
-    } 
+    },
+    fontFamily: {
+
+    },
+    fontSize: {
+      'header' : '3rem',
+      'sub' : '1.875rem',
+      'text' : '1.25rem'
+    },
+    fontWeight: {
+      bold: 700,
+      medium: 500,
+      normal: 400
+
+    }
   },
   plugins: ['prettier-plugin-tailwindcss'],
 }
