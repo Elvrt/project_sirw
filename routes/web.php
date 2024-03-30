@@ -28,3 +28,11 @@ Route::get('/dashboard', function () {
 Route::get('/profil', function () {
     return view('warga.ProfilRW');
 });
+
+Route::get('/info', function () {
+    return view('warga.info');
+});
+
+Route::get('/layanan', function () {
+    return view('warga.layanan');
+});

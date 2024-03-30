@@ -77,7 +77,7 @@
           <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b3b893672dae1176369389448ec3bc3822a0aafed4c7736ebf0e0d07cd4125c3?apiKey=ac6e1a934e4640bea8ec0c07c9d8ab26&" alt="Main image" class="w-full aspect-[1.79] max-md:mt-10 max-md:max-w-full" />
         </figure>
         <div class="flex flex-col ml-5 w-[44%] max-md:ml-0 max-md:w-full">
-          <div class="flex relative flex-col grow px-2 mt-14 text-xl text-white max-md:mt-5 max-md:max-w-full">
+          <div class="flex relative flex-col grow px-2 mt-5 text-xl text-white max-md:mt-5 max-md:max-w-full">
             <p class="max-md:max-w-full">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore<br />
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con<br />
@@ -89,9 +89,9 @@
       </div>
     </main>
   </div>
-  <!-- BERITADANAGENDA -->
+  <!-- BERITA DAN AGENDA -->
   <p class="text-center text-army-gelap font-extrabold text-2xl drop-shadow-md">BERITA DAN INFORMASI</p>
-  <div class=" bg-login2 w-auto mr-32 ml-32 rounded-lg">
+  <div class=" bg-login2 w-auto mr-32 ml-32 rounded-lg py-4 mb-20">
     <div class="h-80 grid grid-cols-3 gap-7  mx-auto px-80 content-center">
       <a href="#" class="mr-4 block cursor-pointer antialiased ">
         <img src="https://media.discordapp.net/attachments/1222905897848934450/1223285805473333392/image.png?ex=66194caf&is=6606d7af&hm=63738e9fadc5bccb42aedeeadeac788d7f6b943044e01a204ab8983e6bc50800&=&format=webp&quality=lossless" width="400"">
@@ -130,14 +130,14 @@
           </div>
           <!-- LAYANAN -->
           <p class="text-center text-army-gelap font-extrabold text-2xl drop-shadow-md ">FASILITAS UMUM</p>
-          <div class="bg-login2 bg-clip-content mr-32 ml-32 rounded-lg">
-            <div class="h-140 grid grid-cols-3 gap-7  mx-auto px-80 content-center ">
+          <div class="bg-login2 bg-clip-content mr-32 ml-32 rounded-lg pb-10">
+            <div class="h-140 grid grid-cols-3 gap-7  mx-auto px-80 content-center pt-10">
               <div>
                 <a href=" #" class="mr-4 block cursor-pointer antialiased ">
                   <img src="https://media.discordapp.net/attachments/1222905897848934450/1223296698709835827/image.png?ex=661956d4&is=6606e1d4&hm=c078e909c9c80ad6703f4829d7ffe3d4dff44f9104c0fb8978820cdcca320119&=&format=webp&quality=lossless&width=590&height=701" width="400"">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, quidem!</p>
         </a>
-      </div>
+            </div>
       <div>
       <a href=" #" class="mr-4 block cursor-pointer antialiased ">
                   <img src="https://media.discordapp.net/attachments/1222905897848934450/1223296726463549440/image.png?ex=661956db&is=6606e1db&hm=81a4ff771e6207d3a2a7a27b58c245ba3ad52cff10ab85b188674c51259be6f5&=&format=webp&quality=lossless&width=295&height=350" width="400px"">
@@ -151,15 +151,13 @@
         </a>
       </div>
       </div>
-  
-        <button class=" w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-5 mb-6 mb-10">Selengkapnya</button>
+        <button class=" w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-5 ">Selengkapnya</button>
               </div>
-            </div>
 
 
             <!-- LAYANAN -->
             <p class="text-center text-army-gelap font-extrabold text-2xl drop-shadow-md">LAYANAN</p>
-            <div class="bg-login2 bg-clip-content shadow-lg mr-32 ml-32 mb-32  rounded-lg">
+            <div class="bg-login2 shadow-lg mr-32 ml-32 rounded-lg ">
               <div class="h-140 grid grid-cols-4 gap-7  mx-auto px-80 content-center">
                 <div class="items-center">
                   <a href="#" class="block cursor-pointer antialiased ">

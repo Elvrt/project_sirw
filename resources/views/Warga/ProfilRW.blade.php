@@ -70,9 +70,9 @@
   <!-- Content STRUKTUR ORGANISASI-->
   <p class="text-center text-army-gelap font-extrabold text-2xl drop-shadow-md mt-10">STRUKTUR RW</p>
   <div class="grid grid-cols-3 gap-10 ml-20 mx-20 mt-4">
-    <div class="bg-gradient-to-br from-hijau2 to-cream-muda rounded-lg">
+    <div class="bg-gradient-to-br from-hijau2 to-cream-muda rounded-lg pb-20">
         <div class="ml-20 mr-10 mt-5 md-5">
-            <p class="text-center font-bold text-3xl text-army-gelap">Ketua RW</p>
+            <p class="text-center font-bold text-2xl text-army-gelap">Ketua RW</p>
             <div class="grid grid-cols-3 mt-5 ">
                 <div>
                     <img src="https://media.discordapp.net/attachments/1222905897848934450/1223333446823317645/image.png?ex=6619790e&is=6607040e&hm=166b48d48f336aa2e49aa7df9767d619cb57c048390327ac923ace39c18aeab2&=&format=webp&quality=lossless" alt="profile" width="100">
@@ -86,7 +86,7 @@
             </div>
         </div>
         <div class="ml-20 mr-10 mt-5 md-5">
-            <p class="text-center font-bold text-3xl text-army-gelap">Wakil RW</p>
+            <p class="text-center font-bold text-2xl text-army-gelap">Wakil RW</p>
             <div class="grid grid-cols-3 mt-5 ">
                 <div>
                     <img src="https://media.discordapp.net/attachments/1222905897848934450/1223333446823317645/image.png?ex=6619790e&is=6607040e&hm=166b48d48f336aa2e49aa7df9767d619cb57c048390327ac923ace39c18aeab2&=&format=webp&quality=lossless" alt="profile" width="100">
@@ -100,7 +100,7 @@
             </div>
         </div>
         <div class="ml-20 mr-10 mt-5 md-5">
-            <p class="text-center font-bold text-3xl text-army-gelap">Sekertaris RW</p>
+            <p class="text-center font-bold text-2xl text-army-gelap">Sekertaris RW</p>
             <div class="grid grid-cols-3 mt-5 ">
                 <div>
                     <img src="https://media.discordapp.net/attachments/1222905897848934450/1223333446823317645/image.png?ex=6619790e&is=6607040e&hm=166b48d48f336aa2e49aa7df9767d619cb57c048390327ac923ace39c18aeab2&=&format=webp&quality=lossless" alt="profile" width="100">
@@ -114,7 +114,7 @@
             </div>
         </div>
         <div class="ml-20 mr-10 mt-5 md-5">
-            <p class="text-center font-bold text-3xl text-army-gelap">Wakil RW</p>
+            <p class="text-center font-bold text-2xl text-army-gelap">Wakil RW</p>
             <div class="grid grid-cols-3 mt-5 ">
                 <div>
                     <img src="https://media.discordapp.net/attachments/1222905897848934450/1223333446823317645/image.png?ex=6619790e&is=6607040e&hm=166b48d48f336aa2e49aa7df9767d619cb57c048390327ac923ace39c18aeab2&=&format=webp&quality=lossless" alt="profile" width="100">
@@ -222,8 +222,8 @@
 </div>
 <!-- CONTENT TATA TERTIB -->
 <p class="text-center text-army-gelap font-extrabold text-2xl drop-shadow-md mt-10">TATA TERTIB RW</p>
-<div class="bg-gradient-to-b from-cream to-cream-muda  mr-32 ml-32">
-<div class="bg-putih  list-inside mr-32 ml-32">
+<div class="bg-gradient-to-b from-cream to-cream-muda  mr-32 ml-32 py-10 rounded-lg">
+<div class="bg-putih  list-inside mr-32 ml-32 ">
 <p class="text-center font-semibold text-xl">TATA TERTIB</p>
 <ol class="list-decimal list-inside text-center">
      <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, ad.</li>
