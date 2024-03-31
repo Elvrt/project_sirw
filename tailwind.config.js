@@ -29,7 +29,21 @@ export default {
       'hijau2' :'#A6AA93',
       'putih' : '#FFFFFF',
 
-    } 
+    },
+    fontFamily: {
+
+    },
+    fontSize: {
+      'header' : '3rem',
+      'sub' : '1.875rem',
+      'text' : '1.25rem'
+    },
+    fontWeight: {
+      bold: 700,
+      medium: 500,
+      normal: 400
+
+    }
   },
   plugins: ['prettier-plugin-tailwindcss'],
 }
