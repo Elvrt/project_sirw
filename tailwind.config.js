@@ -25,7 +25,9 @@ export default {
       'coklat' : '#8D7250',
       'coklat-muda' : '#AD8C63',
       'login' : '#FCFBF9',
-      'login2' : '#F1EAE2'
+      'login2' : '#F1EAE2',
+      'hijau2' :'#A6AA93',
+      'putih' : '#FFFFFF',
 
     },
     fontFamily: {
