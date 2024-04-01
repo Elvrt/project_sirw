@@ -37,6 +37,6 @@ Route::get('/layanan', function () {
     return view('warga.layanan');
 });
 
-Route::get('/layanan/pengajuansurat', function () {
+Route::get('pengajuansurat', function () {
     return view('warga.pengajuansurat');
 });

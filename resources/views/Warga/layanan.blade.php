@@ -82,7 +82,7 @@
             <p class="max-md:max-w-full text-normal text-justify text-army-gelap ">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis velit excepturi incidunt obcaecati, asperiores at necessitatibus explicabo harum rerum maiores molestiae iste ea? Dicta natus quae, dolore perspiciatis accusantium tempora optio maxime quasi cupiditate eius repudiandae blanditiis libero.
             </p>
-            <a href="layanan/pengajuansurat">
+            <a href="pengajuansurat">
             <button class="w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-5 mb-6">Selengkapnya</button>
             </a>
           </div>
@@ -177,5 +177,17 @@
       </div>
     </main>
   </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-zinc-50 dark:bg-neutral-700 text-center lg:text-left">
+            <div
+                class="bg-black/5 p-4 text-center text-surface dark:text-white"
+            >
+                Copyright 2024 © :
+                <a href="https://www.instagram.com/athallah_alsha/"
+                    >ATHALLAH ADJANI</a
+                >
+            </div>
+        </footer>
 </body>
 </html>
