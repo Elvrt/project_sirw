@@ -28,6 +28,8 @@ export default {
       'login2' : '#F1EAE2',
       'hijau2' :'#A6AA93',
       'putih' : '#FFFFFF',
+      'linear1' : '#F0ECE9',
+      'linear2' : '#FEF4E9',
 
     },
     fontFamily: {
