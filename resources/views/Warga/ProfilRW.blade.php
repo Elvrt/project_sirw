@@ -68,7 +68,7 @@
   </nav>
 
   <!-- Content STRUKTUR ORGANISASI-->
-  <p class="text-center text-army-gelap font-extrabold text-2xl drop-shadow-md mt-10">STRUKTUR RW</p>
+  <p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-10 mb-10">STRUKTUR RW</p>
   <div class="grid grid-cols-3 gap-10 ml-20 mx-20 mt-4">
     <div class="bg-gradient-to-br from-hijau2 to-cream-muda rounded-lg pb-20">
         <div class="ml-20 mr-10 mt-5 md-5">
@@ -221,10 +221,10 @@
 
 </div>
 <!-- CONTENT TATA TERTIB -->
-<p class="text-center text-army-gelap font-extrabold text-2xl drop-shadow-md mt-10">TATA TERTIB RW</p>
+<p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-10 mb-10">TATA TERTIB RW</p>
 <div class="bg-gradient-to-b from-cream to-cream-muda  mr-32 ml-32 py-10 rounded-lg">
 <div class="bg-putih  list-inside mr-32 ml-32 ">
-<p class="text-center font-semibold text-xl">TATA TERTIB</p>
+<p class="text-center font-medium text-sub">TATA TERTIB</p>
 <ol class="list-decimal list-inside text-center">
      <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, ad.</li>
      <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, ad.</li>
