@@ -69,7 +69,7 @@
     </nav>
 
     <!-- BERITA -->
-    <p class="text-center text-army-gelap font-extrabold text-3xl drop-shadow-md mt-10 mb-10">BERITA</p>
+    <p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-10 mb-10">BERITA</p>
     <div class="grid grid-cols-3 gap-4 ml-32 mr-32 bg-login2 rounded-lg">
         <div class="item-center ml-10 mr-10 pt-10 pb-10">
         <a href="#" class="mr-4 block cursor-pointer antialiased ">
@@ -109,7 +109,7 @@
         </div>
     </div>
     <!-- AGENDA -->
-    <p class="text-center text-army-gelap font-extrabold text-3xl drop-shadow-md mt-10 mb-10">AGENDA</p>
+    <p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-10 mb-10">AGENDA</p>
     <div class="grid grid-cols-3 gap-4 ml-32 mr-32 bg-login2 rounded-lg">
         <div class="item-center ml-10 mr-10 pt-10 pb-10">
         <a href="#" class="mr-4 block cursor-pointer antialiased ">
