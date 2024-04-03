@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kartu_keluarga', function (Blueprint $table) {
-            $table->id();
+        Schema::create('tata_tertib', function (Blueprint $table) {
+            $table->id('id_tatib');
+            $table->longText('deskripsi_tatib');
             $table->timestamps();
         });
     }
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kartu_keluarga');
+        Schema::dropIfExists('tata_tertib');
     }
 };

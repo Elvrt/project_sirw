@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('m_warga', function (Blueprint $table) {
-            $table->string('status_hubungan', 25);
+        Schema::create('agenda', function (Blueprint $table) {
+            $table->id('id_agenda');
+            $table->string('judul_agenda', 100);
+            $table->longText('deskripsi_agenda');
+            $table->longText('gambar_agenda');
+            $table->timestamps();
         });
     }
 
@@ -21,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-
+        Schema::dropIfExists('agenda');
     }
 };

@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('m_kartu_keluarga', function (Blueprint $table) {
-            $table->id('id_kk');
-            $table->string('no_kk', 16)->unique();
-            $table->string('alamat_kk', 100);
-            $table->unsignedBigInteger('id_rt')->index();
+        Schema::create('struktur_rw', function (Blueprint $table) {
+            $table->id('id_struktur');
+            $table->string('kode_struktur', 3)->unique();
+            $table->string('nama_struktur', 25);
             $table->timestamps();
-
-            $table->foreign('id_rt')->references('id_rt')->on('m_rt');
         });
     }
 
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('m_kartu_keluarga');
+        Schema::dropIfExists('struktur_rw');
     }
 };
