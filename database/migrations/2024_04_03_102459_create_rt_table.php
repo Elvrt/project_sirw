@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('m_level', function (Blueprint $table) {
-            $table->id('id_level');
-            $table->string('kode_level', 5)->unique();
-            $table->string('nama_level', 25);
+        Schema::create('rt', function (Blueprint $table) {
+            $table->id('id_rt');
+            $table->string('nomor_rt', 3)->unique();
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('m_level');
+        Schema::dropIfExists('rt');
     }
 };
