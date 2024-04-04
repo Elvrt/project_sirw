@@ -44,3 +44,7 @@ Route::get('pengajuansurat', function () {
 Route::get('daftarwargaRW', function () {
     return view('RW.daftarwarga');
 });
+
+Route::get('tambahwargaRW', function () {
+    return view('RW.tambahwarga');
+});

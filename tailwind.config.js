@@ -30,7 +30,7 @@ export default {
       'putih' : '#FFFFFF',
       'linear1' : '#F0ECE9',
       'linear2' : '#FEF4E9',
-
+      'backgroundform' : '#DFDFDF',
     },
     fontFamily: {
 
