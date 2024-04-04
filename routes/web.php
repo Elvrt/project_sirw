@@ -40,3 +40,7 @@ Route::get('/layanan', function () {
 Route::get('pengajuansurat', function () {
     return view('warga.pengajuansurat');
 });
+
+Route::get('daftarwargaRW', function () {
+    return view('RW.daftarwarga');
+});
