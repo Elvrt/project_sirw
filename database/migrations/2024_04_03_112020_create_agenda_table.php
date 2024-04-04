@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('m_kartu_keluarga', function (Blueprint $table) {
-            $table->id('id_kk');
-            $table->string('no_kk', 16)->unique();
-            $table->string('alamat_kk', 100);
-            $table->unsignedBigInteger('id_rt')->index();
+        Schema::create('agenda', function (Blueprint $table) {
+            $table->id('id_agenda');
+            $table->string('judul_agenda', 100);
+            $table->longText('deskripsi_agenda');
+            $table->longText('gambar_agenda');
             $table->timestamps();
-
-            $table->foreign('id_rt')->references('id_rt')->on('m_rt');
         });
     }
 
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('m_kartu_keluarga');
+        Schema::dropIfExists('agenda');
     }
 };
