@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama_fasilitas', 100);
             $table->longText('keterangan_fasilitas');
             $table->string('alamat_fasilitas', 100);
-            $table->longText('gambar_fasilitas');
+            $table->longText('gambar_fasilitas')->nullable();
             $table->unsignedBigInteger('id_rt')->index();
             $table->timestamps();
 

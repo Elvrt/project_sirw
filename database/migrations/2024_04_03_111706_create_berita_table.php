@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id('id_berita');
             $table->string('judul_berita', 100);
             $table->longText('deskripsi_berita');
-            $table->longText('gambar_berita');
+            $table->longText('gambar_berita')->nullable();
+            $table->dateTime('tanggal_berita');
             $table->timestamps();
         });
     }

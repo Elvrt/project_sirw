@@ -7,26 +7,24 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory;
 
-class LevelSeeder extends Seeder
+class IuranSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $levels = array('RW Admin', 'RT Admin', 'Warga');
-        $kode = array('RWA', 'RTA', 'WRG');
-        $i = 1;
-        foreach ($levels as $level) {
-            DB::table('level')->insert(
+        for ($i = 1; $i <= 16; $i++) {
+            DB::table('iuran')->insert(
                 [
-                    'id_level' => $i,
-                    'kode_level' => $kode[$i - 1],
-                    'nama_level' => $level,
+                    'id_iuran' => $i,
+                    'id_kk' => $i,
+                    'nominal' => 15000,
+                    'status_iuran' => 'Lunas',
+                    'tanggal_iuran' => now(),
                     'created_at' => now(),
                 ]
             );
-            $i++;
         }
     }
 }
