@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./resources/**/*.blade.php",
@@ -30,7 +29,11 @@ export default {
       'putih' : '#FFFFFF',
       'linear1' : '#F0ECE9',
       'linear2' : '#FEF4E9',
-
+      'backgroundform' : '#DFDFDF',
+      'kuning-gelap' : '#C8A116',
+      'merah-gelap' : '#BA1717',
+      'abu-gelap' : '#615B5B',
+      'hijau-gelap' : '#1D8104'
     },
     fontFamily: {
 
@@ -49,4 +52,3 @@ export default {
   },
   plugins: ['prettier-plugin-tailwindcss'],
 }
-
