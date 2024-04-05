@@ -51,3 +51,12 @@ Route::get('daftarwargaRW', function () {
 Route::get('tambahwargaRW', function () {
     return view('RW.tambahwarga');
 });
+
+Route::get('ajukansurat', function () {
+    return view('warga.ajukansurat');
+});
+
+Route::get('statussurat', function () {
+    return view('warga.statussurat');
+});
+

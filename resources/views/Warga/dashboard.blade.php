@@ -114,7 +114,9 @@
         </a>
       </div>
     </div>
-        <button class=" w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-10 mb-10">Selengkapnya</button>
+    <a href="info">
+      <button class=" w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-10 mb-10">Selengkapnya</button>
+    </a>
         <p class="text-center text-army-gelap font-medium text-sub drop-shadow-md mb-10 mt-10">AGENDA</p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-7 px-4 md:px-20 item-center ">
           <div class="flex flex-col justify-center items-center">
@@ -130,7 +132,9 @@
         </a>
       </div>
     </div>
-        <button class=" w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-10 mb-10">Selengkapnya</button>
+    <a href="info">
+      <button class=" w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-10 mb-10">Selengkapnya</button>
+    </a>
           </div>
           <!-- LAYANAN -->
           <p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-20 mb-10">LAYANAN</p>
@@ -156,7 +160,6 @@
         </a>
       </div>
       </div>
-  
         <button class=" w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-10 mb-6">Selengkapnya</button>
               </div>
             </div>
@@ -166,7 +169,7 @@
             <div class="bg-login2 bg-clip-content shadow-xl mr-32 ml-32 mb-32 mt-20 rounded-lg">
               <div class="h-140 grid grid-cols-1 md:grid-cols-4 gap-7 p-5 mx-auto md:px-80 content-center">
                 <div class="items-center">
-                  <a href="#" class="block cursor-pointer antialiased ">
+                  <a href="pengajuansurat" class="block cursor-pointer antialiased ">
                     <img src="https://media.discordapp.net/attachments/1222905897848934450/1223303191018340432/image.png?ex=66195ce0&is=6606e7e0&hm=93e4c64d7ca3245751bf62a8d4c663fdc2861c282ce22cc1bf6fd018436a41ac&=&format=webp&quality=lossless" width="150"style="margin:auto">
                     <p class="text-center font-bold text-army-gelap">PENGAJUAN SURAT</p>
                   </a>
