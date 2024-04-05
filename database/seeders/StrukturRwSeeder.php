@@ -14,31 +14,24 @@ class StrukturRwSeeder extends Seeder
      */
     public function run(): void
     {
-        $names = array('Ketua RW', 'Wakil RW', 'Sekretaris RW', 'Bendahara RW');
-        $kode = array('RWK', 'RWW', 'RWS', 'RWB');
+        $codes = array('RT1', 'RT2', 'RT3', 'RT4', 'RT5', 'RT6', 'RT7', 'RT8', 'KRW', 'WRW', 'SRW', 'BRW',);
+        $name = array(
+            'Ketua RT 01', 'Ketua RT 02', 'Ketua RT 03', 'Ketua RT 04', 'Ketua RT 05', 'Ketua RT 06', 'Ketua RT 07', 'Ketua RT 08',
+            'Ketua RW', 'Wakil RW', 'Sekretaris RW', 'Bendahara RW',
+        );
+        $id = array('1', '5', '9', '13', '17', '21', '25', '29', '3', '1', '4', '6',);
         $i = 1;
-        foreach ($names as $name) {
+        foreach ($codes as $code) {
             DB::table('struktur_rw')->insert(
                 [
                     'id_struktur' => $i,
-                    'kode_struktur' => $kode[$i - 1],
+                    'kode_struktur' => $code,
                     'nama_struktur' => $name,
+                    'id_warga' => $id,
                     'created_at' => now(),
                 ]
             );
             $i++;
-        }
-
-        for ($i = 5; $i <= 12; $i++) {
-            $j = $i - 4;
-            DB::table('struktur_rw')->insert(
-                [
-                    'id_struktur' => $i,
-                    'kode_struktur' => 'RT' . $j,
-                    'nama_struktur' => 'Ketua RT ' . $j,
-                    'created_at' => now(),
-                ]
-            );
         }
     }
 }

@@ -14,21 +14,14 @@ class KartuKeluargaSeeder extends Seeder
      */
     public function run(): void
     {
-        $faker = Factory::create();
-        // Loop sebanyak 5 untuk setiap id_rt (total 24 data)
         for ($i = 1; $i <= 8; $i++) {
-            // Insert 8 data untuk setiap id_rt
-            for ($j = 1; $j <= 3; $j++) {
-                // Menghasilkan nomor KK dengan kombinasi 16 digit
-                $no_kk = '';
-                for ($k = 0; $k < 16; $k++) {
-                    $no_kk .= $faker->randomDigit();
-                }
-
+            for ($j = 1; $j <= 2; $j++) {
+                $no = sprintf('%04d', (($i - 1) * 2) + $j);
                 DB::table('kartu_keluarga')->insert(
                     [
+                        'id_kk' => (($i - 1) * 2) + $j,
                         'id_rt' => $i,
-                        'no_kk' => $no_kk,
+                        'no_kk' => '3573051012' . $no,
                         'created_at' => now(),
                     ]
                 );

@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id('id_agenda');
             $table->string('judul_agenda', 100);
             $table->longText('deskripsi_agenda');
-            $table->longText('gambar_agenda');
+            $table->longText('gambar_agenda')->nullable();
+            $table->dateTime('tanggal_agenda');
             $table->timestamps();
         });
     }

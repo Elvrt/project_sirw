@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('persuratan', function (Blueprint $table) {
-            $table->id('id_persuratan');
-            $table->unsignedBigInteger('id_warga')->index();
-            $table->string('jenis_persuratan', 30);
-            $table->longText('keterangan_persuratan');
-            $table->string('status_persuratan', 25);
-            $table->dateTime('tanggal_persuratan');
+        Schema::create('user', function (Blueprint $table) {
+            $table->id('id_user');
+            $table->unsignedBigInteger('id_role')->index();
+            $table->unsignedBigInteger('id_warga')->unique()->index();
+            $table->string('username', 50)->unique();
+            $table->longText('password');
             $table->timestamps();
 
+            $table->foreign('id_role')->references('id_role')->on('role');
             $table->foreign('id_warga')->references('id_warga')->on('warga');
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('persuratan');
+        Schema::dropIfExists('user');
     }
 };

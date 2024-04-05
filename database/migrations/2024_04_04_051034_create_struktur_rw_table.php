@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('persuratan', function (Blueprint $table) {
-            $table->id('id_persuratan');
-            $table->unsignedBigInteger('id_warga')->index();
-            $table->string('jenis_persuratan', 30);
-            $table->longText('keterangan_persuratan');
-            $table->string('status_persuratan', 25);
-            $table->dateTime('tanggal_persuratan');
+        Schema::create('struktur_rw', function (Blueprint $table) {
+            $table->id('id_struktur');
+            $table->string('kode_struktur', 5)->unique();
+            $table->string('nama_struktur', 25);
+            $table->unsignedBigInteger('id_warga')->unique()->index();
             $table->timestamps();
 
             $table->foreign('id_warga')->references('id_warga')->on('warga');
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('persuratan');
+        Schema::dropIfExists('struktur_rw');
     }
 };
