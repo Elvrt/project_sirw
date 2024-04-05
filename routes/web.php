@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TataTertibController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::resource('tata-tertib', TataTertibController::class);
 
 Route::get('/login', function () {
     return view('login.login');
