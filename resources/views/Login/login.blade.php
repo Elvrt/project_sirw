@@ -26,6 +26,7 @@
         </div>
         <button type="submit" class="w-32 bg-coklat-muda text-cream-muda font-bold py-2 rounded-lg mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-4 mb-6">Login</button>
     </div>
+    <img src="https://media.discordapp.net/attachments/1222905897848934450/1225900800446955632/image.png?ex=6622d016&is=66105b16&hm=4eb9158a8bd3bb5eb26f0ab5ccf94a9bd03e6f34a8ca3fdee5ebbb047dd9901c&=&format=webp&quality=lossless&width=986&height=701" alt="Background Image" class="absolute inset-0 w-full h-full object-cover" style="z-index: -1;">
 </body>
 
 </html>
