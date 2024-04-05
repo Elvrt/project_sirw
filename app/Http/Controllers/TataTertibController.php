@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TataTertibModel;
 use Illuminate\Http\Request;
 
 class TataTertibController extends Controller
@@ -11,7 +12,9 @@ class TataTertibController extends Controller
      */
     public function index()
     {
-        //
+        $data = TataTertibModel::all();
+
+        return view('TataTertib.index', $data = ['data' => $data]);
     }
 
     /**
@@ -19,7 +22,7 @@ class TataTertibController extends Controller
      */
     public function create()
     {
-        //
+        return view('TataTertib.create');
     }
 
     /**
@@ -27,7 +30,12 @@ class TataTertibController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        TataTertibModel::create([
+            'deskripsi_tatib' => $request->deskripsi_tatib,
+        ]);
+
+        return redirect('/tata-tertib')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -35,7 +43,9 @@ class TataTertibController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $tataTertib = TataTertibModel::find($id);
+
+        return view('TataTertib.show', $data = ['data' => $tataTertib]);
     }
 
     /**
@@ -43,7 +53,9 @@ class TataTertibController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $tataTertib = TataTertibModel::find($id);
+
+        return view('TataTertib.edit', $data = ['data' => $tataTertib]);
     }
 
     /**
@@ -51,7 +63,14 @@ class TataTertibController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = TataTertibModel::find($id);
+
+        $data->update([
+            'deskripsi_tatib' => $request->deskripsi_tatib,
+            // 'updated_at' => now(),
+        ]);
+
+        return redirect('/tata-tertib')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -59,6 +78,12 @@ class TataTertibController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            TataTertibModel::destroy($id);
+
+            return redirect('/tata-tertib')->with('success', 'Data berhasil dihapus');
+        } catch (e) {
+            return redirect('/tata-tertib')->with('error', 'Data gagal dihapus');
+        }
     }
 }
