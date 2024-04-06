@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LayananDaruratModel;
 use Illuminate\Http\Request;
 
 class LayananDaruratController extends Controller
@@ -11,7 +12,9 @@ class LayananDaruratController extends Controller
      */
     public function index()
     {
-        //
+        $data = LayananDaruratModel::all();
+
+        return view('LayananDarurat.index', $data = ['data' => $data]);
     }
 
     /**
@@ -19,7 +22,7 @@ class LayananDaruratController extends Controller
      */
     public function create()
     {
-        //
+        return view('LayananDarurat.create');
     }
 
     /**
@@ -27,7 +30,12 @@ class LayananDaruratController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        LayananDaruratModel::create([
+            'nama_layanan' => $request->nama_layanan,
+            'nomor_layanan' => $request->nomor_layanan,
+        ]);
+
+        return redirect('/layanan-darurat')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -35,7 +43,9 @@ class LayananDaruratController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $layananDarurat = LayananDaruratModel::find($id);
+
+        return view('LayananDarurat.show', $data = ['data' => $layananDarurat]);
     }
 
     /**
@@ -43,7 +53,9 @@ class LayananDaruratController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $layananDarurat = LayananDaruratModel::find($id);
+
+        return view('LayananDarurat.edit', $data = ['data' => $layananDarurat]);
     }
 
     /**
@@ -51,7 +63,14 @@ class LayananDaruratController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = LayananDaruratModel::find($id);
+
+        $data->update([
+            'nama_layanan' => $request->nama_layanan,
+            'nomor_layanan' => $request->nomor_layanan,
+        ]);
+
+        return redirect('/layanan-darurat')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -59,6 +78,12 @@ class LayananDaruratController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            LayananDaruratModel::destroy($id);
+
+            return redirect('/layanan-darurat')->with('success', 'Data berhasil dihapus');
+        } catch (e) {
+            return redirect('/layanan-darurat')->with('error', 'Data gagal dihapus');
+        }
     }
 }

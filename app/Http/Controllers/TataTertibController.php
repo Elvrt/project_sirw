@@ -30,7 +30,6 @@ class TataTertibController extends Controller
      */
     public function store(Request $request)
     {
-
         TataTertibModel::create([
             'deskripsi_tatib' => $request->deskripsi_tatib,
         ]);
@@ -67,7 +66,6 @@ class TataTertibController extends Controller
 
         $data->update([
             'deskripsi_tatib' => $request->deskripsi_tatib,
-            // 'updated_at' => now(),
         ]);
 
         return redirect('/tata-tertib')->with('success', 'Data berhasil diupdate');
