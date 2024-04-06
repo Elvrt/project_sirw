@@ -156,7 +156,7 @@
         </a>
       </div>
       </div>
-  
+
         <button class=" w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-10 mb-6">Selengkapnya</button>
               </div>
             </div>
@@ -196,7 +196,7 @@
             <footer class="bg-zinc-50 text-center dark:bg-neutral-700 lg:text-left">
               <div class="bg-black/5 p-4 text-center text-surface dark:text-white">
                 Copyright 2024 © :
-                <a href="https://www.instagram.com/athallah_alsha/">ATHALLAH ADJANI</a>
+                <a href="#">SiRW</a>
               </div>
             </footer>
 </body>

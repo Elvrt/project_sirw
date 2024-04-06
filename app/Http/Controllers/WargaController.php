@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\RtModel;
+use App\Models\KartuKeluargaModel;
+use App\Models\WargaModel;
 use Illuminate\Http\Request;
 
 class WargaController extends Controller
