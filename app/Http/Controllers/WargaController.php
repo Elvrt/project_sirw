@@ -14,7 +14,9 @@ class WargaController extends Controller
      */
     public function index()
     {
-        //
+        $data = WargaModel::all();
+
+        return view('Warga.index', $data = ['data' => $data]);
     }
 
     /**
@@ -22,7 +24,10 @@ class WargaController extends Controller
      */
     public function create()
     {
-        //
+        $rts = RtModel::all();
+        $kks = KartuKeluargaModel::all();
+
+        return view('Warga.create', compact('rts', 'kks'));
     }
 
     /**
@@ -30,7 +35,16 @@ class WargaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        WargaModel::create([
+            'id_warga' => $request->id_warga,
+            'id_kk' => $request->id_kk,
+            'nik' => $request->nik,
+            'nama_warga' => $request->nama_warga,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'tempat_lahuir' => $request->jenis_kelamin,
+        ]);
+
+        return redirect('/warga')->with('success', 'Data berhasil ditambah');
     }
 
     /**

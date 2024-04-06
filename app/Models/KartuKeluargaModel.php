@@ -22,4 +22,14 @@ class KartuKeluargaModel extends Model
     {
         return $this->belongsTo(RtModel::class, 'id_rt');
     }
+
+    public function warga()
+    {
+        return $this->hasMany(WargaModel::class, 'id_kk');
+    }
+
+    public function iuran()
+    {
+        return $this->hasMany(IuranModel::class, 'id_iuran');
+    }
 }

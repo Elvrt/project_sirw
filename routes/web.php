@@ -6,6 +6,9 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\LayananDaruratController;
 use App\Http\Controllers\RtController;
 use App\Http\Controllers\KartuKeluargaController;
+use App\Http\Controllers\IuranController;
+use App\Http\Controllers\FasilitasUmumController;
+use App\Http\Controllers\WargaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +28,10 @@ Route::resource('berita', BeritaController::class);
 Route::resource('agenda', AgendaController::class);
 Route::resource('layanan-darurat', LayananDaruratController::class);
 Route::resource('kartu-keluarga', KartuKeluargaController::class);
+Route::resource('iuran', IuranController::class);
+Route::resource('fasilitas-umum', FasilitasUmumController::class);
+Route::resource('warga', WargaController::class);
+
 
 Route::get('/login', function () {
     return view('login.login');
@@ -35,23 +42,23 @@ Route::get('/forgotpassword', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('warga.dashboard');
+    return view('Dashboard.dashboard');
 });
 
 Route::get('/profil', function () {
-    return view('warga.ProfilRW');
+    return view('Dashboard.ProfilRW');
 });
 
 Route::get('/info', function () {
-    return view('warga.info');
+    return view('Dashboard.info');
 });
 
 Route::get('/layanan', function () {
-    return view('warga.layanan');
+    return view('Dashboard.layanan');
 });
 
 Route::get('pengajuansurat', function () {
-    return view('warga.pengajuansurat');
+    return view('Dashboard.pengajuansurat');
 });
 
 Route::get('daftarwargaRW', function () {
