@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\TataTertibController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\LayananDaruratController;
+use App\Http\Controllers\RtController;
+use App\Http\Controllers\KartuKeluargaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +19,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// JANGAN DI OTAK ATIK DULU BUAT CRUD
 Route::resource('tata-tertib', TataTertibController::class);
+Route::resource('berita', BeritaController::class);
+Route::resource('agenda', AgendaController::class);
+Route::resource('layanan-darurat', LayananDaruratController::class);
+Route::resource('kartu-keluarga', KartuKeluargaController::class);
 
 Route::get('/login', function () {
     return view('login.login');

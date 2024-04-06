@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\RtModel;
+use App\Models\KartuKeluargaModel;
 use Illuminate\Http\Request;
 
 class KartuKeluargaController extends Controller
@@ -11,7 +13,9 @@ class KartuKeluargaController extends Controller
      */
     public function index()
     {
-        //
+        $data = KartuKeluargaModel::all();
+
+        return view('KartuKeluarga.index', $data = ['data' => $data]);
     }
 
     /**
@@ -19,7 +23,7 @@ class KartuKeluargaController extends Controller
      */
     public function create()
     {
-        //
+        return view('KartuKeluarga.create');
     }
 
     /**
@@ -27,7 +31,12 @@ class KartuKeluargaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        KartuKeluargaModel::create([
+            'id_rt' => $request->id_rt,
+            'no_kk' => $request->no_kk,
+        ]);
+
+        return redirect('/kartu-keluarga')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -35,7 +44,9 @@ class KartuKeluargaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $kartuKeluarga = KartuKeluargaModel::find($id);
+
+        return view('Agenda.show', $data = ['data' => $kartuKeluarga]);
     }
 
     /**
@@ -43,7 +54,9 @@ class KartuKeluargaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $kartuKeluarga = KartuKeluargaModel::find($id);
+
+        return view('Agenda.edit', $data = ['data' => $kartuKeluarga]);
     }
 
     /**
@@ -51,7 +64,14 @@ class KartuKeluargaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = KartuKeluargaModel::find($id);
+
+        $data->update([
+            'id_rt' => $request->id_rt,
+            'no_kk' => $request->no_kk,
+        ]);
+
+        return redirect('/kartu-keluarga')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -59,6 +79,12 @@ class KartuKeluargaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            KartuKeluargaModel::destroy($id);
+
+            return redirect('/kartu-keluarga')->with('success', 'Data berhasil dihapus');
+        } catch (e) {
+            return redirect('/kartu-keluarga')->with('error', 'Data gagal dihapus');
+        }
     }
 }

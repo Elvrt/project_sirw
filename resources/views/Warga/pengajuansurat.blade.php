@@ -90,13 +90,9 @@
 
   <!-- FOOTER -->
   <footer class="bg-zinc-50 dark:bg-neutral-700 text-center lg:text-left">
-            <div
-                class="bg-black/5 p-4 text-center text-surface dark:text-white"
-            >
+            <div class="bg-black/5 p-4 text-center text-surface dark:text-white">
                 Copyright 2024 © :
-                <a href="https://www.instagram.com/athallah_alsha/"
-                    >ATHALLAH ADJANI</a
-                >
+                <a href="#">SiRW</a>
             </div>
         </footer>
 </body>

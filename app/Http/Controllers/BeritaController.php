@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BeritaModel;
 use Illuminate\Http\Request;
 
 class BeritaController extends Controller
@@ -11,7 +12,9 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        //
+        $data = BeritaModel::all();
+
+        return view('Berita.index', $data = ['data' => $data]);
     }
 
     /**
@@ -19,7 +22,7 @@ class BeritaController extends Controller
      */
     public function create()
     {
-        //
+        return view('Berita.create');
     }
 
     /**
@@ -27,7 +30,14 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        BeritaModel::create([
+            'judul_berita' => $request->judul_berita,
+            'deskripsi_berita' => $request->deskripsi_berita,
+            'gambar_berita' => '',
+            'tanggal_berita' => $request->tanggal_berita,
+        ]);
+
+        return redirect('/berita')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -35,7 +45,9 @@ class BeritaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $berita = BeritaModel::find($id);
+
+        return view('Berita.show', $data = ['data' => $berita]);
     }
 
     /**
@@ -43,7 +55,9 @@ class BeritaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $berita = BeritaModel::find($id);
+
+        return view('Berita.edit', $data = ['data' => $berita]);
     }
 
     /**
@@ -51,7 +65,16 @@ class BeritaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = BeritaModel::find($id);
+
+        $data->update([
+            'judul_berita' => $request->judul_berita,
+            'deskripsi_berita' => $request->deskripsi_berita,
+            'gambar_berita' => '',
+            'tanggal_berita' => $request->tanggal_berita,
+        ]);
+
+        return redirect('/berita')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -59,6 +82,12 @@ class BeritaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            BeritaModel::destroy($id);
+
+            return redirect('/berita')->with('success', 'Data berhasil dihapus');
+        } catch (e) {
+            return redirect('/berita')->with('error', 'Data gagal dihapus');
+        }
     }
 }
