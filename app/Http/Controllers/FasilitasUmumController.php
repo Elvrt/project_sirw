@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\RtModel;
+use App\Models\FasilitasUmumModel;
 use Illuminate\Http\Request;
 
 class FasilitasUmumController extends Controller
@@ -11,7 +13,9 @@ class FasilitasUmumController extends Controller
      */
     public function index()
     {
-        //
+        $data = FasilitasUmumModel::all();
+
+        return view('FasilitasUmum.index', $data = ['data' => $data]);
     }
 
     /**
@@ -19,7 +23,9 @@ class FasilitasUmumController extends Controller
      */
     public function create()
     {
-        //
+        $rts = RtModel::all();
+
+        return view('FasilitasUmum.create', compact('rts'));
     }
 
     /**
@@ -27,7 +33,15 @@ class FasilitasUmumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        FasilitasUmumModel::create([
+            'nama_fasilitas' => $request->nama_fasilitas,
+            'keterangan_fasilitas' => $request->keterangan_fasilitas,
+            'alamat_fasilitas' => $request->alamat_fasilitas,
+            'gambar_fasilitas' => '',
+            'id_rt' => $request->id_rt,
+        ]);
+
+        return redirect('/fasilitas-umum')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -35,7 +49,9 @@ class FasilitasUmumController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $fasilitasUmum = FasilitasUmumModel::find($id);
+
+        return view('FasilitasUmum.show', $data = ['data' => $fasilitasUmum]);
     }
 
     /**
@@ -43,7 +59,10 @@ class FasilitasUmumController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $rts = RtModel::all();
+        $fasilitasUmum = FasilitasUmumModel::find($id);
+
+        return view('FasilitasUmum.edit', $data = ['data' => $fasilitasUmum], compact('rts'));
     }
 
     /**
@@ -51,7 +70,17 @@ class FasilitasUmumController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = FasilitasUmumModel::find($id);
+
+        $data->update([
+            'nama_fasilitas' => $request->nama_fasilitas,
+            'keterangan_fasilitas' => $request->keterangan_fasilitas,
+            'alamat_fasilitas' => $request->alamat_fasilitas,
+            'gambar_fasilitas' => '',
+            'id_rt' => $request->id_rt,
+        ]);
+
+        return redirect('/fasilitas-umum')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -59,6 +88,12 @@ class FasilitasUmumController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            FasilitasUmumModel::destroy($id);
+
+            return redirect('/fasilitas-umum')->with('success', 'Data berhasil dihapus');
+        } catch (e) {
+            return redirect('/fasilitas-umum')->with('error', 'Data gagal dihapus');
+        }
     }
 }

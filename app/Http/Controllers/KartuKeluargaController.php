@@ -23,7 +23,9 @@ class KartuKeluargaController extends Controller
      */
     public function create()
     {
-        return view('KartuKeluarga.create');
+        $rts = RtModel::all();
+
+        return view('KartuKeluarga.create', compact('rts'));
     }
 
     /**
@@ -46,7 +48,7 @@ class KartuKeluargaController extends Controller
     {
         $kartuKeluarga = KartuKeluargaModel::find($id);
 
-        return view('Agenda.show', $data = ['data' => $kartuKeluarga]);
+        return view('KartuKeluarga.show', $data = ['data' => $kartuKeluarga]);
     }
 
     /**
@@ -54,9 +56,10 @@ class KartuKeluargaController extends Controller
      */
     public function edit(string $id)
     {
+        $rts = RtModel::all();
         $kartuKeluarga = KartuKeluargaModel::find($id);
 
-        return view('Agenda.edit', $data = ['data' => $kartuKeluarga]);
+        return view('KartuKeluarga.edit', $data = ['data' => $kartuKeluarga], compact('rts'));
     }
 
     /**

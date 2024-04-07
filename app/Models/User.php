@@ -23,8 +23,9 @@ class User extends Authenticatable
     protected $primaryKey = "id_user";
 
     protected $fillable = [
-        'name',
-        'email',
+        'id_role',
+        'id_warga',
+        'username',
         'password',
     ];
 
@@ -44,9 +45,15 @@ class User extends Authenticatable
      * @var array<string, string>
      */
 
+
+    public function warga(): BelongsTo
+    {
+        return $this->belongsTo(WargaModel::class, 'id_warga');
+    }
+
     public function Role(): BelongsTo
     {
-        return $this->belongsTo(RoleModel::class);
+        return $this->belongsTo(RoleModel::class, 'id_role');
     }
 
     public function getRole(){

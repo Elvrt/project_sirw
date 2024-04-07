@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\WargaModel;
+use App\Models\PersuratanModel;
 use Illuminate\Http\Request;
 
 class PersuratanController extends Controller
@@ -11,7 +13,9 @@ class PersuratanController extends Controller
      */
     public function index()
     {
-        //
+        $data = PersuratanModel::all();
+
+        return view('Persuratan.index', $data = ['data' => $data]);
     }
 
     /**
@@ -19,7 +23,9 @@ class PersuratanController extends Controller
      */
     public function create()
     {
-        //
+        $niks = WargaModel::all();
+
+        return view('Persuratan.create', compact('niks'));
     }
 
     /**
@@ -27,7 +33,15 @@ class PersuratanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        PersuratanModel::create([
+            'id_warga' => $request->id_warga,
+            'jenis_persuratan' => $request->jenis_persuratan,
+            'keterangan_persuratan' => $request->keterangan_persuratan,
+            'status_persuratan' => $request->status_persuratan,
+            'tanggal_persuratan' => $request->tanggal_persuratan,
+        ]);
+
+        return redirect('/persuratan')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -35,7 +49,9 @@ class PersuratanController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $persuratan = PersuratanModel::find($id);
+
+        return view('Persuratan.show', $data = ['data' => $persuratan]);
     }
 
     /**
@@ -43,7 +59,10 @@ class PersuratanController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $niks = WargaModel::all();
+        $persuratan = PersuratanModel::find($id);
+
+        return view('Persuratan.edit', $data = ['data' => $persuratan], compact('niks'));
     }
 
     /**
@@ -51,7 +70,17 @@ class PersuratanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = PersuratanModel::find($id);
+
+        $data->update([
+            // 'id_warga' => $request->id_warga,
+            'jenis_persuratan' => $request->jenis_persuratan,
+            'keterangan_persuratan' => $request->keterangan_persuratan,
+            'status_persuratan' => $request->status_persuratan,
+            'tanggal_persuratan' => $request->tanggal_persuratan,
+        ]);
+
+        return redirect('/persuratan')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -59,6 +88,12 @@ class PersuratanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            PersuratanModel::destroy($id);
+
+            return redirect('/persuratan')->with('success', 'Data berhasil dihapus');
+        } catch (e) {
+            return redirect('/persuratan')->with('error', 'Data gagal dihapus');
+        }
     }
 }
