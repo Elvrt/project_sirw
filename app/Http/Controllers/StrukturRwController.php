@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\WargaModel;
+use App\Models\StrukturRwModel;
 use Illuminate\Http\Request;
 
 class StrukturRwController extends Controller
@@ -11,7 +13,9 @@ class StrukturRwController extends Controller
      */
     public function index()
     {
-        //
+        $data = StrukturRwModel::all();
+
+        return view('StrukturRw.index', $data = ['data' => $data]);
     }
 
     /**
@@ -19,7 +23,10 @@ class StrukturRwController extends Controller
      */
     public function create()
     {
-        //
+        $existingIds = StrukturRwModel::pluck('id_warga')->toArray();
+        $niks = WargaModel::all();
+
+        return view('StrukturRw.create', compact('niks', 'existingIds'));
     }
 
     /**
@@ -27,7 +34,13 @@ class StrukturRwController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        StrukturRWModel::create([
+            'kode_struktur' => $request->kode_struktur,
+            'nama_struktur' => $request->nama_struktur,
+            'id_warga' => $request->id_warga,
+        ]);
+
+        return redirect('/struktur-rw')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -35,7 +48,9 @@ class StrukturRwController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $strukturRw = StrukturRwModel::find($id);
+
+        return view('StrukturRw.show', $data = ['data' => $strukturRw]);
     }
 
     /**
@@ -43,7 +58,11 @@ class StrukturRwController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $existingIds = StrukturRwModel::pluck('id_warga')->toArray();
+        $niks = WargaModel::all();
+        $strukturRw = StrukturRwModel::find($id);
+
+        return view('StrukturRw.edit', $data = ['data' => $strukturRw], compact('niks', 'existingIds'));
     }
 
     /**
@@ -51,7 +70,15 @@ class StrukturRwController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = StrukturRwModel::find($id);
+
+        $data->update([
+            'kode_struktur' => $request->kode_struktur,
+            'nama_struktur' => $request->nama_struktur,
+            'id_warga' => $request->id_warga,
+        ]);
+
+        return redirect('/struktur-rw')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -59,6 +86,12 @@ class StrukturRwController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            StrukturRwModel::destroy($id);
+
+            return redirect('/struktur-rw')->with('success', 'Data berhasil dihapus');
+        } catch (e) {
+            return redirect('/struktur-rw')->with('error', 'Data gagal dihapus');
+        }
     }
 }

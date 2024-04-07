@@ -36,12 +36,18 @@ class WargaController extends Controller
     public function store(Request $request)
     {
         WargaModel::create([
-            'id_warga' => $request->id_warga,
             'id_kk' => $request->id_kk,
             'nik' => $request->nik,
             'nama_warga' => $request->nama_warga,
             'jenis_kelamin' => $request->jenis_kelamin,
-            'tempat_lahuir' => $request->jenis_kelamin,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'alamat' => $request->alamat,
+            'nomor_telepon' => $request->nomor_telepon,
+            'agama' => $request->agama,
+            'pekerjaan' => $request->pekerjaan,
+            'penghasilan' => $request->penghasilan,
+            'status_hubungan' => $request->status_hubungan,
         ]);
 
         return redirect('/warga')->with('success', 'Data berhasil ditambah');
@@ -52,7 +58,9 @@ class WargaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $warga = WargaModel::find($id);
+
+        return view('Warga.show', $data = ['data' => $warga]);
     }
 
     /**
@@ -60,7 +68,11 @@ class WargaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $rts = RtModel::all();
+        $kks = KartuKeluargaModel::all();
+        $warga = WargaModel::find($id);
+
+        return view('Warga.edit', $data = ['data' => $warga], compact('rts', 'kks'));
     }
 
     /**
@@ -68,7 +80,24 @@ class WargaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = WargaModel::find($id);
+
+        $data->update([
+            'id_kk' => $request->id_kk,
+            'nik' => $request->nik,
+            'nama_warga' => $request->nama_warga,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'alamat' => $request->alamat,
+            'nomor_telepon' => $request->nomor_telepon,
+            'agama' => $request->agama,
+            'pekerjaan' => $request->pekerjaan,
+            'penghasilan' => $request->penghasilan,
+            'status_hubungan' => $request->status_hubungan,
+        ]);
+
+        return redirect('/warga')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -76,6 +105,12 @@ class WargaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            WargaModel::destroy($id);
+
+            return redirect('/warga')->with('success', 'Data berhasil dihapus');
+        } catch (e) {
+            return redirect('/warga')->with('error', 'Data gagal dihapus');
+        }
     }
 }

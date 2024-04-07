@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\WargaModel;
+use App\Models\PengaduanModel;
 use Illuminate\Http\Request;
 
 class PengaduanController extends Controller
@@ -11,7 +13,9 @@ class PengaduanController extends Controller
      */
     public function index()
     {
-        //
+        $data = PengaduanModel::all();
+
+        return view('Pengaduan.index', $data = ['data' => $data]);
     }
 
     /**
@@ -19,7 +23,9 @@ class PengaduanController extends Controller
      */
     public function create()
     {
-        //
+        $niks = WargaModel::all();
+
+        return view('Pengaduan.create', compact('niks'));
     }
 
     /**
@@ -27,7 +33,15 @@ class PengaduanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        PengaduanModel::create([
+            'id_warga' => $request->id_warga,
+            'judul_pengaduan' => $request->judul_pengaduan,
+            'deskripsi_pengaduan' => $request->deskripsi_pengaduan,
+            'status_pengaduan' => $request->status_pengaduan,
+            'tanggal_pengaduan' => $request->tanggal_pengaduan,
+        ]);
+
+        return redirect('/pengaduan')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -35,7 +49,9 @@ class PengaduanController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $pengaduan = PengaduanModel::find($id);
+
+        return view('Pengaduan.show', $data = ['data' => $pengaduan]);
     }
 
     /**
@@ -43,7 +59,10 @@ class PengaduanController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $niks = WargaModel::all();
+        $pengaduan = PengaduanModel::find($id);
+
+        return view('Pengaduan.edit', $data = ['data' => $pengaduan], compact('niks'));
     }
 
     /**
@@ -51,7 +70,17 @@ class PengaduanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = PengaduanModel::find($id);
+
+        $data->update([
+            // 'id_warga' => $request->id_warga,
+            'judul_pengaduan' => $request->judul_pengaduan,
+            'deskripsi_pengaduan' => $request->deskripsi_pengaduan,
+            'status_pengaduan' => $request->status_pengaduan,
+            'tanggal_pengaduan' => $request->tanggal_pengaduan,
+        ]);
+
+        return redirect('/pengaduan')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -59,6 +88,12 @@ class PengaduanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            PengaduanModel::destroy($id);
+
+            return redirect('/pengaduan')->with('success', 'Data berhasil dihapus');
+        } catch (e) {
+            return redirect('/pengaduan')->with('error', 'Data gagal dihapus');
+        }
     }
 }

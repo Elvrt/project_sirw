@@ -14,7 +14,7 @@
             @csrf
             @method('PUT')
             <div class="mb-4">
-                <label for="id_rt" class="block text-sm font-bold mb-2">Nomor RT</label>
+                <label for="id_rt" class="block text-sm font-bold mb-2">RT</label>
                 <p class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{$data->kartuKeluarga->rt->nomor_rt}}</p>
             </div>
             <div class="mb-4">
@@ -39,7 +39,7 @@
             <div class="mb-4">
                 <label for="status_iuran" class="block text-sm font-bold mb-2">Status</label>
                 <select name="status_iuran" id="status_iuran" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                    <option value="" disabled selected class="text-gray-400">Pilih Status</option>
+                    <option value="" disabled class="text-gray-400">Pilih Status</option>
                     <option value="Lunas" {{$data->status_iuran == "Lunas" ? "selected" : ""}}>Lunas</option>
                     <option value="Belum Lunas" {{$data->status_iuran == "Belum Lunas" ? "selected" : ""}}>Belum Lunas</option>
                 </select>

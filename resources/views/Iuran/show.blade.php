@@ -11,7 +11,7 @@
     <div class="container pt-5 mx-auto">
         <h1 class="text-3xl font-bold mb-5">DETAIL DATA IURAN</h1>
         <div class="mb-3">
-            <label for="id_rt" class="block text-lg font-semibold mb-3">Nomor RT</label>
+            <label for="id_rt" class="block text-lg font-semibold mb-3">RT</label>
             <p class="text-lg border-2 border-gray-300 rounded-md p-3">{{$data->kartuKeluarga->rt->nomor_rt}}</p>
         </div>
         <div class="mb-3">

@@ -24,7 +24,7 @@
             </div>
             <div class="mb-4">
                 <label for="no_kk" class="block text-sm font-bold mb-2">No. KK</label>
-                <input type="text" name="no_kk" id="no_kk" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="number" name="no_kk" id="no_kk" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </div>
             <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
         </form>

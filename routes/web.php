@@ -9,6 +9,10 @@ use App\Http\Controllers\KartuKeluargaController;
 use App\Http\Controllers\IuranController;
 use App\Http\Controllers\FasilitasUmumController;
 use App\Http\Controllers\WargaController;
+use App\Http\Controllers\StrukturRwController;
+use App\Http\Controllers\PengaduanController;
+use App\Http\Controllers\PersuratanController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +35,10 @@ Route::resource('kartu-keluarga', KartuKeluargaController::class);
 Route::resource('iuran', IuranController::class);
 Route::resource('fasilitas-umum', FasilitasUmumController::class);
 Route::resource('warga', WargaController::class);
+Route::resource('struktur-rw', StrukturRwController::class);
+Route::resource('pengaduan', PengaduanController::class);
+Route::resource('persuratan', PersuratanController::class);
+Route::resource('user', UserController::class);
 
 
 Route::get('/login', function () {

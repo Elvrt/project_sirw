@@ -14,9 +14,9 @@
             @csrf
             @method('POST')
             <div class="mb-4">
-                <label for="id_rt" class="block text-sm font-bold mb-2">Nomor RT</label>
+                <label for="id_rt" class="block text-sm font-bold mb-2">RT</label>
                 <select name="id_rt" id="id_rt" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                    <option value="" disabled selected class="text-gray-400">Pilih Nomor RT</option>
+                    <option value="" disabled selected class="text-gray-400">Pilih RT</option>
                     @foreach($rts as $rt)
                         <option value="{{$rt->id_rt}}">{{$rt->nomor_rt}}</option>
                     @endforeach
@@ -27,10 +27,7 @@
                 <select name="id_kk" id="id_kk" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     <option value="" disabled selected class="text-gray-400">Pilih No. KK</option>
                     @foreach($kks as $kk)
-                        <option value="{{$kk->id_kk}}">
-                            {{$kk->no_kk}}
-
-                        </option>
+                        <option value="{{$kk->id_kk}}">{{$kk->no_kk}}</option>
                     @endforeach
                 </select>
             </div>
@@ -39,7 +36,7 @@
                 <input type="number" name="nominal" id="nominal" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </div>
             <div class="mb-4">
-                <label for="status_iuran" class="block text-sm font-bold mb-2">Status Iuran</label>
+                <label for="status_iuran" class="block text-sm font-bold mb-2">Status</label>
                 <select name="status_iuran" id="status_iuran" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     <option value="" disabled selected class="text-gray-400">Pilih Status</option>
                     <option value="Lunas">Lunas</option>

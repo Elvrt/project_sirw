@@ -16,7 +16,7 @@
             <div class="mb-4">
                 <label for="id_rt" class="block text-sm font-bold mb-2">RT</label>
                 <select name="id_rt" id="id_rt" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                    <option value="" disabled selected class="text-gray-400">Pilih RT</option>
+                    <option value="" disabled class="text-gray-400">Pilih RT</option>
                     @foreach($rts as $rt)
                     <option value="{{$rt->id_rt}}" {{$data->id_rt == $rt->id_rt ? 'selected' : ''}}>{{$rt->nomor_rt}}</option>
                     @endforeach
@@ -24,7 +24,7 @@
             </div>
             <div class="mb-4">
                 <label for="no_kk" class="block text-sm font-bold mb-2">No. KK</label>
-                <input type="text" name="no_kk" value="{{$data->no_kk}}" id="no_kk" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="number" name="no_kk" value="{{$data->no_kk}}" id="no_kk" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </div>
             <div class="mb-4">
                 <label for="no_kk" class="block text-sm font-bold mb-2">Kepala Keluarga</label>

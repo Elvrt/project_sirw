@@ -20,13 +20,11 @@ class UserSeeder extends Seeder
             '1', '10', '9', '10', '2', '10', '10', '10', '3', '10',
             '10', '10', '4', '10', '10', '10', '5', '10', '10', '10',
             '6', '10', '10', '10', '7', '10', '10', '10', '8', '10',
-            '10', '10',
         );
         $username = array(
             'rt1a', 'nafiul', 'rwaa', 'elva', 'rt2a', 'octa', 'aria', 'albyan', 'rt3a', 'anabel',
             'avicenna', 'byan', 'rt4a', 'daffay', 'denny', 'deaputri', 'rt5a', 'fanes', 'ferdi', 'ihza',
             'rt6a', 'jihan', 'bagus', 'ridlo', 'rt7a', 'nadila', 'ricky', 'putri', 'rt8a', 'thoriq',
-            'syahrul', 'khoirul',
         );
         foreach ($username as $user) {
             DB::table('user')->insert(
