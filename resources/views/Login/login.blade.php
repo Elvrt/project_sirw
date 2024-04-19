@@ -28,5 +28,4 @@
     </div>
     <img src="https://media.discordapp.net/attachments/1222905897848934450/1225900800446955632/image.png?ex=6622d016&is=66105b16&hm=4eb9158a8bd3bb5eb26f0ab5ccf94a9bd03e6f34a8ca3fdee5ebbb047dd9901c&=&format=webp&quality=lossless&width=986&height=701" alt="Background Image" class="absolute inset-0 w-full h-full object-cover" style="z-index: -1;">
 </body>
-
 </html>

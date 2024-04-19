@@ -1,4 +1,4 @@
-@extends('./layout/heading')
+@extends('./layout/warga')
 
 @section('content')
     <div class="container mx-auto px-40">
