@@ -36,7 +36,7 @@
             <p class="max-md:max-w-full text-normal text-justify text-army-gelap ">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit temporibus dignissimos perferendis, reiciendis magnam consequuntur veritatis quisquam sequi commodi facere ad provident at ipsum magni sint sunt. Possimus nam quaerat illum, quidem veniam ipsa saepe laboriosam molestiae eum quod corporis.
             </p>
-            <a href="">
+            <a href="statusIuran">
             <button class="w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-5 mb-6">Selengkapnya</button>
             </a>
           </div>
@@ -58,7 +58,7 @@
             <p class="max-md:max-w-full text-normal text-justify text-army-gelap ">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. A quia rem cupiditate odit, itaque perspiciatis unde reiciendis harum quasi ab doloremque tempore illum rerum ducimus repellendus est fugit dolorem distinctio illo reprehenderit numquam. Nam, vero.
             </p>
-            <a href="">
+            <a href="fasum">
             <button class="w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-5 mb-6">Selengkapnya</button>
             </a>
           </div>
@@ -80,7 +80,7 @@
             <p class="max-md:max-w-full text-normal text-justify text-army-gelap ">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quidem totam neque veritatis asperiores, suscipit mollitia sequi maxime laboriosam consectetur minus, doloribus sit animi soluta vitae maiores omnis nihil nobis. Expedita eaque quas tenetur inventore aut cumque est nihil consequatur!
             </p>
-            <a href="">
+            <a href="pengaduan">
             <button class="w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-5 mb-6">Selengkapnya</button>
             </a>
           </div>
@@ -102,7 +102,7 @@
             <p class="max-md:max-w-full text-normal text-justify text-army-gelap ">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed perspiciatis, odio possimus tenetur quasi aliquam ipsum voluptatibus magni deleniti error quisquam, distinctio quae saepe voluptas eum velit. Odio, ipsum reiciendis?
             </p>
-            <a href="">
+            <a href="layananDarurat">
             <button class="w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-5 mb-6">Selengkapnya</button>
             </a>
           </div>

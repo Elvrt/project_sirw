@@ -85,3 +85,20 @@ Route::get('statussurat', function () {
     return view('warga.statussurat');
 });
 
+Route::get('statusIuran', function () {
+    return view('warga.statusIuran');
+});
+
+Route::get('layananDarurat', function () {
+    return view('dashboard.layanandarurat');
+});
+
+Route::get('pengaduan', function () {
+    return view('warga.pengaduan');
+});
+
+Route::get('fasum', function () {
+    return view('dashboard.fasilitasumum');
+});
+
+
