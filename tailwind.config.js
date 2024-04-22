@@ -50,5 +50,5 @@ export default {
 
     }
   },
-  plugins: ['prettier-plugin-tailwindcss'],
+  plugins: ['prettier-plugin-tailwindcss'],plugins: [require("daisyui")],
 }
