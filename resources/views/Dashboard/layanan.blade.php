@@ -7,7 +7,7 @@
     <main class="relative self-center mt-10 mb-10 w-full max-w-[1080px] max-md:my-10 max-md:max-w-full">
       <div class="flex gap-5 max-md:flex-col max-md:gap-0">
         <figure class="flex flex-col w-[56%] max-md:ml-0 max-md:w-full">
-          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b3b893672dae1176369389448ec3bc3822a0aafed4c7736ebf0e0d07cd4125c3?apiKey=ac6e1a934e4640bea8ec0c07c9d8ab26&" alt="Main image" class="w-full aspect-[1.79] max-md:mt-10 max-md:max-w-full" />
+          <img src="{{url('/assets/img/pengajuansurat.png')}}" alt="Main image" class="w-full aspect-[1.79] max-md:mt-10 max-md:max-w-full" />
         </figure>
         <div class="flex flex-col ml-30 w-[44%] max-md:ml-0 max-md:w-full">
           <p class="text-center text-army-gelap font-medium text-sub drop-shadow-md">PENGAJUAN SURAT</p>
@@ -28,7 +28,7 @@
     <main class="relative self-center mt-10 mb-10 w-full max-w-[1080px] max-md:my-10 max-md:max-w-full">
       <div class="flex gap-5 max-md:flex-col max-md:gap-0">
         <figure class="flex flex-col w-[56%] max-md:ml-0 max-md:w-full">
-          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b3b893672dae1176369389448ec3bc3822a0aafed4c7736ebf0e0d07cd4125c3?apiKey=ac6e1a934e4640bea8ec0c07c9d8ab26&" alt="Main image" class="w-full aspect-[1.79] max-md:mt-10 max-md:max-w-full" />
+          <img src="{{url('/assets/img/catataniuran.png')}}" alt="Main image" class="w-full aspect-[1.79] max-md:mt-10 max-md:max-w-full" />
         </figure>
         <div class="flex flex-col ml-30 w-[44%] max-md:ml-0 max-md:w-full">
           <p class="text-center text-army-gelap font-medium text-sub drop-shadow-md">CATATAN IURAN</p>
@@ -50,7 +50,7 @@
     <main class="relative self-center mt-10 mb-10 w-full max-w-[1080px] max-md:my-10 max-md:max-w-full">
       <div class="flex gap-5 max-md:flex-col max-md:gap-0">
         <figure class="flex flex-col w-[56%] max-md:ml-0 max-md:w-full">
-          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b3b893672dae1176369389448ec3bc3822a0aafed4c7736ebf0e0d07cd4125c3?apiKey=ac6e1a934e4640bea8ec0c07c9d8ab26&" alt="Main image" class="w-full aspect-[1.79] max-md:mt-10 max-md:max-w-full" />
+          <img src="{{url('/assets/img/fasilitasumum.png')}}" alt="Main image" class="w-full aspect-[1.79] max-md:mt-10 max-md:max-w-full" />
         </figure>
         <div class="flex flex-col ml-30 w-[44%] max-md:ml-0 max-md:w-full">
           <p class="text-center text-army-gelap font-medium text-sub drop-shadow-md">FASILITAS UMUM</p>
@@ -72,7 +72,7 @@
     <main class="relative self-center mt-10 mb-10 w-full max-w-[1080px] max-md:my-10 max-md:max-w-full">
       <div class="flex gap-5 max-md:flex-col max-md:gap-0">
         <figure class="flex flex-col w-[56%] max-md:ml-0 max-md:w-full">
-          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b3b893672dae1176369389448ec3bc3822a0aafed4c7736ebf0e0d07cd4125c3?apiKey=ac6e1a934e4640bea8ec0c07c9d8ab26&" alt="Main image" class="w-full aspect-[1.79] max-md:mt-10 max-md:max-w-full" />
+          <img src="{{url('/assets/img/pengaduan.png')}}" alt="Main image" class="w-full aspect-[1.79] max-md:mt-10 max-md:max-w-full" />
         </figure>
         <div class="flex flex-col ml-30 w-[44%] max-md:ml-0 max-md:w-full">
           <p class="text-center text-army-gelap font-medium text-sub drop-shadow-md">PENGADUAN</p>
@@ -94,7 +94,7 @@
     <main class="relative self-center mt-10 mb-10 w-full max-w-[1080px] max-md:my-10 max-md:max-w-full">
       <div class="flex gap-5 max-md:flex-col max-md:gap-0">
         <figure class="flex flex-col w-[56%] max-md:ml-0 max-md:w-full">
-          <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/b3b893672dae1176369389448ec3bc3822a0aafed4c7736ebf0e0d07cd4125c3?apiKey=ac6e1a934e4640bea8ec0c07c9d8ab26&" alt="Main image" class="w-full aspect-[1.79] max-md:mt-10 max-md:max-w-full" />
+          <img src="{{url('/assets/img/layanandarurat.png')}}" alt="Main image" class="w-full aspect-[1.79] max-md:mt-10 max-md:max-w-full" />
         </figure>
         <div class="flex flex-col ml-30 w-[44%] max-md:ml-0 max-md:w-full">
           <p class="text-center text-army-gelap font-medium text-sub drop-shadow-md">LAYANAN DARURAT</p>

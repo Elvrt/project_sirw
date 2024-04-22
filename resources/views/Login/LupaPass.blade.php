@@ -10,7 +10,7 @@
 <div class="min-h-screen flex items-center justify-center">
       <div class="w-full p-6 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md dark:bg-gray-800 dark:border-gray-700 sm:p-8 bg-login2">
         <div class="flex justify-center mb-8">
-        <img src="https://media.discordapp.net/attachments/1222905897848934450/1223143600188293180/image.png?ex=6618c83f&is=6606533f&hm=cab0f89b323bb3787adb4d760c00cc6813d8177267af06ac34416b8a20f35241&=&format=webp&quality=lossless" class="h-30 w-60">
+        <img src="{{url('/assets/img/logo.png')}}" class="h-30 w-60">
         </div>
           <form class="mt-4 space-y-4 lg:mt-5 md:space-y-5" action="#">
               <div>
@@ -37,7 +37,7 @@
           </form>
       </div>
   </div>
-  <img src="https://media.discordapp.net/attachments/1222905897848934450/1225900800446955632/image.png?ex=6622d016&is=66105b16&hm=4eb9158a8bd3bb5eb26f0ab5ccf94a9bd03e6f34a8ca3fdee5ebbb047dd9901c&=&format=webp&quality=lossless&width=986&height=701" alt="Background Image" class="absolute inset-0 w-full h-full object-cover" style="z-index: -1;">
+  <img src="{{url('/assets/img/backgroundloginpage.png')}}" alt="Background Image" class="absolute inset-0 w-full h-full object-cover" style="z-index: -1;">
   </div>
 </body>
 </html>

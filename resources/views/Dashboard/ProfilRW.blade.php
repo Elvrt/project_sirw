@@ -10,7 +10,7 @@
             <p class="text-center font-bold text-2xl text-army-gelap">Ketua RW</p>
             <div class="grid grid-cols-3 mt-5 ">
                 <div>
-                    <img src="https://media.discordapp.net/attachments/1222905897848934450/1223333446823317645/image.png?ex=6619790e&is=6607040e&hm=166b48d48f336aa2e49aa7df9767d619cb57c048390327ac923ace39c18aeab2&=&format=webp&quality=lossless" alt="profile" width="100">
+                    <img src="{{url('/assets/img/profile.png')}}" alt="profile" width="100">
                 </div>
                 <div class="bg-gradient-to-r from-abu-putih to-abu-putih-muda opacity-50 rounded-lg col-span-2">
                     <p class="text-left ml-2 text- text-army-gelap">Nama‎ ‎ ‎ ‎ :</p>
@@ -24,7 +24,7 @@
             <p class="text-center font-bold text-2xl text-army-gelap">Wakil RW</p>
             <div class="grid grid-cols-3 mt-5 ">
                 <div>
-                    <img src="https://media.discordapp.net/attachments/1222905897848934450/1223333446823317645/image.png?ex=6619790e&is=6607040e&hm=166b48d48f336aa2e49aa7df9767d619cb57c048390327ac923ace39c18aeab2&=&format=webp&quality=lossless" alt="profile" width="100">
+                    <img src="{{url('/assets/img/profile.png')}}" alt="profile" width="100">
                 </div>
                 <div class="bg-gradient-to-r from-abu-putih to-abu-putih-muda opacity-50 rounded-lg col-span-2">
                     <p class="text-left ml-2 text- text-army-gelap">Nama‎ ‎ ‎ ‎ :</p>
@@ -38,7 +38,7 @@
             <p class="text-center font-bold text-2xl text-army-gelap">Sekertaris RW</p>
             <div class="grid grid-cols-3 mt-5 ">
                 <div>
-                    <img src="https://media.discordapp.net/attachments/1222905897848934450/1223333446823317645/image.png?ex=6619790e&is=6607040e&hm=166b48d48f336aa2e49aa7df9767d619cb57c048390327ac923ace39c18aeab2&=&format=webp&quality=lossless" alt="profile" width="100">
+                    <img src="{{url('/assets/img/profile.png')}}" alt="profile" width="100">
                 </div>
                 <div class="bg-gradient-to-r from-abu-putih to-abu-putih-muda opacity-50 rounded-lg col-span-2">
                     <p class="text-left ml-2 text- text-army-gelap">Nama‎ ‎ ‎ ‎ :</p>
@@ -52,7 +52,7 @@
             <p class="text-center font-bold text-2xl text-army-gelap">Wakil RW</p>
             <div class="grid grid-cols-3 mt-5 ">
                 <div>
-                    <img src="https://media.discordapp.net/attachments/1222905897848934450/1223333446823317645/image.png?ex=6619790e&is=6607040e&hm=166b48d48f336aa2e49aa7df9767d619cb57c048390327ac923ace39c18aeab2&=&format=webp&quality=lossless" alt="profile" width="100">
+                    <img src="{{url('/assets/img/profile.png')}}" alt="profile" width="100">
                 </div>
                 <div class="bg-gradient-to-r from-abu-putih to-abu-putih-muda opacity-50 rounded-lg col-span-2">
                     <p class="text-left ml-2 text- text-army-gelap">Nama‎ ‎ ‎ ‎ :</p>
@@ -67,7 +67,7 @@
     <div class="grid grid-cols-6 gap-4 mr-10 mb-5 mt-5">
         <div class="ml-10">
             <p class="font-bold text-xl text-army-gelap">Ketua RT 01</p>
-            <img src="https://media.discordapp.net/attachments/1222905897848934450/1223333446823317645/image.png?ex=6619790e&is=6607040e&hm=166b48d48f336aa2e49aa7df9767d619cb57c048390327ac923ace39c18aeab2&=&format=webp&quality=lossless" alt="profile" width="100">
+            <img src="{{url('/assets/img/profile.png')}}" alt="profile" width="100">
         </div>
         <div class="bg-gradient-to-r from-abu-putih to-abu-putih-muda opacity-50 rounded-lg col-span-2 mt-5">
         <p class="text-left ml-2 text- text-army-gelap">Nama‎ ‎ ‎ ‎ :</p>
@@ -77,7 +77,7 @@
         </div>
         <div class="ml-10">
             <p class="font-bold text-xl text-army-gelap">Ketua RT 05</p>
-            <img src="https://media.discordapp.net/attachments/1222905897848934450/1223333446823317645/image.png?ex=6619790e&is=6607040e&hm=166b48d48f336aa2e49aa7df9767d619cb57c048390327ac923ace39c18aeab2&=&format=webp&quality=lossless" alt="profile" width="100">
+            <img src="{{url('/assets/img/profile.png')}}" alt="profile" width="100">
         </div>
         <div class="bg-gradient-to-r from-abu-putih to-abu-putih-muda opacity-50 rounded-lg col-span-2 mt-5">
         <p class="text-left ml-2 text- text-army-gelap">Nama‎ ‎ ‎ ‎ :</p>
@@ -89,7 +89,7 @@
     <div class="grid grid-cols-6 gap-4 mr-10 mb-5 mt-5">
         <div class="ml-10">
             <p class="font-bold text-xl text-army-gelap">Ketua RT 02</p>
-            <img src="https://media.discordapp.net/attachments/1222905897848934450/1223333446823317645/image.png?ex=6619790e&is=6607040e&hm=166b48d48f336aa2e49aa7df9767d619cb57c048390327ac923ace39c18aeab2&=&format=webp&quality=lossless" alt="profile" width="100">
+            <img src="{{url('/assets/img/profile.png')}}" alt="profile" width="100">
         </div>
         <div class="bg-gradient-to-r from-abu-putih to-abu-putih-muda opacity-50 rounded-lg col-span-2 mt-5">
         <p class="text-left ml-2 text- text-army-gelap">Nama‎ ‎ ‎ ‎ :</p>
@@ -99,7 +99,7 @@
         </div>
         <div class="ml-10">
             <p class="font-bold text-xl text-army-gelap">Ketua RT 06</p>
-            <img src="https://media.discordapp.net/attachments/1222905897848934450/1223333446823317645/image.png?ex=6619790e&is=6607040e&hm=166b48d48f336aa2e49aa7df9767d619cb57c048390327ac923ace39c18aeab2&=&format=webp&quality=lossless" alt="profile" width="100">
+            <img src="{{url('/assets/img/profile.png')}}" alt="profile" width="100">
         </div>
         <div class="bg-gradient-to-r from-abu-putih to-abu-putih-muda opacity-50 rounded-lg col-span-2 mt-5">
         <p class="text-left ml-2 text- text-army-gelap">Nama‎ ‎ ‎ ‎ :</p>
@@ -111,7 +111,7 @@
     <div class="grid grid-cols-6 gap-4 mr-10 mb-5 mt-5">
         <div class="ml-10">
             <p class="font-bold text-xl text-army-gelap">Ketua RT 03</p>
-            <img src="https://media.discordapp.net/attachments/1222905897848934450/1223333446823317645/image.png?ex=6619790e&is=6607040e&hm=166b48d48f336aa2e49aa7df9767d619cb57c048390327ac923ace39c18aeab2&=&format=webp&quality=lossless" alt="profile" width="100">
+            <img src="{{url('/assets/img/profile.png')}}" alt="profile" width="100">
         </div>
         <div class="bg-gradient-to-r from-abu-putih to-abu-putih-muda opacity-50 rounded-lg col-span-2 mt-5">
         <p class="text-left ml-2 text- text-army-gelap">Nama‎ ‎ ‎ ‎ :</p>
@@ -121,7 +121,7 @@
         </div>
         <div class="ml-10">
             <p class="font-bold text-xl text-army-gelap">Ketua RT 07</p>
-            <img src="https://media.discordapp.net/attachments/1222905897848934450/1223333446823317645/image.png?ex=6619790e&is=6607040e&hm=166b48d48f336aa2e49aa7df9767d619cb57c048390327ac923ace39c18aeab2&=&format=webp&quality=lossless" alt="profile" width="100">
+            <img src="{{url('/assets/img/profile.png')}}" alt="profile" width="100">
         </div>
         <div class="bg-gradient-to-r from-abu-putih to-abu-putih-muda opacity-50 rounded-lg col-span-2 mt-5">
         <p class="text-left ml-2 text- text-army-gelap">Nama‎ ‎ ‎ ‎ :</p>
@@ -133,7 +133,7 @@
     <div class="grid grid-cols-6 gap-4 mr-10 mb-5 mt-5">
         <div class="ml-10">
             <p class="font-bold text-xl text-army-gelap">Ketua RT 04</p>
-            <img src="https://media.discordapp.net/attachments/1222905897848934450/1223333446823317645/image.png?ex=6619790e&is=6607040e&hm=166b48d48f336aa2e49aa7df9767d619cb57c048390327ac923ace39c18aeab2&=&format=webp&quality=lossless" alt="profile" width="100">
+            <img src="{{url('/assets/img/profile.png')}}" alt="profile" width="100">
         </div>
         <div class="bg-gradient-to-r from-abu-putih to-abu-putih-muda opacity-50 rounded-lg col-span-2 mt-5">
         <p class="text-left ml-2 text- text-army-gelap">Nama‎ ‎ ‎ ‎ :</p>
@@ -143,7 +143,7 @@
         </div>
         <div class="ml-10">
             <p class="font-bold text-xl text-army-gelap">Ketua RT 08</p>
-            <img src="https://media.discordapp.net/attachments/1222905897848934450/1223333446823317645/image.png?ex=6619790e&is=6607040e&hm=166b48d48f336aa2e49aa7df9767d619cb57c048390327ac923ace39c18aeab2&=&format=webp&quality=lossless" alt="profile" width="100">
+            <img src="{{url('/assets/img/profile.png')}}" alt="profile" width="100">
         </div>
         <div class="bg-gradient-to-r from-abu-putih to-abu-putih-muda opacity-50 rounded-lg col-span-2 mt-5">
         <p class="text-left ml-2 text- text-army-gelap">Nama‎ ‎ ‎ ‎ :</p>

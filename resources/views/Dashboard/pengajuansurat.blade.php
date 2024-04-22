@@ -8,13 +8,13 @@
   <div class="grid grid-cols-2 gap-4 item-center text-text text-center rounded-lg mx-56 bg-login2 px-20 py-20 ">
     <div class="">
         <a href="ajukansurat" class="mr-4 block cursor-pointer antialiased rounded-lg">
-          <img src="https://media.discordapp.net/attachments/1222905897848934450/1224410016199479436/image.png?ex=661d63b0&is=660aeeb0&hm=1246c273774e9cad6b585ada72941a045f8c6ea943e1427fa857c6807f542f0a&=&format=webp&quality=lossless"width="500" style="margin:auto">
+          <img src="{{url('/assets/img/ajukansurat.png')}}"width="500" style="margin:auto">
           <p class="font-bold text-army-gelap ">Ajukan Surat</p>
     </a>
     </div>
     <div class="">
         <a href="statussurat" class="mr-4 block cursor-pointer antialiased rounded-lg ">
-          <img src="https://media.discordapp.net/attachments/1222905897848934450/1224412084553650268/image.png?ex=661d659d&is=660af09d&hm=488ea44429fe89212edd7a8f70e822c62776e94ab0e918d9a2444933a726083a&=&format=webp&quality=lossless&width=550&height=298" width="500" style="margin:auto" >
+          <img src="{{url('/assets/img/statussurat.png')}}" width="500" style="margin:auto" >
           <p class="font-bold text-army-gelap ">Status Surat</p>
     </a>
     </div>
