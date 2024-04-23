@@ -99,20 +99,20 @@
             <a href="#" class="mr-4 block cursor-pointer antialiased relative">
                 <img src="{{url('/assets/img/fasum1.png')}}" width="400" style="margin:auto">
                 <p class="overlay-text text-abu-putih font-medium text-sub absolute bottom-0 left-0 right-0 bg-white bg-opacity-75 text-left p-4">Lorem ipsum dolor sit amet</p>
-            </a>
-        </div>
+              </a>
+          </div>
         <div class="flex flex-col justify-center items-center relative">
             <a href="#" class="mr-4 block cursor-pointer antialiased relative">
                 <img src="{{url('/assets/img/fasum2.png')}}" width="400" style="margin:auto">
                 <p class="overlay-text text-abu-putih font-medium text-sub absolute bottom-0 left-0 right-0 bg-white bg-opacity-75 text-left p-4">Lorem, ipsum dolor sit amet</p>
-            </a>
-        </div>
+              </a>
+          </div>
         <div class="flex flex-col justify-center items-center relative">
             <a href="#" class="mr-4 block cursor-pointer antialiased relative">
                 <img src="{{url('/assets/img/fasum3.png')}}" width="400" style="margin:auto">
                 <p class="overlay-text text-abu-putih font-medium text-sub absolute bottom-0 left-0 right-0 bg-white bg-opacity-75 text-left p-4">Lorem ipsum dolor sit amet</p>
-            </a>
-        </div>
+              </a>
+          </div>
       </div>
 
       <button

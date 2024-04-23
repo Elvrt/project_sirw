@@ -47,8 +47,7 @@ export default {
       bold: 700,
       medium: 500,
       normal: 400
+    }
 
     }
-  },
-  plugins: ['prettier-plugin-tailwindcss'],plugins: [require("daisyui")],
 }
