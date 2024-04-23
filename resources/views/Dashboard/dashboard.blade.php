@@ -1,7 +1,8 @@
 @extends('./layout/warga')
 
 @section('content')
-    <div class="container mx-auto px-40">
+<div class="flex justify-center items-center">
+    <div class=" container mx-auto px-40">
       <img src="{{url('/assets/img/background_dashboard.png')}}"
           alt="Background Image" class="absolute inset-0 w-full h-full object-cover" style="z-index: -1;">
       <main class="relative self-center mt-28 mb-20 w-full max-w-[1080px] max-md:my-10 max-md:max-w-full">
@@ -28,8 +29,10 @@
           </div>
       </main>
   </div>
+</div>
   <!-- BERITADANAGENDA -->
   <p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-80 mb-10">BERITA DAN INFORMASI</p>
+  <div class="flex justify-center items-center mt-10">
   <div class="bg-login2 w-automx-4 shadow-xl md:mx-10 mr-3 md:mr-32 ml-4 md:ml-32 p-1 rounded-lg">
       <p class="text-center text-army-gelap font-medium text-sub drop-shadow-md mb-10 mt-5 ">BERITA</p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-7 mx-auto md:px-20 content-center">
@@ -85,41 +88,42 @@
               class=" w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-10 mb-10">Selengkapnya</button>
       </a>
   </div>
+  </div>
   <!-- LAYANAN -->
   <p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-20 mb-10">LAYANAN</p>
+  <div class="flex justify-center items-center mt-10">
   <div class="bg-login2 w-automx-10 shadow-xl md:mx-10 mr-4 md:mr-32 ml-4 md:ml-32 p-5 rounded-lg">
       <p class="text-center text-army-gelap font-medium text-sub drop-shadow-md mb-10 mt-5">FASILITAS UMUM</p>
       <div class="h-140 grid grid-cols-1 md:grid-cols-3 gap-7 mx-auto md:px-40 content-center">
-          <div class="flex flex-col justify-center items-center">
-              <a href=" #" class="mr-4 block cursor-pointer antialiased ">
-                  <img src="{{url('/assets/img/fasum1.png')}}"
-                      width="400"style="margin:auto">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, quidem!</p>
-              </a>
-          </div>
-          <div class="flex flex-col justify-center items-center">
-              <a href=" #" class="mr-4 block cursor-pointer antialiased ">
-                  <img src="{{url('/assets/img/fasum2.png')}}"
-                      width="400"style="margin:auto">
-                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto, laboriosam!</p>
-              </a>
-          </div>
-          <div class="flex flex-col justify-center items-center">
-              <a href=" #" class="mr-4 block cursor-pointer antialiased ">
-                  <img src="{{url('/assets/img/fasum3.png')}}"
-                      width="400"style="margin:auto">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, suscipit?</p>
-              </a>
-          </div>
+        <div class="flex flex-col justify-center items-center relative">
+            <a href="#" class="mr-4 block cursor-pointer antialiased relative">
+                <img src="{{url('/assets/img/fasum1.png')}}" width="400" style="margin:auto">
+                <p class="overlay-text text-abu-putih font-medium text-sub absolute bottom-0 left-0 right-0 bg-white bg-opacity-75 text-left p-4">Lorem ipsum dolor sit amet</p>
+            </a>
+        </div>
+        <div class="flex flex-col justify-center items-center relative">
+            <a href="#" class="mr-4 block cursor-pointer antialiased relative">
+                <img src="{{url('/assets/img/fasum2.png')}}" width="400" style="margin:auto">
+                <p class="overlay-text text-abu-putih font-medium text-sub absolute bottom-0 left-0 right-0 bg-white bg-opacity-75 text-left p-4">Lorem, ipsum dolor sit amet</p>
+            </a>
+        </div>
+        <div class="flex flex-col justify-center items-center relative">
+            <a href="#" class="mr-4 block cursor-pointer antialiased relative">
+                <img src="{{url('/assets/img/fasum3.png')}}" width="400" style="margin:auto">
+                <p class="overlay-text text-abu-putih font-medium text-sub absolute bottom-0 left-0 right-0 bg-white bg-opacity-75 text-left p-4">Lorem ipsum dolor sit amet</p>
+            </a>
+        </div>
       </div>
 
       <button
           class=" w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-10 mb-6">Selengkapnya</button>
   </div>
   </div>
+</div>
 
 
   <!-- LAYANAN -->
+  <div class="flex justify-center items-center mt-10">
   <div class="bg-login2 bg-clip-content shadow-xl mr-32 ml-32 mb-32 mt-20 rounded-lg">
       <div class="h-140 grid grid-cols-1 md:grid-cols-4 gap-7 p-5 mx-auto md:px-80 content-center">
           <div class="items-center">
@@ -152,4 +156,5 @@
           </div>
       </div>
   </div>
+</div>
 @endsection

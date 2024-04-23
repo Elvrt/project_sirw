@@ -8,8 +8,8 @@
 </head>
 
 <body bgcolor="#FCFBF9">
-    <p class="text-center text-army-gelap font-bold text-header drop-shadow-md ">Form Tambah Data Warga</p>
-    <div class="bg-backgroundform md:mx-10 mr-3 md:mr-32 ml-4 md:ml-32 p-1 rounded-lg">
+    <p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-5 mb-5">Form Tambah Data Warga</p>
+    <div class="bg-backgroundform md:mx-10 mr-3 md:mr-32 ml-4 md:ml-32 p-5 rounded-lg">
         <p class="font-medium text-sub">Form Tambah Data Warga</p>
 
         <div class="px-3 py-2">
@@ -27,16 +27,14 @@
         <div class="px-3 py-2">
             <p class="font-medium">Kelamin</p>
             <div class="items">
-                <div class="flex items-center ps-4   rounded  ">
-                    <input id="bordered-checkbox-1" type="checkbox" value="" name="bordered-checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                    <label for="bordered-checkbox-1" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Laki - Laki</label>
-                    <div class="flex items-center ps-4  rounded dark:border-gray-700 ">
-                        <input checked id="bordered-checkbox-2" type="checkbox" value="" name="bordered-checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="bordered-checkbox-2" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Perempuan</label>
-                    </div>
+                <div class="flex items-center space-x-4 rounded">
+                    <!-- Radio button untuk Laki-laki -->
+                    <input id="gender-radio-male" type="radio" value="Laki-Laki" name="gender" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="gender-radio-male" class="text-sm font-medium text-gray-900 dark:text-gray-300">Laki - Laki</label>
+                    <!-- Radio button untuk Perempuan -->
+                    <input id="gender-radio-female" type="radio" value="Perempuan" name="gender" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="gender-radio-female" class="text-sm font-medium text-gray-900 dark:text-gray-300">Perempuan</label>
                 </div>
-
-
             </div>
         </div>
         <div class="px-3 py-2">
@@ -67,7 +65,7 @@
     </div>
 
     </div>
-
+</div>
     </div>
     <!-- FOOTER -->
     <footer class="bg-zinc-50 dark:bg-neutral-700 text-center lg:text-left">
