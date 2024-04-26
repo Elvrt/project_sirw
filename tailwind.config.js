@@ -47,12 +47,8 @@ export default {
       bold: 700,
       medium: 500,
       normal: 400
-    }
 
     }
-<<<<<<< HEAD
-=======
   },
   plugins: ['prettier-plugin-tailwindcss'],
->>>>>>> ATHA
 }
