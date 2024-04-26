@@ -65,7 +65,7 @@
   </div>
   <div class="bg-gradient-to-tr from-cream-muda to-hijau2 rounded-lg col-span-2">
     <div class="grid grid-cols-6 gap-4 mr-10 mb-5 mt-5">
-        <div class="ml-10">
+        <div class="ml-10 text-center">
             <p class="font-bold text-xl text-army-gelap">Ketua RT 01</p>
             <img src="{{url('/assets/img/profile.png')}}" alt="profile" width="100">
         </div>
@@ -75,7 +75,7 @@
                     <p class="text-left ml-2 text- text-army-gelap">Alamat  ‎ :</p>
                     <p class="text-left ml-2 text- text-army-gelap">No.Telp :</p>
         </div>
-        <div class="ml-10">
+        <div class="ml-10 text-center">
             <p class="font-bold text-xl text-army-gelap">Ketua RT 05</p>
             <img src="{{url('/assets/img/profile.png')}}" alt="profile" width="100">
         </div>
@@ -87,7 +87,7 @@
         </div>
     </div>
     <div class="grid grid-cols-6 gap-4 mr-10 mb-5 mt-5">
-        <div class="ml-10">
+        <div class="ml-10 text-center">
             <p class="font-bold text-xl text-army-gelap">Ketua RT 02</p>
             <img src="{{url('/assets/img/profile.png')}}" alt="profile" width="100">
         </div>
@@ -97,7 +97,7 @@
                     <p class="text-left ml-2 text- text-army-gelap">Alamat  ‎ :</p>
                     <p class="text-left ml-2 text- text-army-gelap">No.Telp :</p>
         </div>
-        <div class="ml-10">
+        <div class="ml-10 text-center">
             <p class="font-bold text-xl text-army-gelap">Ketua RT 06</p>
             <img src="{{url('/assets/img/profile.png')}}" alt="profile" width="100">
         </div>
@@ -109,7 +109,7 @@
         </div>
     </div>
     <div class="grid grid-cols-6 gap-4 mr-10 mb-5 mt-5">
-        <div class="ml-10">
+        <div class="ml-10 text-center">
             <p class="font-bold text-xl text-army-gelap">Ketua RT 03</p>
             <img src="{{url('/assets/img/profile.png')}}" alt="profile" width="100">
         </div>
@@ -119,7 +119,7 @@
                     <p class="text-left ml-2 text- text-army-gelap">Alamat  ‎ :</p>
                     <p class="text-left ml-2 text- text-army-gelap">No.Telp :</p>
         </div>
-        <div class="ml-10">
+        <div class="ml-10 text-center">
             <p class="font-bold text-xl text-army-gelap">Ketua RT 07</p>
             <img src="{{url('/assets/img/profile.png')}}" alt="profile" width="100">
         </div>
@@ -131,7 +131,7 @@
         </div>
     </div>
     <div class="grid grid-cols-6 gap-4 mr-10 mb-5 mt-5">
-        <div class="ml-10">
+        <div class="ml-10 text-center">
             <p class="font-bold text-xl text-army-gelap">Ketua RT 04</p>
             <img src="{{url('/assets/img/profile.png')}}" alt="profile" width="100">
         </div>
@@ -141,7 +141,7 @@
                     <p class="text-left ml-2 text- text-army-gelap">Alamat  ‎ :</p>
                     <p class="text-left ml-2 text- text-army-gelap">No.Telp :</p>
         </div>
-        <div class="ml-10">
+        <div class="ml-10 text-center">
             <p class="font-bold text-xl text-army-gelap">Ketua RT 08</p>
             <img src="{{url('/assets/img/profile.png')}}" alt="profile" width="100">
         </div>
