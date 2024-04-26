@@ -49,7 +49,7 @@ Route::get('/forgotpassword', function () {
     return view('login.LupaPass');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/', function () {
     return view('Dashboard.dashboard');
 });
 
@@ -101,4 +101,12 @@ Route::get('fasum', function () {
     return view('dashboard.fasilitasumum');
 });
 
+Route::get('berita', function () {
+    return view('dashboard.berita');
+});
+
+
+Route::get('agenda', function () {
+    return view('dashboard.agenda');
+});
 
