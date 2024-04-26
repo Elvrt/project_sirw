@@ -50,4 +50,9 @@ export default {
     }
 
     }
+<<<<<<< HEAD
+=======
+  },
+  plugins: ['prettier-plugin-tailwindcss'],
+>>>>>>> ATHA
 }
