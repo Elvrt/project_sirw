@@ -40,6 +40,7 @@ Route::resource('pengaduan', PengaduanController::class);
 Route::resource('persuratan', PersuratanController::class);
 Route::resource('user', UserController::class);
 
+// checkpoinr
 
 Route::get('/login', function () {
     return view('login.login');
