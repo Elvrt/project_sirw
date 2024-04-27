@@ -9,7 +9,7 @@
 
 <body class="bg-login">
     <div class="container">
-        <h1 style="color: #ff0000">ROLE WARGA</h1>
+        <h1 style="color: #ff0000">ROLE rt</h1>
         <form action="/logout" method="post">
             @csrf
             <button type="submit" class="btn btn-primary">Logout</button>
