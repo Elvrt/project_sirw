@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             StrukturRwSeeder::class,
             PengaduanSeeder::class,
             PersuratanSeeder::class,
+            
         ]);
     }
 }
