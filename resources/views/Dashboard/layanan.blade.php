@@ -11,7 +11,7 @@
         </figure>
         <div class="flex flex-col ml-30 w-[44%] max-md:ml-0 max-md:w-full">
           <p class="text-center text-army-gelap font-medium text-sub drop-shadow-md">PENGAJUAN SURAT</p>
-          <div class="flex relative flex-col grow px-2 mt-14 text-xl text-white ">
+          <div class="flex relative flex-col grow px-2 mt-14text-xl text-white ">
             <p class="max-md:max-w-full text-normal text-justify text-army-gelap ">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis velit excepturi incidunt obcaecati, asperiores at necessitatibus explicabo harum rerum maiores molestiae iste ea? Dicta natus quae, dolore perspiciatis accusantium tempora optio maxime quasi cupiditate eius repudiandae blanditiis libero.
             </p>

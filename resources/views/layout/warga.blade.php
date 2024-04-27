@@ -12,7 +12,7 @@
     <nav class="block w-full max-w-screen px-4 py-2 mx-auto text-white bg-abu-putih  shadow-md  bg-opacity-80 backdrop-blur-2xl backdrop-saturate-200 lg:px-8 lg:py-4">
         <div class="container flex flex-wrap items-center justify-between mx-auto text-blue-gray-900">
             <div><a href="#" class="mr-4 block cursor-pointer antialiased ">
-                    <img src="https://media.discordapp.net/attachments/1222905897848934450/1223143600188293180/image.png?ex=6618c83f&is=6606533f&hm=cab0f89b323bb3787adb4d760c00cc6813d8177267af06ac34416b8a20f35241&=&format=webp&quality=lossless" width="200">
+                    <img src="{{url('/assets/img/logo.png')}}" width="200">
                 </a>
             </div>
             <div class=" hidden lg:block">
@@ -38,7 +38,7 @@
                         </a>
                     </li>
                     <li class="flex items-center p-1 font-sans text-lg antialiased font-semibold leading-normal gap-x-2  text-army-gelap">
-                        <a href="login" class="flex items-center">
+                        <a href="/" class="flex items-center">
                             Login
                         </a>
                     </li>
@@ -73,7 +73,7 @@
     @yield('content')
 
     <!-- FOOTER -->
-    <footer class="bg-zinc-50 text-center dark:bg-neutral-700 lg:text-left">
+    <footer class="bg-zinc-50  text-center dark:bg-neutral-700 lg:text-left">
         <div class="bg-black/5 p-4 text-center text-surface dark:text-white">
             Copyright 2024 © :
             <a href="#">SiRW</a>
