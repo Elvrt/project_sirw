@@ -16,7 +16,7 @@ class WargaController extends Controller
     {
         $data = WargaModel::all();
 
-        return view('Warga.index', $data = ['data' => $data]);
+        return view('Penduduk.index', $data = ['data' => $data]);
     }
 
     /**
@@ -27,7 +27,7 @@ class WargaController extends Controller
         $rts = RtModel::all();
         $kks = KartuKeluargaModel::all();
 
-        return view('Warga.create', compact('rts', 'kks'));
+        return view('Penduduk.create', compact('rts', 'kks'));
     }
 
     /**
@@ -50,7 +50,7 @@ class WargaController extends Controller
             'status_hubungan' => $request->status_hubungan,
         ]);
 
-        return redirect('/warga')->with('success', 'Data berhasil ditambah');
+        return redirect('/penduduk')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -60,7 +60,7 @@ class WargaController extends Controller
     {
         $warga = WargaModel::find($id);
 
-        return view('Warga.show', $data = ['data' => $warga]);
+        return view('Penduduk.show', $data = ['data' => $warga]);
     }
 
     /**
@@ -72,7 +72,7 @@ class WargaController extends Controller
         $kks = KartuKeluargaModel::all();
         $warga = WargaModel::find($id);
 
-        return view('Warga.edit', $data = ['data' => $warga], compact('rts', 'kks'));
+        return view('Penduduk.edit', $data = ['data' => $warga], compact('rts', 'kks'));
     }
 
     /**
@@ -97,7 +97,7 @@ class WargaController extends Controller
             'status_hubungan' => $request->status_hubungan,
         ]);
 
-        return redirect('/warga')->with('success', 'Data berhasil diupdate');
+        return redirect('/penduduk')->with('success', 'Data berhasil diupdate');
     }
 
     /**
