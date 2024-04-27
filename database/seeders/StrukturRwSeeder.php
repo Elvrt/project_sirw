@@ -19,15 +19,15 @@ class StrukturRwSeeder extends Seeder
             'Ketua RT 01', 'Ketua RT 02', 'Ketua RT 03', 'Ketua RT 04', 'Ketua RT 05', 'Ketua RT 06', 'Ketua RT 07', 'Ketua RT 08',
             'Ketua RW', 'Wakil RW', 'Sekretaris RW', 'Bendahara RW',
         );
-        $id = array('1', '5', '9', '13', '17', '21', '25', '29', '3', '1', '4', '6',);
+        $id = array('1', '5', '9', '13', '17', '21', '25', '29', '3', '7', '4', '6',);
         $i = 1;
         foreach ($codes as $code) {
             DB::table('struktur_rw')->insert(
                 [
                     'id_struktur' => $i,
-                    'kode_struktur' => $code,
-                    'nama_struktur' => $name,
-                    'id_warga' => $id,
+                    'kode_struktur' => $codes[$i - 1],
+                    'nama_struktur' => $name[$i - 1],
+                    'id_warga' => $id[$i - 1],
                     'created_at' => now(),
                 ]
             );
