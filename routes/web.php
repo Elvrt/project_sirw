@@ -9,12 +9,12 @@ use App\Http\Controllers\KartuKeluargaController;
 use App\Http\Controllers\IuranController;
 use App\Http\Controllers\FasilitasUmumController;
 use App\Http\Controllers\WargaController;
-use App\Http\Controllers\StrukturRwController;
+use App\Http\Controllers\StrukturRWController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PersuratanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\AuthRwController;
+use App\Http\Controllers\AuthRWController;
 use App\Http\Controllers\AuthRtController;
 use App\Http\Controllers\AuthWargaController;
 use App\Http\Controllers\RedirectController;
@@ -38,7 +38,7 @@ use Illuminate\Support\Facades\Route;
 
 // Route::group(['middleware' => 'auth'], function () {
 //     Route::group(['middleware' => ['cek_login:1']], function () {
-//         Route::resource('rw', AuthRwController::class);
+//         Route::resource('RW', AuthRWController::class);
 //     });
 //     Route::group(['middleware' => ['cek_login:2']], function () {
 //         Route::resource('rt',AuthRtController::class);
@@ -55,16 +55,16 @@ Route::group(['middleware' => 'guest'], function() {
 
 });
 
-// untuk rw, rt, warga
+// untuk RW, rt, Warga
 Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4,5,6,7,8,9,10']], function() {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/redirect', [RedirectController::class, 'cek']);
 });
 
 
-// untuk rw
+// untuk RW
 Route::group(['middleware' => ['auth', 'checkrole:9']], function() {
-    Route::get('/rw', [AuthRwController::class, 'index']);
+    Route::get('/RW', [AuthRWController::class, 'index']);
 });
 
 // untuk rt
@@ -74,7 +74,7 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4,5,6,7,8']], function()
 
 // untuk pegawai
 Route::group(['middleware' => ['auth', 'checkrole:10']], function() {
-    Route::get('/warga', [AuthWargaController::class, 'index']);
+    Route::get('/Warga', [AuthWargaController::class, 'index']);
 
 });
 
@@ -86,14 +86,25 @@ Route::resource('layanan-darurat', LayananDaruratController::class);
 Route::resource('kartu-keluarga', KartuKeluargaController::class);
 Route::resource('iuran', IuranController::class);
 Route::resource('fasilitas-umum', FasilitasUmumController::class);
-Route::resource('penduduk', WargaController::class);
-Route::resource('struktur-rw', StrukturRwController::class);
+// Route::resource('penduduk', WargaController::class);
+Route::resource('struktur-RW', StrukturRWController::class);
 Route::resource('pengaduan', PengaduanController::class);
 Route::resource('persuratan', PersuratanController::class);
 Route::resource('user', UserController::class);
 
 // checkpoinr
 
+//Warga
+Route::group(['prefix' => 'RW'], function (){
+    Route::get('/Warga/', [WargaController::class, 'index'])->name('RW.Warga.index'); // Halaman awal user
+    Route::post('/Warga', [WargaController::class, 'list'])->name('RW.Warga.list'); // Halaman data user dalam bentuk json
+    Route::get('/Warga/create', [WargaController::class, 'create'])->name('RW.Warga.create'); // Halaman form tambah user
+    Route::post('/Warga/', [WargaController::class, 'store'])->name('RW.Warga.store'); // Menyimpan data user baru             
+    Route::get('/Warga/{id}', [WargaController::class, 'show'])->name('RW.Warga.show'); // Menampilkan detail user
+    Route::get('/Warga/{id}/edit', [WargaController::class, 'edit'])->name('RW.Warga.edit'); // Menampilkan halaman form edit user
+    Route::put('/Warga/{id}', [WargaController::class, 'update'])->name('RW.Warga.update'); // Menampilkan perubahan data user
+    Route::delete('/Warga/{id}', [WargaController::class, 'destroy'])->name('RW.Warga.destroy'); // Menghapus data user
+});
 
 Route::get('/forgotpassword', function () {
     return view('auth.LupaPass');
@@ -119,24 +130,24 @@ Route::get('pengajuansurat', function () {
     return view('Dashboard.pengajuansurat');
 });
 
-Route::get('daftarwargaRW', function () {
-    return view('RW.daftarwarga');
+Route::get('daftaRWargaRW', function () {
+    return view('RW.daftaRWarga');
 });
 
-Route::get('tambahwargaRW', function () {
-    return view('RW.tambahwarga');
+Route::get('tambahWargaRW', function () {
+    return view('RW.tambahWarga');
 });
 
 Route::get('ajukansurat', function () {
-    return view('warga.ajukansurat');
+    return view('Warga.ajukansurat');
 });
 
 Route::get('statussurat', function () {
-    return view('warga.statussurat');
+    return view('Warga.statussurat');
 });
 
 Route::get('statusIuran', function () {
-    return view('warga.statusIuran');
+    return view('Warga.statusIuran');
 });
 
 Route::get('layananDarurat', function () {
@@ -144,7 +155,7 @@ Route::get('layananDarurat', function () {
 });
 
 Route::get('pengaduan', function () {
-    return view('warga.pengaduan');
+    return view('Warga.pengaduan');
 });
 
 Route::get('fasum', function () {

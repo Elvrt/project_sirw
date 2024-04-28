@@ -6,6 +6,7 @@ use App\Models\RtModel;
 use App\Models\KartuKeluargaModel;
 use App\Models\WargaModel;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class WargaController extends Controller
 {
@@ -15,8 +16,57 @@ class WargaController extends Controller
     public function index()
     {
         $data = WargaModel::all();
-
-        return view('Penduduk.index', $data = ['data' => $data]);
+        $kartu_keluarga = KartuKeluargaModel::all();
+        $rt = RtModel::all();
+    
+        return view('RW.Warga.index', compact('data', 'rt'));
+    }
+    public function list(Request $request)
+    {
+        // Mulai dengan membangun kueri untuk mendapatkan data warga
+        $wargas = WargaModel::select(
+            'id_warga',
+            'id_kk',
+            'nik',
+            'nama_warga',
+            'jenis_kelamin',
+            'tempat_lahir',
+            'tanggal_lahir',
+            'alamat',
+            'nomor_telepon',
+            'agama',
+            'pekerjaan',
+            'penghasilan',
+            'status_hubungan'
+        )->with('rt.rt'); // Memuat relasi kartuKeluarga dan rt
+    
+        // Jika ada nomor KK yang diberikan di dalam permintaan, filter data warga berdasarkan KK tersebut
+        if ($request->has('id_rt')) {
+            $wargas->whereHas('rt', function ($query) use ($request) {
+                $query->where('id_rt', $request->id_rt);
+            });
+        }
+    
+        // Gunakan DataTables untuk membuat respons yang sesuai dengan format yang diharapkan
+        return DataTables::of($wargas)
+                ->addIndexColumn()
+                ->addColumn('rt', function ($warga) {
+                    return $warga->kartuKeluarga->rt->nomor_rt ?? '-';
+                })
+                ->addColumn('aksi', function ($warga) {
+                    $detailUrl = url('/RW/Warga/' . $warga->id_warga);
+                    $editUrl = url('/RW/Warga/' . $warga->id_warga . '/edit');
+                    $deleteUrl = url('/RW/Warga/' . $warga->id_warga);
+    
+                    $btn = '<a href="' . $detailUrl . '" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Detail</a> ';
+                    $btn .= '<a href="' . $editUrl . '" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-lg">Edit</a> ';
+                    $btn .= '<form class="inline-block" method="POST" action="' . $deleteUrl . '">'
+                            . csrf_field() . method_field('DELETE')
+                            . '<button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\')">Hapus</button></form>';
+                    return $btn;
+                })
+                ->rawColumns(['aksi'])
+                ->make(true);
     }
 
     /**
@@ -27,7 +77,7 @@ class WargaController extends Controller
         $rts = RtModel::all();
         $kks = KartuKeluargaModel::all();
 
-        return view('Penduduk.create', compact('rts', 'kks'));
+        return view('RW.Warga.create', compact('rts', 'kks'));
     }
 
     /**
@@ -50,7 +100,7 @@ class WargaController extends Controller
             'status_hubungan' => $request->status_hubungan,
         ]);
 
-        return redirect('/penduduk')->with('success', 'Data berhasil ditambah');
+        return redirect('/RW/Warga')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -60,7 +110,7 @@ class WargaController extends Controller
     {
         $warga = WargaModel::find($id);
 
-        return view('Penduduk.show', $data = ['data' => $warga]);
+        return view('RW.Warga.show', $data = ['data' => $warga]);
     }
 
     /**
@@ -72,7 +122,7 @@ class WargaController extends Controller
         $kks = KartuKeluargaModel::all();
         $warga = WargaModel::find($id);
 
-        return view('Penduduk.edit', $data = ['data' => $warga], compact('rts', 'kks'));
+        return view('RW.Warga.edit', $data = ['data' => $warga], compact('rts', 'kks'));
     }
 
     /**
@@ -97,7 +147,7 @@ class WargaController extends Controller
             'status_hubungan' => $request->status_hubungan,
         ]);
 
-        return redirect('/penduduk')->with('success', 'Data berhasil diupdate');
+        return redirect('RW/')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -108,9 +158,9 @@ class WargaController extends Controller
         try {
             WargaModel::destroy($id);
 
-            return redirect('/warga')->with('success', 'Data berhasil dihapus');
+            return redirect('/RW/')->with('success', 'Data berhasil dihapus');
         } catch (e) {
-            return redirect('/warga')->with('error', 'Data gagal dihapus');
+            return redirect('/RW/')->with('error', 'Data gagal dihapus');
         }
     }
 }
