@@ -95,15 +95,14 @@ Route::resource('user', UserController::class);
 // checkpoinr
 
 Route::group(['prefix' => 'RW/Warga'], function (){
-    // Warga
-    Route::get('/', [WargaController::class, 'index'])->name('RW.Warga.index'); // Halaman awal user
-    Route::post('/list', [WargaController::class, 'list'])->name('RW.Warga.list'); // Halaman data user dalam bentuk json
-    Route::get('/create', [WargaController::class, 'create'])->name('RW.Warga.create'); // Halaman form tambah user
-    Route::post('/Warga/', [WargaController::class, 'store'])->name('RW.Warga.store'); // Menyimpan data user baru
-    Route::get('/Warga/{id}', [WargaController::class, 'show'])->name('RW.Warga.show'); // Menampilkan detail user
-    Route::get('/Warga/{id}/edit', [WargaController::class, 'edit'])->name('RW.Warga.edit'); // Menampilkan halaman form edit user
-    Route::put('/Warga/{id}', [WargaController::class, 'update'])->name('RW.Warga.update'); // Menampilkan perubahan data user
-    Route::delete('/Warga/{id}', [WargaController::class, 'destroy'])->name('RW.Warga.destroy'); // Menghapus data user
+    Route::get('/', [WargaController::class, 'index']); // Halaman awal user
+    Route::post('/list', [WargaController::class, 'list']); // Halaman data user dalam bentuk json
+    Route::get('/create', [WargaController::class, 'create']); // Halaman form tambah user
+    Route::post('/', [WargaController::class, 'store'])->name('RW.Warga.store'); // Menyimpan data user baru             
+    Route::get('/{id}/show', [WargaController::class, 'show'])->name('RW.Warga.show'); // Menampilkan detail user
+    Route::get('/{id}/edit', [WargaController::class, 'edit'])->name('RW.Warga.edit'); // Menampilkan halaman form edit user
+    Route::put('/{id}', [WargaController::class, 'update'])->name('RW.Warga.update'); // Menampilkan perubahan data user
+    Route::delete('/{id}', [WargaController::class, 'destroy'])->name('RW.Warga.destroy'); // Menghapus data user
 });
 
 Route::get('/forgotpassword', function () {
