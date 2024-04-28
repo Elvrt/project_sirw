@@ -8,6 +8,6 @@ class AuthRwController extends Controller
 {
     public function index()
     {
-        return view('rw.index');
+        return view('RW.index');
     }
 }

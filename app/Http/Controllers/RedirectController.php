@@ -8,7 +8,7 @@ class RedirectController extends Controller
 {
     public function cek() {
         if (auth()->user()->id_role === 9) {
-            return redirect('/rw');
+            return redirect('/RW');
         } else if (
             auth()->user()->id_role === 1 ||
             auth()->user()->id_role === 2 ||
@@ -19,9 +19,9 @@ class RedirectController extends Controller
             auth()->user()->id_role === 7 ||
             auth()->user()->id_role === 8
         ) {
-            return redirect('/rt');
+            return redirect('/RT');
         } else {
-            return redirect('/warga');
+            return redirect('/Warga');
         }
     }
 }

@@ -69,7 +69,7 @@ Route::group(['middleware' => ['auth', 'checkrole:9']], function() {
 
 // untuk rt
 Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4,5,6,7,8']], function() {
-    Route::get('/rt', [AuthRtController::class, 'index']);
+    Route::get('/RT', [AuthRtController::class, 'index']);
 });
 
 // untuk pegawai
@@ -86,8 +86,8 @@ Route::resource('layanan-darurat', LayananDaruratController::class);
 Route::resource('kartu-keluarga', KartuKeluargaController::class);
 Route::resource('iuran', IuranController::class);
 Route::resource('fasilitas-umum', FasilitasUmumController::class);
-// Route::resource('penduduk', WargaController::class);
-Route::resource('struktur-RW', StrukturRWController::class);
+Route::resource('penduduk', WargaController::class);
+Route::resource('struktur-rw', StrukturRWController::class);
 Route::resource('pengaduan', PengaduanController::class);
 Route::resource('persuratan', PersuratanController::class);
 Route::resource('user', UserController::class);
@@ -95,11 +95,11 @@ Route::resource('user', UserController::class);
 // checkpoinr
 
 //Warga
-Route::group(['prefix' => 'RW'], function (){
-    Route::get('/Warga/', [WargaController::class, 'index'])->name('RW.Warga.index'); // Halaman awal user
-    Route::post('/Warga', [WargaController::class, 'list'])->name('RW.Warga.list'); // Halaman data user dalam bentuk json
-    Route::get('/Warga/create', [WargaController::class, 'create'])->name('RW.Warga.create'); // Halaman form tambah user
-    Route::post('/Warga/', [WargaController::class, 'store'])->name('RW.Warga.store'); // Menyimpan data user baru             
+Route::group(['prefix' => 'RW/Warga'], function (){
+    Route::get('/', [WargaController::class, 'index']); // Halaman awal user
+    Route::post('/list', [WargaController::class, 'list']); // Halaman data user dalam bentuk json
+    Route::get('/create', [WargaController::class, 'create']); // Halaman form tambah user
+    Route::post('/Warga/', [WargaController::class, 'store'])->name('RW.Warga.store'); // Menyimpan data user baru
     Route::get('/Warga/{id}', [WargaController::class, 'show'])->name('RW.Warga.show'); // Menampilkan detail user
     Route::get('/Warga/{id}/edit', [WargaController::class, 'edit'])->name('RW.Warga.edit'); // Menampilkan halaman form edit user
     Route::put('/Warga/{id}', [WargaController::class, 'update'])->name('RW.Warga.update'); // Menampilkan perubahan data user

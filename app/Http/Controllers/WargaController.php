@@ -15,12 +15,13 @@ class WargaController extends Controller
      */
     public function index()
     {
-        $data = WargaModel::all();
-        $kartu_keluarga = KartuKeluargaModel::all();
+        $warga = WargaModel::all();
+        $kartuKeluarga = KartuKeluargaModel::all();
         $rt = RtModel::all();
-    
-        return view('RW.Warga.index', compact('data', 'rt'));
+
+        return view('RW.Warga.index', ['warga' => $warga, 'kartuKeluarga' => $kartuKeluarga, 'rt' => $rt]);
     }
+
     public function list(Request $request)
     {
         // Mulai dengan membangun kueri untuk mendapatkan data warga
@@ -38,15 +39,15 @@ class WargaController extends Controller
             'pekerjaan',
             'penghasilan',
             'status_hubungan'
-        )->with('rt.rt'); // Memuat relasi kartuKeluarga dan rt
-    
+        )->with('kartuKeluarga.rt'); // Memuat relasi rt dari kartuKeluarga
+
         // Jika ada nomor KK yang diberikan di dalam permintaan, filter data warga berdasarkan KK tersebut
         if ($request->has('id_rt')) {
-            $wargas->whereHas('rt', function ($query) use ($request) {
+            $wargas->whereHas('kartuKeluarga.rt', function ($query) use ($request) {
                 $query->where('id_rt', $request->id_rt);
             });
         }
-    
+
         // Gunakan DataTables untuk membuat respons yang sesuai dengan format yang diharapkan
         return DataTables::of($wargas)
                 ->addIndexColumn()
@@ -57,10 +58,10 @@ class WargaController extends Controller
                     $detailUrl = url('/RW/Warga/' . $warga->id_warga);
                     $editUrl = url('/RW/Warga/' . $warga->id_warga . '/edit');
                     $deleteUrl = url('/RW/Warga/' . $warga->id_warga);
-    
-                    $btn = '<a href="' . $detailUrl . '" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Detail</a> ';
-                    $btn .= '<a href="' . $editUrl . '" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-lg">Edit</a> ';
-                    $btn .= '<form class="inline-block" method="POST" action="' . $deleteUrl . '">'
+
+                    $btn = '<a href="' . url('/RW/Warga/' . $warga->id_warga) . '" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Detail</a> ';
+                    $btn .= '<a href="' . url('/RW/Warga/' . $warga->id_warga . '/edit') . '" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-lg">Edit</a> ';
+                    $btn .= '<form class="inline-block" method="POST" action="' . url('/RW/Warga/' . $warga->id_warga) . '">'
                             . csrf_field() . method_field('DELETE')
                             . '<button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\')">Hapus</button></form>';
                     return $btn;

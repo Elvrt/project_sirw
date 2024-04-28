@@ -32,8 +32,9 @@ class WargaModel extends Model
     {
         return $this->belongsTo(KartuKeluargaModel::class, 'id_kk');
     }
+
     public function rt()
     {
-        return $this->belongsTo(KartuKeluargaModel::class, 'id_rt');
+        return $this->belongsTo(RtModel::class, 'id_rt');
     }
 }

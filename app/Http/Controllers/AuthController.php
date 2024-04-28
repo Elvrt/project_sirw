@@ -26,7 +26,7 @@ class AuthController extends Controller
 
             if (auth()->user()->id_role === 9) {
                 // jika user rw
-                return redirect()->intended('/rw');
+                return redirect()->intended('/RW');
             } else if (
                 auth()->user()->id_role === 1 ||
                 auth()->user()->id_role === 2 ||
@@ -38,10 +38,10 @@ class AuthController extends Controller
                 auth()->user()->id_role === 8
             ) {
                 // jika user rt
-                return redirect()->intended('/rt');
+                return redirect()->intended('/RT');
             } else {
                 // jika user warga
-                return redirect()->intended('/warga');
+                return redirect()->intended('/Warga');
             }
         }
 
