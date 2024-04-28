@@ -46,8 +46,14 @@ class AuthController extends Controller
         }
 
         // jika username atau password salah
-        // kirimkan session error
-        return back()->with('error', 'username atau password salah');
+        // kirimkan session error sesuai dengan jenis kesalahan
+        if (empty(User::where('username', $request->username)->first())) {
+            // jika username tidak ditemukan
+            return back()->with('error', 'Username tidak ditemukan');
+        } else {
+            // jika password salah
+            return back()->with('error', 'Password salah');
+        }
     }
 
     public function logout(Request $request) {

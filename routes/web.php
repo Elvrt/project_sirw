@@ -96,7 +96,7 @@ Route::resource('user', UserController::class);
 
 
 Route::get('/forgotpassword', function () {
-    return view('login.LupaPass');
+    return view('auth.LupaPass');
 });
 
 Route::get('/dashboard', function () {
