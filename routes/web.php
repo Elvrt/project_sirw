@@ -97,7 +97,7 @@ Route::resource('user', UserController::class);
 //Warga
 Route::group(['prefix' => 'RW'], function (){
     Route::get('/Warga/', [WargaController::class, 'index'])->name('RW.Warga.index'); // Halaman awal user
-    Route::post('/Warga', [WargaController::class, 'list'])->name('RW.Warga.list'); // Halaman data user dalam bentuk json
+    Route::post('/Warga/', [WargaController::class, 'list'])->name('RW.Warga.list'); // Halaman data user dalam bentuk json
     Route::get('/Warga/create', [WargaController::class, 'create'])->name('RW.Warga.create'); // Halaman form tambah user
     Route::post('/Warga/', [WargaController::class, 'store'])->name('RW.Warga.store'); // Menyimpan data user baru             
     Route::get('/Warga/{id}', [WargaController::class, 'show'])->name('RW.Warga.show'); // Menampilkan detail user
