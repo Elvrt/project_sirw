@@ -26,7 +26,7 @@ class AuthController extends Controller
 
             if (auth()->user()->id_role === 9) {
                 // jika user rw
-                return redirect()->intended('/rw');
+                return redirect()->intended('/RW');
             } else if (
                 auth()->user()->id_role === 1 ||
                 auth()->user()->id_role === 2 ||
@@ -38,16 +38,22 @@ class AuthController extends Controller
                 auth()->user()->id_role === 8
             ) {
                 // jika user rt
-                return redirect()->intended('/rt');
+                return redirect()->intended('/RT');
             } else {
                 // jika user warga
-                return redirect()->intended('/warga');
+                return redirect()->intended('/Warga');
             }
         }
 
         // jika username atau password salah
-        // kirimkan session error
-        return back()->with('error', 'username atau password salah');
+        // kirimkan session error sesuai dengan jenis kesalahan
+        if (empty(User::where('username', $request->username)->first())) {
+            // jika username tidak ditemukan
+            return back()->with('error', 'Username tidak ditemukan');
+        } else {
+            // jika password salah
+            return back()->with('error', 'Password salah');
+        }
     }
 
     public function logout(Request $request) {

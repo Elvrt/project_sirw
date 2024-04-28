@@ -33,7 +33,7 @@
                                                 <select class="form-control w-full" id="id_rt" name="id_rt" required>
                                                     <option value="">-  Semua -</option>
                                                     @foreach($rt as $item)
-                                                        <option value="{{ $item->id_rt }}">{{ $item->id_rt }}</option>
+                                                        <option value="{{ $item->id_rt }}">{{ $item->nomor_rt }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -116,10 +116,10 @@
                 { data: "pekerjaan", className: "", orderable: true, searchable: true },
                 { data: "status_hubungan", className: "", orderable: true, searchable: true },
                 { data: "no_telepon", className: "", orderable: true, searchable: true },
-                { 
-                    data: "aksi", 
-                    className: "", 
-                    orderable: false, 
+                {
+                    data: "aksi",
+                    className: "",
+                    orderable: false,
                     searchable: false,
                     render: function (data, type, row) {
                         return '<div class="flex gap-3">' +
@@ -135,7 +135,7 @@
                 }
             ]
         });
-        
+
         $('#id_rt').on('change', function() {
             dataWarga.ajax.reload();
         });
