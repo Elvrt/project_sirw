@@ -22,7 +22,7 @@
 
     <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 bg-army" aria-label="Sidebar">
         <div class="flex flex-col items-center justify-center mb-2 mx-auto">
-            <img src="https://cdn.discordapp.com/attachments/1222905897848934450/1225300377000218624/Logo.png?ex=6620a0e6&is=660e2be6&hm=d38abe22a2b39d0052fb86f0d31819d94c4178f61c81b673c31b30745ff4826c&" alt="Logo" class="h-22 w-auto mb-2 ml-10">
+            <img src="{{url('/assets/img/logoDashboard.png')}}" alt="Logo" class="h-22 w-auto mb-2 ml-10">
         </div>
         <div class="mb-4 border-b border-gray-300 text-putih"></div>
         <div class="text-white text-center font-medium text-putih m-5">Selamat Datang, RW05</div>
