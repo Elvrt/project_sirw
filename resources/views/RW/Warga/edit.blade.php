@@ -12,7 +12,7 @@
     <div class="bg-backgroundform md:mx-10 mr-3 md:mr-32 ml-4 md:ml-32 p-5 rounded-lg">
         <p class="font-medium text-sub">Edit Data Warga</p>
 
-        <form action="{{url('/warga/'.$data->id_warga)}}" method="POST">
+        <form action="{{url('/RW/Warga/'.$data->id_warga)}}" method="POST">
             @csrf
             @method('PUT')
             <div class="mb-4">

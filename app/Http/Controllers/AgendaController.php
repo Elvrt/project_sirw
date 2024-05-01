@@ -14,7 +14,7 @@ class AgendaController extends Controller
     {
         $data = AgendaModel::all();
 
-        return view('Agenda.index', $data = ['data' => $data]);
+        return view('RW.Agenda.index', $data = ['data' => $data]);
     }
 
     /**
@@ -22,7 +22,7 @@ class AgendaController extends Controller
      */
     public function create()
     {
-        return view('Agenda.create');
+        return view('RW.Agenda.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class AgendaController extends Controller
             'tanggal_agenda' => $request->tanggal_agenda,
         ]);
 
-        return redirect('/agenda')->with('success', 'Data berhasil ditambah');
+        return redirect('/RW/Agenda')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -47,7 +47,7 @@ class AgendaController extends Controller
     {
         $agenda = AgendaModel::find($id);
 
-        return view('Agenda.show', $data = ['data' => $agenda]);
+        return view('RW.Agenda.show', $data = ['data' => $agenda]);
     }
 
     /**
@@ -57,7 +57,7 @@ class AgendaController extends Controller
     {
         $agenda = AgendaModel::find($id);
 
-        return view('Agenda.edit', $data = ['data' => $agenda]);
+        return view('RW.Agenda.edit', $data = ['data' => $agenda]);
     }
 
     /**
@@ -74,7 +74,7 @@ class AgendaController extends Controller
             'tanggal_agenda' => $request->tanggal_agenda,
         ]);
 
-        return redirect('/agenda')->with('success', 'Data berhasil diupdate');
+        return redirect('/RW/Agenda')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -85,9 +85,9 @@ class AgendaController extends Controller
         try {
             AgendaModel::destroy($id);
 
-            return redirect('/agenda')->with('success', 'Data berhasil dihapus');
+            return redirect('/RW/Agenda')->with('success', 'Data berhasil dihapus');
         } catch (e) {
-            return redirect('/agenda')->with('error', 'Data gagal dihapus');
+            return redirect('RW/Agenda')->with('error', 'Data gagal dihapus');
         }
     }
 }

@@ -14,7 +14,7 @@ class LayananDaruratController extends Controller
     {
         $data = LayananDaruratModel::all();
 
-        return view('LayananDarurat.index', $data = ['data' => $data]);
+        return view('RW.LayananDarurat.index', $data = ['data' => $data]);
     }
 
     /**
@@ -22,7 +22,7 @@ class LayananDaruratController extends Controller
      */
     public function create()
     {
-        return view('LayananDarurat.create');
+        return view('RW.LayananDarurat.create');
     }
 
     /**
@@ -35,7 +35,7 @@ class LayananDaruratController extends Controller
             'nomor_layanan' => $request->nomor_layanan,
         ]);
 
-        return redirect('/layanan-darurat')->with('success', 'Data berhasil ditambah');
+        return redirect('/RW/layanan-darurat')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -45,7 +45,7 @@ class LayananDaruratController extends Controller
     {
         $layananDarurat = LayananDaruratModel::find($id);
 
-        return view('LayananDarurat.show', $data = ['data' => $layananDarurat]);
+        return view('RW.LayananDarurat.show', $data = ['data' => $layananDarurat]);
     }
 
     /**
@@ -55,7 +55,7 @@ class LayananDaruratController extends Controller
     {
         $layananDarurat = LayananDaruratModel::find($id);
 
-        return view('LayananDarurat.edit', $data = ['data' => $layananDarurat]);
+        return view('RW.LayananDarurat.edit', $data = ['data' => $layananDarurat]);
     }
 
     /**
@@ -70,7 +70,7 @@ class LayananDaruratController extends Controller
             'nomor_layanan' => $request->nomor_layanan,
         ]);
 
-        return redirect('/layanan-darurat')->with('success', 'Data berhasil diupdate');
+        return redirect('/RW/layanan-darurat')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -81,9 +81,9 @@ class LayananDaruratController extends Controller
         try {
             LayananDaruratModel::destroy($id);
 
-            return redirect('/layanan-darurat')->with('success', 'Data berhasil dihapus');
+            return redirect('/RW/layanan-darurat')->with('success', 'Data berhasil dihapus');
         } catch (e) {
-            return redirect('/layanan-darurat')->with('error', 'Data gagal dihapus');
+            return redirect('/RW/layanan-darurat')->with('error', 'Data gagal dihapus');
         }
     }
 }

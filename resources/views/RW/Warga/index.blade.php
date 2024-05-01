@@ -1,12 +1,16 @@
-@extends('./layout/rw')
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Warga</title>
-
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-
-<div class="flex justify-center items-center">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @extends('./layout/rw')
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Warga</title>
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"> --}}
+</head>
+<body>
+<div class="flex justify-center datas-center">
     <div class="p-4 sm:ml-64">
         <p class="text-army-gelap font-bold text-header drop-shadow-md container mb-10 mt-10 ml-4">Data Warga</p>
         <div class="bg-putih drop-shadow-md mx-4 px-10 p-4">
@@ -17,7 +21,7 @@
             </a>
             <p class="text-sub ml-4">Data</p>
         </div>
-        <div class="flex justify-center items-center">
+        <div class="flex justify-center datas-center">
             @section('content')
             <!-- TABLE -->
             <div class="bg-putih drop-shadow-md mx-2 mt-5">
@@ -32,8 +36,8 @@
                                             <div class="col-3">
                                                 <select class="form-control w-full" id="id_rt" name="id_rt" required>
                                                     <option value="">-  Semua -</option>
-                                                    @foreach($rt as $item)
-                                                        <option value="{{ $item->id_rt }}">{{ $item->nomor_rt }}</option>
+                                                    @foreach($rt as $data)
+                                                        <option value="{{ $data->id_rt }}">{{ $data->nomor_rt }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -55,90 +59,79 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-span-14 mt-4 p-10 sm:ml-68 drop-shadow-md text-center mr-9">
+
+                <div class="col-span-14 mt-4 p-10 sm:ml-68 drop-shadow-md text-center mr-9"> 
                     <!-- HEADER -->
-                    <table  class="table-auto w-full" id="table_warga">
-                        <thead>
-                            <tr>
-                                <th class="px-4 py-2">No.</th>
-                                <th class="px-4 py-2">RT</th>
-                                <th class="px-4 py-2">No. KK</th>
-                                <th class="px-4 py-2">NIK</th>
-                                <th class="px-4 py-2">Nama</th>
-                                <th class="px-4 py-2">Alamat</th>
-                                <th class="px-4 py-2">Jenis Kelamin</th>
-                                <th class="px-4 py-2">Tempat Lahir</th>
-                                <th class="px-4 py-2">Tanggal Lahir</th>
-                                <th class="px-4 py-2">Agama</th>
-                                <th class="px-4 py-2">Pekerjaan</th>
-                                <th class="px-4 py-2">Status Hubungan</th>
-                                <th class="px-4 py-2">no Telp.</th>
-                                <th class="px-4 py-2">Action</th>
-                            </tr>
-                        </thead>
-                    </table>
+                    <div class="table-responsive">
+                        <table id="table_warga" class="table-auto">
+                            <thead>
+                                <tr>
+                                    <th class="px-4 py-2">No.</th>
+                                    <th class="px-4 py-2">RT</th>
+                                    <th class="px-4 py-2">No. KK</th>
+                                    <th class="px-4 py-2">NIK</th>
+                                    <th class="px-4 py-2">Nama</th>
+                                    <th class="px-4 py-2">Alamat</th>
+                                    <th class="px-4 py-2">Jenis Kelamin</th>
+                                    <th class="px-4 py-2">Tempat Lahir</th>
+                                    <th class="px-4 py-2">Tanggal Lahir</th>
+                                    <th class="px-4 py-2">Agama</th>
+                                    <th class="px-4 py-2">Pekerjaan</th>
+                                    <th class="px-4 py-2">Status Hubungan</th>
+                                    <th class="px-4 py-2">No. Telp</th>
+                                    <th class="px-4 py-2">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($warga as $data)
+                                    <tr>
+                                        <td class="px-4 py-2">{{ $loop->iteration }}</td>
+                                        <td class="px-4 py-2">{{ $data->kartuKeluarga->rt->nomor_rt }}</td>
+                                        <td class="px-4 py-2">{{ $data->kartuKeluarga->no_kk }}</td>
+                                        <td class="px-4 py-2">{{ $data->nik }}</td>
+                                        <td class="px-4 py-2">{{ $data->nama_warga }}</td>
+                                        <td class="px-4 py-2">{{ $data->alamat }}</td>
+                                        <td class="px-4 py-2">{{ $data->jenis_kelamin }}</td>
+                                        <td class="px-4 py-2">{{ $data->tempat_lahir }}</td>
+                                        <td class="px-4 py-2">{{ $data->tanggal_lahir }}</td>
+                                        <td class="px-4 py-2">{{ $data->agama }}</td>
+                                        <td class="px-4 py-2">{{ $data->pekerjaan }}</td>
+                                        <td class="px-4 py-2">{{ $data->status_hubungan}}</td>
+                                        <td class="px-4 py-2">{{ $data->nomor_telepon }}</td>
+                                        <td class="px-4 py-2">
+                                            <div class="flex gap-3">
+                                                <a href="/RW/Warga/{{ $data->id_warga }}/edit" class="bg-kuning hover:bg-kuning-gelap text-putih font-medium py-2 px-4 rounded-lg">Edit</a>
+                                                <a href="#" data-toggle="modal" data-target="#ModalShow{{ $data->id_warga }}" class="detail bg-abu-tua hover:bg-merah-gelap text-putih font-medium py-2 px-4 rounded-lg">Detail</a>
+                                                <form action="{{ url('/Warga/' . $data->id_warga) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="bg-merah hover:bg-merah-gelap text-putih font-medium py-2 px-4 rounded-lg" onclick="return confirm('Apakah anda ingin menghapus data ini ?')">Delete</button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div>  
 </div>
 </div>
-@endsection
-
-@push('js')
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-K2ycQBY9RVuW3VhR5CtIikU0PnB5NBVqgYwe5RfwG1g=" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-
 <script>
     $(document).ready(function() {
-        var dataWarga = $('#table_warga').DataTable({
-            serverSide: true,
-            searching: true,
-            ajax: {
-                "url": "{{ url('Warga/list') }}",
-                "dataType": "json",
-                "type": "POST",
-                "data": function (d) {
-                    d.id_rt = $('#id_rt').val();
-                }
-            },
-            columns: [
-                { data: "DT_RowIndex", className: "text-center", orderable: false, searchable: false },
-                { data: "kartuKeluarga.rt.nomor_rt", className: "", orderable: true, searchable: true },
-                { data: "kartuKeluarga.no_kk", className: "", orderable: true, searchable: true },
-                { data: "nik", className: "", orderable: false, searchable: false },
-                { data: "nama_warga", className: "", orderable: true, searchable: true },
-                { data: "alamat", className: "", orderable: true, searchable: true },
-                { data: "jenis_kelamin", className: "", orderable: true, searchable: true },
-                { data: "tempat_lahir", className: "", orderable: true, searchable: true },
-                { data: "tanggal_lahir", className: "", orderable: true, searchable: true },
-                { data: "agama", className: "", orderable: true, searchable: true },
-                { data: "pekerjaan", className: "", orderable: true, searchable: true },
-                { data: "status_hubungan", className: "", orderable: true, searchable: true },
-                { data: "no_telepon", className: "", orderable: true, searchable: true },
-                {
-                    data: "aksi",
-                    className: "",
-                    orderable: false,
-                    searchable: false,
-                    render: function (data, type, row) {
-                        return '<div class="flex gap-3">' +
-                            '<a href="/warga/' + row.id_warga + '/edit" class="bg-kuning hover:bg-kuning-gelap text-putih font-medium py-2 px-4 rounded-lg">Edit</a>' +
-                            '<a href="/warga/' + row.id_warga + '" class="bg-abu-tua hover:bg-merah-gelap text-putih font-medium py-2 px-4 rounded-lg">Detail</a>' +
-                            '<form action="{{ url('warga') }}/' + row.id_warga + '" method="POST">' +
-                            '@csrf' +
-                            '@method('DELETE')' +
-                            '<button type="submit" class="bg-merah hover:bg-merah-gelap text-putih font-medium py-2 px-4 rounded-lg" onclick="return confirm(' + "'Apakah anda ingin menghapus data ini ?'" +')">Delete</button>' +
-                            '</form>' +
-                            '</div>';
-                    }
-                }
-            ]
-        });
-
-        $('#id_rt').on('change', function() {
-            dataWarga.ajax.reload();
-        });
+        $('#table_warga').DataTable();
     });
-</script>
-@endpush
+</script> --}}
+
+
+</body>
+</html>
+@include('RW.Warga.show')
+
+
+@endsection

@@ -14,7 +14,7 @@ class BeritaController extends Controller
     {
         $data = BeritaModel::all();
 
-        return view('Berita.index', $data = ['data' => $data]);
+        return view('RW.Berita.index', $data = ['data' => $data]);
     }
 
     /**
@@ -22,7 +22,7 @@ class BeritaController extends Controller
      */
     public function create()
     {
-        return view('Berita.create');
+        return view('RW.Berita.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class BeritaController extends Controller
             'tanggal_berita' => $request->tanggal_berita,
         ]);
 
-        return redirect('/berita')->with('success', 'Data berhasil ditambah');
+        return redirect('/RW/Berita')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -47,7 +47,7 @@ class BeritaController extends Controller
     {
         $berita = BeritaModel::find($id);
 
-        return view('Berita.show', $data = ['data' => $berita]);
+        return view('RW.Berita.show', $data = ['data' => $berita]);
     }
 
     /**
@@ -57,7 +57,7 @@ class BeritaController extends Controller
     {
         $berita = BeritaModel::find($id);
 
-        return view('Berita.edit', $data = ['data' => $berita]);
+        return view('RW.Berita.edit', $data = ['data' => $berita]);
     }
 
     /**
@@ -74,7 +74,7 @@ class BeritaController extends Controller
             'tanggal_berita' => $request->tanggal_berita,
         ]);
 
-        return redirect('/berita')->with('success', 'Data berhasil diupdate');
+        return redirect('/RW/Berita')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -85,9 +85,9 @@ class BeritaController extends Controller
         try {
             BeritaModel::destroy($id);
 
-            return redirect('/berita')->with('success', 'Data berhasil dihapus');
+            return redirect('/RW/Berita')->with('success', 'Data berhasil dihapus');
         } catch (e) {
-            return redirect('/berita')->with('error', 'Data gagal dihapus');
+            return redirect('/RW/Berita')->with('error', 'Data gagal dihapus');
         }
     }
 }

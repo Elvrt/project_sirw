@@ -12,7 +12,7 @@
     <div class="bg-backgroundform md:mx-10 mr-3 md:mr-32 ml-4 md:ml-32 p-5 rounded-lg">
         <p class="font-medium text-sub">Form Tambah Data Warga</p>
 
-        <form action="/warga" method="POST">
+        <form action="/RW/Warga/" method="POST">
             @csrf
             @method('POST')
             <div class="mb-4">

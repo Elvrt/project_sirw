@@ -40,7 +40,8 @@ export default {
         'gray-50' : '#F9FAFB',
         'red-700' : '#B91C1C',
         'red-600' : '#DC2626',
-        'red-500' : '#EF4444'
+        'red-500' : '#EF4444',
+        'abu-army': '#EEEDEB'
     },
     fontFamily: {
 

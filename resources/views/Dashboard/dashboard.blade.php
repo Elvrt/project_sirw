@@ -1,7 +1,6 @@
 @extends('./layout/warga')
 
 @section('content')
-<<<<<<< HEAD
 <div class="flex justify-center items-center">
     <div class=" container mx-auto px-40">
       <img src="{{url('/assets/img/background_dashboard.png')}}"
@@ -314,4 +313,3 @@
         </div>
     </div>
 @endsection
->>>>>>> main
