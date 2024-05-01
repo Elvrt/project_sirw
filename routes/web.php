@@ -50,8 +50,8 @@ use Illuminate\Support\Facades\Route;
 
 //  jika user belum login
 Route::group(['middleware' => 'guest'], function() {
-    Route::get('/', [AuthController::class, 'login'])->name('login');
-    Route::post('/', [AuthController::class, 'dologin']);
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/login', [AuthController::class, 'dologin']);
 
 });
 
@@ -86,7 +86,7 @@ Route::resource('layanan-darurat', LayananDaruratController::class);
 Route::resource('kartu-keluarga', KartuKeluargaController::class);
 Route::resource('iuran', IuranController::class);
 Route::resource('fasilitas-umum', FasilitasUmumController::class);
-Route::resource('penduduk', WargaController::class);
+// Route::resource('penduduk', WargaController::class);
 Route::resource('struktur-rw', StrukturRWController::class);
 Route::resource('pengaduan', PengaduanController::class);
 Route::resource('persuratan', PersuratanController::class);
@@ -94,7 +94,6 @@ Route::resource('user', UserController::class);
 
 // checkpoinr
 
-//Warga
 Route::group(['prefix' => 'RW/Warga'], function (){
     Route::get('/', [WargaController::class, 'index']); // Halaman awal user
     Route::post('/list', [WargaController::class, 'list']); // Halaman data user dalam bentuk json
@@ -205,7 +204,7 @@ Route::get('/forgotpassword', function () {
     return view('auth.LupaPass');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/', function () {
     return view('Dashboard.dashboard');
 });
 
