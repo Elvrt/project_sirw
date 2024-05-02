@@ -15,7 +15,7 @@ class PersuratanController extends Controller
     {
         $data = PersuratanModel::all();
 
-        return view('Persuratan.index', $data = ['data' => $data]);
+        return view('RW.Persuratan.index', $data = ['data' => $data]);
     }
 
     /**
@@ -25,7 +25,7 @@ class PersuratanController extends Controller
     {
         $niks = WargaModel::all();
 
-        return view('Persuratan.create', compact('niks'));
+        return view('RW.Persuratan.create', compact('niks'));
     }
 
     /**
@@ -41,7 +41,7 @@ class PersuratanController extends Controller
             'tanggal_persuratan' => $request->tanggal_persuratan,
         ]);
 
-        return redirect('/persuratan')->with('success', 'Data berhasil ditambah');
+        return redirect('/RW/Persuratan')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -51,7 +51,7 @@ class PersuratanController extends Controller
     {
         $persuratan = PersuratanModel::find($id);
 
-        return view('Persuratan.show', $data = ['data' => $persuratan]);
+        return view('RW.Persuratan.show', $data = ['data' => $persuratan]);
     }
 
     /**
@@ -62,7 +62,7 @@ class PersuratanController extends Controller
         $niks = WargaModel::all();
         $persuratan = PersuratanModel::find($id);
 
-        return view('Persuratan.edit', $data = ['data' => $persuratan], compact('niks'));
+        return view('RW.Persuratan.edit', $data = ['data' => $persuratan], compact('niks'));
     }
 
     /**
@@ -80,7 +80,7 @@ class PersuratanController extends Controller
             'tanggal_persuratan' => $request->tanggal_persuratan,
         ]);
 
-        return redirect('/persuratan')->with('success', 'Data berhasil diupdate');
+        return redirect('/RW/Persuratan')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -91,9 +91,9 @@ class PersuratanController extends Controller
         try {
             PersuratanModel::destroy($id);
 
-            return redirect('/persuratan')->with('success', 'Data berhasil dihapus');
+            return redirect('/RW/Persuratan')->with('success', 'Data berhasil dihapus');
         } catch (e) {
-            return redirect('/persuratan')->with('error', 'Data gagal dihapus');
+            return redirect('/RW/Persuratan')->with('error', 'Data gagal dihapus');
         }
     }
 }

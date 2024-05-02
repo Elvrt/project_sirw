@@ -15,7 +15,7 @@ class FasilitasUmumController extends Controller
     {
         $data = FasilitasUmumModel::all();
 
-        return view('FasilitasUmum.index', $data = ['data' => $data]);
+        return view('RW.FasilitasUmum.index', $data = ['data' => $data]);
     }
 
     /**
@@ -25,7 +25,7 @@ class FasilitasUmumController extends Controller
     {
         $rts = RtModel::all();
 
-        return view('FasilitasUmum.create', compact('rts'));
+        return view('RW.FasilitasUmum.create', compact('rts'));
     }
 
     /**
@@ -41,7 +41,7 @@ class FasilitasUmumController extends Controller
             'id_rt' => $request->id_rt,
         ]);
 
-        return redirect('/fasilitas-umum')->with('success', 'Data berhasil ditambah');
+        return redirect('/RW/fasilitas-umum')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -51,7 +51,7 @@ class FasilitasUmumController extends Controller
     {
         $fasilitasUmum = FasilitasUmumModel::find($id);
 
-        return view('FasilitasUmum.show', $data = ['data' => $fasilitasUmum]);
+        return view('RW.FasilitasUmum.show', $data = ['data' => $fasilitasUmum]);
     }
 
     /**
@@ -62,7 +62,7 @@ class FasilitasUmumController extends Controller
         $rts = RtModel::all();
         $fasilitasUmum = FasilitasUmumModel::find($id);
 
-        return view('FasilitasUmum.edit', $data = ['data' => $fasilitasUmum], compact('rts'));
+        return view('RW.FasilitasUmum.edit', $data = ['data' => $fasilitasUmum], compact('rts'));
     }
 
     /**
@@ -80,7 +80,7 @@ class FasilitasUmumController extends Controller
             'id_rt' => $request->id_rt,
         ]);
 
-        return redirect('/fasilitas-umum')->with('success', 'Data berhasil diupdate');
+        return redirect('/RW/fasilitas-umum')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -91,9 +91,9 @@ class FasilitasUmumController extends Controller
         try {
             FasilitasUmumModel::destroy($id);
 
-            return redirect('/fasilitas-umum')->with('success', 'Data berhasil dihapus');
+            return redirect('/RW/fasilitas-umum')->with('success', 'Data berhasil dihapus');
         } catch (e) {
-            return redirect('/fasilitas-umum')->with('error', 'Data gagal dihapus');
+            return redirect('/RW/fasilitas-umum')->with('error', 'Data gagal dihapus');
         }
     }
 }

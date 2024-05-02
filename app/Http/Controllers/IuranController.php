@@ -16,7 +16,7 @@ class IuranController extends Controller
     {
         $data = IuranModel::all();
 
-        return view('Iuran.index', $data = ['data' => $data]);
+        return view('RW.Iuran.index', $data = ['data' => $data]);
     }
 
     /**
@@ -27,7 +27,7 @@ class IuranController extends Controller
         $rts = RtModel::all();
         $kks = KartuKeluargaModel::all();
 
-        return view('Iuran.create', compact('rts', 'kks'));
+        return view('RW.Iuran.create', compact('rts', 'kks'));
     }
 
     /**
@@ -42,7 +42,7 @@ class IuranController extends Controller
             'tanggal_iuran' => $request->tanggal_iuran,
         ]);
 
-        return redirect('/iuran')->with('success', 'Data berhasil ditambah');
+        return redirect('/RW/Iuran')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -52,7 +52,7 @@ class IuranController extends Controller
     {
         $iuran = IuranModel::find($id);
 
-        return view('Iuran.show', $data = ['data' => $iuran]);
+        return view('RW.Iuran.show', $data = ['data' => $iuran]);
     }
 
     /**
@@ -64,7 +64,7 @@ class IuranController extends Controller
         $kks = KartuKeluargaModel::all();
         $iuran = IuranModel::find($id);
 
-        return view('Iuran.edit', $data = ['data' => $iuran], compact('rts', 'kks'));
+        return view('RW.Iuran.edit', $data = ['data' => $iuran], compact('rts', 'kks'));
     }
 
     /**
@@ -81,7 +81,7 @@ class IuranController extends Controller
             'tanggal_iuran' => $request->tanggal_iuran,
         ]);
 
-        return redirect('/iuran')->with('success', 'Data berhasil diupdate');
+        return redirect('/RW/Iuran')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -92,9 +92,9 @@ class IuranController extends Controller
         try {
             IuranModel::destroy($id);
 
-            return redirect('/iuran')->with('success', 'Data berhasil dihapus');
+            return redirect('/RW/Iuran')->with('success', 'Data berhasil dihapus');
         } catch (e) {
-            return redirect('/iuran')->with('error', 'Data gagal dihapus');
+            return redirect('/RW/Iuran')->with('error', 'Data gagal dihapus');
         }
     }
 }

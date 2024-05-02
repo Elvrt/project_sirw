@@ -15,7 +15,7 @@ class PengaduanController extends Controller
     {
         $data = PengaduanModel::all();
 
-        return view('Pengaduan.index', $data = ['data' => $data]);
+        return view('RW.Pengaduan.index', $data = ['data' => $data]);
     }
 
     /**
@@ -25,7 +25,7 @@ class PengaduanController extends Controller
     {
         $niks = WargaModel::all();
 
-        return view('Pengaduan.create', compact('niks'));
+        return view('RW.Pengaduan.create', compact('niks'));
     }
 
     /**
@@ -41,7 +41,7 @@ class PengaduanController extends Controller
             'tanggal_pengaduan' => $request->tanggal_pengaduan,
         ]);
 
-        return redirect('/pengaduan')->with('success', 'Data berhasil ditambah');
+        return redirect('RW/Pengaduan')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -51,7 +51,7 @@ class PengaduanController extends Controller
     {
         $pengaduan = PengaduanModel::find($id);
 
-        return view('Pengaduan.show', $data = ['data' => $pengaduan]);
+        return view('RW.Pengaduan.show', $data = ['data' => $pengaduan]);
     }
 
     /**
@@ -62,7 +62,7 @@ class PengaduanController extends Controller
         $niks = WargaModel::all();
         $pengaduan = PengaduanModel::find($id);
 
-        return view('Pengaduan.edit', $data = ['data' => $pengaduan], compact('niks'));
+        return view('RW.Pengaduan.edit', $data = ['data' => $pengaduan], compact('niks'));
     }
 
     /**
@@ -80,7 +80,7 @@ class PengaduanController extends Controller
             'tanggal_pengaduan' => $request->tanggal_pengaduan,
         ]);
 
-        return redirect('/pengaduan')->with('success', 'Data berhasil diupdate');
+        return redirect('RW/Pengaduan')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -91,9 +91,9 @@ class PengaduanController extends Controller
         try {
             PengaduanModel::destroy($id);
 
-            return redirect('/pengaduan')->with('success', 'Data berhasil dihapus');
+            return redirect('RW/Pengaduan')->with('success', 'Data berhasil dihapus');
         } catch (e) {
-            return redirect('/pengaduan')->with('error', 'Data gagal dihapus');
+            return redirect('RW/Pengaduan')->with('error', 'Data gagal dihapus');
         }
     }
 }

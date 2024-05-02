@@ -46,12 +46,12 @@ class User extends Authenticatable
      */
 
 
-    public function warga(): BelongsTo
+    public function warga()
     {
         return $this->belongsTo(WargaModel::class, 'id_warga');
     }
 
-    public function Role(): BelongsTo
+    public function Role()
     {
         return $this->belongsTo(RoleModel::class, 'id_role');
     }

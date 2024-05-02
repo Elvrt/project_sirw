@@ -8,6 +8,6 @@ class AuthWargaController extends Controller
 {
     public function index()
     {
-        return view('warga.index');
+        return view('Warga.index');
     }
 }
