@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    @extends('./layout/rw')
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Warga</title>
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"> --}}
-</head>
-<body>
-<div class="flex justify-center datas-center">
+@extends('./layout/rw')
+@section('content')
+<div class="flex justify-center content-center">
     <div class="p-4 sm:ml-64">
         <p class="text-army-gelap font-bold text-header drop-shadow-md container mb-10 mt-10 ml-4">Data Warga</p>
         <div class="bg-putih drop-shadow-md mx-4 px-10 p-4">
@@ -22,7 +12,6 @@
             <p class="text-sub ml-4">Data</p>
         </div>
         <div class="flex justify-center datas-center">
-            @section('content')
             <!-- TABLE -->
             <div class="bg-putih drop-shadow-md mx-2 mt-5">
                 <div class="card-body pl-10 pt-5">
@@ -128,9 +117,6 @@
     });
 </script> --}}
 
-
-</body>
-</html>
 @include('RW.Warga.show')
 
 
