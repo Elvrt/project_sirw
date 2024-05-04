@@ -33,6 +33,14 @@ class PengaduanController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'id_warga' => 'required',
+            'judul_pengaduan' => 'required|max:50',
+            'deskripsi_pengaduan' => 'required',
+            'status_pengaduan' => 'required',
+            'tanggal_pengaduan' => 'required',
+        ]);
+
         PengaduanModel::create([
             'id_warga' => $request->id_warga,
             'judul_pengaduan' => $request->judul_pengaduan,
@@ -70,10 +78,16 @@ class PengaduanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = PengaduanModel::find($id);
+        $request->validate([
+            'id_warga' => 'required',
+            'judul_pengaduan' => 'required|max:50',
+            'deskripsi_pengaduan' => 'required',
+            'status_pengaduan' => 'required',
+            'tanggal_pengaduan' => 'required',
+        ]);
 
-        $data->update([
-            // 'id_warga' => $request->id_warga,
+        PengaduanModel::find($id)->update([
+            'id_warga' => $request->id_warga,
             'judul_pengaduan' => $request->judul_pengaduan,
             'deskripsi_pengaduan' => $request->deskripsi_pengaduan,
             'status_pengaduan' => $request->status_pengaduan,
@@ -88,12 +102,17 @@ class PengaduanController extends Controller
      */
     public function destroy(string $id)
     {
+        $check = PengaduanModel::find($id);
+        if (!$check) {
+            return redirect('/RW/Pengaduan')->with('error', 'Data tidak ditemukan');
+        }
+
         try {
             PengaduanModel::destroy($id);
 
-            return redirect('RW/Pengaduan')->with('success', 'Data berhasil dihapus');
-        } catch (e) {
-            return redirect('RW/Pengaduan')->with('error', 'Data gagal dihapus');
+            return redirect('/RW/Pengaduan')->with('success', 'Data berhasil dihapus');
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect('/RW/Pengaduan')->with('error', 'Data gagal dihapus');
         }
     }
 }

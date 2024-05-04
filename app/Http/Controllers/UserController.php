@@ -37,6 +37,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'id_role' => 'required',
+            'id_warga' => 'required|unique:user,id_warga',
+            'username' => 'required|max:50|unique:user,username',
+            'password' => 'required',
+        ]);
+
         User::create([
             'id_role' => $request->id_role,
             'id_warga' => $request->id_warga,
@@ -75,9 +82,14 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = User::find($id);
+        $request->validate([
+            'id_role' => 'required',
+            'id_warga' => 'required|unique:user,id_warga,'.$id.',id_user',
+            'username' => 'required|max:50|unique:user,username,'.$id.',id_user',
+            'password' => 'required',
+        ]);
 
-        $data->update([
+        User::find($id)->update([
             'id_role' => $request->id_role,
             'id_warga' => $request->id_warga,
             'username' => $request->username,
@@ -92,11 +104,16 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
+        $check = User::find($id);
+        if (!$check) {
+            return redirect('/user')->with('error', 'Data tidak ditemukan');
+        }
+
         try {
             User::destroy($id);
 
             return redirect('/user')->with('success', 'Data berhasil dihapus');
-        } catch (e) {
+        } catch (\Illuminate\Database\QueryException $e) {
             return redirect('/user')->with('error', 'Data gagal dihapus');
         }
     }

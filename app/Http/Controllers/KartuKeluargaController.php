@@ -33,6 +33,11 @@ class KartuKeluargaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'id_rt' => 'required',
+            'no_kk' => 'required|max:16|unique:kartu_keluarga,no_kk',
+        ]);
+
         KartuKeluargaModel::create([
             'id_rt' => $request->id_rt,
             'no_kk' => $request->no_kk,
@@ -67,9 +72,12 @@ class KartuKeluargaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = KartuKeluargaModel::find($id);
+        $request->validate([
+            'id_rt' => 'required',
+            'no_kk' => 'required|max:16|unique:kartu_keluarga,no_kk,'.$id.',id_kk',
+        ]);
 
-        $data->update([
+        KartuKeluargaModel::find($id)->update([
             'id_rt' => $request->id_rt,
             'no_kk' => $request->no_kk,
         ]);
@@ -82,11 +90,16 @@ class KartuKeluargaController extends Controller
      */
     public function destroy(string $id)
     {
+        $check = KartuKeluargaModel::find($id);
+        if (!$check) {
+            return redirect('/kartu-keluarga')->with('error', 'Data tidak ditemukan');
+        }
+
         try {
             KartuKeluargaModel::destroy($id);
 
             return redirect('/kartu-keluarga')->with('success', 'Data berhasil dihapus');
-        } catch (e) {
+        } catch (\Illuminate\Database\QueryException $e) {
             return redirect('/kartu-keluarga')->with('error', 'Data gagal dihapus');
         }
     }

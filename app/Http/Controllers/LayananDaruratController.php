@@ -30,6 +30,11 @@ class LayananDaruratController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nama_layanan' => 'required|max:50',
+            'nomor_layanan' => 'required|max:15',
+        ]);
+
         LayananDaruratModel::create([
             'nama_layanan' => $request->nama_layanan,
             'nomor_layanan' => $request->nomor_layanan,
@@ -63,9 +68,12 @@ class LayananDaruratController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = LayananDaruratModel::find($id);
+        $request->validate([
+            'nama_layanan' => 'required|max:50',
+            'nomor_layanan' => 'required|max:15',
+        ]);
 
-        $data->update([
+        LayananDaruratModel::find($id)->update([
             'nama_layanan' => $request->nama_layanan,
             'nomor_layanan' => $request->nomor_layanan,
         ]);
@@ -78,11 +86,16 @@ class LayananDaruratController extends Controller
      */
     public function destroy(string $id)
     {
+        $check = LayananDaruratModel::find($id);
+        if (!$check) {
+            return redirect('/RW/layanan-darurat')->with('error', 'Data tidak ditemukan');
+        }
+
         try {
             LayananDaruratModel::destroy($id);
 
             return redirect('/RW/layanan-darurat')->with('success', 'Data berhasil dihapus');
-        } catch (e) {
+        } catch (\Illuminate\Database\QueryException $e) {
             return redirect('/RW/layanan-darurat')->with('error', 'Data gagal dihapus');
         }
     }

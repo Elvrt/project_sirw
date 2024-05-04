@@ -34,6 +34,12 @@ class StrukturRwController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'kode_struktur' => 'required|max:5|unique:struktur_rw,kode_struktur',
+            'nama_struktur' => 'required|max:25',
+            'id_warga' => 'required|unique:struktur_rw,id_warga',
+        ]);
+
         StrukturRWModel::create([
             'kode_struktur' => $request->kode_struktur,
             'nama_struktur' => $request->nama_struktur,
@@ -70,9 +76,13 @@ class StrukturRwController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = StrukturRwModel::find($id);
+        $request->validate([
+            'kode_struktur' => 'required|max:5|unique:struktur_rw,kode_struktur,'.$id.',id_struktur',
+            'nama_struktur' => 'required|max:25',
+            'id_warga' => 'requiredunique:struktur_rw,id_warga,'.$id.',id_struktur',
+        ]);
 
-        $data->update([
+        StrukturRwModel::find($id)->update([
             'kode_struktur' => $request->kode_struktur,
             'nama_struktur' => $request->nama_struktur,
             'id_warga' => $request->id_warga,
@@ -86,11 +96,16 @@ class StrukturRwController extends Controller
      */
     public function destroy(string $id)
     {
+        $check = StrukturRwModel::find($id);
+        if (!$check) {
+            return redirect('/struktur-rw')->with('error', 'Data tidak ditemukan');
+        }
+
         try {
             StrukturRwModel::destroy($id);
 
             return redirect('/struktur-rw')->with('success', 'Data berhasil dihapus');
-        } catch (e) {
+        } catch (\Illuminate\Database\QueryException $e) {
             return redirect('/struktur-rw')->with('error', 'Data gagal dihapus');
         }
     }

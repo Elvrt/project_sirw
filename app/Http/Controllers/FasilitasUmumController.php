@@ -33,6 +33,14 @@ class FasilitasUmumController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nama_fasilitas' => 'required|max:100',
+            'keterangan_fasilitas' => 'required',
+            'alamat_fasilitas' => 'required|max:100',
+            // 'gambar_fasilitas' => 'required',
+            'id_rt' => 'required',
+        ]);
+
         FasilitasUmumModel::create([
             'nama_fasilitas' => $request->nama_fasilitas,
             'keterangan_fasilitas' => $request->keterangan_fasilitas,
@@ -70,9 +78,15 @@ class FasilitasUmumController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = FasilitasUmumModel::find($id);
+        $request->validate([
+            'nama_fasilitas' => 'required|max:100',
+            'keterangan_fasilitas' => 'required',
+            'alamat_fasilitas' => 'required|max:100',
+            // 'gambar_fasilitas' => 'required',
+            'id_rt' => 'required',
+        ]);
 
-        $data->update([
+        FasilitasUmumModel::find($id)->update([
             'nama_fasilitas' => $request->nama_fasilitas,
             'keterangan_fasilitas' => $request->keterangan_fasilitas,
             'alamat_fasilitas' => $request->alamat_fasilitas,
@@ -88,11 +102,16 @@ class FasilitasUmumController extends Controller
      */
     public function destroy(string $id)
     {
+        $check = FasilitasUmumModel::find($id);
+        if (!$check) {
+            return redirect('/RW/fasilitas-umum')->with('error', 'Data tidak ditemukan');
+        }
+
         try {
             FasilitasUmumModel::destroy($id);
 
             return redirect('/RW/fasilitas-umum')->with('success', 'Data berhasil dihapus');
-        } catch (e) {
+        } catch (\Illuminate\Database\QueryException $e) {
             return redirect('/RW/fasilitas-umum')->with('error', 'Data gagal dihapus');
         }
     }

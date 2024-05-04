@@ -30,6 +30,13 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'judul_berita' => 'required|max:100',
+            'deskripsi_berita' => 'required',
+            // 'gambar_berita' => 'required',
+            'tanggal_berita' => 'required',
+        ]);
+
         BeritaModel::create([
             'judul_berita' => $request->judul_berita,
             'deskripsi_berita' => $request->deskripsi_berita,
@@ -65,9 +72,14 @@ class BeritaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = BeritaModel::find($id);
+        $request->validate([
+            'judul_berita' => 'required|max:100',
+            'deskripsi_berita' => 'required',
+            // 'gambar_berita' => 'required',
+            'tanggal_berita' => 'required',
+        ]);
 
-        $data->update([
+        BeritaModel::find($id)->update([
             'judul_berita' => $request->judul_berita,
             'deskripsi_berita' => $request->deskripsi_berita,
             'gambar_berita' => '',
@@ -82,11 +94,16 @@ class BeritaController extends Controller
      */
     public function destroy(string $id)
     {
+        $check = BeritaModel::find($id);
+        if (!$check) {
+            return redirect('/RW/Berita')->with('error', 'Data tidak ditemukan');
+        }
+
         try {
             BeritaModel::destroy($id);
 
             return redirect('/RW/Berita')->with('success', 'Data berhasil dihapus');
-        } catch (e) {
+        } catch (\Illuminate\Database\QueryException $e) {
             return redirect('/RW/Berita')->with('error', 'Data gagal dihapus');
         }
     }
