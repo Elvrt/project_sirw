@@ -30,6 +30,10 @@ class TataTertibController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'deskripsi_tatib' => 'required',
+        ]);
+
         TataTertibModel::create([
             'deskripsi_tatib' => $request->deskripsi_tatib,
         ]);
@@ -62,9 +66,11 @@ class TataTertibController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = TataTertibModel::find($id);
+        $request->validate([
+            'deskripsi_tatib' => 'required',
+        ]);
 
-        $data->update([
+        TataTertibModel::find($id)->update([
             'deskripsi_tatib' => $request->deskripsi_tatib,
         ]);
 
@@ -76,11 +82,16 @@ class TataTertibController extends Controller
      */
     public function destroy(string $id)
     {
+        $check = TataTertibModel::find($id);
+        if (!$check) {
+            return redirect('/tata-tertib')->with('error', 'Data tidak ditemukan');
+        }
+
         try {
             TataTertibModel::destroy($id);
 
             return redirect('/tata-tertib')->with('success', 'Data berhasil dihapus');
-        } catch (e) {
+        } catch (\Illuminate\Database\QueryException $e) {
             return redirect('/tata-tertib')->with('error', 'Data gagal dihapus');
         }
     }

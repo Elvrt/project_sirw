@@ -33,6 +33,14 @@ class PersuratanController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'id_warga' => 'required',
+            'jenis_persuratan' => 'required',
+            'keterangan_persuratan' => 'required',
+            'status_persuratan' => 'required',
+            'tanggal_persuratan' => 'required',
+        ]);
+
         PersuratanModel::create([
             'id_warga' => $request->id_warga,
             'jenis_persuratan' => $request->jenis_persuratan,
@@ -70,10 +78,16 @@ class PersuratanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = PersuratanModel::find($id);
+        $request->validate([
+            'id_warga' => 'required',
+            'jenis_persuratan' => 'required',
+            'keterangan_persuratan' => 'required',
+            'status_persuratan' => 'required',
+            'tanggal_persuratan' => 'required',
+        ]);
 
-        $data->update([
-            // 'id_warga' => $request->id_warga,
+        PersuratanModel::find($id)->update([
+            'id_warga' => $request->id_warga,
             'jenis_persuratan' => $request->jenis_persuratan,
             'keterangan_persuratan' => $request->keterangan_persuratan,
             'status_persuratan' => $request->status_persuratan,
@@ -88,11 +102,16 @@ class PersuratanController extends Controller
      */
     public function destroy(string $id)
     {
+        $check = PersuratanModel::find($id);
+        if (!$check) {
+            return redirect('/RW/Persuratan')->with('error', 'Data tidak ditemukan');
+        }
+
         try {
             PersuratanModel::destroy($id);
 
             return redirect('/RW/Persuratan')->with('success', 'Data berhasil dihapus');
-        } catch (e) {
+        } catch (\Illuminate\Database\QueryException $e) {
             return redirect('/RW/Persuratan')->with('error', 'Data gagal dihapus');
         }
     }
