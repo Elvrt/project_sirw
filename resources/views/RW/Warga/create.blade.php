@@ -81,10 +81,10 @@
                 <label for="pekerjaan" class="block text-sm font-bold mb-2">Pekerjaan</label>
                 <input type="text" name="pekerjaan" id="pekerjaan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </div>
-            {{-- <div class="mb-4">
+            <div class="mb-4">
                 <label for="penghasilan" class="block text-sm font-bold mb-2">Penghasilan</label>
                 <input type="number" name="penghasilan" id="penghasilan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-            </div> --}}
+            </div>
             <div class="mb-4">
                 <label for="status_hubungan" class="block text-sm font-bold mb-2">Status Hubungan</label>
                 <select name="status_hubungan" id="status_hubungan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
@@ -108,7 +108,7 @@
             </div>
         </footer>
     </body>
-    
+
     </html>
 
     <script>
