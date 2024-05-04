@@ -8,9 +8,9 @@
 </head>
 
 <body bgcolor="#FCFBF9">
-    <p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-5 mb-5">Form Tambah Data berita</p>
+    <p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-5 mb-5">Form Edit Data Fasilitas Umum</p>
     <div class="bg-backgroundform md:mx-10 mr-3 md:mr-32 ml-4 md:ml-32 p-5 rounded-lg">
-        <p class="font-medium text-sub">Edit Data berita</p>
+        <p class="font-medium text-sub">Edit Data Fasilitas Umum</p>
 
         <form action="{{url('/RW/fasilitas-umum/'.$data->id_fasilitas)}}" method="POST">
             @csrf
@@ -56,5 +56,5 @@
             </div>
         </footer>
     </body>
-    
+
     </html>
