@@ -12,7 +12,7 @@
 <body>
 <div class="flex justify-center datas-center">
     <div class="p-4 sm:ml-64">
-        <p class="text-army-gelap font-bold text-header drop-shadow-md container mb-10 mt-10 ml-4">Data fasilitas-umum</p>
+        <p class="text-army-gelap font-bold text-header drop-shadow-md container mb-10 mt-10 ml-4">Data Fasilitas Umum</p>
         <div class="bg-putih drop-shadow-md mx-4 px-10 p-4">
             <a href="fasilitas-umum/create">
                 <button class="bg-hijau hover:bg-hijau-gelap text-putih font-bold py-2 px-4 rounded-lg float-right">
@@ -34,7 +34,7 @@
                                     <div class="max-w-xs relative">
                                         <div class="border cursor-pointer">
                                             <div class="col-3">
-                                                <select class="form-control w-full" id="id_Berita" name="id_Berita" required>
+                                                <select class="form-control w-full" id="id_rt" name="id_rt" required>
                                                     <option value="">-  Semua -</option>
                                                     {{-- @foreach($Berita as $data)
                                                         <option value="{{ $data->id_berita }}">{{ $data->id_berita }}</option>

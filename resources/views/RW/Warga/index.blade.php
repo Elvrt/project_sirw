@@ -105,7 +105,7 @@
                                         <td class="px-4 py-2">{{ $data->nik }}</td>
                                         <td class="px-4 py-2">{{ $data->nama_warga }}</td>
                                         {{-- <td class="px-4 py-2">{{ $data->alamat }}</td> --}}
-                                        <td class="px-4 py-2">{{ $data->jenis_kelamin }}</td>
+                                        <td class="px-4 py-2">{{$data->jenis_kelamin === 'L' ? 'Laki-laki' : 'Perempuan'}}</td>
                                         {{-- <td class="px-4 py-2">{{ $data->tempat_lahir }}</td>
                                         <td class="px-4 py-2">{{ $data->tanggal_lahir }}</td>
                                         <td class="px-4 py-2">{{ $data->agama }}</td>

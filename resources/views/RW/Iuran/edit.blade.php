@@ -8,9 +8,9 @@
 </head>
 
 <body bgcolor="#FCFBF9">
-    <p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-5 mb-5">Form Tambah Data iuran</p>
+    <p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-5 mb-5">Form Tambah Data Iuran</p>
     <div class="bg-backgroundform md:mx-10 mr-3 md:mr-32 ml-4 md:ml-32 p-5 rounded-lg">
-        <p class="font-medium text-sub">Edit Data iuran</p>
+        <p class="font-medium text-sub">Edit Data Iuran</p>
 
         <form action="{{url('/RW/Iuran/'.$data->id_iuran)}}" method="POST">
             @csrf
@@ -57,7 +57,7 @@
             </div>
         </form>
     </div>
-    
+
             <!-- FOOTER -->
             <footer class="bg-zinc-50 dark:bg-neutral-700 text-center lg:text-left">
                 <div class="bg-black/5 p-4 text-center text-surface dark:text-white">
@@ -65,5 +65,5 @@
                 </div>
             </footer>
         </body>
-        
+
         </html>
