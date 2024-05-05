@@ -123,15 +123,15 @@ Route::group(['prefix' => 'RW/Iuran'], function (){
     Route::delete('/{id}', [IuranController::class, 'destroy'])->name('RW.Iuran.destroy'); // Menghapus data user
 });
 //fasilitasumum
-Route::group(['prefix' => 'RW/fasilitas-umum'], function (){
+Route::group(['prefix' => 'RW/FasilitasUmum'], function (){
     Route::get('/', [FasilitasUmumController::class, 'index']); // Halaman awal user
     Route::post('/list', [FasilitasUmumController::class, 'list']); // Halaman data user dalam bentuk json
     Route::get('/create', [FasilitasUmumController::class, 'create']); // Halaman form tambah user
-    Route::post('/', [FasilitasUmumController::class, 'store'])->name('RW.fasilitas-umum.store'); // Menyimpan data user baru
-    Route::get('/{id}/show', [FasilitasUmumController::class, 'show'])->name('RW.fasilitas-umum.show'); // Menampilkan detail user
-    Route::get('/{id}/edit', [FasilitasUmumController::class, 'edit'])->name('RW.fasilitas-umum.edit'); // Menampilkan halaman form edit user
-    Route::put('/{id}', [FasilitasUmumController::class, 'update'])->name('RW.fasilitas-umum.update'); // Menampilkan perubahan data user
-    Route::delete('/{id}', [FasilitasUmumController::class, 'destroy'])->name('RW.fasilitas-umum.destroy'); // Menghapus data user
+    Route::post('/', [FasilitasUmumController::class, 'store'])->name('RW.FasilitasUmum.store'); // Menyimpan data user baru
+    Route::get('/{id}/show', [FasilitasUmumController::class, 'show'])->name('RW.FasilitasUmum.show'); // Menampilkan detail user
+    Route::get('/{id}/edit', [FasilitasUmumController::class, 'edit'])->name('RW.FasilitasUmum.edit'); // Menampilkan halaman form edit user
+    Route::put('/{id}', [FasilitasUmumController::class, 'update'])->name('RW.FasilitasUmum.update'); // Menampilkan perubahan data user
+    Route::delete('/{id}', [FasilitasUmumController::class, 'destroy'])->name('RW.FasilitasUmum.destroy'); // Menghapus data user
 });
 
 //struktur

@@ -17,19 +17,31 @@
             @method('POST')
             <div class="mb-4">
                 <label for="gambar_berita" class="block text-sm font-bold mb-2">Gambar</label>
-                <input type="file" name="gambar_berita" id="gambar_berita" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="file" name="gambar_berita" id="gambar_berita" value="{{old('gambar_berita')}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                @error('gambar_berita')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="judul_berita" class="block text-sm font-bold mb-2">Judul</label>
-                <input type="text" name="judul_berita" id="judul_berita" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="text" name="judul_berita" id="judul_berita" value="{{old('judul_berita')}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                @error('judul_berita')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="deskripsi_berita" class="block text-sm font-bold mb-2">Deskripsi</label>
-                <textarea name="deskripsi_berita" id="deskripsi_berita" cols="30" rows="10" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                <textarea name="deskripsi_berita" id="deskripsi_berita" cols="30" rows="10" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{old('deskripsi_berita')}}</textarea>
+                @error('deskripsi_berita')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="tanggal_berita" class="block text-sm font-bold mb-2">Tanggal</label>
-                <input type="datetime-local" name="tanggal_berita" id="tanggal_berita" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="datetime-local" name="tanggal_berita" id="tanggal_berita" value="{{old('tanggal_berita')}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                @error('tanggal_berita')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="text-end px-10">
                 <button class="bg-hijau  text-putih font-bold py-2 px-8 rounded-lg">

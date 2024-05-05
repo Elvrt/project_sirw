@@ -20,34 +20,49 @@
                 <select name="id_rt" id="id_rt" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     <option value="" disabled selected class="text-gray-400">Pilih RT</option>
                     @foreach($rts as $rt)
-                        <option value="{{$rt->id_rt}}">{{$rt->nomor_rt}}</option>
+                        <option value="{{$rt->id_rt}}" {{old('id_rt') == $rt->id_rt ? "selected" : ""}}>{{$rt->nomor_rt}}</option>
                     @endforeach
                 </select>
+                @error('id_rt')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="id_kk" class="block text-sm font-bold mb-2">No. KK</label>
                 <select name="id_kk" id="id_kk" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     <option value="" disabled selected class="text-gray-400">Pilih No. KK</option>
                     @foreach($kks as $kk)
-                        <option value="{{$kk->id_kk}}">{{$kk->no_kk}}</option>
+                        <option value="{{$kk->id_kk}}" {{old('id_kk') == $kk->id_kk ? "selected" : ""}}>{{$kk->no_kk}}</option>
                     @endforeach
                 </select>
+                @error('id_kk')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="nominal" class="block text-sm font-bold mb-2">Nominal</label>
-                <input type="number" name="nominal" id="nominal" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="number" name="nominal" id="nominal" value="{{old('nominal')}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                @error('nominal')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="status_iuran" class="block text-sm font-bold mb-2">Status</label>
                 <select name="status_iuran" id="status_iuran" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     <option value="" disabled selected class="text-gray-400">Pilih Status</option>
-                    <option value="Lunas">Lunas</option>
-                    <option value="Belum Lunas">Belum Lunas</option>
+                    <option value="Lunas" {{old('status_iuran') == "Lunas" ? "selected" : ""}}>Lunas</option>
+                    <option value="Belum Lunas" {{old('status_iuran') == "Belum Lunas" ? "selected" : ""}}>Belum Lunas</option>
                 </select>
+                @error('status_iuran')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="tanggal_iuran" class="block text-sm font-bold mb-2">Tanggal</label>
-                <input type="datetime-local" name="tanggal_iuran" id="tanggal_iuran" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="datetime-local" name="tanggal_iuran" id="tanggal_iuran" value="{{old('tanggal_iuran')}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                @error('tanggal_iuran')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="text-end px-10">
                 <button class="bg-hijau  text-putih font-bold py-2 px-8 rounded-lg">
@@ -64,30 +79,30 @@
             </div>
         </footer>
 
-    <script>
-        // Menggunakan JavaScript untuk mengatur opsi dropdown No. KK berdasarkan RT yang dipilih
-        document.getElementById('id_rt').addEventListener('change', function() {
-            var idRt = this.value; // Mendapatkan nilai id_rt yang dipilih
-            var idKkSelect = document.getElementById('id_kk'); // Dropdown No. KK
-            idKkSelect.innerHTML = ''; // Menghapus semua opsi yang ada
-            // Menambahkan opsi default
-            var defaultOption = document.createElement('option');
-            defaultOption.value = '';
-            defaultOption.text = 'Pilih No. KK';
-            defaultOption.disabled = true;
-            defaultOption.selected = true;
-            defaultOption.classList.add('text-gray-400');
-            idKkSelect.appendChild(defaultOption);
-            // Menambahkan opsi No. KK berdasarkan id_rt yang dipilih
-            @foreach($kks as $kk)
-                if ('{{$kk->id_rt}}' == idRt) {
-                    var option = document.createElement('option');
-                    option.value = '{{$kk->id_kk}}';
-                    option.text = '{{$kk->no_kk}}';
-                    idKkSelect.appendChild(option);
-                }
-            @endforeach
-        });
-    </script>
-</body>
+        <script>
+            // Menggunakan JavaScript untuk mengatur opsi dropdown No. KK berdasarkan RT yang dipilih
+            document.getElementById('id_rt').addEventListener('change', function() {
+                var idRt = this.value; // Mendapatkan nilai id_rt yang dipilih
+                var idKkSelect = document.getElementById('id_kk'); // Dropdown No. KK
+                idKkSelect.innerHTML = ''; // Menghapus semua opsi yang ada
+                // Menambahkan opsi default
+                var defaultOption = document.createElement('option');
+                defaultOption.value = '';
+                defaultOption.text = 'Pilih No. KK';
+                defaultOption.disabled = true;
+                defaultOption.selected = true;
+                defaultOption.classList.add('text-gray-400');
+                idKkSelect.appendChild(defaultOption);
+                // Menambahkan opsi No. KK berdasarkan id_rt yang dipilih
+                @foreach($kks as $kk)
+                    if ('{{$kk->id_rt}}' == idRt) {
+                        var option = document.createElement('option');
+                        option.value = '{{$kk->id_kk}}';
+                        option.text = '{{$kk->no_kk}}';
+                        idKkSelect.appendChild(option);
+                    }
+                @endforeach
+            });
+        </script>
+    </body>
 </html>

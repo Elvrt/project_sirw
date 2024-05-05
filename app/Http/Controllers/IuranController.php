@@ -38,7 +38,7 @@ class IuranController extends Controller
         $request->validate([
             'id_rt' => 'required',
             'id_kk' => 'required',
-            'nominal' => 'required|numeric',
+            'nominal' => 'required|numeric|min:0',
             'status_iuran' => 'required',
             'tanggal_iuran' => 'required',
         ]);
@@ -81,15 +81,15 @@ class IuranController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'id_rt' => 'required',
-            'id_kk' => 'required',
-            'nominal' => 'required|numeric',
+            // 'id_rt' => 'required',
+            // 'id_kk' => 'required',
+            'nominal' => 'required|numeric|min:0',
             'status_iuran' => 'required',
             'tanggal_iuran' => 'required',
         ]);
 
         IuranModel::find($id)->update([
-            'id_kk' => $request->id_kk,
+            // 'id_kk' => $request->id_kk,
             'nominal' => $request->nominal,
             'status_iuran' => $request->status_iuran,
             'tanggal_iuran' => $request->tanggal_iuran,

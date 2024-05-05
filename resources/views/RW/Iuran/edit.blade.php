@@ -8,7 +8,7 @@
 </head>
 
 <body bgcolor="#FCFBF9">
-    <p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-5 mb-5">Form Tambah Data Iuran</p>
+    <p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-5 mb-5">Form Edit Data Iuran</p>
     <div class="bg-backgroundform md:mx-10 mr-3 md:mr-32 ml-4 md:ml-32 p-5 rounded-lg">
         <p class="font-medium text-sub">Edit Data Iuran</p>
 
@@ -36,19 +36,28 @@
             </div>
             <div class="mb-4">
                 <label for="nominal" class="block text-sm font-bold mb-2">Nominal</label>
-                <input type="text" name="nominal" value="{{$data->nominal}}" id="nominal" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="text" name="nominal" value="{{old('nominal', $data->nominal)}}" id="nominal" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                @error('nominal')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="status_iuran" class="block text-sm font-bold mb-2">Status</label>
                 <select name="status_iuran" id="status_iuran" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     <option value="" disabled class="text-gray-400">Pilih Status</option>
-                    <option value="Lunas" {{$data->status_iuran == "Lunas" ? "selected" : ""}}>Lunas</option>
-                    <option value="Belum Lunas" {{$data->status_iuran == "Belum Lunas" ? "selected" : ""}}>Belum Lunas</option>
+                    <option value="Lunas" {{old('status_iuran', $data->status_iuran) == "Lunas" ? "selected" : ""}}>Lunas</option>
+                    <option value="Belum Lunas" {{old('status_iuran', $data->status_iuran) == "Belum Lunas" ? "selected" : ""}}>Belum Lunas</option>
                 </select>
+                @error('status_iuran')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="tanggal_iuran" class="block text-sm font-bold mb-2">Tanggal</label>
-                <input type="datetime-local" name="tanggal_iuran" value="{{$data->tanggal_iuran}}" id="tanggal_iuran" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="datetime-local" name="tanggal_iuran" value="{{old('tanggal_iuran', $data->tanggal_iuran)}}" id="tanggal_iuran" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                @error('tanggal_iuran')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="text-end px-10">
                 <button class="bg-hijau  text-putih font-bold py-2 px-8 rounded-lg">

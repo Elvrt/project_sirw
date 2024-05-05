@@ -30,26 +30,12 @@
                         <div class="row ">
                             <div class="col-md-12">
                                 <div class="form-group ">
-                                    <label class="col-1 control-label col-form-label">Filter:</label>
-                                    <div class="max-w-xs relative">
-                                        <div class="border cursor-pointer">
-                                            <div class="col-3">
-                                                <select class="form-control w-full" id="id_layanan-darurat" name="id_layanan-darurat" required>
-                                                    <option value="">-  Semua -</option>
-                                                    {{-- @foreach($layanan-darurat as $data)
-                                                        <option value="{{ $data->id_layanan-darurat }}">{{ $data->id_layanan-darurat }}</option>
-                                                    @endforeach --}}
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <small class="form-text text-muted">Nomor Layanan</small>
-                                    </div>
                                     <div class="row">
                                         <div class="col-md-6 offset-md-6">
                                             <div class="form-group text-right pr-10">
                                                 <div class="col-md-6 offset-md-6">
                                                     <label class="col-1 control-label col-form-label">Search:</label>
-                                                    <input type="search" class="form-control rounded border pl-2" id="search" placeholder="Masukkan Nomor layanan-darurat">
+                                                    <input type="search" class="form-control rounded border pl-2" id="search" placeholder="Masukkan Pencarian">
                                                 </div>
                                             </div>
                                         </div>

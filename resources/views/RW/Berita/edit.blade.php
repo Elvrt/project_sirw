@@ -12,31 +12,43 @@
     <div class="bg-backgroundform md:mx-10 mr-3 md:mr-32 ml-4 md:ml-32 p-5 rounded-lg">
         <p class="font-medium text-sub">Edit Data berita</p>
 
-        <form action="{{url('/RW/berita/'.$data->id_berita)}}" method="POST">
+        <form action="{{url('/RW/Berita/'.$data->id_berita)}}" method="POST">
             @csrf
             @method('PUT')
             <div class="mb-4">
                 <label for="gambar_berita" class="block text-sm font-bold mb-2">Gambar</label>
-                <input type="file" name="gambar_berita" value="{{$data->gambar_berita}}" id="gambar_berita" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="file" name="gambar_berita" value="{{old('gambar_berita', $data->gambar_berita)}}" id="gambar_berita" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                @error('gambar_berita')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="judul_berita" class="block text-sm font-bold mb-2">Judul</label>
-                <input type="text" name="judul_berita" value="{{$data->judul_berita}}" id="judul_berita" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="text" name="judul_berita" value="{{old('judul_berita', $data->judul_berita)}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                @error('judul_berita')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="deskripsi_berita" class="block text-sm font-bold mb-2">Deskripsi</label>
-                <textarea name="deskripsi_berita" id="deskripsi_berita" cols="30" rows="10" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{$data->deskripsi_berita}}</textarea>
+                <textarea name="deskripsi_berita" id="deskripsi_berita" cols="30" rows="10" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{old('deskripsi_berita', $data->deskripsi_berita)}}</textarea>
+                @error('deskripsi_berita')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="tanggal_berita" class="block text-sm font-bold mb-2">Tanggal</label>
-                <input type="datetime-local" name="tanggal_berita" value="{{$data->tanggal_berita}}" id="tanggal_berita" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="datetime-local" name="tanggal_berita" value="{{old('tanggal_berita', $data->tanggal_berita)}}" id="tanggal_berita" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                @error('tanggal_berita')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="text-end px-10">
+                <button class="bg-hijau  text-putih font-bold py-2 px-8 rounded-lg">
+                    Simpan
+                </button>
             </div>
         </form>
-        <div class="text-end px-10">
-            <button class="bg-hijau  text-putih font-bold py-2 px-8 rounded-lg">
-                Simpan
-            </button>
-        </div>
     </form>
 </div>
 
