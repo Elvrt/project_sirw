@@ -40,7 +40,7 @@ class LayananDaruratController extends Controller
             'nomor_layanan' => $request->nomor_layanan,
         ]);
 
-        return redirect('/RW/layanan-darurat')->with('success', 'Data berhasil ditambah');
+        return redirect('/RW/LayananDarurat')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -78,7 +78,7 @@ class LayananDaruratController extends Controller
             'nomor_layanan' => $request->nomor_layanan,
         ]);
 
-        return redirect('/RW/layanan-darurat')->with('success', 'Data berhasil diupdate');
+        return redirect('/RW/LayananDarurat')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -88,15 +88,15 @@ class LayananDaruratController extends Controller
     {
         $check = LayananDaruratModel::find($id);
         if (!$check) {
-            return redirect('/RW/layanan-darurat')->with('error', 'Data tidak ditemukan');
+            return redirect('/RW/LayananDarurat')->with('error', 'Data tidak ditemukan');
         }
 
         try {
             LayananDaruratModel::destroy($id);
 
-            return redirect('/RW/layanan-darurat')->with('success', 'Data berhasil dihapus');
+            return redirect('/RW/LayananDarurat')->with('success', 'Data berhasil dihapus');
         } catch (\Illuminate\Database\QueryException $e) {
-            return redirect('/RW/layanan-darurat')->with('error', 'Data gagal dihapus');
+            return redirect('/RW/LayananDarurat')->with('error', 'Data gagal dihapus');
         }
     }
 }

@@ -23,7 +23,7 @@ class LayananDaruratSeeder extends Seeder
                     'id_layanan' => $i,
                     'nama_layanan' => $name,
                     'nomor_layanan' => $nomor[$i - 1],
-                    'created_at' => now(),
+                    'created_at' => now()->setTimezone('Asia/Jakarta'),
                 ]
             );
             $i++;

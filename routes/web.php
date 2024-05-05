@@ -65,11 +65,11 @@ Route::group(['middleware' => ['auth', 'checkrole:10']], function() {
 // JANGAN DI OTAK ATIK DULU BUAT CRUD
 Route::resource('tata-tertib', TataTertibController::class);
 // Route::resource('berita', BeritaController::class);
-Route::resource('agenda', AgendaController::class);
+// Route::resource('agenda', AgendaController::class);
 Route::resource('layanan-darurat', LayananDaruratController::class);
 Route::resource('kartu-keluarga', KartuKeluargaController::class);
-Route::resource('iuran', IuranController::class);
-Route::resource('fasilitas-umum', FasilitasUmumController::class);
+// Route::resource('iuran', IuranController::class);
+// Route::resource('fasilitas-umum', FasilitasUmumController::class);
 // Route::resource('penduduk', WargaController::class);
 Route::resource('struktur-rw', StrukturRWController::class);
 Route::resource('pengaduan', PengaduanController::class);
@@ -171,7 +171,7 @@ Route::group(['prefix' => 'RW/Persuratan'], function (){
 });
 
 //layanan darurat
-Route::group(['prefix' => 'RW/layanan-darurat'], function (){
+Route::group(['prefix' => 'RW/LayananDarurat'], function (){
     Route::get('/', [LayananDaruratController::class, 'index']); // Halaman awal user
     Route::post('/list', [LayananDaruratController::class, 'list']); // Halaman data user dalam bentuk json
     Route::get('/create', [LayananDaruratController::class, 'create']); // Halaman form tambah user

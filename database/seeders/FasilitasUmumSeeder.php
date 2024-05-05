@@ -49,7 +49,7 @@ class FasilitasUmumSeeder extends Seeder
                     'alamat_fasilitas' => $address[$i - 1],
                     'gambar_fasilitas' => null,
                     'id_rt' => $rt[$i - 1],
-                    'created_at' => now(),
+                    'created_at' => now()->setTimezone('Asia/Jakarta'),
                 ]
             );
             $i++;

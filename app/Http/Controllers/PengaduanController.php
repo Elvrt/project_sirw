@@ -37,16 +37,16 @@ class PengaduanController extends Controller
             'id_warga' => 'required',
             'judul_pengaduan' => 'required|max:50',
             'deskripsi_pengaduan' => 'required',
-            'status_pengaduan' => 'required',
-            'tanggal_pengaduan' => 'required',
+            // 'status_pengaduan' => 'required',
+            // 'tanggal_pengaduan' => 'required',
         ]);
 
         PengaduanModel::create([
             'id_warga' => $request->id_warga,
             'judul_pengaduan' => $request->judul_pengaduan,
             'deskripsi_pengaduan' => $request->deskripsi_pengaduan,
-            'status_pengaduan' => $request->status_pengaduan,
-            'tanggal_pengaduan' => $request->tanggal_pengaduan,
+            'status_pengaduan' => 'Menunggu',
+            'tanggal_pengaduan' => now()->setTimezone('Asia/Jakarta'),
         ]);
 
         return redirect('RW/Pengaduan')->with('success', 'Data berhasil ditambah');
@@ -79,19 +79,19 @@ class PengaduanController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'id_warga' => 'required',
-            'judul_pengaduan' => 'required|max:50',
-            'deskripsi_pengaduan' => 'required',
+            // 'id_warga' => 'required',
+            // 'judul_pengaduan' => 'required|max:50',
+            // 'deskripsi_pengaduan' => 'required',
             'status_pengaduan' => 'required',
-            'tanggal_pengaduan' => 'required',
+            // 'tanggal_pengaduan' => 'required',
         ]);
 
         PengaduanModel::find($id)->update([
-            'id_warga' => $request->id_warga,
-            'judul_pengaduan' => $request->judul_pengaduan,
-            'deskripsi_pengaduan' => $request->deskripsi_pengaduan,
+            // 'id_warga' => $request->id_warga,
+            // 'judul_pengaduan' => $request->judul_pengaduan,
+            // 'deskripsi_pengaduan' => $request->deskripsi_pengaduan,
             'status_pengaduan' => $request->status_pengaduan,
-            'tanggal_pengaduan' => $request->tanggal_pengaduan,
+            // 'tanggal_pengaduan' => $request->tanggal_pengaduan,
         ]);
 
         return redirect('RW/Pengaduan')->with('success', 'Data berhasil diupdate');

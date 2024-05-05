@@ -23,7 +23,7 @@ class RoleSeeder extends Seeder
                     'id_role' => $i,
                     'kode_role' => $code,
                     'nama_role' => $names[$i - 1],
-                    'created_at' => now(),
+                    'created_at' => now()->setTimezone('Asia/Jakarta'),
                 ]
             );
             $i++;
