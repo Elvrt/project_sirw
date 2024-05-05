@@ -33,7 +33,7 @@ class BeritaController extends Controller
         $request->validate([
             'judul_berita' => 'required|max:100',
             'deskripsi_berita' => 'required',
-            // 'gambar_berita' => 'required',
+            'gambar_berita' => 'required',
             'tanggal_berita' => 'required',
         ]);
 
@@ -75,7 +75,7 @@ class BeritaController extends Controller
         $request->validate([
             'judul_berita' => 'required|max:100',
             'deskripsi_berita' => 'required',
-            // 'gambar_berita' => 'required',
+            'gambar_berita' => 'required',
             'tanggal_berita' => 'required',
         ]);
 

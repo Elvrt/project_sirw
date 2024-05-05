@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AgendaModel;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class AgendaController extends Controller
 {
@@ -33,7 +34,7 @@ class AgendaController extends Controller
         $request->validate([
             'judul_agenda' => 'required|max:100',
             'deskripsi_agenda' => 'required',
-            // 'gambar_agenda' => 'required',
+            'gambar_agenda' => 'required',
             'tanggal_agenda' => 'required',
         ]);
 
@@ -75,7 +76,7 @@ class AgendaController extends Controller
         $request->validate([
             'judul_agenda' => 'required|max:100',
             'deskripsi_agenda' => 'required',
-            // 'gambar_agenda' => 'required',
+            'gambar_agenda' => 'required',
             'tanggal_agenda' => 'required',
         ]);
 

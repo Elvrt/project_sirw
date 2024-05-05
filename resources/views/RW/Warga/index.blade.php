@@ -62,19 +62,20 @@
 
                 <div class="col-span-14 mt-4 p-10 sm:ml-68 drop-shadow-md text-center mr-9">
                     @if (session('success'))
-                    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
-                        <strong class="font-bold">Success!</strong>
-                        <span class="block sm:inline">{{ session('success') }}</span>
-                    </div>
-                @endif
+                        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                            <strong class="font-bold">Success!</strong>
+                            <span class="block sm:inline">{{ session('success') }}</span>
+                        </div>
+                    @endif
 
-                @if (session('error'))
-                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-                        <strong class="font-bold">Error!</strong>
-                        <span class="block sm:inline">{{ session('error') }}</span>
-                    </div>
-                @endif
+                    @if (session('error'))
+                        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                            <strong class="font-bold">Error!</strong>
+                            <span class="block sm:inline">{{ session('error') }}</span>
+                        </div>
+                    @endif
 
+                <div class="col-span-6 mt-4 p-10 sm:ml-68 drop-shadow-md text-left mr-9">
                     <!-- HEADER -->
                     <div class="table-responsive">
                         <table id="table_warga" class="table-auto">
@@ -105,7 +106,7 @@
                                         <td class="px-4 py-2">{{ $data->nik }}</td>
                                         <td class="px-4 py-2">{{ $data->nama_warga }}</td>
                                         {{-- <td class="px-4 py-2">{{ $data->alamat }}</td> --}}
-                                        <td class="px-4 py-2">{{ $data->jenis_kelamin }}</td>
+                                        <td class="px-4 py-2">{{$data->jenis_kelamin === 'L' ? 'Laki-laki' : 'Perempuan'}}</td>
                                         {{-- <td class="px-4 py-2">{{ $data->tempat_lahir }}</td>
                                         <td class="px-4 py-2">{{ $data->tanggal_lahir }}</td>
                                         <td class="px-4 py-2">{{ $data->agama }}</td>

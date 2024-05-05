@@ -146,32 +146,33 @@
                 Copyright 2024 © : SiRW</a>
             </div>
         </footer>
+
+        <script>
+            // Menggunakan JavaScript untuk mengatur opsi dropdown No. KK berdasarkan RT yang dipilih
+            document.getElementById('id_rt').addEventListener('change', function() {
+                var idRt = this.value; // Mendapatkan nilai id_rt yang dipilih
+                var idKkSelect = document.getElementById('id_kk'); // Dropdown No. KK
+                idKkSelect.innerHTML = ''; // Menghapus semua opsi yang ada
+                // Menambahkan opsi default
+                var defaultOption = document.createElement('option');
+                defaultOption.value = '';
+                defaultOption.text = 'Pilih No. KK';
+                defaultOption.disabled = true;
+                defaultOption.selected = true;
+                defaultOption.classList.add('text-gray-400');
+                idKkSelect.appendChild(defaultOption);
+                // Menambahkan opsi No. KK berdasarkan id_rt yang dipilih
+                @foreach($kks as $kk)
+                    if ('{{$kk->id_rt}}' == idRt) {
+                        var option = document.createElement('option');
+                        option.value = '{{$kk->id_kk}}';
+                        option.text = '{{$kk->no_kk}}';
+                        idKkSelect.appendChild(option);
+                    }
+                @endforeach
+            });
+        </script>
     </body>
+</html>
 
-    </html>
 
-    <script>
-        // Menggunakan JavaScript untuk mengatur opsi dropdown No. KK berdasarkan RT yang dipilih
-        document.getElementById('id_rt').addEventListener('change', function() {
-            var idRt = this.value; // Mendapatkan nilai id_rt yang dipilih
-            var idKkSelect = document.getElementById('id_kk'); // Dropdown No. KK
-            idKkSelect.innerHTML = ''; // Menghapus semua opsi yang ada
-            // Menambahkan opsi default
-            var defaultOption = document.createElement('option');
-            defaultOption.value = '';
-            defaultOption.text = 'Pilih No. KK';
-            defaultOption.disabled = true;
-            defaultOption.selected = true;
-            defaultOption.classList.add('text-gray-400');
-            idKkSelect.appendChild(defaultOption);
-            // Menambahkan opsi No. KK berdasarkan id_rt yang dipilih
-            @foreach($kks as $kk)
-                if ('{{$kk->id_rt}}' == idRt) {
-                    var option = document.createElement('option');
-                    option.value = '{{$kk->id_kk}}';
-                    option.text = '{{$kk->no_kk}}';
-                    idKkSelect.appendChild(option);
-                }
-            @endforeach
-        });
-    </script>

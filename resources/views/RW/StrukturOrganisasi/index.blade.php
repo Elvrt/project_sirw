@@ -60,7 +60,8 @@
                     </div>
                 </div>
 
-                <div class="col-span-6 mt-4 p-10 sm:ml-68 drop-shadow-md text-left mr-9"> 
+                <div class="col-span-6 mt-4 p-10 sm:ml-68 drop-shadow-md text-left mr-9">
                     <!-- HEADER -->
                     <div class="table-responsive">
                         <table id="table_Berita" class="table-auto">
+                            
