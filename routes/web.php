@@ -66,14 +66,14 @@ Route::group(['middleware' => ['auth', 'checkrole:10']], function() {
 Route::resource('tata-tertib', TataTertibController::class);
 // Route::resource('berita', BeritaController::class);
 // Route::resource('agenda', AgendaController::class);
-Route::resource('layanan-darurat', LayananDaruratController::class);
+// Route::resource('layanan-darurat', LayananDaruratController::class);
 Route::resource('kartu-keluarga', KartuKeluargaController::class);
 // Route::resource('iuran', IuranController::class);
 // Route::resource('fasilitas-umum', FasilitasUmumController::class);
 // Route::resource('penduduk', WargaController::class);
 Route::resource('struktur-rw', StrukturRWController::class);
-Route::resource('pengaduan', PengaduanController::class);
-Route::resource('persuratan', PersuratanController::class);
+// Route::resource('pengaduan', PengaduanController::class);
+// Route::resource('persuratan', PersuratanController::class);
 Route::resource('user', UserController::class);
 
 // checkpoinr
@@ -100,6 +100,7 @@ Route::group(['prefix' => 'RW/Berita'], function (){
     Route::put('/{id}', [BeritaController::class, 'update'])->name('RW.Berita.update'); // Menampilkan perubahan data user
     Route::delete('/{id}', [BeritaController::class, 'destroy'])->name('RW.Berita.destroy'); // Menghapus data user
 });
+
 //Agenda
 Route::group(['prefix' => 'RW/Agenda'], function (){
     Route::get('/', [AgendaController::class, 'index']); // Halaman awal user
@@ -111,7 +112,8 @@ Route::group(['prefix' => 'RW/Agenda'], function (){
     Route::put('/{id}', [AgendaController::class, 'update'])->name('RW.Agenda.update'); // Menampilkan perubahan data user
     Route::delete('/{id}', [AgendaController::class, 'destroy'])->name('RW.Agenda.destroy'); // Menghapus data user
 });
-//iuran
+
+//Iuran
 Route::group(['prefix' => 'RW/Iuran'], function (){
     Route::get('/', [IuranController::class, 'index']); // Halaman awal user
     Route::post('/list', [IuranController::class, 'list']); // Halaman data user dalam bentuk json
@@ -122,7 +124,7 @@ Route::group(['prefix' => 'RW/Iuran'], function (){
     Route::put('/{id}', [IuranController::class, 'update'])->name('RW.Iuran.update'); // Menampilkan perubahan data user
     Route::delete('/{id}', [IuranController::class, 'destroy'])->name('RW.Iuran.destroy'); // Menghapus data user
 });
-//fasilitasumum
+//Fasilitas Umum
 Route::group(['prefix' => 'RW/FasilitasUmum'], function (){
     Route::get('/', [FasilitasUmumController::class, 'index']); // Halaman awal user
     Route::post('/list', [FasilitasUmumController::class, 'list']); // Halaman data user dalam bentuk json
@@ -134,7 +136,7 @@ Route::group(['prefix' => 'RW/FasilitasUmum'], function (){
     Route::delete('/{id}', [FasilitasUmumController::class, 'destroy'])->name('RW.FasilitasUmum.destroy'); // Menghapus data user
 });
 
-//struktur
+//Struktur
 Route::group(['prefix' => 'RW/StrukturRW'], function (){
     Route::get('/', [StrukturRWController::class, 'index']); // Halaman awal user
     Route::post('/list', [StrukturRWController::class, 'list']); // Halaman data user dalam bentuk json
@@ -146,7 +148,7 @@ Route::group(['prefix' => 'RW/StrukturRW'], function (){
     Route::delete('/{id}', [StrukturRWController::class, 'destroy'])->name('RW.StrukturRW.destroy'); // Menghapus data user
 });
 
-//pengaduan
+//Pengaduan
 Route::group(['prefix' => 'RW/Pengaduan'], function (){
     Route::get('/', [PengaduanController::class, 'index']); // Halaman awal user
     Route::post('/list', [PengaduanController::class, 'list']); // Halaman data user dalam bentuk json
@@ -158,7 +160,7 @@ Route::group(['prefix' => 'RW/Pengaduan'], function (){
     Route::delete('/{id}', [PengaduanController::class, 'destroy'])->name('RW.Pengaduan.destroy'); // Menghapus data user
 });
 
-//persuratan
+//Persuratan
 Route::group(['prefix' => 'RW/Persuratan'], function (){
     Route::get('/', [PersuratanController::class, 'index']); // Halaman awal user
     Route::post('/list', [PersuratanController::class, 'list']); // Halaman data user dalam bentuk json
@@ -170,7 +172,7 @@ Route::group(['prefix' => 'RW/Persuratan'], function (){
     Route::delete('/{id}', [PersuratanController::class, 'destroy'])->name('RW.Persuratan.destroy'); // Menghapus data user
 });
 
-//layanan darurat
+//Layanan Darurat
 Route::group(['prefix' => 'RW/LayananDarurat'], function (){
     Route::get('/', [LayananDaruratController::class, 'index']); // Halaman awal user
     Route::post('/list', [LayananDaruratController::class, 'list']); // Halaman data user dalam bentuk json
@@ -182,7 +184,17 @@ Route::group(['prefix' => 'RW/LayananDarurat'], function (){
     Route::delete('/{id}', [LayananDaruratController::class, 'destroy'])->name('RW.LayananDarurat.destroy'); // Menghapus data user
 });
 
-
+//Tata Tertib
+Route::group(['prefix' => 'RW/TataTertib'], function (){
+    Route::get('/', [TataTertibController::class, 'index']); // Halaman awal user
+    Route::post('/list', [TataTertibController::class, 'list']); // Halaman data user dalam bentuk json
+    Route::get('/create', [TataTertibController::class, 'create']); // Halaman form tambah user
+    Route::post('/', [TataTertibController::class, 'store'])->name('RW.TataTertib.store'); // Menyimpan data user baru
+    Route::get('/{id}/show', [TataTertibController::class, 'show'])->name('RW.TataTertib.show'); // Menampilkan detail user
+    Route::get('/{id}/edit', [TataTertibController::class, 'edit'])->name('RW.TataTertib.edit'); // Menampilkan halaman form edit user
+    Route::put('/{id}', [TataTertibController::class, 'update'])->name('RW.TataTertib.update'); // Menampilkan perubahan data user
+    Route::delete('/{id}', [TataTertibController::class, 'destroy'])->name('RW.TataTertib.destroy'); // Menghapus data user
+});
 
 Route::get('/forgotpassword', function () {
     return view('auth.LupaPass');

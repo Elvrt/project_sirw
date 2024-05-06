@@ -36,7 +36,7 @@
             </div>
             <div class="mb-4">
                 <label for="deskripsi_pengaduan" class="block text-sm font-bold mb-2">Deskripsi</label>
-                <textarea name="deskripsi_pengaduan" id="deskripsi_pengaduan" value="{{old('deskripsi_pengaduan')}}" cols="30" rows="10" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                <textarea name="deskripsi_pengaduan" id="deskripsi_pengaduan" cols="30" rows="10" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{old('deskripsi_pengaduan')}}</textarea>
                 @error('deskripsi_pengaduan')
                     <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                 @enderror
@@ -47,8 +47,8 @@
                 @error('tanggal_pengaduan')
                     <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                 @enderror
-            </div> --}}
-            {{-- <div class="mb-4">
+            </div>
+            <div class="mb-4">
                 <label for="status_pengaduan" class="block text-sm font-bold mb-2">Status Pengaduan</label>
                 <select name="status_pengaduan" id="status_pengaduan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     <option value="" disabled selected class="text-gray-400">Pilih Status</option>

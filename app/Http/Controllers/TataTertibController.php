@@ -14,7 +14,7 @@ class TataTertibController extends Controller
     {
         $data = TataTertibModel::all();
 
-        return view('TataTertib.index', $data = ['data' => $data]);
+        return view('RW.TataTertib.index', $data = ['data' => $data]);
     }
 
     /**
@@ -22,7 +22,7 @@ class TataTertibController extends Controller
      */
     public function create()
     {
-        return view('TataTertib.create');
+        return view('RW.TataTertib.create');
     }
 
     /**
@@ -38,7 +38,7 @@ class TataTertibController extends Controller
             'deskripsi_tatib' => $request->deskripsi_tatib,
         ]);
 
-        return redirect('/tata-tertib')->with('success', 'Data berhasil ditambah');
+        return redirect('/RW/TataTertib')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -48,7 +48,7 @@ class TataTertibController extends Controller
     {
         $tataTertib = TataTertibModel::find($id);
 
-        return view('TataTertib.show', $data = ['data' => $tataTertib]);
+        return view('RW.TataTertib.show', $data = ['data' => $tataTertib]);
     }
 
     /**
@@ -58,7 +58,7 @@ class TataTertibController extends Controller
     {
         $tataTertib = TataTertibModel::find($id);
 
-        return view('TataTertib.edit', $data = ['data' => $tataTertib]);
+        return view('RW.TataTertib.edit', $data = ['data' => $tataTertib]);
     }
 
     /**
@@ -74,7 +74,7 @@ class TataTertibController extends Controller
             'deskripsi_tatib' => $request->deskripsi_tatib,
         ]);
 
-        return redirect('/tata-tertib')->with('success', 'Data berhasil diupdate');
+        return redirect('/RW/TataTertib')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -84,15 +84,15 @@ class TataTertibController extends Controller
     {
         $check = TataTertibModel::find($id);
         if (!$check) {
-            return redirect('/tata-tertib')->with('error', 'Data tidak ditemukan');
+            return redirect('/RW/TataTertib')->with('error', 'Data tidak ditemukan');
         }
 
         try {
             TataTertibModel::destroy($id);
 
-            return redirect('/tata-tertib')->with('success', 'Data berhasil dihapus');
+            return redirect('/RW/TataTertib')->with('success', 'Data berhasil dihapus');
         } catch (\Illuminate\Database\QueryException $e) {
-            return redirect('/tata-tertib')->with('error', 'Data gagal dihapus');
+            return redirect('/RW/TataTertib')->with('error', 'Data gagal dihapus');
         }
     }
 }
