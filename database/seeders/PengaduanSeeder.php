@@ -35,8 +35,8 @@ class PengaduanSeeder extends Seeder
                     'judul_pengaduan' => $title,
                     'deskripsi_pengaduan' => $description[$i - 1],
                     'status_pengaduan' => $status[$i - 1],
-                    'tanggal_pengaduan' => now(),
-                    'created_at' => now(),
+                    'tanggal_pengaduan' => now()->setTimezone('Asia/Jakarta'),
+                    'created_at' => now()->setTimezone('Asia/Jakarta'),
                 ]
             );
             $i++;

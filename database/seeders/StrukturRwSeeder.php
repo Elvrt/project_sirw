@@ -28,7 +28,7 @@ class StrukturRwSeeder extends Seeder
                     'kode_struktur' => $codes[$i - 1],
                     'nama_struktur' => $name[$i - 1],
                     'id_warga' => $id[$i - 1],
-                    'created_at' => now(),
+                    'created_at' => now()->setTimezone('Asia/Jakarta'),
                 ]
             );
             $i++;

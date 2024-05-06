@@ -56,7 +56,7 @@ class WargaSeeder extends Seeder
                     'pekerjaan' => $jobTitle[$b - 1],
                     'penghasilan' => $income[$b - 1],
                     'status_hubungan' => $status[$s - 1],
-                    'created_at' => now(),
+                    'created_at' => now()->setTimezone('Asia/Jakarta'),
                 ]
             );
             if ($b % 10 == 0) {

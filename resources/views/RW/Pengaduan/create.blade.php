@@ -20,31 +20,46 @@
                 <select name="id_warga" id="id_warga" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     <option value="" disabled selected class="text-gray-400">Pilih Nama</option>
                     @foreach($niks as $nik)
-                        <option value="{{$nik->id_warga}}">{{$nik->nama_warga}}</option>
+                        <option value="{{$nik->id_warga}}" {{old('id_warga') == $nik->id_warga ? "selected" : ""}}>{{$nik->nama_warga}}</option>
                     @endforeach
                 </select>
+                @error('id_warga')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="judul_pengaduan" class="block text-sm font-bold mb-2">Judul Pengaduan</label>
-                <input type="text" name="judul_pengaduan" id="judul_pengaduan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="text" name="judul_pengaduan" id="judul_pengaduan" value="{{old('judul_pengaduan')}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                @error('judul_pengaduan')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="deskripsi_pengaduan" class="block text-sm font-bold mb-2">Deskripsi</label>
-                <textarea name="deskripsi_pengaduan" id="deskripsi_pengaduan" cols="30" rows="10" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                <textarea name="deskripsi_pengaduan" id="deskripsi_pengaduan" cols="30" rows="10" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{old('deskripsi_pengaduan')}}</textarea>
+                @error('deskripsi_pengaduan')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
-            <div class="mb-4">
+            {{-- <div class="mb-4">
                 <label for="tanggal_pengaduan" class="block text-sm font-bold mb-2">Tanggal Pengaduan</label>
-                <input type="datetime-local" name="tanggal_pengaduan" id="tanggal_pengaduan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="datetime-local" name="tanggal_pengaduan" id="tanggal_pengaduan" value="{{old('tanggal_pengaduan')}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                @error('tanggal_pengaduan')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="status_pengaduan" class="block text-sm font-bold mb-2">Status Pengaduan</label>
                 <select name="status_pengaduan" id="status_pengaduan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     <option value="" disabled selected class="text-gray-400">Pilih Status</option>
-                    <option value="Menunggu">Menunggu</option>
-                    <option value="Ditolak">Ditolak</option>
-                    <option value="Selesai">Selesai</option>
+                    <option value="Menunggu" {{old('status_pengaduan') == "Menunggu" ? "selected" : ""}}>Menunggu</option>
+                    <option value="Ditolak" {{old('status_pengaduan') == "Ditolak" ? "selected" : ""}}>Ditolak</option>
+                    <option value="Selesai" {{old('status_pengaduan') == "Selesai" ? "selected" : ""}}>Selesai</option>
                 </select>
-            </div>
+                @error('status_pengaduan')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
+            </div> --}}
             <div class="text-end px-10">
                 <button class="bg-hijau  text-putih font-bold py-2 px-8 rounded-lg">
                     Simpan

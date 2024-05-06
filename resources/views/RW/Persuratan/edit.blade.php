@@ -21,38 +21,36 @@
             </div>
             <div class="mb-4">
                 <label for="jenis_persuratan" class="block text-sm font-bold mb-2">Jenis Surat</label>
-                <select name="jenis_persuratan" id="sjenis_persuratan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                    <option value="" disabled class="text-gray-400">Pilih Status</option>
-                    <option value="Surat Domisili" {{$data->jenis_persuratan == "Surat Domisili" ? "selected" : ""}}>Surat Domisili</option>
-                    <option value="Surat Keterangan Usaha" {{$data->jenis_persuratan == "Surat Keterangan Usaha" ? "selected" : ""}}>Surat Keterangan Usaha</option>
-                    <option value="Surat Kematian" {{$data->jenis_persuratan == "Surat Kematian" ? "selected" : ""}}>Surat Kematian</option>
-                </select>
+                <p class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{$data->jenis_persuratan}}</p>
             </div>
             <div class="mb-4">
                 <label for="keterangan_persuratan" class="block text-sm font-bold mb-2">Keterangan</label>
-                <textarea name="keterangan_persuratan" id="keterangan_persuratan" cols="30" rows="10" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{$data->keterangan_persuratan}}</textarea>
+                <p class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{$data->keterangan_persuratan}}</p>
             </div>
             <div class="mb-4">
                 <label for="tanggal_persuratan" class="block text-sm font-bold mb-2">Tanggal Diajukan</label>
-                <input type="datetime-local" name="tanggal_persuratan" value="{{$data->tanggal_persuratan}}" id="tanggal_persuratan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <p class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{$data->tanggal_persuratan}}</p>
             </div>
             <div class="mb-4">
                 <label for="status_persuratan" class="block text-sm font-bold mb-2">Status Persuratan</label>
                 <select name="status_persuratan" id="status_persuratan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     <option value="" disabled class="text-gray-400">Pilih Status</option>
-                    <option value="Menunggu" {{$data->status_persuratan == "Menungggu" ? "selected" : ""}}>Menunggu</option>
-                    <option value="Ditolak" {{$data->status_persuratan == "Ditolak" ? "selected" : ""}}>Ditolak</option>
-                    <option value="Dibuat di RT" {{$data->status_persuratan == "Selesai" ? "selected" : ""}}>Dibuat di RT</option>
-                    <option value="Verifikasi RW" {{$data->status_persuratan == "Selesai" ? "selected" : ""}}>Verifikasi RW</option>
-                    <option value="Diambil di RW" {{$data->status_persuratan == "Selesai" ? "selected" : ""}}>Diambil di RW</option>
+                    <option value="Menunggu" {{old('status_persuratan', $data->status_persuratan) == "Menungggu" ? "selected" : ""}}>Menunggu</option>
+                    <option value="Ditolak" {{old('status_persuratan', $data->status_persuratan) == "Ditolak" ? "selected" : ""}}>Ditolak</option>
+                    <option value="Dibuat di RT" {{old('status_persuratan', $data->status_persuratan) == "Dibuat di RT" ? "selected" : ""}}>Dibuat di RT</option>
+                    <option value="Verifikasi RW" {{old('status_persuratan', $data->status_persuratan) == "Verifikasi RW" ? "selected" : ""}}>Verifikasi RW</option>
+                    <option value="Diambil di RW" {{old('status_persuratan', $data->status_persuratan) == "Diambil di RW" ? "selected" : ""}}>Diambil di RW</option>
                 </select>
+                @error('status_persuratan')
+                <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+            @enderror
+            </div>
+            <div class="text-end px-10">
+                <button class="bg-hijau  text-putih font-bold py-2 px-8 rounded-lg">
+                    Simpan
+                </button>
             </div>
         </form>
-        <div class="text-end px-10">
-            <button class="bg-hijau  text-putih font-bold py-2 px-8 rounded-lg">
-                Simpan
-            </button>
-        </div>
     </form>
 </div>
 
@@ -63,5 +61,5 @@
             </div>
         </footer>
     </body>
-    
+
     </html>

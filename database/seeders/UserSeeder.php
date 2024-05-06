@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
                     'id_warga' => $i,
                     'username' => $user,
                     'password' => Hash::make('12345678'),
-                    'created_at' => now(),
+                    'created_at' => now()->setTimezone('Asia/Jakarta'),
                 ]
             );
             $i++;

@@ -19,7 +19,7 @@ class RtSeeder extends Seeder
                 [
                     'id_rt' => $i,
                     'nomor_rt' => '00' . $i,
-                    'created_at' => now(),
+                    'created_at' => now()->setTimezone('Asia/Jakarta'),
                 ]
             );
         }

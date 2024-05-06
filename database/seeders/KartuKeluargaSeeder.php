@@ -22,7 +22,7 @@ class KartuKeluargaSeeder extends Seeder
                         'id_kk' => (($i - 1) * 2) + $j,
                         'id_rt' => $i,
                         'no_kk' => '3573051012' . $no,
-                        'created_at' => now(),
+                        'created_at' => now()->setTimezone('Asia/Jakarta'),
                     ]
                 );
             }
