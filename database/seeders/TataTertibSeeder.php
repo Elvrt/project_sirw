@@ -31,7 +31,7 @@ class TataTertibSeeder extends Seeder
                 [
                     'id_tatib' => $i,
                     'deskripsi_tatib' => $tatib,
-                    'created_at' => now(),
+                    'created_at' => now()->setTimezone('Asia/Jakarta'),
                 ]
             );
             $i++;

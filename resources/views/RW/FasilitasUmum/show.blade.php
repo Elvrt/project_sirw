@@ -7,7 +7,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-body popup-head">
             <i class="fa-solid fa-square-xmark fa-times text-gray-500 text-4xl close-btn" ></i>
-            <p class="text-3xl font-bold mt-5 mb-2">DETAIL DATA FASILITAS</p>
+            <p class="text-3xl font-bold mt-5 mb-2">DETAIL DATA FASILITAS UMUM</p>
             <hr class="my-5 border-b-1 border-black w-11/12 mx-auto">
             <div class="popup-box">
                 <div class="mb-3 flex">

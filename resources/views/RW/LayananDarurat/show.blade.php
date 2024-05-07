@@ -7,7 +7,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-body popup-head">
             <i class="fa-solid fa-square-xmark fa-times text-gray-500 text-4xl close-btn" ></i>
-            <p class="text-3xl font-bold mt-5 mb-2">DETAIL DATA LAYANAN</p>
+            <p class="text-3xl font-bold mt-5 mb-2">DETAIL DATA LAYANAN DARURAT</p>
             <hr class="my-5 border-b-1 border-black w-11/12 mx-auto">
             <div class="popup-box">
                 <div class="mb-3 flex">
@@ -15,7 +15,7 @@
                     <p class="text-lg">{{$data->nama_layanan}}</p>
                 </div>
                 <div class="mb-3 flex">
-                    <label for="nomor_layanan" class="block text-lg font-semibold mb-3-40">Nomor</label>
+                    <label for="nomor_layanan" class="block text-lg font-semibold mb-3 w-40">Nomor</label>
                     <p class="text-lg">{{$data->nomor_layanan}}</p>
                 </div>
             </div>

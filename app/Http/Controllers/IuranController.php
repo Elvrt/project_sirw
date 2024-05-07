@@ -35,6 +35,14 @@ class IuranController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'id_rt' => 'required',
+            'id_kk' => 'required',
+            'nominal' => 'required|numeric|min:0',
+            'status_iuran' => 'required',
+            'tanggal_iuran' => 'required',
+        ]);
+
         IuranModel::create([
             'id_kk' => $request->id_kk,
             'nominal' => $request->nominal,
@@ -72,9 +80,15 @@ class IuranController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = IuranModel::find($id);
+        $request->validate([
+            // 'id_rt' => 'required',
+            // 'id_kk' => 'required',
+            'nominal' => 'required|numeric|min:0',
+            'status_iuran' => 'required',
+            'tanggal_iuran' => 'required',
+        ]);
 
-        $data->update([
+        IuranModel::find($id)->update([
             // 'id_kk' => $request->id_kk,
             'nominal' => $request->nominal,
             'status_iuran' => $request->status_iuran,
@@ -89,11 +103,16 @@ class IuranController extends Controller
      */
     public function destroy(string $id)
     {
+        $check = IuranModel::find($id);
+        if (!$check) {
+            return redirect('/RW/Iuran')->with('error', 'Data tidak ditemukan');
+        }
+
         try {
             IuranModel::destroy($id);
 
             return redirect('/RW/Iuran')->with('success', 'Data berhasil dihapus');
-        } catch (e) {
+        } catch (\Illuminate\Database\QueryException $e) {
             return redirect('/RW/Iuran')->with('error', 'Data gagal dihapus');
         }
     }

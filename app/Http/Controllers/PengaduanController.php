@@ -33,12 +33,20 @@ class PengaduanController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'id_warga' => 'required',
+            'judul_pengaduan' => 'required|max:50',
+            'deskripsi_pengaduan' => 'required',
+            // 'status_pengaduan' => 'required',
+            // 'tanggal_pengaduan' => 'required',
+        ]);
+
         PengaduanModel::create([
             'id_warga' => $request->id_warga,
             'judul_pengaduan' => $request->judul_pengaduan,
             'deskripsi_pengaduan' => $request->deskripsi_pengaduan,
-            'status_pengaduan' => $request->status_pengaduan,
-            'tanggal_pengaduan' => $request->tanggal_pengaduan,
+            'status_pengaduan' => 'Menunggu',
+            'tanggal_pengaduan' => now()->setTimezone('Asia/Jakarta'),
         ]);
 
         return redirect('RW/Pengaduan')->with('success', 'Data berhasil ditambah');
@@ -70,14 +78,20 @@ class PengaduanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = PengaduanModel::find($id);
+        $request->validate([
+            // 'id_warga' => 'required',
+            // 'judul_pengaduan' => 'required|max:50',
+            // 'deskripsi_pengaduan' => 'required',
+            'status_pengaduan' => 'required',
+            // 'tanggal_pengaduan' => 'required',
+        ]);
 
-        $data->update([
+        PengaduanModel::find($id)->update([
             // 'id_warga' => $request->id_warga,
-            'judul_pengaduan' => $request->judul_pengaduan,
-            'deskripsi_pengaduan' => $request->deskripsi_pengaduan,
+            // 'judul_pengaduan' => $request->judul_pengaduan,
+            // 'deskripsi_pengaduan' => $request->deskripsi_pengaduan,
             'status_pengaduan' => $request->status_pengaduan,
-            'tanggal_pengaduan' => $request->tanggal_pengaduan,
+            // 'tanggal_pengaduan' => $request->tanggal_pengaduan,
         ]);
 
         return redirect('RW/Pengaduan')->with('success', 'Data berhasil diupdate');
@@ -88,12 +102,17 @@ class PengaduanController extends Controller
      */
     public function destroy(string $id)
     {
+        $check = PengaduanModel::find($id);
+        if (!$check) {
+            return redirect('/RW/Pengaduan')->with('error', 'Data tidak ditemukan');
+        }
+
         try {
             PengaduanModel::destroy($id);
 
-            return redirect('RW/Pengaduan')->with('success', 'Data berhasil dihapus');
-        } catch (e) {
-            return redirect('RW/Pengaduan')->with('error', 'Data gagal dihapus');
+            return redirect('/RW/Pengaduan')->with('success', 'Data berhasil dihapus');
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect('/RW/Pengaduan')->with('error', 'Data gagal dihapus');
         }
     }
 }

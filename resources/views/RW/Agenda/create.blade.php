@@ -12,24 +12,36 @@
     <div class="bg-backgroundform md:mx-10 mr-3 md:mr-32 ml-4 md:ml-32 p-5 rounded-lg">
         <p class="font-medium text-sub">Form Tambah Data Agenda</p>
 
-        <form action="/RW/Berita/" method="POST">
+        <form action="/RW/Agenda/" method="POST">
             @csrf
             @method('POST')
             <div class="mb-4">
                 <label for="gambar_agenda" class="block text-sm font-bold mb-2">Gambar</label>
-                <input type="file" name="gambar_agenda" id="gambar_agenda" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="file" name="gambar_agenda" id="gambar_agenda" value="{{old('gambar_agenda')}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                @error('gambar_agenda')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="judul_agenda" class="block text-sm font-bold mb-2">Judul</label>
-                <input type="text" name="judul_agenda" id="judul_agenda" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="text" name="judul_agenda" id="judul_agenda" value="{{old('judul_agenda')}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                @error('judul_agenda')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="deskripsi_agenda" class="block text-sm font-bold mb-2">Deskripsi</label>
-                <textarea name="deskripsi_agenda" id="deskripsi_agenda" cols="30" rows="10" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                <textarea name="deskripsi_agenda" id="deskripsi_agenda" cols="30" rows="10" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{old('deskripsi_agenda')}}</textarea>
+                @error('deskripsi_agenda')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="tanggal_agenda" class="block text-sm font-bold mb-2">Tanggal</label>
-                <input type="datetime-local" name="tanggal_agenda" id="tanggal_agenda" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="datetime-local" name="tanggal_agenda" id="tanggal_agenda" value="{{old('tanggal_agenda')}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                @error('tanggal_agenda')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="text-end px-10">
                 <button class="bg-hijau  text-putih font-bold py-2 px-8 rounded-lg">
@@ -46,5 +58,5 @@
             </div>
         </footer>
     </body>
-    
+
     </html>
