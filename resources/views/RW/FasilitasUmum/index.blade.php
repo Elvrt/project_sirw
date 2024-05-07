@@ -63,7 +63,7 @@
                 <div class="col-span-7 mt-4 p-10 sm:ml-68 drop-shadow-md text-left mr-9">
                     <!-- HEADER -->
                     <div class="table-responsive">
-                        <table id="table_fasilitas-umum" class="table-auto">
+                        <table id="table_fasilitasUmum" class="table-auto">
                             <thead>
                                 <tr>
                                     <th class="px-4 py-2">No.</th>

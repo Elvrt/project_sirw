@@ -37,16 +37,16 @@ class PersuratanController extends Controller
             'id_warga' => 'required',
             'jenis_persuratan' => 'required',
             'keterangan_persuratan' => 'required',
-            'status_persuratan' => 'required',
-            'tanggal_persuratan' => 'required',
+            // 'status_persuratan' => 'required',
+            // 'tanggal_persuratan' => 'required',
         ]);
 
         PersuratanModel::create([
             'id_warga' => $request->id_warga,
             'jenis_persuratan' => $request->jenis_persuratan,
             'keterangan_persuratan' => $request->keterangan_persuratan,
-            'status_persuratan' => $request->status_persuratan,
-            'tanggal_persuratan' => $request->tanggal_persuratan,
+            'status_persuratan' => 'Menunggu',
+            'tanggal_persuratan' => now()->setTimezone('Asia/Jakarta'),
         ]);
 
         return redirect('/RW/Persuratan')->with('success', 'Data berhasil ditambah');
@@ -79,19 +79,19 @@ class PersuratanController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'id_warga' => 'required',
-            'jenis_persuratan' => 'required',
-            'keterangan_persuratan' => 'required',
+            // 'id_warga' => 'required',
+            // 'jenis_persuratan' => 'required',
+            // 'keterangan_persuratan' => 'required',
             'status_persuratan' => 'required',
-            'tanggal_persuratan' => 'required',
+            // 'tanggal_persuratan' => 'required',
         ]);
 
         PersuratanModel::find($id)->update([
-            'id_warga' => $request->id_warga,
-            'jenis_persuratan' => $request->jenis_persuratan,
-            'keterangan_persuratan' => $request->keterangan_persuratan,
+            // 'id_warga' => $request->id_warga,
+            // 'jenis_persuratan' => $request->jenis_persuratan,
+            // 'keterangan_persuratan' => $request->keterangan_persuratan,
             'status_persuratan' => $request->status_persuratan,
-            'tanggal_persuratan' => $request->tanggal_persuratan,
+            // 'tanggal_persuratan' => $request->tanggal_persuratan,
         ]);
 
         return redirect('/RW/Persuratan')->with('success', 'Data berhasil diupdate');

@@ -15,7 +15,7 @@
                     <p class="text-lg">{{$data->nama_layanan}}</p>
                 </div>
                 <div class="mb-3 flex">
-                    <label for="nomor_layanan" class="block text-lg font-semibold mb-3-40">Nomor</label>
+                    <label for="nomor_layanan" class="block text-lg font-semibold mb-3 w-40">Nomor</label>
                     <p class="text-lg">{{$data->nomor_layanan}}</p>
                 </div>
             </div>

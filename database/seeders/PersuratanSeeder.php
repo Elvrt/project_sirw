@@ -40,8 +40,8 @@ class PersuratanSeeder extends Seeder
                     'jenis_persuratan' => $type,
                     'keterangan_persuratan' => $note[$i - 1],
                     'status_persuratan' => $status[$i - 1],
-                    'tanggal_persuratan' => now(),
-                    'created_at' => now(),
+                    'tanggal_persuratan' => now()->setTimezone('Asia/Jakarta'),
+                    'created_at' => now()->setTimezone('Asia/Jakarta'),
                 ]
             );
             $i++;

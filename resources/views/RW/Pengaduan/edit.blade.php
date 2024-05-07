@@ -21,33 +21,36 @@
             </div>
             <div class="mb-4">
                 <label for="judul_pengaduan" class="block text-sm font-bold mb-2">Judul Pengaduan</label>
-                <input type="text" name="judul_pengaduan" value="{{$data->judul_pengaduan}}" id="judul_pengaduan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <p class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{$data->judul_pengaduan}}</p>
             </div>
             <div class="mb-4">
                 <label for="deskripsi_pengaduan" class="block text-sm font-bold mb-2">Deskripsi</label>
-                <textarea name="deskripsi_pengaduan" id="deskripsi_pengaduan" cols="30" rows="10" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{$data->deskripsi_pengaduan}}</textarea>
+                <p class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{$data->deskripsi_pengaduan}}</p>
+
             </div>
             <div class="mb-4">
                 <label for="tanggal_pengaduan" class="block text-sm font-bold mb-2">Tanggal Pengaduan</label>
-                <input type="datetime-local" name="tanggal_pengaduan" value="{{$data->tanggal_pengaduan}}" id="tanggal_pengaduan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <p class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{$data->tanggal_pengaduan}}</p>
             </div>
             <div class="mb-4">
                 <label for="status_pengaduan" class="block text-sm font-bold mb-2">Status Pengaduan</label>
                 <select name="status_pengaduan" id="status_pengaduan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     <option value="" disabled class="text-gray-400">Pilih Status</option>
-                    <option value="Menunggu" {{$data->status_pengaduan == "Menungggu" ? "selected" : ""}}>Menunggu</option>
-                    <option value="Ditolak" {{$data->status_pengaduan == "Ditolak" ? "selected" : ""}}>Ditolak</option>
-                    <option value="Selesai" {{$data->status_pengaduan == "Selesai" ? "selected" : ""}}>Selesai</option>
+                    <option value="Menunggu" {{old('status_pengaduan', $data->status_pengaduan) == "Menungggu" ? "selected" : ""}}>Menunggu</option>
+                    <option value="Ditolak" {{old('status_pengaduan', $data->status_pengaduan) == "Ditolak" ? "selected" : ""}}>Ditolak</option>
+                    <option value="Selesai" {{old('status_pengaduan', $data->status_pengaduan) == "Selesai" ? "selected" : ""}}>Selesai</option>
                 </select>
-        </div>
-    </form>
-    <div class="text-end px-10">
-        <button class="bg-hijau  text-putih font-bold py-2 px-8 rounded-lg">
-            Simpan
-        </button>
+                @error('status_pengaduan')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="text-end px-10">
+                <button class="bg-hijau  text-putih font-bold py-2 px-8 rounded-lg">
+                    Simpan
+                </button>
+            </div>
+        </form>
     </div>
-</form>
-</div>
 
     <!-- FOOTER -->
     <footer class="bg-zinc-50 dark:bg-neutral-700 text-center lg:text-left">
