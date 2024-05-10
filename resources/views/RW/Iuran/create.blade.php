@@ -59,7 +59,7 @@
             </div>
             <div class="mb-4">
                 <label for="tanggal_iuran" class="block text-sm font-bold mb-2">Tanggal</label>
-                <input type="datetime-local" name="tanggal_iuran" id="tanggal_iuran" value="{{old('tanggal_iuran')}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="date" name="tanggal_iuran" id="tanggal_iuran" value="{{old('tanggal_iuran')}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 @error('tanggal_iuran')
                     <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                 @enderror

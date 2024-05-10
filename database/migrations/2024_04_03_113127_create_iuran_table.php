@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_kk')->index();
             $table->bigInteger('nominal');
             $table->string('status_iuran', 25);
-            $table->dateTime('tanggal_iuran');
+            $table->date('tanggal_iuran');
             $table->timestamps();
 
             $table->foreign('id_kk')->references('id_kk')->on('kartu_keluarga');

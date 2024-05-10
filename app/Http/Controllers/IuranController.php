@@ -40,7 +40,7 @@ class IuranController extends Controller
             'id_kk' => 'required',
             'nominal' => 'required|numeric|min:0',
             'status_iuran' => 'required',
-            'tanggal_iuran' => 'required',
+            'tanggal_iuran' => 'required|date',
         ]);
 
         IuranModel::create([
@@ -85,7 +85,7 @@ class IuranController extends Controller
             // 'id_kk' => 'required',
             'nominal' => 'required|numeric|min:0',
             'status_iuran' => 'required',
-            'tanggal_iuran' => 'required',
+            'tanggal_iuran' => 'required|date',
         ]);
 
         IuranModel::find($id)->update([
