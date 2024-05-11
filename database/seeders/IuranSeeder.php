@@ -21,7 +21,7 @@ class IuranSeeder extends Seeder
                     'id_kk' => $i,
                     'nominal' => 15000,
                     'status_iuran' => 'Lunas',
-                    'tanggal_iuran' => now()->setTimezone('Asia/Jakarta'),
+                    'tanggal_iuran' => '2024-02-14',
                     'created_at' => now()->setTimezone('Asia/Jakarta'),
                 ]
             );
