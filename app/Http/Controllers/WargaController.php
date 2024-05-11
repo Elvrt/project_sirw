@@ -13,14 +13,20 @@ class WargaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index( Request $request)
     {
-        $warga = WargaModel::all();
+        $perPage = 10;
+        $currentPage = $request->query('page', 1);
+        $startNumber = ($currentPage - 1) * $perPage + 1;
+
+        $warga = WargaModel::paginate($perPage);
         $kartuKeluarga = KartuKeluargaModel::all();
         $rt = RtModel::all();
 
-        return view('RW.Warga.index', ['warga' => $warga, 'kartuKeluarga' => $kartuKeluarga, 'rt' => $rt]);
+        return view('RW.Warga.index', ['warga' => $warga, 'kartuKeluarga' => $kartuKeluarga, 'rt' => $rt, 'startNumber' => $startNumber]);
     }
+
+    
 
     /**
      * Show the form for creating a new resource.
