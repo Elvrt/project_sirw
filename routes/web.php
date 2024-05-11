@@ -78,6 +78,19 @@ Route::resource('user', UserController::class);
 
 // checkpoinr
 
+//Kartu Keluarga
+Route::group(['prefix' => 'RW/KartuKeluarga'], function (){
+    Route::get('/', [KartuKeluargaController::class, 'index']); // Halaman awal user
+    Route::post('/list', [KartuKeluargaController::class, 'list']); // Halaman data user dalam bentuk json
+    Route::get('/create', [KartuKeluargaController::class, 'create']); // Halaman form tambah user
+    Route::post('/', [KartuKeluargaController::class, 'store'])->name('RW.KartuKeluarga.store'); // Menyimpan data user baru
+    Route::get('/{id}/show', [KartuKeluargaController::class, 'show'])->name('RW.KartuKeluarga.show'); // Menampilkan detail user
+    Route::get('/{id}/edit', [KartuKeluargaController::class, 'edit'])->name('RW.KartuKeluarga.edit'); // Menampilkan halaman form edit user
+    Route::put('/{id}', [KartuKeluargaController::class, 'update'])->name('RW.KartuKeluarga.update'); // Menampilkan perubahan data user
+    Route::delete('/{id}', [KartuKeluargaController::class, 'destroy'])->name('RW.KartuKeluarga.destroy'); // Menghapus data user
+});
+
+//Warga
 Route::group(['prefix' => 'RW/Warga'], function (){
     Route::get('/', [WargaController::class, 'index']); // Halaman awal user
     Route::post('/list', [WargaController::class, 'list']); // Halaman data user dalam bentuk json
