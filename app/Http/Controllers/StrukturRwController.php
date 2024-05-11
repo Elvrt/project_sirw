@@ -15,7 +15,7 @@ class StrukturRwController extends Controller
     {
         $data = StrukturRwModel::all();
 
-        return view('StrukturRw.index', $data = ['data' => $data]);
+        return view('RW.StrukturRw.index', $data = ['data' => $data]);
     }
 
     /**
@@ -26,7 +26,7 @@ class StrukturRwController extends Controller
         $existingIds = StrukturRwModel::pluck('id_warga')->toArray();
         $niks = WargaModel::all();
 
-        return view('StrukturRw.create', compact('niks', 'existingIds'));
+        return view('RW.StrukturRw.create', compact('niks', 'existingIds'));
     }
 
     /**
@@ -46,7 +46,7 @@ class StrukturRwController extends Controller
             'id_warga' => $request->id_warga,
         ]);
 
-        return redirect('/struktur-rw')->with('success', 'Data berhasil ditambah');
+        return redirect('/RW/StrukturRw')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -56,7 +56,7 @@ class StrukturRwController extends Controller
     {
         $strukturRw = StrukturRwModel::find($id);
 
-        return view('StrukturRw.show', $data = ['data' => $strukturRw]);
+        return view('RW.StrukturRw.show', $data = ['data' => $strukturRw]);
     }
 
     /**
@@ -68,7 +68,7 @@ class StrukturRwController extends Controller
         $niks = WargaModel::all();
         $strukturRw = StrukturRwModel::find($id);
 
-        return view('StrukturRw.edit', $data = ['data' => $strukturRw], compact('niks', 'existingIds'));
+        return view('RW.StrukturRw.edit', $data = ['data' => $strukturRw], compact('niks', 'existingIds'));
     }
 
     /**
@@ -79,7 +79,7 @@ class StrukturRwController extends Controller
         $request->validate([
             'kode_struktur' => 'required|max:5|unique:struktur_rw,kode_struktur,'.$id.',id_struktur',
             'nama_struktur' => 'required|max:25',
-            'id_warga' => 'requiredunique:struktur_rw,id_warga,'.$id.',id_struktur',
+            'id_warga' => 'required|unique:struktur_rw,id_warga,'.$id.',id_struktur',
         ]);
 
         StrukturRwModel::find($id)->update([
@@ -88,7 +88,7 @@ class StrukturRwController extends Controller
             'id_warga' => $request->id_warga,
         ]);
 
-        return redirect('/struktur-rw')->with('success', 'Data berhasil diupdate');
+        return redirect('/RW/StrukturRw')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -98,15 +98,15 @@ class StrukturRwController extends Controller
     {
         $check = StrukturRwModel::find($id);
         if (!$check) {
-            return redirect('/struktur-rw')->with('error', 'Data tidak ditemukan');
+            return redirect('/RW/StrukturRw')->with('error', 'Data tidak ditemukan');
         }
 
         try {
             StrukturRwModel::destroy($id);
 
-            return redirect('/struktur-rw')->with('success', 'Data berhasil dihapus');
+            return redirect('/RW/StrukturRw')->with('success', 'Data berhasil dihapus');
         } catch (\Illuminate\Database\QueryException $e) {
-            return redirect('/struktur-rw')->with('error', 'Data gagal dihapus');
+            return redirect('/RW/StrukturRw')->with('error', 'Data gagal dihapus');
         }
     }
 }
