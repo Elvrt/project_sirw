@@ -16,7 +16,7 @@ class KartuKeluargaSeeder extends Seeder
     {
         for ($i = 1; $i <= 8; $i++) {
             for ($j = 1; $j <= 2; $j++) {
-                $no = sprintf('%04d', (($i - 1) * 2) + $j);
+                $no = sprintf('%06d', (($i - 1) * 2) + $j);
                 DB::table('kartu_keluarga')->insert(
                     [
                         'id_kk' => (($i - 1) * 2) + $j,
