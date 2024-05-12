@@ -100,11 +100,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fungsi untuk mengisi modal dengan data warga
     function fillModal(rowData) {
         const modalBody = document.querySelector('#ModalShow{{ $data->id_warga }} .modal-body .popup-box');
-        modalBody.innerHTML = ''; 
+        modalBody.innerHTML = '';
 
         // Daftar data yang ingin ditampilkan di modal
-        const dataLabels = ['Nomor RT', 'No. KK', 'NIK', 'Nama', 'Jenis Kelamin', 'Tempat Lahir', 'Tanggal Lahir', 'Alamat', 'Nomor Telepon', 'Agama', 'Pekerjaan', 'Penghasilan', 'Status Hubungan'];
-        
+        const dataLabels = ['No', 'Nomor RT', 'No. KK', 'NIK', 'Nama', 'Jenis Kelamin', 'Tempat Lahir', 'Tanggal Lahir', 'Alamat', 'Nomor Telepon', 'Agama', 'Pekerjaan', 'Penghasilan', 'Status Hubungan'];
+
         // Loop untuk setiap data yang ingin ditampilkan
         dataLabels.forEach((label, index) => {
             const dataItem = rowData[index].textContent;
