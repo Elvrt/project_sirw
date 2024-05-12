@@ -20,7 +20,7 @@
             </a>
             <p class="text-sub ml-4">Data</p>
         </div>
-        
+
         <div class="flex justify-center">
             @section('content')
             <!-- TABLE -->
@@ -99,7 +99,7 @@
                             </thead>
                             <tbody>
                                 @php
-                                $i = $startNumber; 
+                                $i = $startNumber;
                             @endphp
                                 @foreach ($warga as $data)
                                     <tr>
