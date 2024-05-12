@@ -35,6 +35,12 @@ class WargaSeeder extends Seeder
             '084555333444', '084999333555', '084999333666', '084222333777', '084111333888', '084111333999', '084666333000', '084222666555', '084111666444', '084000666333',
             '089555333444', '089999333555',
         );
+        $agama = array(
+            'Islam', 'Islam', 'Kristen Katolik', 'Kristen Katolik', 'Kristen Protestan', 'Kristen Protestan', 'Hindu', 'Hindu', 'Budha', 'Budha',
+            'Konghucu', 'Konghucu', 'Islam', 'Islam', 'Kristen Katolik', 'Kristen Katolik', 'Kristen Protestan', 'Kristen Protestan', 'Hindu', 'Hindu',
+            'Budha', 'Budha', 'Konghucu', 'Konghucu', 'Islam', 'Islam', 'Kristen Katolik', 'Kristen Katolik', 'Kristen Protestan', 'Kristen Protestan',
+            'Hindu', 'Hindu',
+        );
         $jobTitle = array('PNS', 'Guru', 'Dokter', 'Pengacara', 'Pilot', 'Petani', 'Polisi', 'Chef', 'Programmer', 'Fotografer');
         $income = array('3400000', '2600000', '7900000', '5200000', '10400000', '1200000', '2400000', '4900000', '6300000', '3700000');
         $status = array('Kepala Keluarga', 'Anggota');
@@ -52,7 +58,7 @@ class WargaSeeder extends Seeder
                     'tanggal_lahir' => date($date[$i - 1]),
                     'alamat' => $address[$a] . $no,
                     'nomor_telepon' => $nomor[$i - 1],
-                    'agama' => 'Islam',
+                    'agama' =>  $agama[$i - 1],
                     'pekerjaan' => $jobTitle[$b - 1],
                     'penghasilan' => $income[$b - 1],
                     'status_hubungan' => $status[$s - 1],

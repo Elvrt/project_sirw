@@ -51,7 +51,7 @@ class User extends Authenticatable
         return $this->belongsTo(WargaModel::class, 'id_warga');
     }
 
-    public function Role()
+    public function role()
     {
         return $this->belongsTo(RoleModel::class, 'id_role');
     }

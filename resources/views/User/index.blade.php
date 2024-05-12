@@ -43,7 +43,7 @@
                 @foreach ($data as $item)
                 <tr>
                     <td class="border px-4 py-2">{{$loop->iteration}}</td>
-                    <td class="border px-4 py-2">{{$item->Role->nama_role}}</td>
+                    <td class="border px-4 py-2">{{$item->role->nama_role}}</td>
                     <td class="border px-4 py-2">{{$item->warga->nama_warga}}</td>
                     <td class="border px-4 py-2">{{$item->username}}</td>
                     <td class="border px-4 py-2">{{$item->password}}</td>

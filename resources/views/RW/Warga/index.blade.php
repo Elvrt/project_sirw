@@ -20,7 +20,7 @@
             </a>
             <p class="text-sub ml-4">Data</p>
         </div>
-        
+
         <div class="flex justify-center">
             @section('content')
             <!-- TABLE -->
@@ -86,20 +86,21 @@
                                     <th class="px-4 py-2">No. KK</th>
                                     <th class="px-4 py-2">NIK</th>
                                     <th class="px-4 py-2">Nama</th>
-                                    <th class="px-4 py-2">Alamat</th>
                                     <th class="px-4 py-2">Jenis Kelamin</th>
                                     <th class="px-4 py-2">Tempat Lahir</th>
                                     <th class="px-4 py-2">Tanggal Lahir</th>
+                                    <th class="px-4 py-2">Alamat</th>
+                                    <th class="px-4 py-2">No. Telp</th>
                                     <th class="px-4 py-2">Agama</th>
                                     <th class="px-4 py-2">Pekerjaan</th>
+                                    <th class="px-4 py-2">Penghasilan</th>
                                     <th class="px-4 py-2">Status Hubungan</th>
-                                    <th class="px-4 py-2">No. Telp</th>
                                     <th class="px-4 py-2">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php
-                                $i = $startNumber; 
+                                $i = $startNumber;
                             @endphp
                                 @foreach ($warga as $data)
                                     <tr>
@@ -108,14 +109,15 @@
                                         <td class="px-4 py-2">{{ $data->kartuKeluarga->no_kk }}</td>
                                         <td class="px-4 py-2">{{ $data->nik }}</td>
                                         <td class="px-4 py-2">{{ $data->nama_warga }}</td>
-                                        <td class="px-4 py-2">{{ $data->alamat }}</td>
-                                        <td class="px-4 py-2">{{$data->jenis_kelamin === 'L' ? 'Laki-laki' : 'Perempuan'}}</td>
+                                        <td class="px-4 py-2">{{ $data->jenis_kelamin === 'L' ? 'Laki-laki' : 'Perempuan' }}</td>
                                         <td class="px-4 py-2">{{ $data->tempat_lahir }}</td>
                                         <td class="px-4 py-2">{{ $data->tanggal_lahir }}</td>
+                                        <td class="px-4 py-2">{{ $data->alamat }}</td>
+                                        <td class="px-4 py-2">{{ $data->nomor_telepon }}</td>
                                         <td class="px-4 py-2">{{ $data->agama }}</td>
                                         <td class="px-4 py-2">{{ $data->pekerjaan }}</td>
+                                        <td class="px-4 py-2">{{ $data->penghasilan }}</td>
                                         <td class="px-4 py-2">{{ $data->status_hubungan}}</td>
-                                        <td class="px-4 py-2">{{ $data->nomor_telepon }}</td>
                                         <td class="px-4 py-2">
                                             <div class="flex gap-3">
                                                 <a href="/RW/Warga/{{ $data->id_warga }}/edit" class="bg-kuning hover:bg-kuning-gelap text-putih font-medium py-2 px-4 rounded-lg">

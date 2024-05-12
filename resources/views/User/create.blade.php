@@ -27,9 +27,9 @@
                 <select name="id_warga" id="id_warga" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     <option value="" disabled selected class="text-gray-400">Pilih Nama</option>
                     @foreach($niks as $nik)
-                    @if(!in_array($nik->id_warga, $existingIds))
-                        <option value="{{$nik->id_warga}}">{{$nik->nama_warga}}</option>
-                    @endif
+                        @if(!in_array($nik->id_warga, $existingIds))
+                            <option value="{{$nik->id_warga}}">{{$nik->nama_warga}}</option>
+                        @endif
                     @endforeach
                 </select>
             </div>

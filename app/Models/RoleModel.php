@@ -17,4 +17,9 @@ class RoleModel extends Model
         'kode_role',
         'nama_role',
     ];
+
+    public function user()
+    {
+        return $this->hasMany(User::class, 'id_role');
+    }
 }
