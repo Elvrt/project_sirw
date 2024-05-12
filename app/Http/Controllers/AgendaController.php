@@ -11,11 +11,15 @@ class AgendaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = AgendaModel::all();
+        $perPage = 5;
+        $currentPage = $request->query('page', 1);
+        $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        return view('RW.Agenda.index', $data = ['data' => $data]);
+        $agenda = AgendaModel::paginate($perPage);
+
+        return view('RW.Agenda.index', ['agenda' => $agenda,'startNumber' => $startNumber]);
     }
 
     /**

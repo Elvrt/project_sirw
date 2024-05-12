@@ -11,11 +11,15 @@ class PersuratanController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = PersuratanModel::all();
+        $perPage = 5;
+        $currentPage = $request->query('page', 1);
+        $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        return view('RW.Persuratan.index', $data = ['data' => $data]);
+        $persuratan = PersuratanModel::paginate($perPage);
+
+        return view('RW.Persuratan.index', ['persuratan' => $persuratan ,'startNumber' => $startNumber]);
     }
 
     /**

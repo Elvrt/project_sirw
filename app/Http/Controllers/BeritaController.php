@@ -10,11 +10,15 @@ class BeritaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = BeritaModel::all();
+        $perPage = 3;
+        $currentPage = $request->query('page', 1);
+        $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        return view('RW.Berita.index', $data = ['data' => $data]);
+        $berita = BeritaModel::paginate($perPage);
+
+        return view('RW.Berita.index', ['berita' => $berita ,'startNumber' => $startNumber]);
     }
 
     /**

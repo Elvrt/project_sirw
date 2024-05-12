@@ -75,7 +75,7 @@
                         </div>
                     @endif
 
-                <div class="col-span-6 pl-10 pr-10 sm:ml-68 text-left ml-10">
+                <div class="col-span-6 pl-10 pr-10 sm:ml-68 text-left ml-10 pt-0">
                     <!-- HEADER -->
                     <div class="table-responsive">
                         <table id="table_warga" class="table-auto">
@@ -145,10 +145,9 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <div class="mt-5">
+                        <div class="mt-5  ">
                         {{ $warga->links() }}
                         </div>
-
                     </div>
                 </div>
             </div>

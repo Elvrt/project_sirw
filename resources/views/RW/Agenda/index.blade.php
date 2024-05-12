@@ -6,14 +6,13 @@
     <meta name="viewpoAgenda" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Agenda</title>
-    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"> --}}
+    @vite('resources/css/table.css')
 </head>
 <body>
 <div class="flex justify-center datas-center">
     <div class="p-4 sm:ml-64">
         <p class="text-army-gelap font-bold text-header drop-shadow-md container mb-10 mt-10 ml-4">Data Agenda</p>
-        <div class="bg-putih drop-shadow-md mx-4 px-10 p-4">
+        <div class="bg-putih drop-shadow-md mx-2 px-10 p-4">
             <a href="Agenda/create">
                 <button class="bg-hijau hover:bg-hijau-gelap text-putih font-bold py-2 px-4 rounded-lg float-right">
                     + Tambah Data Agenda
@@ -46,7 +45,7 @@
                     </div>
                 </div>
 
-                <div class="col-span-14 mt-4 p-10 sm:ml-68 drop-shadow-md text-center mr-9">
+                <div class="col-span-14 mt-4 p-10 sm:ml-68 drop-shadow-md text-center mr-9 ">
                     @if (session('success'))
                         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
                             <strong class="font-bold">Success!</strong>
@@ -61,7 +60,7 @@
                         </div>
                     @endif
 
-                <div class="col-span-6 mt-4 p-10 sm:ml-68 drop-shadow-md text-left mr-9">
+                <div class="col-span-6 mt-4 p-10 sm:ml-68 drop-shadow-md text-left ml-5 pt-0">
                     <!-- HEADER -->
                     <div class="table-responsive">
                         <table id="table_Agenda" class="table-auto">
@@ -76,7 +75,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data as $data)
+                                @foreach ($agenda as $data)
                                 <tr>
                                     <td class="px-4 py-2">{{$loop->iteration}}</td>
                                     <td class="px-4 py-2">{{$data->gambar_agenda}}</td>
@@ -112,6 +111,9 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="mt-5  ">
+                            {{ $agenda->links() }}
+                            </div>
                     </div>
                 </div>
             </div>
@@ -119,13 +121,6 @@
     </div>
 </div>
 </div>
-{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-K2ycQBY9RVuW3VhR5CtIikU0PnB5NBVqgYwe5RfwG1g=" crossorigin="anonymous"></script>
-<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#table_Berita').DataTable();
-    });
-</script> --}}
 
 
 </body>

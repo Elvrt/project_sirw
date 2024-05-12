@@ -11,11 +11,16 @@ class StrukturRwController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = StrukturRwModel::all();
+        $perPage = 10;
+        $currentPage = $request->query('page', 1);
+        $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        return view('RW.StrukturRw.index', $data = ['data' => $data]);
+        $struktur = StrukturRwModel::paginate($perPage);
+
+        return view('RW.StrukturRw.index', ['struktur' => $struktur, 'startNumber' => $startNumber]);
+
     }
 
     /**

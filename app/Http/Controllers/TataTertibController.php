@@ -10,11 +10,15 @@ class TataTertibController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = TataTertibModel::all();
+        $perPage = 10;
+        $currentPage = $request->query('page', 1);
+        $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        return view('RW.TataTertib.index', $data = ['data' => $data]);
+        $tatatertib = TataTertibModel::paginate($perPage);
+
+        return view('RW.TataTertib.index', ['tatatertib' => $tatatertib, 'startNumber' => $startNumber]);
     }
 
     /**

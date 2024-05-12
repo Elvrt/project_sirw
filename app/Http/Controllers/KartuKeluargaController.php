@@ -11,11 +11,15 @@ class KartuKeluargaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = KartuKeluargaModel::all();
+        $perPage = 10;
+        $currentPage = $request->query('page', 1);
+        $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        return view('RW.KartuKeluarga.index', $data = ['data' => $data]);
+        $kk = KartuKeluargaModel::paginate($perPage);
+
+        return view('RW.KartuKeluarga.index', ['kk' => $kk ,'startNumber' => $startNumber]);
     }
 
     /**

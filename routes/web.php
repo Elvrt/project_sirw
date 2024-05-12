@@ -200,7 +200,7 @@ Route::group(['prefix' => 'RW/LayananDarurat'], function (){
 //Tata Tertib
 Route::group(['prefix' => 'RW/TataTertib'], function (){
     Route::get('/', [TataTertibController::class, 'index']); // Halaman awal user
-    Route::post('/list', [TataTertibController::class, 'list']); // Halaman data user dalam bentuk json
+    Route::post('/index', [TataTertibController::class, 'index']); // Halaman data user dalam bentuk json
     Route::get('/create', [TataTertibController::class, 'create']); // Halaman form tambah user
     Route::post('/', [TataTertibController::class, 'store'])->name('RW.TataTertib.store'); // Menyimpan data user baru
     Route::get('/{id}/show', [TataTertibController::class, 'show'])->name('RW.TataTertib.show'); // Menampilkan detail user
