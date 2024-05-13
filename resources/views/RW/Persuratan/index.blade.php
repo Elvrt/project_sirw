@@ -74,7 +74,7 @@
                         </div>
                     @endif
 
-                <div class="col-span-7 mt-4 p-10 sm:ml-68 drop-shadow-md text-left ml-10 pt-0">
+                <div class="col-span-7 mt-4 p-10 sm:ml-68 text-left ml-10 pt-0">
                     <!-- HEADER -->
                     <div class="table-responsive">
                         <table id="table_persuratan" class="table-auto">

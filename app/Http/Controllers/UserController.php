@@ -13,11 +13,15 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = User::all();
+        $perPage = 10;
+        $currentPage = $request->query('page', 1);
+        $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        return view('RW.User.index', $data = ['data' => $data]);
+        $user = User::paginate($perPage);
+
+        return view('RW.User.index', ['user' => $user, 'startNumber'=> $startNumber]);
     }
 
     /**
