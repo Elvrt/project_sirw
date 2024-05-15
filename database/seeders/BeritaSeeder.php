@@ -30,6 +30,14 @@ class BeritaSeeder extends Seeder
             'Dalam rangka menyongsong musim tanam kedua tahun 2021, Dinas Pertanian Kendal membagikan kartu tani kepada petani dari kelompok tani Pasir Maju dan Ngudi Rejo. Acara pembagian kartu tani tersebut diselenggarakan di Balai Kelurahan Tasikmadu, Kecamatan Lowokwaru, Malang. Turut hadir dalam acara tersebut Koordinator PPL BP Kelurahan Tasikmadu, Lurah, Ketua kelompok Tani, petani, dan agen pupuk Subsidi Kelurahan Tasikmadu. Acara ini berlangsung pada hari Rabu, tanggal 27 Maret 2024.',
             'Lurah Tasikmadu meminta seluruh ketua RT dan RW di wilayahnya untuk menjaga ketertiban dan keamanan lingkungan selama Bulan Suci Ramadan 1445 Hijriah. Hal tersebut agar menciptakan suasana yang aman dan tentram selama menjalankan ibadah puasa. Lurah Tasikmadu menyampaikan imbauan tersebut secara langsung. Baik dalam bentuk pengumuman saat tarawih di wilayah Kelurahan Tasikmadu maupun melalui pesan whatsapp. Adapun imbauan yang disampaikan yakni menjaga keamanan lingkungan masing-masing dengan mengunci ganda kendaraan. Sebab selama Ramadan kerap terjadi pencurian kendaraan bermotor.',
         );
+        $images = array(
+            '1715782245_6644c2656a6e0.jpg',
+            '1715782449_6644c33155f93.jpg',
+            '1715782516_6644c3741c0cb.jpg',
+            '1715782580_6644c3b466a3c.jpg',
+            '1715782669_6644c40d43205.jpg',
+            '1715782707_6644c4330302c.jpg',
+        );
         $dates = array(
             '2024-02-14 18:02:47',
             '2024-03-22 22:19:39',
@@ -45,7 +53,7 @@ class BeritaSeeder extends Seeder
                     'id_berita' => $i,
                     'judul_berita' => $title,
                     'deskripsi_berita' => $descriptions[$i - 1],
-                    'gambar_berita' => null,
+                    'gambar_berita' => $images[$i - 1],
                     'tanggal_berita' => date($dates[$i - 1]),
                     'created_at' => date($dates[$i - 1]),
                 ]

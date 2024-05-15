@@ -22,7 +22,7 @@
                 @else
                     <Span>No Picture</Span>
                 @endif
-                <input type="file" name="gambar_agenda" value="{{old('gambar_agenda')}}" id="gambar_agenda" accept="image/*" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="file" name="gambar_agenda" value="" id="gambar_agenda" accept="image/*" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 @error('gambar_agenda')
                     <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                 @enderror

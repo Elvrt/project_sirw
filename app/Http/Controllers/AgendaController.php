@@ -90,7 +90,7 @@ class AgendaController extends Controller
         $request->validate([
             'judul_agenda' => 'required|max:100',
             'deskripsi_agenda' => 'required',
-            'gambar_agenda' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'gambar_agenda' => 'sometimes|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'tanggal_agenda' => 'required|date',
         ]);
 
