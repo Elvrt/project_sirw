@@ -78,7 +78,9 @@
                                 @foreach ($agenda as $data)
                                 <tr>
                                     <td class="px-4 py-2">{{$loop->iteration}}</td>
-                                    <td class="px-4 py-2">{{$data->gambar_agenda}}</td>
+                                    <td class="px-4 py-2">
+                                        <img src="{{ url('assets/img/agenda/' . $data->gambar_agenda) }}" width="200px" alt="gambar agenda" class="border rounded">
+                                    </td>
                                     <td class="px-4 py-2">{{$data->judul_agenda}}</td>
                                     <td class="px-4 py-2">{{$data->deskripsi_agenda}}</td>
                                     <td class="px-4 py-2">{{$data->tanggal_agenda}}</td>
