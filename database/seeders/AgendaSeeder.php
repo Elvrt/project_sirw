@@ -30,6 +30,14 @@ class AgendaSeeder extends Seeder
             'Pembagian Bantuan Langsung Tunai (BLT) pada periode kedua kepada warga yang membutuhkan. BLT diberikan sebagai bantuan sosial untuk membantu meringankan beban ekonomi warga selama masa sulit.',
             'Kegiatan yang dilakukan menjelang Idul Fitri di mana warga berkumpul untuk mengumandangkan takbir secara berkeliling di sekitar lingkungan, sebagai ungkapan kegembiraan menyambut Hari Raya Idul Fitri.Pembagian Bantuan Langsung Tunai (BLT) pada periode kedua kepada warga yang membutuhkan. BLT diberikan sebagai bantuan sosial untuk membantu meringankan beban ekonomi warga selama masa sulit.',
         );
+        $images = array(
+            '1715778009_6644b1d9a501b.jpg',
+            '1715778029_6644b1edc1f29.jpg',
+            '1715778090_6644b22ab69a9.jpg',
+            '1715778105_6644b2394f966.jpg',
+            '1715778173_6644b27d65464.jpg',
+            '1715778235_6644b2bb2ee74.jpg',
+        );
         $dates = array(
             '2024-02-14 07:00:00',
             '2024-03-04 08:00:00',
@@ -45,7 +53,7 @@ class AgendaSeeder extends Seeder
                     'id_agenda' => $i,
                     'judul_agenda' => $title,
                     'deskripsi_agenda' => $descriptions[$i - 1],
-                    'gambar_agenda' => null,
+                    'gambar_agenda' => $images[$i - 1],
                     'tanggal_agenda' => date($dates[$i - 1]),
                     'created_at' => date($dates[$i - 1]),
                 ]
