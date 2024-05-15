@@ -29,20 +29,6 @@
                         <div class="row ">
                             <div class="col-md-12">
                                 <div class="form-group ">
-                                    <label class="col-1 control-label col-form-label">Filter:</label>
-                                    <div class="max-w-xs relative">
-                                        <div class="border cursor-pointer">
-                                            <div class="col-3">
-                                                <select class="form-control w-full" id="id_rt" name="id_rt" required>
-                                                    <option value="">-  Semua -</option>
-                                                    {{-- @foreach($Berita as $data)
-                                                        <option value="{{ $data->id_berita }}">{{ $data->id_berita }}</option>
-                                                    @endforeach --}}
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <small class="form-text text-muted">Nomor RT</small>
-                                    </div>
                                     <div class="row">
                                         <div class="col-md-6 offset-md-6">
                                             <div class="form-group text-right pr-10">
@@ -58,6 +44,21 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-span-14 mt-4 p-10 sm:ml-68 drop-shadow-md text-center mr-9 ">
+                    @if (session('success'))
+                        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                            <strong class="font-bold">Success!</strong>
+                            <span class="block sm:inline">{{ session('success') }}</span>
+                        </div>
+                    @endif
+
+                    @if (session('error'))
+                        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                            <strong class="font-bold">Error!</strong>
+                            <span class="block sm:inline">{{ session('error') }}</span>
+                        </div>
+                    @endif
 
                 <div class="col-span-7 mt-4 p-10 sm:ml-68  text-left mr-4 ml-4 pt-0">
                     <!-- HEADER -->
@@ -78,7 +79,9 @@
                                 @foreach ($fashum as $data)
                                 <tr>
                                     <td class="px-4 py-2">{{$loop->iteration}}</td>
-                                    <td class="px-4 py-2">{{$data->gambar_fasilitas}}</td>
+                                    <td class="px-4 py-2">
+                                        <img src="{{ url('assets/img/fasilitas/' . $data->gambar_fasilitas) }}" width="200px" alt="gambar fasilitas" class="border rounded">
+                                    </td>
                                     <td class="px-4 py-2">{{$data->nama_fasilitas}}</td>
                                     <td class="px-4 py-2">{{$data->keterangan_fasilitas}}</td>
                                     <td class="px-4 py-2">{{$data->rt->nomor_rt}}</td>

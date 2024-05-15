@@ -18,7 +18,7 @@
             <div class="mb-4">
                 <label for="gambar_berita" class="block text-sm font-bold mb-2">Gambar</label>
                 @if ($data->gambar_berita)
-                    <img src="{{ url('assets/img/berita/' . $data->gambar_berita) }}" class="border rounded mb-2" width="200px" alt="">
+                    <img src="{{ url('assets/img/berita/' . $data->gambar_berita) }}" class="border rounded mb-2" width="200px" alt="gambar berita">
                 @else
                     <Span>No Picture</Span>
                 @endif

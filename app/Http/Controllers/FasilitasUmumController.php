@@ -41,15 +41,25 @@ class FasilitasUmumController extends Controller
             'nama_fasilitas' => 'required|max:100',
             'keterangan_fasilitas' => 'required',
             'alamat_fasilitas' => 'required|max:100',
-            'gambar_fasilitas' => 'required',
+            'gambar_fasilitas' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'id_rt' => 'required',
         ]);
 
+        // Handle the image upload
+        if ($request->hasFile('gambar_fasilitas')) {
+            $image = $request->file('gambar_fasilitas');
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/fasilitas'), $imageName);
+        } else {
+            return back()->withErrors(['gambar_fasilitas' => 'Failed to upload image.']);
+        }
+
+        // Create the record in the database
         FasilitasUmumModel::create([
             'nama_fasilitas' => $request->nama_fasilitas,
             'keterangan_fasilitas' => $request->keterangan_fasilitas,
             'alamat_fasilitas' => $request->alamat_fasilitas,
-            'gambar_fasilitas' => '',
+            'gambar_fasilitas' => $imageName,
             'id_rt' => $request->id_rt,
         ]);
 
@@ -86,15 +96,34 @@ class FasilitasUmumController extends Controller
             'nama_fasilitas' => 'required|max:100',
             'keterangan_fasilitas' => 'required',
             'alamat_fasilitas' => 'required|max:100',
-            'gambar_fasilitas' => 'required',
+            'gambar_fasilitas' => 'sometimes|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'id_rt' => 'required',
         ]);
 
-        FasilitasUmumModel::find($id)->update([
+        // Find the existing record
+        $fasilitas = FasilitasUmumModel::find($id);
+
+        // If a new image is uploaded
+        if ($request->hasFile('gambar_fasilitas')) {
+            // Delete the old image if it exists
+            if ($fasilitas->gambar_fasilitas && file_exists(public_path('assets/img/fasilitas/' . $fasilitas->gambar_fasilitas))) {
+                unlink(public_path('assets/img/fasilitas/' . $fasilitas->gambar_fasilitas));
+            }
+
+            // Handle the new image upload
+            $image = $request->file('gambar_fasilitas');
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/fasilitas'), $imageName);
+        } else {
+            // If no new image is uploaded, keep the old image name
+            $imageName = $fasilitas->gambar_fasilitas;
+        }
+
+        $fasilitas->update([
             'nama_fasilitas' => $request->nama_fasilitas,
             'keterangan_fasilitas' => $request->keterangan_fasilitas,
             'alamat_fasilitas' => $request->alamat_fasilitas,
-            'gambar_fasilitas' => '',
+            'gambar_fasilitas' => $imageName,
             'id_rt' => $request->id_rt,
         ]);
 
@@ -109,6 +138,11 @@ class FasilitasUmumController extends Controller
         $check = FasilitasUmumModel::find($id);
         if (!$check) {
             return redirect('/RW/FasilitasUmum')->with('error', 'Data tidak ditemukan');
+        }
+
+        // Delete the old image if it exists
+        if ($check->gambar_fasilitas && file_exists(public_path('assets/img/fasilitas/' . $check->gambar_fasilitas))) {
+            unlink(public_path('assets/img/fasilitas/' . $check->gambar_fasilitas));
         }
 
         try {
