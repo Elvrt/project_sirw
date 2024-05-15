@@ -38,14 +38,24 @@ class AgendaController extends Controller
         $request->validate([
             'judul_agenda' => 'required|max:100',
             'deskripsi_agenda' => 'required',
-            'gambar_agenda' => 'required',
-            'tanggal_agenda' => 'required',
+            'gambar_agenda' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'tanggal_agenda' => 'required|date',
         ]);
 
+        // Handle the image upload
+        if ($request->hasFile('gambar_agenda')) {
+            $image = $request->file('gambar_agenda');
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/agenda'), $imageName);
+        } else {
+            return back()->withErrors(['gambar_agenda' => 'Failed to upload image.']);
+        }
+
+        // Create the record in the database
         AgendaModel::create([
             'judul_agenda' => $request->judul_agenda,
             'deskripsi_agenda' => $request->deskripsi_agenda,
-            'gambar_agenda' => '',
+            'gambar_agenda' => $imageName,
             'tanggal_agenda' => $request->tanggal_agenda,
         ]);
 
@@ -80,14 +90,34 @@ class AgendaController extends Controller
         $request->validate([
             'judul_agenda' => 'required|max:100',
             'deskripsi_agenda' => 'required',
-            'gambar_agenda' => 'required',
-            'tanggal_agenda' => 'required',
+            'gambar_agenda' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'tanggal_agenda' => 'required|date',
         ]);
 
-        AgendaModel::find($id)->update([
+        // Find the existing record
+        $agenda = AgendaModel::find($id);
+
+        // If a new image is uploaded
+        if ($request->hasFile('gambar_agenda')) {
+            // Delete the old image if it exists
+            if ($agenda->gambar_agenda && file_exists(public_path('assets/img/agenda/' . $agenda->gambar_agenda))) {
+                unlink(public_path('assets/img/agenda/' . $agenda->gambar_agenda));
+            }
+
+            // Handle the new image upload
+            $image = $request->file('gambar_agenda');
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('assets/img/agenda'), $imageName);
+        } else {
+            // If no new image is uploaded, keep the old image name
+            $imageName = $agenda->gambar_agenda;
+        }
+
+        // Update the record in the database
+        $agenda->update([
             'judul_agenda' => $request->judul_agenda,
             'deskripsi_agenda' => $request->deskripsi_agenda,
-            'gambar_agenda' => '',
+            'gambar_agenda' => $imageName,
             'tanggal_agenda' => $request->tanggal_agenda,
         ]);
 
@@ -102,6 +132,11 @@ class AgendaController extends Controller
         $check = AgendaModel::find($id);
         if (!$check) {
             return redirect('/RW/Agenda')->with('error', 'Data tidak ditemukan');
+        }
+
+        // Delete the old image if it exists
+        if ($check->gambar_agenda && file_exists(public_path('assets/img/agenda/' . $check->gambar_agenda))) {
+            unlink(public_path('assets/img/agenda/' . $check->gambar_agenda));
         }
 
         try {

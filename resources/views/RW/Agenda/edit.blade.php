@@ -12,12 +12,17 @@
     <div class="bg-backgroundform md:mx-10 mr-3 md:mr-32 ml-4 md:ml-32 p-5 rounded-lg">
         <p class="font-medium text-sub">Edit Data Agenda</p>
 
-        <form action="{{url('/RW/Agenda/'.$data->id_agenda)}}" method="POST">
+        <form action="{{url('/RW/Agenda/'.$data->id_agenda)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-4">
                 <label for="gambar_agenda" class="block text-sm font-bold mb-2">Gambar</label>
-                <input type="file" name="gambar_agenda" value="{{old('gambar_agenda', $data->gambar_agenda)}}" id="gambar_agenda" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                @if ($data->gambar_agenda)
+                    <img src="{{ url('assets/img/agenda/' . $data->gambar_agenda) }}" class="border rounded mb-2" width="200px" alt="">
+                @else
+                    <Span>No Picture</Span>
+                @endif
+                <input type="file" name="gambar_agenda" value="{{old('gambar_agenda')}}" id="gambar_agenda" accept="image/*" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 @error('gambar_agenda')
                     <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                 @enderror
