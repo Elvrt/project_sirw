@@ -12,7 +12,7 @@
         <h1 style="color: #ff0000">ROLE RW</h1>
         <form action="/logout" method="post">
             @csrf
-            <button type="submit" class="btn btn-primary">Logout</button>
+            <button type="submit" class="btn btn-primary">Logouttttt</button>
         </form>
     </div>
 </body>
