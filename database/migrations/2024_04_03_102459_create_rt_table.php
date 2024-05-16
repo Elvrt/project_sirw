@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('rt', function (Blueprint $table) {
             $table->id('id_rt');
             $table->string('nomor_rt', 3)->unique();
+            $table->unsignedBigInteger('id_rw')->index();
             $table->timestamps();
+
+            $table->foreign('id_rw')->references('id_rw')->on('rw');
         });
     }
 

@@ -78,15 +78,40 @@ Route::resource('user', UserController::class);
 
 // checkpoinr
 
+//Kartu Keluarga
+Route::group(['prefix' => 'RW/KartuKeluarga'], function (){
+    Route::get('/', [KartuKeluargaController::class, 'index']); // Halaman awal user
+    Route::post('/list', [KartuKeluargaController::class, 'list']); // Halaman data user dalam bentuk json
+    Route::get('/create', [KartuKeluargaController::class, 'create']); // Halaman form tambah user
+    Route::post('/', [KartuKeluargaController::class, 'store'])->name('RW.KartuKeluarga.store'); // Menyimpan data user baru
+    Route::get('/{id}/show', [KartuKeluargaController::class, 'show'])->name('RW.KartuKeluarga.show'); // Menampilkan detail user
+    Route::get('/{id}/edit', [KartuKeluargaController::class, 'edit'])->name('RW.KartuKeluarga.edit'); // Menampilkan halaman form edit user
+    Route::put('/{id}', [KartuKeluargaController::class, 'update'])->name('RW.KartuKeluarga.update'); // Menampilkan perubahan data user
+    Route::delete('/{id}', [KartuKeluargaController::class, 'destroy'])->name('RW.KartuKeluarga.destroy'); // Menghapus data user
+});
+
+//Warga
 Route::group(['prefix' => 'RW/Warga'], function (){
     Route::get('/', [WargaController::class, 'index']); // Halaman awal user
-    Route::post('/list', [WargaController::class, 'list']); // Halaman data user dalam bentuk json
+    Route::post('/index', [WargaController::class, 'index']); // Halaman data user dalam bentuk json
     Route::get('/create', [WargaController::class, 'create']); // Halaman form tambah user
     Route::post('/', [WargaController::class, 'store'])->name('RW.Warga.store'); // Menyimpan data user baru
     Route::get('/{id}/show', [WargaController::class, 'show'])->name('RW.Warga.show'); // Menampilkan detail user
     Route::get('/{id}/edit', [WargaController::class, 'edit'])->name('RW.Warga.edit'); // Menampilkan halaman form edit user
     Route::put('/{id}', [WargaController::class, 'update'])->name('RW.Warga.update'); // Menampilkan perubahan data user
     Route::delete('/{id}', [WargaController::class, 'destroy'])->name('RW.Warga.destroy'); // Menghapus data user
+});
+
+//Warga
+Route::group(['prefix' => 'RW/User'], function (){
+    Route::get('/', [UserController::class, 'index']); // Halaman awal user
+    Route::post('/index', [UserController::class, 'index']); // Halaman data user dalam bentuk json
+    Route::get('/create', [UserController::class, 'create']); // Halaman form tambah user
+    Route::post('/', [UserController::class, 'store'])->name('RW.User.store'); // Menyimpan data user baru
+    Route::get('/{id}/show', [UserController::class, 'show'])->name('RW.User.show'); // Menampilkan detail user
+    Route::get('/{id}/edit', [UserController::class, 'edit'])->name('RW.User.edit'); // Menampilkan halaman form edit user
+    Route::put('/{id}', [UserController::class, 'update'])->name('RW.User.update'); // Menampilkan perubahan data user
+    Route::delete('/{id}', [UserController::class, 'destroy'])->name('RW.User.destroy'); // Menghapus data user
 });
 
 //Berita
@@ -137,15 +162,15 @@ Route::group(['prefix' => 'RW/FasilitasUmum'], function (){
 });
 
 //Struktur
-Route::group(['prefix' => 'RW/StrukturRW'], function (){
+Route::group(['prefix' => 'RW/StrukturRw'], function (){
     Route::get('/', [StrukturRWController::class, 'index']); // Halaman awal user
     Route::post('/list', [StrukturRWController::class, 'list']); // Halaman data user dalam bentuk json
     Route::get('/create', [StrukturRWController::class, 'create']); // Halaman form tambah user
-    Route::post('/', [StrukturRWController::class, 'store'])->name('RW.StrukturRW.store'); // Menyimpan data user baru
-    Route::get('/{id}/show', [StrukturRWController::class, 'show'])->name('RW.StrukturRW.show'); // Menampilkan detail user
-    Route::get('/{id}/edit', [StrukturRWController::class, 'edit'])->name('RW.StrukturRW.edit'); // Menampilkan halaman form edit user
-    Route::put('/{id}', [StrukturRWController::class, 'update'])->name('RW.StrukturRW.update'); // Menampilkan perubahan data user
-    Route::delete('/{id}', [StrukturRWController::class, 'destroy'])->name('RW.StrukturRW.destroy'); // Menghapus data user
+    Route::post('/', [StrukturRWController::class, 'store'])->name('RW.StrukturRw.store'); // Menyimpan data user baru
+    Route::get('/{id}/show', [StrukturRWController::class, 'show'])->name('RW.StrukturRw.show'); // Menampilkan detail user
+    Route::get('/{id}/edit', [StrukturRWController::class, 'edit'])->name('RW.StrukturRw.edit'); // Menampilkan halaman form edit user
+    Route::put('/{id}', [StrukturRWController::class, 'update'])->name('RW.StrukturRw.update'); // Menampilkan perubahan data user
+    Route::delete('/{id}', [StrukturRWController::class, 'destroy'])->name('RW.StrukturRw.destroy'); // Menghapus data user
 });
 
 //Pengaduan
@@ -187,7 +212,7 @@ Route::group(['prefix' => 'RW/LayananDarurat'], function (){
 //Tata Tertib
 Route::group(['prefix' => 'RW/TataTertib'], function (){
     Route::get('/', [TataTertibController::class, 'index']); // Halaman awal user
-    Route::post('/list', [TataTertibController::class, 'list']); // Halaman data user dalam bentuk json
+    Route::post('/index', [TataTertibController::class, 'index']); // Halaman data user dalam bentuk json
     Route::get('/create', [TataTertibController::class, 'create']); // Halaman form tambah user
     Route::post('/', [TataTertibController::class, 'store'])->name('RW.TataTertib.store'); // Menyimpan data user baru
     Route::get('/{id}/show', [TataTertibController::class, 'show'])->name('RW.TataTertib.show'); // Menampilkan detail user

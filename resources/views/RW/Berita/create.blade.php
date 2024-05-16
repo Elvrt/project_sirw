@@ -12,12 +12,12 @@
     <div class="bg-backgroundform md:mx-10 mr-3 md:mr-32 ml-4 md:ml-32 p-5 rounded-lg">
         <p class="font-medium text-sub">Form Tambah Data Berita</p>
 
-        <form action="/RW/Berita/" method="POST">
+        <form action="/RW/Berita/" method="POST" enctype="multipart/form-data">
             @csrf
             @method('POST')
             <div class="mb-4">
                 <label for="gambar_berita" class="block text-sm font-bold mb-2">Gambar</label>
-                <input type="file" name="gambar_berita" id="gambar_berita" value="{{old('gambar_berita')}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="file" name="gambar_berita" id="gambar_berita" value="" accept="image/*" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 @error('gambar_berita')
                     <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                 @enderror

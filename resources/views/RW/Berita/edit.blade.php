@@ -12,12 +12,17 @@
     <div class="bg-backgroundform md:mx-10 mr-3 md:mr-32 ml-4 md:ml-32 p-5 rounded-lg">
         <p class="font-medium text-sub">Edit Data berita</p>
 
-        <form action="{{url('/RW/Berita/'.$data->id_berita)}}" method="POST">
+        <form action="{{url('/RW/Berita/'.$data->id_berita)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-4">
                 <label for="gambar_berita" class="block text-sm font-bold mb-2">Gambar</label>
-                <input type="file" name="gambar_berita" value="{{old('gambar_berita', $data->gambar_berita)}}" id="gambar_berita" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                @if ($data->gambar_berita)
+                    <img src="{{ url('assets/img/berita/' . $data->gambar_berita) }}" class="border rounded mb-2" width="200px" alt="gambar berita">
+                @else
+                    <Span>No Picture</Span>
+                @endif
+                <input type="file" name="gambar_berita" value="" id="gambar_berita" accept="image/*" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 @error('gambar_berita')
                     <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                 @enderror

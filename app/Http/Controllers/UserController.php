@@ -13,11 +13,15 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = User::all();
+        $perPage = 10;
+        $currentPage = $request->query('page', 1);
+        $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        return view('User.index', $data = ['data' => $data]);
+        $user = User::paginate($perPage);
+
+        return view('RW.User.index', ['user' => $user, 'startNumber'=> $startNumber]);
     }
 
     /**
@@ -29,7 +33,7 @@ class UserController extends Controller
         $roles = RoleModel::all();
         $niks = WargaModel::all();
 
-        return view('User.create', compact('roles', 'niks', 'existingIds'));
+        return view('RW.User.create', compact('roles', 'niks', 'existingIds'));
     }
 
     /**
@@ -38,20 +42,20 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_role' => 'required',
+            // 'id_role' => 'required',
             'id_warga' => 'required|unique:user,id_warga',
             'username' => 'required|max:50|unique:user,username',
             'password' => 'required',
         ]);
 
         User::create([
-            'id_role' => $request->id_role,
+            'id_role' => 10,
             'id_warga' => $request->id_warga,
             'username' => $request->username,
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect('/user')->with('success', 'Data berhasil ditambah');
+        return redirect('RW/User')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -61,7 +65,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        return view('User.show', $data = ['data' => $user]);
+        return view('RW.User.show', $data = ['data' => $user]);
     }
 
     /**
@@ -74,7 +78,7 @@ class UserController extends Controller
         $niks = WargaModel::all();
         $user = User::find($id);
 
-        return view('User.edit', $data = ['data' => $user], compact('roles', 'niks', 'existingIds'));
+        return view('RW.User.edit', $data = ['data' => $user], compact('roles', 'niks', 'existingIds'));
     }
 
     /**
@@ -84,19 +88,19 @@ class UserController extends Controller
     {
         $request->validate([
             'id_role' => 'required',
-            'id_warga' => 'required|unique:user,id_warga,'.$id.',id_user',
+            // 'id_warga' => 'required|unique:user,id_warga,'.$id.',id_user',
             'username' => 'required|max:50|unique:user,username,'.$id.',id_user',
-            'password' => 'required',
+            'password' => 'nullable',
         ]);
 
         User::find($id)->update([
             'id_role' => $request->id_role,
-            'id_warga' => $request->id_warga,
+            // 'id_warga' => $request->id_warga,
             'username' => $request->username,
-            'password' => Hash::make($request->password),
+            'password' => $request->password ? bcrypt($request->password) : User::find($id)->password,
         ]);
 
-        return redirect('/user')->with('success', 'Data berhasil diupdate');
+        return redirect('RW/User')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -106,15 +110,15 @@ class UserController extends Controller
     {
         $check = User::find($id);
         if (!$check) {
-            return redirect('/user')->with('error', 'Data tidak ditemukan');
+            return redirect('/RW/User')->with('error', 'Data tidak ditemukan');
         }
 
         try {
             User::destroy($id);
 
-            return redirect('/user')->with('success', 'Data berhasil dihapus');
+            return redirect('/RW/User')->with('success', 'Data berhasil dihapus');
         } catch (\Illuminate\Database\QueryException $e) {
-            return redirect('/user')->with('error', 'Data gagal dihapus');
+            return redirect('/RW/User')->with('error', 'Data gagal dihapus');
         }
     }
 }

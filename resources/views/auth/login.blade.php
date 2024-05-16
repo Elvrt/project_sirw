@@ -11,7 +11,7 @@
 
 <body class="bg-login">
   <div class="min-h-screen flex items-center justify-center">
-    <div class="max-w-md w-full p-6 bg-login2 rounded-lg shadow-lg">
+    <div class="max-w-md w-full p-6 bg-login2 rounded-3xl shadow-md">
         @if (session()->has('error'))
             <div id="errorModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
                 <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
@@ -44,7 +44,7 @@
             </div>
         @endif
         <div class="flex justify-center mb-8">
-            <img src="{{url('/assets/img/logo.png')}}" alt="Logo" class="w-80 h-40">
+            <img src="{{url('/assets/img/logo.png')}}" class="h-30 w-60">
         </div>
         <form method="post" action="login">
             @csrf
@@ -68,7 +68,7 @@
             <button type="submit" class="w-32 bg-coklat-muda text-cream-muda font-bold py-2 rounded-lg mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-4 mb-6">Login</button>
         </form>
     </div>
-    <img src="{{url('/assets/img/backgroundloginpage.png')}}" alt="Background Image" class="absolute inset-0 w-full h-full object-cover" style="z-index: -1;">
+    <img src="{{url('/assets/img/backgroundloginpage.png')}}" alt="Background Image" class="absolute inset-0 w-full h-full object-cover opacity-40" style="z-index: -1;">
     <script>
         function hideModal() {
             document.getElementById('errorModal').classList.add('hidden');

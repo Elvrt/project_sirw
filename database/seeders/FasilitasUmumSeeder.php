@@ -38,6 +38,14 @@ class FasilitasUmumSeeder extends Seeder
             'Jl. Kartini',
             'Jl. Cempaka',
         );
+        $images = array(
+           '1715794351_6644f1afb46a6.jpg',
+           '1715794375_6644f1c77203e.jpg',
+           '1715794399_6644f1df2f827.jpg',
+           '1715794437_6644f2052db40.jpg',
+           '1715794473_6644f22969765.jpg',
+           '1715794501_6644f24545a40.jpg',
+        );
         $rt = array('1', '6', '3', '7', '4', '8');
         $i = 1;
         foreach ($names as $name) {
@@ -47,7 +55,7 @@ class FasilitasUmumSeeder extends Seeder
                     'nama_fasilitas' => $name,
                     'keterangan_fasilitas' => $notes[$i - 1],
                     'alamat_fasilitas' => $address[$i - 1],
-                    'gambar_fasilitas' => null,
+                    'gambar_fasilitas' => $images[$i - 1],
                     'id_rt' => $rt[$i - 1],
                     'created_at' => now()->setTimezone('Asia/Jakarta'),
                 ]

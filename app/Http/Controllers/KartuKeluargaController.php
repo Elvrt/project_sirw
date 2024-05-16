@@ -11,11 +11,15 @@ class KartuKeluargaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = KartuKeluargaModel::all();
+        $perPage = 10;
+        $currentPage = $request->query('page', 1);
+        $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        return view('KartuKeluarga.index', $data = ['data' => $data]);
+        $kk = KartuKeluargaModel::paginate($perPage);
+
+        return view('RW.KartuKeluarga.index', ['kk' => $kk ,'startNumber' => $startNumber]);
     }
 
     /**
@@ -25,7 +29,7 @@ class KartuKeluargaController extends Controller
     {
         $rts = RtModel::all();
 
-        return view('KartuKeluarga.create', compact('rts'));
+        return view('RW.KartuKeluarga.create', compact('rts'));
     }
 
     /**
@@ -43,7 +47,7 @@ class KartuKeluargaController extends Controller
             'no_kk' => $request->no_kk,
         ]);
 
-        return redirect('/kartu-keluarga')->with('success', 'Data berhasil ditambah');
+        return redirect('/RW/KartuKeluarga')->with('success', 'Data berhasil ditambah');
     }
 
     /**
@@ -53,7 +57,7 @@ class KartuKeluargaController extends Controller
     {
         $kartuKeluarga = KartuKeluargaModel::find($id);
 
-        return view('KartuKeluarga.show', $data = ['data' => $kartuKeluarga]);
+        return view('RW.KartuKeluarga.show', $data = ['data' => $kartuKeluarga]);
     }
 
     /**
@@ -64,7 +68,7 @@ class KartuKeluargaController extends Controller
         $rts = RtModel::all();
         $kartuKeluarga = KartuKeluargaModel::find($id);
 
-        return view('KartuKeluarga.edit', $data = ['data' => $kartuKeluarga], compact('rts'));
+        return view('RW.KartuKeluarga.edit', $data = ['data' => $kartuKeluarga], compact('rts'));
     }
 
     /**
@@ -82,7 +86,7 @@ class KartuKeluargaController extends Controller
             'no_kk' => $request->no_kk,
         ]);
 
-        return redirect('/kartu-keluarga')->with('success', 'Data berhasil diupdate');
+        return redirect('/RW/KartuKeluarga')->with('success', 'Data berhasil diupdate');
     }
 
     /**
@@ -92,15 +96,15 @@ class KartuKeluargaController extends Controller
     {
         $check = KartuKeluargaModel::find($id);
         if (!$check) {
-            return redirect('/kartu-keluarga')->with('error', 'Data tidak ditemukan');
+            return redirect('/RW/KartuKeluarga')->with('error', 'Data tidak ditemukan');
         }
 
         try {
             KartuKeluargaModel::destroy($id);
 
-            return redirect('/kartu-keluarga')->with('success', 'Data berhasil dihapus');
+            return redirect('/RW/KartuKeluarga')->with('success', 'Data berhasil dihapus');
         } catch (\Illuminate\Database\QueryException $e) {
-            return redirect('/kartu-keluarga')->with('error', 'Data gagal dihapus');
+            return redirect('/RW/KartuKeluarga')->with('error', 'Data gagal dihapus');
         }
     }
 }

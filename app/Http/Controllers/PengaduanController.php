@@ -11,11 +11,15 @@ class PengaduanController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = PengaduanModel::all();
+        $perPage = 5;
+        $currentPage = $request->query('page', 1);
+        $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        return view('RW.Pengaduan.index', $data = ['data' => $data]);
+        $pengaduan = PengaduanModel::paginate($perPage);
+
+        return view('RW.Pengaduan.index', ['pengaduan' => $pengaduan ,'startNumber' => $startNumber]);
     }
 
     /**

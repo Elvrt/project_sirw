@@ -10,11 +10,15 @@ class LayananDaruratController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = LayananDaruratModel::all();
+        $perPage = 5;
+        $currentPage = $request->query('page', 1);
+        $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        return view('RW.LayananDarurat.index', $data = ['data' => $data]);
+        $layanan = LayananDaruratModel::paginate($perPage);
+
+        return view('RW.LayananDarurat.index', ['layanan' => $layanan ,'startNumber' => $startNumber]);
     }
 
     /**

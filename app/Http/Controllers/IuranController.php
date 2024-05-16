@@ -12,11 +12,15 @@ class IuranController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = IuranModel::all();
+        $perPage = 10;
+        $currentPage = $request->query('page', 1);
+        $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        return view('RW.Iuran.index', $data = ['data' => $data]);
+        $iuran = IuranModel::paginate($perPage);
+
+        return view('RW.Iuran.index', ['iuran' => $iuran,'startNumber' => $startNumber]);
     }
 
     /**
@@ -40,7 +44,7 @@ class IuranController extends Controller
             'id_kk' => 'required',
             'nominal' => 'required|numeric|min:0',
             'status_iuran' => 'required',
-            'tanggal_iuran' => 'required',
+            'tanggal_iuran' => 'required|date',
         ]);
 
         IuranModel::create([
@@ -85,7 +89,7 @@ class IuranController extends Controller
             // 'id_kk' => 'required',
             'nominal' => 'required|numeric|min:0',
             'status_iuran' => 'required',
-            'tanggal_iuran' => 'required',
+            'tanggal_iuran' => 'required|date',
         ]);
 
         IuranModel::find($id)->update([

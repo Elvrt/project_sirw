@@ -8,7 +8,7 @@
 <body>
 
 <div class="min-h-screen flex items-center justify-center">
-      <div class="w-full p-6 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md dark:bg-gray-800 dark:border-gray-700 sm:p-8 bg-login2">
+      <div class="w-full p-6 bg-white rounded-3xl shadow-md  sm:max-w-md dark:bg-gray-800 sm:p-8 bg-login2">
         <div class="flex justify-center mb-8">
         <img src="{{url('/assets/img/logo.png')}}" class="h-30 w-60">
         </div>
@@ -37,7 +37,7 @@
           </form>
       </div>
   </div>
-  <img src="{{url('/assets/img/backgroundloginpage.png')}}" alt="Background Image" class="absolute inset-0 w-full h-full object-cover" style="z-index: -1;">
+  <img src="{{url('/assets/img/backgroundloginpage.png')}}" alt="Background Image" class="absolute inset-0 w-full h-full object-cover opacity-40" style="z-index: -1;">
   </div>
 </body>
 </html>
