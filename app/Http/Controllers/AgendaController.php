@@ -17,7 +17,20 @@ class AgendaController extends Controller
         $currentPage = $request->query('page', 1);
         $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        $agenda = AgendaModel::paginate($perPage);
+        // Retrieve filter and search parameters from the request
+        $search = $request->query('search');
+
+        // Query the AgendaModel based on the parameters
+        $agendaQuery = AgendaModel::query();
+
+        if ($search) {
+            $agendaQuery->where(function ($query) use ($search) {
+                $query->where('judul_agenda', 'like', '%' . $search . '%')
+                    ->orWhere('deskripsi_agenda', 'like', '%' . $search . '%');
+            });
+        }
+
+        $agenda = $agendaQuery->paginate($perPage);
 
         return view('RW.Agenda.index', ['agenda' => $agenda,'startNumber' => $startNumber]);
     }
