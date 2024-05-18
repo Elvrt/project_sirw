@@ -125,16 +125,16 @@
     </div>
 </div>
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-        const filterForm = document.getElementById('filter-form');
-        const search = document.getElementById('search');
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const filterForm = document.getElementById('filter-form');
+            const search = document.getElementById('search');
 
-        search.addEventListener('input', () => {
-            filterForm.submit();
+            search.addEventListener('input', () => {
+                filterForm.submit();
+            });
         });
-    });
-</script>
+    </script>
 </body>
 </html>
 @include('RW.Agenda.show')

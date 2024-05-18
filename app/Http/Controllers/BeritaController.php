@@ -16,7 +16,20 @@ class BeritaController extends Controller
         $currentPage = $request->query('page', 1);
         $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        $berita = BeritaModel::paginate($perPage);
+        // Retrieve filter and search parameters from the request
+        $search = $request->query('search');
+
+        // Query the AgendaModel based on the parameters
+        $beritaQuery = BeritaModel::query();
+
+        if ($search) {
+            $beritaQuery->where(function ($query) use ($search) {
+                $query->where('judul_berita', 'like', '%' . $search . '%')
+                    ->orWhere('deskripsi_berita', 'like', '%' . $search . '%');
+            });
+        }
+
+        $berita = $beritaQuery->paginate($perPage);
 
         return view('RW.Berita.index', ['berita' => $berita ,'startNumber' => $startNumber]);
     }
