@@ -13,20 +13,57 @@ class WargaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index( Request $request)
+    public function index(Request $request)
     {
         $perPage = 10;
         $currentPage = $request->query('page', 1);
         $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        $warga = WargaModel::paginate($perPage);
-        $kartuKeluarga = KartuKeluargaModel::all();
+        // Retrieve filter and search parameters from the request
+        $idRt = $request->query('id_rt');
+        $jk = $request->query('jk');
+        $search = $request->query('search');
+
+        // Query the WargaModel based on the parameters
+        $wargaQuery = WargaModel::query();
+
+        if ($idRt) {
+            $wargaQuery->whereHas('kartuKeluarga.rt', function ($query) use ($idRt) {
+                $query->where('id_rt', $idRt);
+            });
+        }
+
+        if ($jk) {
+            $wargaQuery->where('jenis_kelamin', $jk);
+        }
+
+        if ($search) {
+            $wargaQuery->where(function ($query) use ($search) {
+                $query->where('nama_warga', 'like', '%' . $search . '%')
+                    ->orWhereHas('kartuKeluarga', function ($query) use ($search) {
+                        $query->where('no_kk', 'like', '%' . $search . '%');
+                     })
+                    ->orWhere('nik', 'like', '%' . $search . '%')
+                    ->orWhere('tempat_lahir', 'like', '%' . $search . '%')
+                    ->orWhere('alamat', 'like', '%' . $search . '%')
+                    ->orWhere('nomor_telepon', 'like', '%' . $search . '%')
+                    ->orWhere('agama', 'like', '%' . $search . '%')
+                    ->orWhere('pekerjaan', 'like', '%' . $search . '%')
+                    ->orWhere('penghasilan', 'like', '%' . $search . '%');
+            });
+        }
+
+        // Paginate the result
+        $warga = $wargaQuery->paginate($perPage);
+
         $rt = RtModel::all();
 
-        return view('RW.Warga.index', ['warga' => $warga, 'kartuKeluarga' => $kartuKeluarga, 'rt' => $rt, 'startNumber' => $startNumber]);
+        return view('RW.Warga.index', [
+            'warga' => $warga,
+            'rt' => $rt,
+            'startNumber' => $startNumber,
+        ]);
     }
-
-    
 
     /**
      * Show the form for creating a new resource.
