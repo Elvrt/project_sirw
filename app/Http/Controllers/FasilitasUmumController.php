@@ -17,9 +17,32 @@ class FasilitasUmumController extends Controller
         $currentPage = $request->query('page', 1);
         $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        $fashum = FasilitasUmumModel::paginate($perPage);
+        // Retrieve filter and search parameters from the request
+        $idRt = $request->query('id_rt');
+        $search = $request->query('search');
 
-        return view('RW.FasilitasUmum.index', ['fashum' => $fashum,'startNumber' => $startNumber]);
+        // Query the WargaModel based on the parameters
+        $fasilitasQuery = FasilitasUmumModel::query();
+
+        if ($idRt) {
+            $fasilitasQuery->whereHas('rt', function ($query) use ($idRt) {
+                $query->where('id_rt', $idRt);
+            });
+        }
+
+        if ($search) {
+            $fasilitasQuery->where(function ($query) use ($search) {
+                $query->where('nama_fasilitas', 'like', '%' . $search . '%')
+                    ->orWhere('keterangan_fasilitas', 'like', '%' . $search . '%')
+                    ->orWhere('alamat_fasilitas', 'like', '%' . $search . '%');
+            });
+        }
+
+        $fasilitas = $fasilitasQuery->paginate($perPage);
+
+        $rt = RtModel::all();
+
+        return view('RW.FasilitasUmum.index', ['fasilitas' => $fasilitas, 'rt' => $rt, 'startNumber' => $startNumber]);
     }
 
     /**
