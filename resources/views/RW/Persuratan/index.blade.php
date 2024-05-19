@@ -31,21 +31,18 @@
                                 <div class="form-group ">
                                     <form id="filter-form" method="GET" action="{{ url('/RW/Persuratan') }}">
                                         <label class="col-1 control-label col-form-label">Filter:</label>
-                                        <div class="max-w-xs relative">
-                                            <div class="border cursor-pointer">
-                                                <div class="col-3">
-                                                    <select class="form-control w-full" id="status" name="status" required>
-                                                        <option value="" selected>-  Semua -</option>
-                                                        <option value="Menunggu" {{request('status') == "Menunggu" ? "selected" : ""}}>Menunggu</option>
-                                                        <option value="Ditolak" {{request('status') == "Ditolak" ? "selected" : ""}}>Ditolak</option>
-                                                        <option value="Dibuat di RT" {{request('status') == "Dibuat di RT" ? "selected" : ""}}>Dibuat di RT</option>
-                                                        <option value="Verifikasi RW" {{request('status') == "Verifikasi RW" ? "selected" : ""}}>Verifikasi RW</option>
-                                                        <option value="Diambil di RW" {{request('status') == "Diambil di RW" ? "selected" : ""}}>Diambil di RW</option>
-
-                                                    </select>
-                                                </div>
+                                        <div class="flex justify-between max-w-xs relative">
+                                            <div class="cursor-pointer flex-grow mr-2">
+                                                <small class="form-text text-muted">Status</small>
+                                                <select class="border form-control w-full" id="status" name="status" required>
+                                                    <option value="" selected>-  Semua -</option>
+                                                    <option value="Menunggu" {{request('status') == "Menunggu" ? "selected" : ""}}>Menunggu</option>
+                                                    <option value="Ditolak" {{request('status') == "Ditolak" ? "selected" : ""}}>Ditolak</option>
+                                                    <option value="Dibuat di RT" {{request('status') == "Dibuat di RT" ? "selected" : ""}}>Dibuat di RT</option>
+                                                    <option value="Verifikasi RW" {{request('status') == "Verifikasi RW" ? "selected" : ""}}>Verifikasi RW</option>
+                                                    <option value="Diambil di RW" {{request('status') == "Diambil di RW" ? "selected" : ""}}>Diambil di RW</option>
+                                                </select>
                                             </div>
-                                            <small class="form-text text-muted">Status</small>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 offset-md-6">

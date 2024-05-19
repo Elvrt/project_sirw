@@ -13,7 +13,7 @@
 
                 <div class="mb-3 flex">
                     <label for="id_rt" class="block text-lg font-semibold mb-3 w-40">RT</label>
-                    <p class="text-lg">{{$data->rt->nomor_rt}}</p>
+                    <p class="text-lg">{{$data->rt->nomor_rt ?? 'RT tidak ditemukan'}}</p>
                 </div>
                 <div class="mb-3 flex">
                     <label for="no_kk" class="block text-lg font-semibold mb-3 w-40">No. KK</label>
@@ -23,10 +23,8 @@
                     <label for="id_warga" class="block text-lg font-semibold mb-3 w-40">Kepala Keluarga</label>
                     <p class="text-lg">
                         @php
-                            $kepalaKeluarga = $data->warga->firstWhere('status_hubungan', 'Kepala Keluarga');
-                            if ($kepalaKeluarga) {
-                                echo $kepalaKeluarga->nama_warga;
-                            }
+                            $kepalaKeluarga = $data->warga ? $data->warga->firstWhere('status_hubungan', 'Kepala Keluarga') : null;
+                            echo $kepalaKeluarga ? $kepalaKeluarga->nama_warga : 'Kepala Keluarga tidak ditemukan';
                         @endphp
                     </p>
                 </div>

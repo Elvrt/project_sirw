@@ -17,9 +17,39 @@ class KartuKeluargaController extends Controller
         $currentPage = $request->query('page', 1);
         $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        $kk = KartuKeluargaModel::paginate($perPage);
+        // Retrieve filter and search parameters from the request
+        $idRt = $request->query('id_rt');
+        $search = $request->query('search');
 
-        return view('RW.KartuKeluarga.index', ['kk' => $kk ,'startNumber' => $startNumber]);
+        // Query the WargaModel based on the parameters
+        $kkQuery = KartuKeluargaModel::query();
+
+        if ($idRt) {
+            $kkQuery->whereHas('rt', function ($query) use ($idRt) {
+                $query->where('id_rt', $idRt);
+            });
+        }
+
+        if ($search) {
+            $kkQuery->where(function ($query) use ($search) {
+                $query->where('no_kk', 'like', '%' . $search . '%')
+                    ->orWhereHas('warga', function ($query) use ($search) {
+                        $query->where('nama_warga', 'like', '%' . $search . '%')
+                            ->where('status_hubungan', 'Kepala Keluarga');
+                     })
+                     ->orWhereHas('warga', function ($query) use ($search) {
+                        $query->where('nomor_telepon', 'like', '%' . $search . '%')
+                            ->where('status_hubungan', 'Kepala Keluarga');
+                     });
+            });
+        }
+
+        // Paginate the result
+        $kk = $kkQuery->paginate($perPage);
+
+        $rt = RtModel::all();
+
+        return view('RW.KartuKeluarga.index', ['kk' => $kk , 'rt' => $rt, 'startNumber' => $startNumber]);
     }
 
     /**
