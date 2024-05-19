@@ -28,7 +28,7 @@ class PersuratanSeeder extends Seeder
         );
         $status = array(
             'Diambil di RW',
-            'Menunngu',
+            'Menunggu',
             'Menunggu',
         );
         $i = 1;

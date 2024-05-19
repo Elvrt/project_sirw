@@ -24,7 +24,7 @@
             @section('content')
             <!-- TABLE -->
             <div class="bg-putih drop-shadow-md mx-2 mt-5">
-                <div class="card-body pl-10 pt-5">
+                {{-- <div class="card-body pl-10 pt-5">
                     <div class="card-body">
                         <div class="row ">
                             <div class="col-md-12">
@@ -43,7 +43,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="col-span-14 mt-4 p-10 sm:ml-68 drop-shadow-md text-center mr-9">
                     @if (session('success'))

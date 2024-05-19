@@ -20,7 +20,7 @@
                 <select name="id_rt" id="id_rt" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     <option value="" disabled selected class="text-gray-400">Pilih RT</option>
                     @foreach($rts as $rt)
-                        <option value="{{$rt->id_rt}}" {{old('id_rt') == $data->rt->id_rt ? "selected" : ""}}>{{$rt->nomor_rt}}</option>
+                        <option value="{{$rt->id_rt}}" {{old('id_rt') == $rt->id_rt ? "selected" : ""}}>{{$rt->nomor_rt}}</option>
                     @endforeach
                 </select>
                 @error('id_rt')

@@ -156,7 +156,7 @@
                             </tbody>
                         </table>
                         <div class="mt-5  ">
-                        {{ $warga->links() }}
+                            {{ $warga->appends(request()->query())->links() }}
                         </div>
                     </div>
                 </div>

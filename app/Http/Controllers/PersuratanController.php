@@ -13,11 +13,33 @@ class PersuratanController extends Controller
      */
     public function index(Request $request)
     {
-        $perPage = 5;
+        $perPage = 10;
         $currentPage = $request->query('page', 1);
         $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        $persuratan = PersuratanModel::paginate($perPage);
+        // Retrieve filter and search parameters from the request
+        $status = $request->query('status');
+        $search = $request->query('search');
+
+        // Query the WargaModel based on the parameters
+        $persuratanQuery = PersuratanModel::query();
+
+        if ($status) {
+            $persuratanQuery->where('status_persuratan', $status);
+        }
+
+        if ($search) {
+            $persuratanQuery->where(function ($query) use ($search) {
+                $query->whereHas('warga', function ($query) use ($search) {
+                        $query->where('nama_warga', 'like', '%' . $search . '%');
+                     })
+                    ->orWhere('jenis_persuratan', 'like', '%' . $search . '%')
+                    ->orWhere('keterangan_persuratan', 'like', '%' . $search . '%');
+            });
+        }
+
+        // Paginate the result
+        $persuratan = $persuratanQuery->paginate($perPage);
 
         return view('RW.Persuratan.index', ['persuratan' => $persuratan ,'startNumber' => $startNumber]);
     }

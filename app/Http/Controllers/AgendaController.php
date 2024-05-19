@@ -30,6 +30,7 @@ class AgendaController extends Controller
             });
         }
 
+        // Paginate the result
         $agenda = $agendaQuery->paginate($perPage);
 
         return view('RW.Agenda.index', ['agenda' => $agenda,'startNumber' => $startNumber]);

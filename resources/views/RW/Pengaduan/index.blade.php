@@ -28,31 +28,33 @@
                     <div class="card-body">
                         <div class="row ">
                             <div class="col-md-12">
-                                <div class="form-group ">
-                                    <label class="col-1 control-label col-form-label">Filter:</label>
-                                    <div class="max-w-xs relative">
-                                        <div class="border cursor-pointer">
-                                            <div class="col-3">
-                                                <select class="form-control w-full" id="status" name="status" required>
-                                                    <option value="">-  Semua -</option>
-                                                    {{-- @foreach($pengaduan as $data)
-                                                        <option value="{{ $data->id_pengaduan }}">{{ $data->id_pengaduan }}</option>
-                                                    @endforeach --}}
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <small class="form-text text-muted">Status</small>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 offset-md-6">
-                                            <div class="form-group text-right pr-10">
-                                                <div class="col-md-6 offset-md-6">
-                                                    <label class="col-1 control-label col-form-label">Search:</label>
-                                                    <input type="search" class="form-control rounded border pl-2" id="search" placeholder="Masukkan Pencarian">
+                                <div class="form-group p-5">
+                                    <form id="filter-form" method="GET" action="{{ url('/RW/Pengaduan') }}">
+                                        <label class="col-1 control-label col-form-label">Filter:</label>
+                                        <div class="max-w-xs relative">
+                                            <div class="flex justify-between max-w-xs relative">
+                                                <div class="cursor-pointer flex-grow mr-2">
+                                                    <small class="form-text text-muted">Status</small>
+                                                    <select class="border form-control w-full" id="status" name="status">
+                                                        <option value="" selected>-  Semua -</option>
+                                                        <option value="Menunggu" {{request('status') == "Menunggu" ? "selected" : ""}}>Menunggu</option>
+                                                        <option value="Ditolak" {{request('status') == "Ditolak" ? "selected" : ""}}>Ditolak</option>
+                                                        <option value="Selesai" {{request('status') == "Selesai" ? "selected" : ""}}>Selesai</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        <div class="row">
+                                            <div class="col-md-6 offset-md-6">
+                                                <div class="form-group text-right pr-10">
+                                                    <div class="col-md-6 offset-md-6">
+                                                        <label class="col-1 control-label col-form-label">Search:</label>
+                                                        <input type="search" class="form-control rounded border pl-2" id="search" name="search" value="{{ request('search') }}" placeholder="Masukkan Pencarian">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -128,8 +130,8 @@
                             </tbody>
                         </table>
                         <div class="mt-5  ">
-                            {{ $pengaduan->links() }}
-                            </div>
+                            {{ $pengaduan->appends(request()->query())->links() }}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -137,9 +139,21 @@
     </div>
 </div>
 </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const filterForm = document.getElementById('filter-form');
+            const status = document.getElementById('status');
+            const search = document.getElementById('search');
 
+            status.addEventListener('change', () => {
+                filterForm.submit();
+            });
 
-
+            search.addEventListener('input', () => {
+                filterForm.submit();
+            });
+        });
+    </script>
 </body>
 </html>
 @include('RW.Pengaduan.show')

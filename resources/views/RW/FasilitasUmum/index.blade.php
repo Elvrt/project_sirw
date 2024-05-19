@@ -130,8 +130,8 @@
                             </tbody>
                         </table>
                         <div class="mt-5  ">
-                            {{ $fasilitas->links() }}
-                            </div>
+                            {{ $fasilitas->appends(request()->query())->links() }}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -116,8 +116,8 @@
                             </tbody>
                         </table>
                         <div class="mt-5  ">
-                            {{ $agenda->links() }}
-                            </div>
+                            {{ $agenda->appends(request()->query())->links() }}
+                        </div>
                     </div>
                 </div>
             </div>
