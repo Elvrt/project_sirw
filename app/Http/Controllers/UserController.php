@@ -19,7 +19,28 @@ class UserController extends Controller
         $currentPage = $request->query('page', 1);
         $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        $user = User::paginate($perPage);
+        // Retrieve filter and search parameters from the request
+        $idRt = $request->query('id_rt');
+        $jk = $request->query('jk');
+        $search = $request->query('search');
+
+        // Query the WargaModel based on the parameters
+        $userQuery = User::query();
+
+        if ($search) {
+            $userQuery->where(function ($query) use ($search) {
+                $query->where('username', 'like', '%' . $search . '%')
+                    ->orWhereHas('role', function ($query) use ($search) {
+                        $query->where('nama_role', 'like', '%' . $search . '%');
+                     })
+                     ->orWhereHas('warga', function ($query) use ($search) {
+                        $query->where('nama_warga', 'like', '%' . $search . '%');
+                     });
+            });
+        }
+
+        // Paginate the result
+        $user = $userQuery->paginate($perPage);
 
         return view('RW.User.index', ['user' => $user, 'startNumber'=> $startNumber]);
     }
