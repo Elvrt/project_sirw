@@ -13,7 +13,7 @@ class PengaduanController extends Controller
      */
     public function index(Request $request)
     {
-        $perPage = 5;
+        $perPage = 10;
         $currentPage = $request->query('page', 1);
         $startNumber = ($currentPage - 1) * $perPage + 1;
 
