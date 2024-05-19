@@ -17,7 +17,29 @@ class PengaduanController extends Controller
         $currentPage = $request->query('page', 1);
         $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        $pengaduan = PengaduanModel::paginate($perPage);
+        // Retrieve filter and search parameters from the request
+        $status = $request->query('status');
+        $search = $request->query('search');
+
+        // Query the WargaModel based on the parameters
+        $pengaduanQuery = PengaduanModel::query();
+
+        if ($status) {
+            $pengaduanQuery->where('status_pengaduan', $status);
+        }
+
+        if ($search) {
+            $pengaduanQuery->where(function ($query) use ($search) {
+                $query->whereHas('warga', function ($query) use ($search) {
+                        $query->where('nama_warga', 'like', '%' . $search . '%');
+                     })
+                    ->orWhere('judul_pengaduan', 'like', '%' . $search . '%')
+                    ->orWhere('deskripsi_pengaduan', 'like', '%' . $search . '%');
+            });
+        }
+
+        // Paginate the result
+        $pengaduan = $pengaduanQuery->paginate($perPage);
 
         return view('RW.Pengaduan.index', ['pengaduan' => $pengaduan ,'startNumber' => $startNumber]);
     }
