@@ -16,7 +16,20 @@ class TataTertibController extends Controller
         $currentPage = $request->query('page', 1);
         $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        $tatatertib = TataTertibModel::paginate($perPage);
+        // Retrieve filter and search parameters from the request;
+        $search = $request->query('search');
+
+        // Query the WargaModel based on the parameters
+        $tatibQuery = TataTertibModel::query();
+
+        if ($search) {
+            $tatibQuery->where(function ($query) use ($search) {
+                $query->where('deskripsi_tatib', 'like', '%' . $search . '%');
+            });
+        }
+
+        // Paginate the result
+        $tatatertib = $tatibQuery->paginate($perPage);
 
         return view('RW.TataTertib.index', ['tatatertib' => $tatatertib, 'startNumber' => $startNumber]);
     }
