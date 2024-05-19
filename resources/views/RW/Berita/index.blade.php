@@ -116,8 +116,8 @@
                             </tbody>
                         </table>
                         <div class="mt-5  ">
-                            {{ $berita->links() }}
-                            </div>
+                            {{ $berita->appends(request()->query())->links() }}
+                        </div>
                     </div>
                 </div>
             </div>
