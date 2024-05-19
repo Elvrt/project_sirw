@@ -16,7 +16,21 @@ class LayananDaruratController extends Controller
         $currentPage = $request->query('page', 1);
         $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        $layanan = LayananDaruratModel::paginate($perPage);
+        // Retrieve filter and search parameters from the request
+        $search = $request->query('search');
+
+        // Query the AgendaModel based on the parameters
+        $layananQuery = LayananDaruratModel::query();
+
+        if ($search) {
+            $layananQuery->where(function ($query) use ($search) {
+                $query->where('nama_layanan', 'like', '%' . $search . '%')
+                    ->orWhere('nomor_layanan', 'like', '%' . $search . '%');
+            });
+        }
+
+        // Paginate the result
+        $layanan = $layananQuery->paginate($perPage);
 
         return view('RW.LayananDarurat.index', ['layanan' => $layanan ,'startNumber' => $startNumber]);
     }

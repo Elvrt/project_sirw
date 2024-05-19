@@ -29,16 +29,18 @@
                         <div class="row ">
                             <div class="col-md-12">
                                 <div class="form-group ">
-                                    <div class="row">
-                                        <div class="col-md-6 offset-md-6">
-                                            <div class="form-group text-right pr-10">
-                                                <div class="col-md-6 offset-md-6">
-                                                    <label class="col-1 control-label col-form-label">Search:</label>
-                                                    <input type="search" class="form-control rounded border pl-2" id="search" placeholder="Masukkan Pencarian">
+                                    <form id="filter-form" method="GET" action="{{ url('/RW/LayananDarurat') }}">
+                                        <div class="row">
+                                            <div class="col-md-6 offset-md-6">
+                                                <div class="form-group text-right pr-10">
+                                                    <div class="col-md-6 offset-md-6">
+                                                        <label class="col-1 control-label col-form-label">Search:</label>
+                                                        <input type="search" class="form-control rounded border pl-2" id="search" name="search" value="{{ request('search') }}" placeholder="Masukkan Pencarian">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -109,8 +111,8 @@
                                 </tbody>
                             </table>
                             <div class="mt-5  ">
-                                {{ $layanan->links() }}
-                                </div>
+                                {{ $layanan->appends(request()->query())->links() }}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -118,8 +120,16 @@
         </div>
     </div>
     </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                const filterForm = document.getElementById('filter-form');
+                const search = document.getElementById('search');
 
-
+                search.addEventListener('input', () => {
+                    filterForm.submit();
+                });
+            });
+        </script>
     </body>
     </html>
     @include('RW.LayananDarurat.show')
