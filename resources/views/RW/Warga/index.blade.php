@@ -9,7 +9,7 @@
     @vite('resources/css/table.css')
 </head>
 <body>
-<div class="flex justify-center">
+<div class="justify-center flex sm:block">
     <div class="p-4 sm:ml-64">
         <p class="text-army-gelap font-bold text-header drop-shadow-md container mb-10 mt-10 ml-4">Data Warga</p>
         <div class="bg-putih drop-shadow-md mx-2 px-10 p-4">
@@ -86,6 +86,7 @@
                 <div class="col-span-6 pl-10 pr-10 sm:ml-68 text-left ml-10 pt-0">
                     <!-- HEADER -->
                     <div class="table-responsive">
+                        <div class="overflow-x-auto">
                         <table id="table_warga" class="table-auto">
                             <thead>
                                 <tr>
@@ -155,6 +156,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                    </div>
                         <div class="mt-5  ">
                             {{ $warga->appends(request()->query())->links() }}
                         </div>
@@ -188,6 +190,7 @@
 </body>
 </html>
 @include('RW.Warga.show')
+
 
 
 @endsection

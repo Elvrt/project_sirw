@@ -10,33 +10,7 @@
             <p class="text-3xl font-bold mt-5 mb-2">DETAIL DATA IURAN</p>
             <hr class="my-5 border-b-1 border-black w-11/12 mx-auto">
             <div class="popup-box">
-                <div class="mb-3 flex">
-                    <label for="id_rt" class="block text-lg font-semibold mb-3 w-40">RT</label>
-                    <p class="text-lg">{{$data->kartuKeluarga->rt->nomor_rt}}</p>
-                </div>
-                <div class="mb-3 flex">
-                    <label for="no_kk" class="block text-lg font-semibold mb-3 w-40">No. KK</label>
-                    <p class="text-lg">{{$data->kartuKeluarga->no_kk}}</p>
-                </div>
-                <div class="mb-3 flex">
-                    <label for="id_warga" class="block text-lg font-semibold mb-3 w-40">Kepala Keluarga</label>
-                    <p class="text-lg">
-                        @php
-                            $kepalaKeluarga = $data->kartuKeluarga->warga->firstWhere('status_hubungan', 'Kepala Keluarga');
-                            if ($kepalaKeluarga) {
-                                echo $kepalaKeluarga->nama_warga;
-                            }
-                        @endphp
-                    </p>
-                </div>
-                <div class="mb-3 flex">
-                    <label for="nominal" class="block text-lg font-semibold mb-3 w-40">Nominal</label>
-                    <p class="text-lg">{{$data->nominal}}</p>
-                </div>
-                <div class="mb-3 flex">
-                    <label for="status" class="block text-lg font-semibold mb-3 w-40">Status</label>
-                    <p class="text-lg">{{$data->status_iuran}}</p>
-                </div>
+
             </div>
         </div>
     </div>
@@ -47,22 +21,48 @@
     document.addEventListener('DOMContentLoaded', function() {
         const modal = document.getElementById('ModalShow{{ $data->id_iuran }}');
         const closeBtn = modal.querySelector('.close-btn');
-
+    
         function showModal() {
             modal.classList.add('active');
         }
-
+    
         function closeModal() {
             modal.classList.remove('active');
         }
-
+    
         closeBtn.addEventListener('click', closeModal);
-
+    
         const detailBtns = document.querySelectorAll('.detail');
         detailBtns.forEach(function(btn) {
             btn.addEventListener('click', function() {
                 showModal(modal);
+                // Ambil data warga dari baris yang ditekan
+                const rowData = this.closest('tr').querySelectorAll('td');
+                // Isi modal dengan data warga yang telah diambil
+                fillModal(rowData);
             });
         });
+    
+        // Fungsi untuk mengisi modal dengan data warga
+        function fillModal(rowData) {
+            const modalBody = document.querySelector('#ModalShow{{ $data->id_iuran }} .modal-body .popup-box');
+            modalBody.innerHTML = '';
+    
+            // Daftar data yang ingin ditampilkan di modal
+            const dataLabels = ['No', 'RT', 'Nomor KK', 'Kepala Keluarga', 'Nominal','Tanggal', 'Status'];
+    
+            // Loop untuk setiap data yang ingin ditampilkan
+            dataLabels.forEach((label, index) => {
+                const dataItem = rowData[index].textContent;
+                const html = `
+                <div class="mb-3 flex">
+                    <label for="data_${index}" class="block text-lg font-semibold mb-3 w-40">${label}</label>
+                    <span class="flex pr-5">:</span>
+                        <span class="text-lg text-style">${dataItem}</span>
+                    </div>
+                `;
+                modalBody.innerHTML += html; // Tambahkan data ke dalam modal
+            });
+        }
     });
-</script>
+    </script>

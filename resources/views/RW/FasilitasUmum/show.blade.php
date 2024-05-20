@@ -10,26 +10,7 @@
             <p class="text-3xl font-bold mt-5 mb-2">DETAIL DATA FASILITAS UMUM</p>
             <hr class="my-5 border-b-1 border-black w-11/12 mx-auto">
             <div class="popup-box">
-                <div class="mb-3 flex">
-                    <label for="gambar_fasilitas" class="block text-lg font-semibold mb-3 w-40">Gambar</label>
-                    <p class="text-lg">{{$data->gambar_fasilitas}}</p>
-                </div>
-                <div class="mb-3 flex">
-                    <label for="nama_fasilitas" class="block text-lg font-semibold mb-3 w-40">Nama</label>
-                    <p class="text-lg">{{$data->nama_fasilitas}}</p>
-                </div>
-                <div class="mb-3 flex">
-                    <label for="keterangan_fasilitas" class="block text-lg font-semibold mb-3 w-40">Keterangan</label>
-                    <p class="text-lg">{{$data->keterangan_fasilitas}}</p>
-                </div>
-                <div class="mb-3 flex">
-                    <label for="id_rt" class="block text-lg font-semibold mb-3 w-40">RT</label>
-                    <p class="text-lg">{{$data->rt->nomor_rt}}</p>
-                </div>
-                <div class="mb-3 flex">
-                    <label for="alamat_fasilitas" class="block text-lg font-semibold mb-3 w-40">Alamat</label>
-                    <p class="text-lg">{{$data->alamat_fasilitas}}</p>
-                </div>
+ 
             </div>
         </div>
     </div>
@@ -55,7 +36,43 @@
         detailBtns.forEach(function(btn) {
             btn.addEventListener('click', function() {
                 showModal(modal);
+                // Ambil data fasilitas dari baris yang ditekan
+                const rowData = this.closest('tr').querySelectorAll('td');
+                // Isi modal dengan data fasilitas yang telah diambil
+                fillModal(rowData);
             });
         });
+
+        // Fungsi untuk mengisi modal dengan data fasilitas
+        function fillModal(rowData) {
+            const modalBody = document.querySelector('#ModalShow{{ $data->id_fasilitas }} .modal-body .popup-box');
+            modalBody.innerHTML = '';
+
+            // Daftar data yang ingin ditampilkan di modal
+            const dataLabels = ['No', 'Gambar', 'Nama Fasilitas', 'Keterangan','RT', 'Alamat'];
+
+            // Loop untuk setiap data yang ingin ditampilkan
+            dataLabels.forEach((label, index) => {
+                let dataItem = rowData[index].textContent;
+
+                // Untuk gambar, perlu diperiksa apakah data tersebut berupa tag <img> atau teks biasa
+                if (index === 1) {
+                    const imgTag = rowData[index].querySelector('img');
+                    if (imgTag) {
+                        dataItem = imgTag.outerHTML;
+                    }
+                }
+
+                const html = `
+                    <div class="mb-3 flex">
+                        <label for="data_${index}" class="block text-lg font-semibold mb-3 w-40">${label}</label>
+                        <span class="flex pr-5">:</span>
+                        <span class="text-lg text-style">${dataItem}</span>
+                    </div>
+                `;
+                modalBody.innerHTML += html; // Tambahkan data ke dalam modal
+            });
+        }
     });
 </script>
+

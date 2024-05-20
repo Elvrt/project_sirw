@@ -10,26 +10,7 @@
             <p class="text-3xl font-bold mt-5 mb-2">DETAIL DATA PERSURATAN</p>
             <hr class="my-5 border-b-1 border-black w-11/12 mx-auto">
             <div class="popup-box">
-                <div class="mb-3 flex">
-                    <label for="id_warga" class="block text-lg font-semibold mb-3 w-40">Nama Pengaju</label>
-                    <p class="text-lg">{{$data->warga->nama_warga}}</p>
-                </div>
-                <div class="mb-3 flex">
-                    <label for="jenis_persuratan" class="block text-lg font-semibold mb-3 w-40">Jenis Surat</label>
-                    <p class="text-lg">{{$data->jenis_persuratan}}</p>
-                </div>
-                <div class="mb-3 flex">
-                    <label for="keterangan_persuratan" class="block text-lg font-semibold mb-3 w-40">Keterangan</label>
-                    <p class="text-lg">{{$data->keterangan_persuratan}}</p>
-                </div>
-                <div class="mb-3 flex">
-                    <label for="tanggal_persuratan" class="block text-lg font-semibold mb-3 w-40">Tanggal Diajukan</label>
-                    <p class="text-lg">{{$data->tanggal_persuratan}}</p>
-                </div>
-                <div class="mb-3 flex">
-                    <label for="status_persuratan" class="block text-lg font-semibold mb-3 w-40">Status</label>
-                    <p class="text-lg">{{$data->status_persuratan}}</p>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -40,22 +21,48 @@
     document.addEventListener('DOMContentLoaded', function() {
         const modal = document.getElementById('ModalShow{{ $data->id_persuratan }}');
         const closeBtn = modal.querySelector('.close-btn');
-
+    
         function showModal() {
             modal.classList.add('active');
         }
-
+    
         function closeModal() {
             modal.classList.remove('active');
         }
-
+    
         closeBtn.addEventListener('click', closeModal);
-
+    
         const detailBtns = document.querySelectorAll('.detail');
         detailBtns.forEach(function(btn) {
             btn.addEventListener('click', function() {
                 showModal(modal);
+                // Ambil data warga dari baris yang ditekan
+                const rowData = this.closest('tr').querySelectorAll('td');
+                // Isi modal dengan data warga yang telah diambil
+                fillModal(rowData);
             });
         });
+    
+        // Fungsi untuk mengisi modal dengan data warga
+        function fillModal(rowData) {
+            const modalBody = document.querySelector('#ModalShow{{ $data->id_persuratan }} .modal-body .popup-box');
+            modalBody.innerHTML = '';
+    
+            // Daftar data yang ingin ditampilkan di modal
+            const dataLabels = ['No', 'Nama', 'Jenis Surat', 'Keterangan', 'Tanggal', 'Status'];
+    
+            // Loop untuk setiap data yang ingin ditampilkan
+            dataLabels.forEach((label, index) => {
+                const dataItem = rowData[index].textContent;
+                const html = `
+                <div class="mb-3 flex">
+                    <label for="data_${index}" class="block text-lg font-semibold mb-3 w-40">${label}</label>
+                    <span class="flex pr-5">:</span>
+                        <span class="text-lg text-style">${dataItem}</span>
+                    </div>
+                `;
+                modalBody.innerHTML += html; // Tambahkan data ke dalam modal
+            });
+        }
     });
-</script>
+    </script>
