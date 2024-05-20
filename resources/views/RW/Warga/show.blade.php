@@ -10,59 +10,7 @@
                 <p class="text-3xl font-bold mt-5 mb-2">DETAIL DATA WARGA</p>
                 <hr class="my-5 border-b-1 border-black w-11/12 mx-auto">
                 <div class="popup-box">
-                    {{-- <div class="mb-3 flex ">
-                        <label for="id_rt" class="block text-lg font-semibold mb-3 w-40">Nomor RT</label>
-                        <p class="text-lg">{{$data->kartuKeluarga->rt->nomor_rt}}</p>
-                    </div>
-                    <div class="mb-3 flex ">
-                        <label for="no_kk" class="block text-lg font-semibold mb-3 w-40">No. KK</label>
-                        <p class="text-lg">{{$data->kartuKeluarga->no_kk}}</p>
-                    </div>
-                    <div class="mb-3 flex ">
-                        <label for="nik" class="block text-lg font-semibold mb-3 w-40 ">NIK</label>
-                        <p class="text-lg">{{$data->nik}}</p>
-                    </div>
-                    <div class="mb-3 flex ">
-                        <label for="nama_warga" class="block text-lg font-semibold mb-3 w-40">Nama</label>
-                        <p class="text-lg">{{$data->nama_warga}}</p>
-                    </div>
-                    <div class="mb-3 flex ">
-                        <label for="jenis_kelamin" class="block text-lg font-semibold mb-3 w-40">Jenis Kelamin</label>
-                        <p class="text-lg">{{$data->jenis_kelamin === 'L' ? 'Laki-laki' : 'Perempuan'}}</p>
-                    </div>
-                    <div class="mb-3 flex ">
-                        <label for="tempat_lahir" class="block text-lg font-semibold mb-3 w-40">Tempat Lahir</label>
-                        <p class="text-lg">{{$data->tempat_lahir}}</p>
-                    </div>
-                    <div class="mb-3 flex ">
-                        <label for="tanggal_lahir" class="block text-lg font-semibold mb-3 w-40">Tanggal Lahir</label>
-                        <p class="text-lg">{{$data->tanggal_lahir}}</p>
-                    </div>
-                    <div class="mb-3 flex ">
-                        <label for="alamat" class="block text-lg font-semibold mb-3 w-40">Alamat</label>
-                        <p class="text-lg">{{$data->alamat}}</p>
-                    </div>
-                    <div class="mb-3 flex ">
-                        <label for="nomor_telepon" class="block text-lg font-semibold mb-3 w-40">Nomor Telepon</label>
-                        <p class="text-lg">{{$data->nomor_telepon}}</p>
-                    </div>
-                    <div class="mb-3 flex ">
-                        <label for="agama" class="block text-lg font-semibold mb-3 w-40">Agama</label>
-                        <p class="text-lg">{{$data->agama}}</p>
-                    </div>
-                    <div class="mb-3 flex ">
-                        <label for="pekerjaan" class="block text-lg font-semibold mb-3 w-40">Pekerjaan</label>
-                        <p class="text-lg">{{$data->pekerjaan}}</p>
-                    </div>
-                    <div class="mb-3 flex ">
-                        <label for="penghasilan" class="block text-lg font-semibold mb-3 w-40">Penghasilan</label>
-                        <p class="text-lg">{{$data->penghasilan}}</p>
-                    </div>
-                    <div class="mb-3 flex ">
-                        <label for="status_hubungan" class="block text-lg font-semibold mb-3 w-40">Status Hubungan</label>
-                        <p class="text-lg">{{$data->status_hubungan}}</p>
-                    </div> --}}
-
+                    
                 </div>
 
             </div>
@@ -109,9 +57,10 @@ document.addEventListener('DOMContentLoaded', function() {
         dataLabels.forEach((label, index) => {
             const dataItem = rowData[index].textContent;
             const html = `
-                <div class="mb-3 flex">
-                    <label for="data_${index}" class="block text-lg font-semibold mb-3 w-40">${label}</label>
-                    <p class="text-lg">${dataItem}</p>
+            <div class="mb-3 flex">
+                <label for="data_${index}" class="block text-lg font-semibold mb-3 w-40">${label}</label>
+                <span class="flex pr-6">:</span>
+                    <span class="text-lg text-style">${dataItem}</span>
                 </div>
             `;
             modalBody.innerHTML += html; // Tambahkan data ke dalam modal
@@ -119,4 +68,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
-

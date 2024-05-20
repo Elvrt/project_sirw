@@ -9,7 +9,7 @@
     @vite('resources/css/table.css')
 </head>
 <body>
-<div class="flex justify-center datas-center">
+    <div class="justify-center flex sm:block">
     <div class="p-4 sm:ml-64">
         <p class="text-army-gelap font-bold text-header drop-shadow-md container mb-10 mt-10 ml-4">Data User</p>
         <div class="bg-putih drop-shadow-md mx-4 px-10 p-4">
@@ -60,8 +60,10 @@
                         </div>
                     @endif
 
-                <div class="col-span-7 mt-4 p-10 sm:ml-68  text-left mr-9">
+                <div class="col-span-7 mt-4  sm:ml-68 text-left mr-20 p-0">
                     <!-- HEADER -->
+                    <div class="flex justify-center">
+                    <div class="overflow-x-auto">
                     <div class="table-responsive">
                         <table id="table_user" class="table-auto">
                             <thead>
@@ -111,6 +113,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                    </div>
                         {{ $user->links() }}
                     </div>
                 </div>

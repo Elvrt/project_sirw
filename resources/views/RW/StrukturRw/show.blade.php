@@ -11,22 +11,6 @@
             <hr class="my-5 border-b-1 border-black w-11/12 mx-auto">
             <div class="popup-box">
 
-                <div class="mb-3 flex">
-                    <label for="kode_struktur" class="block text-lg font-semibold mb-3 w-40">Kode</label>
-                    <p class="text-lg">{{$data->kode_struktur}}</p>
-                </div>
-                <div class="mb-3 flex">
-                    <label for="nama_struktur" class="block text-lg font-semibold mb-3 w-40">Nama Struktur</label>
-                    <p class="text-lg">{{$data->nama_struktur}}</p>
-                </div>
-                <div class="mb-3 flex">
-                    <label for="nama_warga" class="block text-lg font-semibold mb-3 w-40">Nama Warga</label>
-                    <p class="text-lg">{{$data->warga->nama_warga}}</p>
-                </div>
-                <div class="mb-3 flex">
-                    <label for="nomor_telepon" class="block text-lg font-semibold mb-3 w-40">Nomor Telepon</label>
-                    <p class="text-lg">{{$data->warga->nomor_telepon}}</p>
-                </div>
             </div>
 
             </div>
@@ -39,22 +23,48 @@
     document.addEventListener('DOMContentLoaded', function() {
         const modal = document.getElementById('ModalShow{{ $data->id_struktur }}');
         const closeBtn = modal.querySelector('.close-btn');
-
+    
         function showModal() {
             modal.classList.add('active');
         }
-
+    
         function closeModal() {
             modal.classList.remove('active');
         }
-
+    
         closeBtn.addEventListener('click', closeModal);
-
+    
         const detailBtns = document.querySelectorAll('.detail');
         detailBtns.forEach(function(btn) {
             btn.addEventListener('click', function() {
                 showModal(modal);
+                // Ambil data warga dari baris yang ditekan
+                const rowData = this.closest('tr').querySelectorAll('td');
+                // Isi modal dengan data warga yang telah diambil
+                fillModal(rowData);
             });
         });
+    
+        // Fungsi untuk mengisi modal dengan data warga
+        function fillModal(rowData) {
+            const modalBody = document.querySelector('#ModalShow{{ $data->id_struktur }} .modal-body .popup-box');
+            modalBody.innerHTML = '';
+    
+            // Daftar data yang ingin ditampilkan di modal
+            const dataLabels = ['No', 'Kode','Nama Struktur', 'Nama Warga', 'No telepon'];
+    
+            // Loop untuk setiap data yang ingin ditampilkan
+            dataLabels.forEach((label, index) => {
+                const dataItem = rowData[index].textContent;
+                const html = `
+                <div class="mb-3 flex">
+                    <label for="data_${index}" class="block text-lg font-semibold mb-3 w-40">${label}</label>
+                    <span class="flex pr-5">:</span>
+                        <span class="text-lg text-style">${dataItem}</span>
+                    </div>
+                `;
+                modalBody.innerHTML += html; // Tambahkan data ke dalam modal
+            });
+        }
     });
-</script>
+    </script>

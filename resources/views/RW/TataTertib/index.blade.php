@@ -9,7 +9,7 @@
     @vite('resources/css/table.css')
 </head>
 <body>
-<div class="flex justify-center data-center">
+    <div class="justify-center flex sm:block">
     <div class="p-4 sm:ml-64">
         <p class="text-army-gelap font-bold text-header drop-shadow-md container mb-10 mt-10 ml-4">Data Tata Tertib</p>
         <div class="bg-putih drop-shadow-md mx-2 px-10 p-4">
@@ -62,6 +62,8 @@
 
                 <div class="col-span-6 mt-4 p-10 sm:ml-68 text-left ml-10 pt-0">
                     <!-- HEADER -->
+                    <div class="flex justify-center">
+                        <div class="overflow-x-auto">
                     <div class="table-responsive">
                         <table id="table_tataTertib" class="table-auto">
                             <thead>
@@ -105,6 +107,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                    </div>
                         <div class="mt-5  ">
                             {{ $tatatertib->links() }}
                             </div>
