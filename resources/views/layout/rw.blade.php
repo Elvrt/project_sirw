@@ -29,7 +29,7 @@
         <div class="mb-4 border-b border-gray-300 text-putih mt-4"></div>
         <ul class="space-y-2 font-medium">
             <li>
-                <a href="/RW/Dashboard" class=" text-putih flex items-center p-2 text-gray-900  dark:text-white hover:bg-cream dark:hover:bg-cream group">
+                <a href="/RW" class=" text-putih flex items-center p-2 text-gray-900  dark:text-white hover:bg-cream dark:hover:bg-cream group">
                     <svg class="w-5 h-5  text-putih transition duration-75 dark:text-gray-400 group-hover:text-army dark:group-hover:text-army" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
                         <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
@@ -141,12 +141,15 @@
                 </a>
             </li>
             <li>
-                <a href="/login" class=" text-putih flex items-center p-2 text-gray-900  dark:text-white hover:bg-cream dark:hover:bg-cream group">
-                    <svg class="w-5 h-5  text-putih transition duration-75 dark:text-gray-400 group-hover:text-army dark:group-hover:text-army" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                        <path fill-rule="evenodd" d="M16.5 3.75a1.5 1.5 0 0 1 1.5 1.5v13.5a1.5 1.5 0 0 1-1.5 1.5h-6a1.5 1.5 0 0 1-1.5-1.5V15a.75.75 0 0 0-1.5 0v3.75a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V5.25a3 3 0 0 0-3-3h-6a3 3 0 0 0-3 3V9A.75.75 0 1 0 9 9V5.25a1.5 1.5 0 0 1 1.5-1.5h6ZM5.78 8.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 0 0 0 1.06l3 3a.75.75 0 0 0 1.06-1.06l-1.72-1.72H15a.75.75 0 0 0 0-1.5H4.06l1.72-1.72a.75.75 0 0 0 0-1.06Z" clip-rule="evenodd" />
-                    </svg>
-                    <span class=" text-putih flex-1 ms-3 whitespace-nowrap group-hover:text-army">Sign Out</span>
-                </a>
+                <form action="/logout" method="post" class="text-putih flex items-center p-2 text-gray-900  dark:text-white hover:bg-cream dark:hover:bg-cream group">
+                    @csrf
+                    <button type="submit" class="flex items-center">
+                        <svg class="w-5 h-5  text-putih transition duration-75 dark:text-gray-400 group-hover:text-army dark:group-hover:text-army" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M16.5 3.75a1.5 1.5 0 0 1 1.5 1.5v13.5a1.5 1.5 0 0 1-1.5 1.5h-6a1.5 1.5 0 0 1-1.5-1.5V15a.75.75 0 0 0-1.5 0v3.75a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V5.25a3 3 0 0 0-3-3h-6a3 3 0 0 0-3 3V9A.75.75 0 1 0 9 9V5.25a1.5 1.5 0 0 1 1.5-1.5h6ZM5.78 8.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 0 0 0 1.06l3 3a.75.75 0 0 0 1.06-1.06l-1.72-1.72H15a.75.75 0 0 0 0-1.5H4.06l1.72-1.72a.75.75 0 0 0 0-1.06Z" clip-rule="evenodd" />
+                        </svg>
+                        <span class=" text-putih flex-1 ms-3 whitespace-nowrap group-hover:text-army">Sign Out</span>
+                    </button>
+                </form>
             </li>
         </ul>
         </div>
@@ -157,9 +160,9 @@
 
 
     <!-- FOOTER -->
-    <footer class="bg-zinc-50 dark:bg-neutral-700 text-center lg:text-left">
-        <div class="bg-black/5 p-4 text-center text-surface dark:text-white">
-            Copyright 2024 © : SiRW</a>
+    <footer class="bg-abu-army text-center sticky footer fixed bottom-0 w-full">
+        <div class="p-4 text-center text-surface dark:text-white">
+            Copyright 2024 © : SiRW
         </div>
     </footer>
 
