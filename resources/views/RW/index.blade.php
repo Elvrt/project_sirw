@@ -10,7 +10,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="bg-login">
+<body>
     <div class="justify-center flex sm:block">
         <div class="p-4 sm:ml-64">
             <p class="text-army-gelap font-bold text-header drop-shadow-md container mb-10 mt-10 ml-4">Dashboard</p>

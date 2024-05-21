@@ -160,7 +160,7 @@
 
 
     <!-- FOOTER -->
-    <footer class="bg-abu-army text-center sticky footer fixed bottom-0 w-full">
+    <footer class="bg-abu-army text-center sticky footer bottom-0 w-full">
         <div class="p-4 text-center text-surface dark:text-white">
             Copyright 2024 © : SiRW
         </div>

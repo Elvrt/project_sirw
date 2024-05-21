@@ -77,9 +77,12 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $i = $startNumber;
+                                @endphp
                                 @forelse ($layanan as $data)
                                     <tr>
-                                        <td class="px-4 py-2">{{$loop->iteration}}</td>
+                                        <td class="px-4 py-2">{{$i++}}</td>
                                         <td class="px-4 py-2">{{$data->nama_layanan}}</td>
                                         <td class="px-4 py-2">{{$data->nomor_layanan}}</td>
                                         <td class="px-4 py-2">
