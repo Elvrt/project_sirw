@@ -109,8 +109,8 @@
                             </thead>
                             <tbody>
                                 @php
-                                $i = $startNumber;
-                            @endphp
+                                    $i = $startNumber;
+                                @endphp
                                 @forelse ($warga as $data)
                                     <tr>
                                         <td class="px-4 py-2">{{ $i++ }}</td></td>

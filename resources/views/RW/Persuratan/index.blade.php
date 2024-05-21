@@ -94,9 +94,12 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $i = $startNumber;
+                                @endphp
                                 @forelse ($persuratan as $data)
                                     <tr>
-                                        <td class="px-4 py-2">{{$loop->iteration}}</td>
+                                        <td class="px-4 py-2">{{$i++}}</td>
                                         <td class="px-4 py-2">{{$data->warga->nama_warga}}</td>
                                         <td class="px-4 py-2">{{$data->jenis_persuratan}}</td>
                                         <td class="px-4 py-2">{{$data->keterangan_persuratan}}</td>

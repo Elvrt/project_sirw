@@ -93,9 +93,12 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $i = $startNumber;
+                                @endphp
                                 @forelse ($iuran as $data)
                                     <tr>
-                                        <td class="px-4 py-2">{{$loop->iteration}}</td>
+                                        <td class="px-4 py-2">{{$i++}}</td>
                                         <td class="px-4 py-2">{{$data->kartuKeluarga->rt->nomor_rt}}</td>
                                         <td class="px-4 py-2">{{$data->kartuKeluarga->no_kk}}</td>
                                         <td class="px-4 py-2">
