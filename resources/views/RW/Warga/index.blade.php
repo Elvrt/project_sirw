@@ -111,7 +111,7 @@
                                 @php
                                 $i = $startNumber;
                             @endphp
-                                @foreach ($warga as $data)
+                                @forelse ($warga as $data)
                                     <tr>
                                         <td class="px-4 py-2">{{ $i++ }}</td></td>
                                         <td class="px-4 py-2">{{ $data->kartuKeluarga->rt->nomor_rt }}</td>
@@ -153,7 +153,11 @@
                                             </div>
                                         </td>
                                     </tr>
-                                @endforeach
+                                    @empty
+                                    <tr>
+                                        <td colspan="15" class="text-center px-4 py-2">No data found</td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
@@ -189,8 +193,8 @@
     </script>
 </body>
 </html>
-@include('RW.Warga.show')
-
-
+@if(isset($data))
+    @include('RW.Warga.show', ['data' => $data])
+@endif
 
 @endsection

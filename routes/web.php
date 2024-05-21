@@ -81,7 +81,7 @@ Route::resource('user', UserController::class);
 //Kartu Keluarga
 Route::group(['prefix' => 'RW/KartuKeluarga'], function (){
     Route::get('/', [KartuKeluargaController::class, 'index']); // Halaman awal user
-    Route::post('/list', [KartuKeluargaController::class, 'list']); // Halaman data user dalam bentuk json
+    Route::post('/index', [KartuKeluargaController::class, 'index']); // Halaman data user dalam bentuk json
     Route::get('/create', [KartuKeluargaController::class, 'create']); // Halaman form tambah user
     Route::post('/', [KartuKeluargaController::class, 'store'])->name('RW.KartuKeluarga.store'); // Menyimpan data user baru
     Route::get('/{id}/show', [KartuKeluargaController::class, 'show'])->name('RW.KartuKeluarga.show'); // Menampilkan detail user
@@ -117,7 +117,7 @@ Route::group(['prefix' => 'RW/User'], function (){
 //Berita
 Route::group(['prefix' => 'RW/Berita'], function (){
     Route::get('/', [BeritaController::class, 'index']); // Halaman awal user
-    Route::post('/list', [BeritaController::class, 'list']); // Halaman data user dalam bentuk json
+    Route::post('/index', [BeritaController::class, 'index']); // Halaman data user dalam bentuk json
     Route::get('/create', [BeritaController::class, 'create']); // Halaman form tambah user
     Route::post('/', [BeritaController::class, 'store'])->name('RW.Berita.store'); // Menyimpan data user baru
     Route::get('/{id}/show', [BeritaController::class, 'show'])->name('RW.Berita.show'); // Menampilkan detail user
@@ -129,7 +129,7 @@ Route::group(['prefix' => 'RW/Berita'], function (){
 //Agenda
 Route::group(['prefix' => 'RW/Agenda'], function (){
     Route::get('/', [AgendaController::class, 'index']); // Halaman awal user
-    Route::post('/list', [AgendaController::class, 'list']); // Halaman data user dalam bentuk json
+    Route::post('/index', [AgendaController::class, 'index']); // Halaman data user dalam bentuk json
     Route::get('/create', [AgendaController::class, 'create']); // Halaman form tambah user
     Route::post('/', [AgendaController::class, 'store'])->name('RW.Agenda.store'); // Menyimpan data user baru
     Route::get('/{id}/show', [AgendaController::class, 'show'])->name('RW.Agenda.show'); // Menampilkan detail user
@@ -141,7 +141,7 @@ Route::group(['prefix' => 'RW/Agenda'], function (){
 //Iuran
 Route::group(['prefix' => 'RW/Iuran'], function (){
     Route::get('/', [IuranController::class, 'index']); // Halaman awal user
-    Route::post('/list', [IuranController::class, 'list']); // Halaman data user dalam bentuk json
+    Route::post('/index', [IuranController::class, 'index']); // Halaman data user dalam bentuk json
     Route::get('/create', [IuranController::class, 'create']); // Halaman form tambah user
     Route::post('/', [IuranController::class, 'store'])->name('RW.Iuran.store'); // Menyimpan data user baru
     Route::get('/{id}/show', [IuranController::class, 'show'])->name('RW.Iuran.show'); // Menampilkan detail user
@@ -152,7 +152,7 @@ Route::group(['prefix' => 'RW/Iuran'], function (){
 //Fasilitas Umum
 Route::group(['prefix' => 'RW/FasilitasUmum'], function (){
     Route::get('/', [FasilitasUmumController::class, 'index']); // Halaman awal user
-    Route::post('/list', [FasilitasUmumController::class, 'list']); // Halaman data user dalam bentuk json
+    Route::post('/index', [FasilitasUmumController::class, 'index']); // Halaman data user dalam bentuk json
     Route::get('/create', [FasilitasUmumController::class, 'create']); // Halaman form tambah user
     Route::post('/', [FasilitasUmumController::class, 'store'])->name('RW.FasilitasUmum.store'); // Menyimpan data user baru
     Route::get('/{id}/show', [FasilitasUmumController::class, 'show'])->name('RW.FasilitasUmum.show'); // Menampilkan detail user
@@ -164,7 +164,7 @@ Route::group(['prefix' => 'RW/FasilitasUmum'], function (){
 //Struktur
 Route::group(['prefix' => 'RW/StrukturRw'], function (){
     Route::get('/', [StrukturRWController::class, 'index']); // Halaman awal user
-    Route::post('/list', [StrukturRWController::class, 'list']); // Halaman data user dalam bentuk json
+    Route::post('/index', [StrukturRWController::class, 'index']); // Halaman data user dalam bentuk json
     Route::get('/create', [StrukturRWController::class, 'create']); // Halaman form tambah user
     Route::post('/', [StrukturRWController::class, 'store'])->name('RW.StrukturRw.store'); // Menyimpan data user baru
     Route::get('/{id}/show', [StrukturRWController::class, 'show'])->name('RW.StrukturRw.show'); // Menampilkan detail user
@@ -176,7 +176,7 @@ Route::group(['prefix' => 'RW/StrukturRw'], function (){
 //Pengaduan
 Route::group(['prefix' => 'RW/Pengaduan'], function (){
     Route::get('/', [PengaduanController::class, 'index']); // Halaman awal user
-    Route::post('/list', [PengaduanController::class, 'list']); // Halaman data user dalam bentuk json
+    Route::post('/index', [PengaduanController::class, 'index']); // Halaman data user dalam bentuk json
     Route::get('/create', [PengaduanController::class, 'create']); // Halaman form tambah user
     Route::post('/', [PengaduanController::class, 'store'])->name('RW.Pengaduan.store'); // Menyimpan data user baru
     Route::get('/{id}/show', [PengaduanController::class, 'show'])->name('RW.Pengaduan.show'); // Menampilkan detail user
@@ -188,7 +188,7 @@ Route::group(['prefix' => 'RW/Pengaduan'], function (){
 //Persuratan
 Route::group(['prefix' => 'RW/Persuratan'], function (){
     Route::get('/', [PersuratanController::class, 'index']); // Halaman awal user
-    Route::post('/list', [PersuratanController::class, 'list']); // Halaman data user dalam bentuk json
+    Route::post('/index', [PersuratanController::class, 'index']); // Halaman data user dalam bentuk json
     Route::get('/create', [PersuratanController::class, 'create']); // Halaman form tambah user
     Route::post('/', [PersuratanController::class, 'store'])->name('RW.Persuratan.store'); // Menyimpan data user baru
     Route::get('/{id}/show', [PersuratanController::class, 'show'])->name('RW.Persuratan.show'); // Menampilkan detail user
@@ -200,7 +200,7 @@ Route::group(['prefix' => 'RW/Persuratan'], function (){
 //Layanan Darurat
 Route::group(['prefix' => 'RW/LayananDarurat'], function (){
     Route::get('/', [LayananDaruratController::class, 'index']); // Halaman awal user
-    Route::post('/list', [LayananDaruratController::class, 'list']); // Halaman data user dalam bentuk json
+    Route::post('/index', [LayananDaruratController::class, 'index']); // Halaman data user dalam bentuk json
     Route::get('/create', [LayananDaruratController::class, 'create']); // Halaman form tambah user
     Route::post('/', [LayananDaruratController::class, 'store'])->name('RW.LayananDarurat.store'); // Menyimpan data user baru
     Route::get('/{id}/show', [LayananDaruratController::class, 'show'])->name('RW.LayananDarurat.show'); // Menampilkan detail user
