@@ -76,7 +76,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($tatatertib as $data)
+                                @forelse ($tatatertib as $data)
                                     <tr>
                                         <td class="px-4 py-2">{{$loop->iteration}}</td>
                                         <td class="px-4 py-2">{{$data->deskripsi_tatib}}</td>
@@ -106,7 +106,11 @@
                                             </div>
                                         </td>
                                     </tr>
-                                @endforeach
+                                    @empty
+                                    <tr>
+                                        <td colspan="3" class="text-center px-4 py-2">No data found</td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
@@ -132,7 +136,8 @@
     </script>
 </body>
 </html>
-@include('RW.TataTertib.show')
-
+@if(isset($data))
+    @include('RW.TataTertib.show', ['data' => $data])
+@endif
 
 @endsection
