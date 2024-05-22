@@ -31,7 +31,7 @@
     </div>
 </div>
     <!-- BERITADANAGENDA -->
-    <p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-80 mb-10">BERITA DAN INFORMASI</p>
+    <p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-36 mb-10">BERITA DAN INFORMASI</p>
     <div class="flex justify-center items-center mt-10">
         <div class="bg-login2 w-automx-4 shadow-xl md:mx-10 mr-3 md:mr-32 ml-4 md:ml-32 p-1 rounded-lg">
             <p class="text-center text-army-gelap font-medium text-sub drop-shadow-md mb-10 mt-5 ">BERITA</p>
