@@ -13,6 +13,7 @@ use App\Http\Controllers\StrukturRWController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PersuratanController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthRWController;
 use App\Http\Controllers\AuthRtController;
@@ -20,6 +21,7 @@ use App\Http\Controllers\AuthWargaController;
 use App\Http\Controllers\RedirectController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -210,8 +212,8 @@ Route::get('/forgotpassword', function () {
     return view('auth.LupaPass');
 });
 
-Route::get('/', function () {
-    return view('Dashboard.dashboard');
+Route::group(['prefix' => ''], function (){
+    Route::get('/', [DashboardController::class, 'index']);
 });
 
 Route::get('/profil', function () {
