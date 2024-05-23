@@ -249,7 +249,7 @@ Route::get('statussurat', function () {
 });
 
 Route::get('statusIuran', function () {
-    return view('Warga.statusIuran');
+    return view('Warga.statusiuran');
 });
 
 Route::get('layananDarurat', function () {
