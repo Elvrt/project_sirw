@@ -14,10 +14,14 @@ use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PersuratanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\InfoController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthRWController;
 use App\Http\Controllers\AuthRtController;
 use App\Http\Controllers\AuthWargaController;
+use App\Http\Controllers\FasumDashboardController;
+use App\Http\Controllers\LayananDaruratDashboardController;
 use App\Http\Controllers\RedirectController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -214,14 +218,10 @@ Route::get('/forgotpassword', function () {
 
 Route::group(['prefix' => ''], function (){
     Route::get('/', [DashboardController::class, 'index']);
-});
-
-Route::get('/profil', function () {
-    return view('Dashboard.ProfilRW');
-});
-
-Route::get('/info', function () {
-    return view('Dashboard.info');
+    Route::get('/profil', [ProfilController::class, 'index']);
+    Route::get('/info', [InfoController::class, 'index']);
+    Route::get('/fasum', [FasumDashboardController::class, 'index']);
+    Route::get('/layanandarurat', [LayananDaruratDashboardController::class, 'index']);
 });
 
 Route::get('/layanan', function () {
@@ -252,16 +252,8 @@ Route::get('statusIuran', function () {
     return view('Warga.statusiuran');
 });
 
-Route::get('layananDarurat', function () {
-    return view('dashboard.layanandarurat');
-});
-
 Route::get('pengaduan', function () {
     return view('Warga.pengaduan');
-});
-
-Route::get('fasum', function () {
-    return view('dashboard.fasilitasumum');
 });
 
 Route::get('berita', function () {

@@ -47,8 +47,7 @@
                 @endforeach
             </div>
             <a href="info">
-                <button
-                    class=" w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-10 mb-10">Selengkapnya</button>
+                <button class=" w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-10 mb-10">Selengkapnya</button>
             </a>
             <p class="text-center text-army-gelap font-medium text-sub drop-shadow-md mb-10 mt-10">AGENDA</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-7 px-4 md:px-20 item-center ">
@@ -63,30 +62,29 @@
                 @endforeach
             </div>
             <a href="info">
-                <button
-                    class=" w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-10 mb-10">Selengkapnya</button>
+                <button class=" w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-10 mb-10">Selengkapnya</button>
             </a>
         </div>
     </div>
     <!-- LAYANAN -->
     <p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-20 mb-10">LAYANAN</p>
     <div class="flex justify-center items-center mt-10">
-    <div class="bg-login2 w-automx-10 shadow-xl md:mx-10 mr-4 md:mr-32 ml-4 md:ml-32 p-5 rounded-lg">
-        <p class="text-center text-army-gelap font-medium text-sub drop-shadow-md mb-10 mt-5">FASILITAS UMUM</p>
-        <div class="h-140 grid grid-cols-1 md:grid-cols-3 gap-7 mx-auto md:px-40 content-center">
-            @foreach ($fasilitas as $data)
-                <div class="flex flex-col justify-center items-center relative">
-                    <div class="mr-4 block cursor-pointer antialiased relative">
-                        <img src="{{ url('assets/img/fasilitas/' . $data->gambar_fasilitas) }}" width="400" class="rounded-lg" style="margin:auto">
-                        <p class="overlay-text text-abu-putih font-medium text-sub absolute bottom-0 left-0 right-0 bg-white bg-opacity-75 text-left p-4">{{ $data->nama_fasilitas }}</p>
+        <div class="bg-login2 w-automx-10 shadow-xl md:mx-10 mr-4 md:mr-32 ml-4 md:ml-32 p-5 rounded-lg">
+            <p class="text-center text-army-gelap font-medium text-sub drop-shadow-md mb-10 mt-5">FASILITAS UMUM</p>
+            <div class="h-140 grid grid-cols-1 md:grid-cols-3 gap-7 mx-auto md:px-40 content-center">
+                @foreach ($fasilitas as $data)
+                    <div class="flex flex-col justify-center items-center relative">
+                        <div class="mr-4 block cursor-pointer antialiased relative">
+                            <img src="{{ url('assets/img/fasilitas/' . $data->gambar_fasilitas) }}" width="400" class="rounded-lg" style="margin:auto">
+                            <p class="overlay-text text-abu-putih font-medium text-sub absolute bottom-0 left-0 right-0 bg-white bg-opacity-75 text-left p-4">{{ $data->nama_fasilitas }}</p>
+                        </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
+            <a href="fasum">
+                <button class=" w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-10 mb-6">Selengkapnya</button>
+            </a>
         </div>
-
-        <button
-            class=" w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-10 mb-6">Selengkapnya</button>
-    </div>
     </div>
 </div>
 
@@ -97,28 +95,28 @@
         <div class="h-140 grid grid-cols-1 md:grid-cols-4 gap-7 p-5 mx-auto md:px-80 content-center">
             <div class="items-center">
                 <a href="pengajuansurat" class="block cursor-pointer antialiased ">
-                    <img src="{{url('/assets/img/pengajuansuratlogo.png')}}"
+                    <img src="{{url('assets/img/pengajuansuratlogo.png')}}"
                         width="150"style="margin:auto">
                     <p class="text-center font-bold text-army-gelap">PENGAJUAN SURAT</p>
                 </a>
             </div>
             <div class="flex flex-col justify-center items-center">
                 <a href="#" class="block cursor-pointer antialiased ">
-                    <img src="{{url('/assets/img/catataniuranlogo.png')}}"
+                    <img src="{{url('assets/img/catataniuranlogo.png')}}"
                         width="150"style="margin:auto">
                     <p class="text-center font-bold text-army-gelap">CATATAN IURAN</p>
                 </a>
             </div>
             <div class="flex flex-col justify-center items-center">
                 <a href="#" class="block cursor-pointer antialiased item-center">
-                    <img src="{{url('/assets/img/pengaduanlogo.png')}}"
+                    <img src="{{url('assets/img/pengaduanlogo.png')}}"
                         width="150"style="margin:auto">
                     <p class="text-center font-bold text-army-gelap">PENGADUAN</p>
                 </a>
             </div>
             <div class="flex flex-col justify-center items-center">
-                <a href="#" class="block cursor-pointer antialiased ">
-                    <img src="{{url('/assets/img/layanandaruratlogo.png')}}"
+                <a href="layanandarurat" class="block cursor-pointer antialiased ">
+                    <img src="{{url('assets/img/layanandaruratlogo.png')}}"
                         width="150" style="margin:auto">
                     <p class="text-center font-bold text-army-gelap">LAYANAN DARURAT</p>
                 </a>

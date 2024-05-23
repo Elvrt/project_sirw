@@ -102,7 +102,7 @@
             <p class="max-md:max-w-full text-normal text-justify text-army-gelap ">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed perspiciatis, odio possimus tenetur quasi aliquam ipsum voluptatibus magni deleniti error quisquam, distinctio quae saepe voluptas eum velit. Odio, ipsum reiciendis?
             </p>
-            <a href="layananDarurat">
+            <a href="layanandarurat">
             <button class="w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-5 mb-6">Selengkapnya</button>
             </a>
           </div>

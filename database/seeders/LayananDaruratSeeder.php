@@ -14,8 +14,16 @@ class LayananDaruratSeeder extends Seeder
      */
     public function run(): void
     {
-        $names = array('Ambulans', 'Pemadam Kebakaran', 'Basarnas', 'PLN', 'Posko Bencana Alam', 'Polisi', 'Panggilan Darurat', 'PMI', 'Sentra Informasi Keracunan BPOM');
-        $nomor = array('118', '113', '115', '123', '129', '110', '112', '021-7992325', '1500-533');
+        $names = array(
+            'Ambulans', 'Pemadam Kebakaran', 'Basarnas', 'PLN/Listrik', 'Posko Bencana Alam',
+            'Polisi', 'Panggilan Darurat', 'PMI', 'Sentra Informasi Keracunan BPOM', 'Posko Kewaspadaan Nasional',
+            'Jasa Marga', 'BBM Pertamina',
+        );
+        $nomor = array(
+            '118/119', '113', '115', '123', '129',
+            '110', '112', '021-7992325', '1500-533', '122',
+            '14080', '135',
+        );
         $i = 1;
         foreach ($names as $name) {
             DB::table('layanan_darurat')->insert(
