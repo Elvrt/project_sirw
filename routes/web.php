@@ -26,6 +26,15 @@ use App\Http\Controllers\RedirectController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Http\Controllers\KartuKeluargaRTController;
+use App\Http\Controllers\FasilitasUmumRTController;
+use App\Http\Controllers\PersuratanRTController;
+use App\Http\Controllers\IuranRTController;
+use App\Http\Controllers\BeritaRTController;
+use App\Http\Controllers\AgendaRTController;
+use App\Http\Controllers\KartuKeluargRTController;
+use App\Http\Controllers\WargaRTController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -204,6 +213,91 @@ Route::group(['middleware' => ['auth', 'checkrole:9'], 'prefix' => 'RW'], functi
 // untuk rt
 Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4,5,6,7,8']], function() {
     Route::get('/RT', [AuthRtController::class, 'index']);
+
+
+    Route::group(['prefix' => 'RT/KartuKeluarga'], function (){
+        Route::get('/', [KartuKeluargaRTController::class, 'index']); // Halaman awal user
+        Route::post('/index', [KartuKeluargaRTController::class, 'index']); // Halaman data user dalam bentuk json
+        Route::get('/create', [KartuKeluargaRTController::class, 'create']); // Halaman form tambah user
+        Route::post('/', [KartuKeluargaRTController::class, 'store'])->name('RT.KartuKeluarga.store'); // Menyimpan data user baru
+        Route::get('/{id}/show', [KartuKeluargaRTController::class, 'show'])->name('RT.KartuKeluarga.show'); // Menampilkan detail user
+        Route::get('/{id}/edit', [KartuKeluargaRTController::class, 'edit'])->name('RT.KartuKeluarga.edit'); // Menampilkan halaman form edit user
+        Route::put('/{id}', [KartuKeluargaRTController::class, 'update'])->name('RT.KartuKeluarga.update'); // Menampilkan perubahan data user
+        Route::delete('/{id}', [KartuKeluargaRTController::class, 'destroy'])->name('RT.KartuKeluarga.destroy'); // Menghapus data user
+    });
+
+    // Warga
+    Route::group(['prefix' => 'RT/Warga'], function (){
+        Route::get('/', [WargaRTController::class, 'index']); // Halaman awal user
+        Route::post('/index', [WargaRTController::class, 'index']); // Halaman data user dalam bentuk json
+        Route::get('/create', [WargaRTController::class, 'create']); // Halaman form tambah user
+        Route::post('/', [WargaRTController::class, 'store'])->name('RT.Warga.store'); // Menyimpan data user baru
+        Route::get('/{id}/show', [WargaRTController::class, 'show'])->name('RT.Warga.show'); // Menampilkan detail user
+        Route::get('/{id}/edit', [WargaRTController::class, 'edit'])->name('RT.Warga.edit'); // Menampilkan halaman form edit user
+        Route::put('/{id}', [WargaRTController::class, 'update'])->name('RT.Warga.update'); // Menampilkan perubahan data user
+        Route::delete('/{id}', [WargaRTController::class, 'destroy'])->name('RT.Warga.destroy'); // Menghapus data user
+    });
+
+    // Iuran
+    Route::group(['prefix' => 'RT/Iuran'], function (){
+        Route::get('/', [IuranRTController::class, 'index']); // Halaman awal user
+        Route::post('/index', [IuranRTController::class, 'index']); // Halaman data user dalam bentuk json
+        Route::get('/create', [IuranRTController::class, 'create']); // Halaman form tambah user
+        Route::post('/', [IuranRTController::class, 'store'])->name('RT.Iuran.store'); // Menyimpan data user baru
+        Route::get('/{id}/show', [IuranRTController::class, 'show'])->name('RT.Iuran.show'); // Menampilkan detail user
+        Route::get('/{id}/edit', [IuranRTController::class, 'edit'])->name('RT.Iuran.edit'); // Menampilkan halaman form edit user
+        Route::put('/{id}', [IuranRTController::class, 'update'])->name('RT.Iuran.update'); // Menampilkan perubahan data user
+        Route::delete('/{id}', [IuranRTController::class, 'destroy'])->name('RT.Iuran.destroy'); // Menghapus data user
+    });
+
+    // Persuratan
+    Route::group(['prefix' => 'RT/Persuratan'], function (){
+        Route::get('/', [PersuratanRTController::class, 'index']); // Halaman awal user
+        Route::post('/index', [PersuratanRTController::class, 'index']); // Halaman data user dalam bentuk json
+        Route::get('/create', [PersuratanRTController::class, 'create']); // Halaman form tambah user
+        Route::post('/', [PersuratanRTController::class, 'store'])->name('RT.Persuratan.store'); // Menyimpan data user baru
+        Route::get('/{id}/show', [PersuratanRTController::class, 'show'])->name('RT.Persuratan.show'); // Menampilkan detail user
+        Route::get('/{id}/edit', [PersuratanRTController::class, 'edit'])->name('RT.Persuratan.edit'); // Menampilkan halaman form edit user
+        Route::put('/{id}', [PersuratanRTController::class, 'update'])->name('RT.Persuratan.update'); // Menampilkan perubahan data user
+        Route::delete('/{id}', [PersuratanRTController::class, 'destroy'])->name('RT.Persuratan.destroy'); // Menghapus data user
+    });
+
+    // Agenda
+    Route::group(['prefix' => 'RT/Agenda'], function (){
+        Route::get('/', [AgendaRTController::class, 'index']); // Halaman awal user
+        Route::post('/index', [AgendaRTController::class, 'index']); // Halaman data user dalam bentuk json
+        Route::get('/create', [AgendaRTController::class, 'create']); // Halaman form tambah user
+        Route::post('/', [AgendaRTController::class, 'store'])->name('RT.Agenda.store'); // Menyimpan data user baru
+        Route::get('/{id}/show', [AgendaRTController::class, 'show'])->name('RT.Agenda.show'); // Menampilkan detail user
+        Route::get('/{id}/edit', [AgendaRTController::class, 'edit'])->name('RT.Agenda.edit'); // Menampilkan halaman form edit user
+        Route::put('/{id}', [AgendaRTController::class, 'update'])->name('RT.Agenda.update'); // Menampilkan perubahan data user
+        Route::delete('/{id}', [AgendaRTController::class, 'destroy'])->name('RT.Agenda.destroy'); // Menghapus data user
+    });
+
+    // Berita
+    Route::group(['prefix' => 'RT/Berita'], function (){
+        Route::get('/', [BeritaRTController::class, 'index']); // Halaman awal user
+        Route::post('/index', [BeritaRTController::class, 'index']); // Halaman data user dalam bentuk json
+        Route::get('/create', [BeritaRTController::class, 'create']); // Halaman form tambah user
+        Route::post('/', [BeritaRTController::class, 'store'])->name('RT.Berita.store'); // Menyimpan data user baru
+        Route::get('/{id}/show', [BeritaRTController::class, 'show'])->name('RT.Berita.show'); // Menampilkan detail user
+        Route::get('/{id}/edit', [BeritaRTController::class, 'edit'])->name('RT.Berita.edit'); // Menampilkan halaman form edit user
+        Route::put('/{id}', [BeritaRTController::class, 'update'])->name('RT.Berita.update'); // Menampilkan perubahan data user
+        Route::delete('/{id}', [BeritaRTController::class, 'destroy'])->name('RT.Berita.destroy'); // Menghapus data user
+    });
+
+    // Fasilitas Umum
+    Route::group(['prefix' => 'RT/FasilitasUmum'], function (){
+        Route::get('/', [FasilitasUmumRTController::class, 'index']); // Halaman awal user
+        Route::post('/index', [FasilitasUmumRTController::class, 'index']); // Halaman data user dalam bentuk json
+        Route::get('/create', [FasilitasUmumRTController::class, 'create']); // Halaman form tambah user
+        Route::post('/', [FasilitasUmumRTController::class, 'store'])->name('RT.FasilitasUmum.store'); // Menyimpan data user baru
+        Route::get('/{id}/show', [FasilitasUmumRTController::class, 'show'])->name('RT.FasilitasUmum.show'); // Menampilkan detail user
+        Route::get('/{id}/edit', [FasilitasUmumRTController::class, 'edit'])->name('RT.FasilitasUmum.edit'); // Menampilkan halaman form edit user
+        Route::put('/{id}', [FasilitasUmumRTController::class, 'update'])->name('RT.FasilitasUmum.update'); // Menampilkan perubahan data user
+        Route::delete('/{id}', [FasilitasUmumRTController::class, 'destroy'])->name('RT.FasilitasUmum.destroy'); // Menghapus data user
+    });
+
 });
 
 // untuk pegawai
