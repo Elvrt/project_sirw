@@ -22,8 +22,17 @@ class InfoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function showAgenda(string $id)
     {
-        //
+        $agenda = AgendaModel::find($id);
+
+        return view('Dashboard.agenda', $data = ['data' => $agenda]);
+    }
+
+    public function showBerita(string $id)
+    {
+        $berita = BeritaModel::find($id);
+
+        return view('Dashboard.berita', $data = ['data' => $berita]);
     }
 }

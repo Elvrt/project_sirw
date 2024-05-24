@@ -22,6 +22,8 @@ class FasumDashboardController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $fasilitas = FasilitasUmumModel::find($id);
+
+        return view('Dashboard.fasilitasumum', $data = ['data' => $fasilitas]);
     }
 }

@@ -86,7 +86,6 @@
             </a>
         </div>
     </div>
-</div>
 
 
 <!-- LAYANAN -->
