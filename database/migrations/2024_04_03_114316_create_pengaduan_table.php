@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('judul_pengaduan', 50);
             $table->longText('deskripsi_pengaduan');
             $table->string('status_pengaduan', 25);
+            $table->string('catatan_pengaduan', 100)->nullable();
             $table->dateTime('tanggal_pengaduan');
             $table->timestamps();
 

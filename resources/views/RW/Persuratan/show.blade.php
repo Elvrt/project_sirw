@@ -10,7 +10,7 @@
             <p class="text-3xl font-bold mt-5 mb-2">DETAIL DATA PERSURATAN</p>
             <hr class="my-5 border-b-1 border-black w-11/12 mx-auto">
             <div class="popup-box">
-                
+
             </div>
         </div>
     </div>
@@ -21,17 +21,17 @@
     document.addEventListener('DOMContentLoaded', function() {
         const modal = document.getElementById('ModalShow{{ $data->id_persuratan }}');
         const closeBtn = modal.querySelector('.close-btn');
-    
+
         function showModal() {
             modal.classList.add('active');
         }
-    
+
         function closeModal() {
             modal.classList.remove('active');
         }
-    
+
         closeBtn.addEventListener('click', closeModal);
-    
+
         const detailBtns = document.querySelectorAll('.detail');
         detailBtns.forEach(function(btn) {
             btn.addEventListener('click', function() {
@@ -42,15 +42,15 @@
                 fillModal(rowData);
             });
         });
-    
+
         // Fungsi untuk mengisi modal dengan data warga
         function fillModal(rowData) {
             const modalBody = document.querySelector('#ModalShow{{ $data->id_persuratan }} .modal-body .popup-box');
             modalBody.innerHTML = '';
-    
+
             // Daftar data yang ingin ditampilkan di modal
-            const dataLabels = ['No', 'Nama', 'Jenis Surat', 'Keterangan', 'Tanggal', 'Status'];
-    
+            const dataLabels = ['No', 'Nama', 'Jenis Surat', 'Keterangan', 'Tanggal', 'Status', 'Catatan'];
+
             // Loop untuk setiap data yang ingin ditampilkan
             dataLabels.forEach((label, index) => {
                 const dataItem = rowData[index].textContent;

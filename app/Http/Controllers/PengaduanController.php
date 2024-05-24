@@ -109,6 +109,7 @@ class PengaduanController extends Controller
             // 'judul_pengaduan' => 'required|max:50',
             // 'deskripsi_pengaduan' => 'required',
             'status_pengaduan' => 'required',
+            'catatan_pengaduan' => 'max:100',
             // 'tanggal_pengaduan' => 'required',
         ]);
 
@@ -117,6 +118,7 @@ class PengaduanController extends Controller
             // 'judul_pengaduan' => $request->judul_pengaduan,
             // 'deskripsi_pengaduan' => $request->deskripsi_pengaduan,
             'status_pengaduan' => $request->status_pengaduan,
+            'catatan_pengaduan' => $request->catatan_pengaduan,
             // 'tanggal_pengaduan' => $request->tanggal_pengaduan,
         ]);
 

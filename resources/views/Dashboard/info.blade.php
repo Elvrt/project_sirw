@@ -8,7 +8,7 @@
             <div class="item-center ml-10 mr-10 pt-10 pb-10">
                 <a href="berita/{{ $data->id_berita }}" class="mr-4 block cursor-pointer antialiased ">
                 <img src="{{ url('assets/img/berita/' . $data->gambar_berita) }}" class="rounded-lg" alt="berita">
-                    <p class="text-army-gelap ">{{ $data->judul_berita }}</p>
+                    <p class="text-army-gelap text-text font-bold">{{ $data->judul_berita }}</p>
                 </a>
             </div>
         @endforeach
@@ -20,7 +20,7 @@
             <div class="item-center ml-10 mr-10 pt-10 pb-10">
                 <a href="agenda/{{ $data->id_agenda }}" class="mr-4 block cursor-pointer antialiased ">
                 <img src="{{ url('assets/img/agenda/' . $data->gambar_agenda) }}" class="rounded-lg" alt="berita">
-                    <p class="text-army-gelap ">{{ $data->judul_agenda }}</p>
+                    <p class="text-army-gelap text-text font-bold">{{ $data->judul_agenda }}</p>
                 </a>
             </div>
         @endforeach

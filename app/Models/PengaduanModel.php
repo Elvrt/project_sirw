@@ -19,6 +19,7 @@ class PengaduanModel extends Model
         'deskripsi_pengaduan',
         'status_pengaduan',
         'tanggal_pengaduan',
+        'catatan_pengaduan',
     ];
 
     public function warga()

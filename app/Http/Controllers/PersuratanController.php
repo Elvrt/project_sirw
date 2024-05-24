@@ -109,6 +109,7 @@ class PersuratanController extends Controller
             // 'jenis_persuratan' => 'required',
             // 'keterangan_persuratan' => 'required',
             'status_persuratan' => 'required',
+            'catatan_persuratan' => 'max:100',
             // 'tanggal_persuratan' => 'required',
         ]);
 
@@ -117,6 +118,7 @@ class PersuratanController extends Controller
             // 'jenis_persuratan' => $request->jenis_persuratan,
             // 'keterangan_persuratan' => $request->keterangan_persuratan,
             'status_persuratan' => $request->status_persuratan,
+            'catatan_persuratan' => $request->catatan_persuratan,
             // 'tanggal_persuratan' => $request->tanggal_persuratan,
         ]);
 
