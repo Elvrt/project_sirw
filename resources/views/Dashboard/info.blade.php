@@ -6,7 +6,7 @@
     <div class="grid grid-cols-3 ml-20 mr-20 bg-login2 rounded-lg">
         @foreach ($berita as $data)
             <div class="item-center ml-10 mr-10 pt-10 pb-10">
-                <a href="berita" class="mr-4 block cursor-pointer antialiased ">
+                <a href="berita/{{ $data->id_berita }}" class="mr-4 block cursor-pointer antialiased ">
                 <img src="{{ url('assets/img/berita/' . $data->gambar_berita) }}" class="rounded-lg" alt="berita">
                     <p class="text-army-gelap ">{{ $data->judul_berita }}</p>
                 </a>
@@ -18,7 +18,7 @@
     <div class="grid grid-cols-3 ml-20 mr-20 bg-login2 rounded-lg">
         @foreach ($agenda as $data)
             <div class="item-center ml-10 mr-10 pt-10 pb-10">
-                <a href="agenda" class="mr-4 block cursor-pointer antialiased ">
+                <a href="agenda/{{ $data->id_agenda }}" class="mr-4 block cursor-pointer antialiased ">
                 <img src="{{ url('assets/img/agenda/' . $data->gambar_agenda) }}" class="rounded-lg" alt="berita">
                     <p class="text-army-gelap ">{{ $data->judul_agenda }}</p>
                 </a>

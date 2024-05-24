@@ -23,6 +23,7 @@ use App\Http\Controllers\AuthWargaController;
 use App\Http\Controllers\FasumDashboardController;
 use App\Http\Controllers\LayananDaruratDashboardController;
 use App\Http\Controllers\RedirectController;
+use Illuminate\Console\View\Components\Info;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -206,7 +207,7 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4,5,6,7,8']], function()
     Route::get('/RT', [AuthRtController::class, 'index']);
 });
 
-// untuk pegawai
+// untuk warga
 Route::group(['middleware' => ['auth', 'checkrole:10']], function() {
     Route::get('/Warga', [AuthWargaController::class, 'index']);
 
@@ -220,7 +221,10 @@ Route::group(['prefix' => ''], function (){
     Route::get('/', [DashboardController::class, 'index']);
     Route::get('/profil', [ProfilController::class, 'index']);
     Route::get('/info', [InfoController::class, 'index']);
+    Route::get('/agenda/{id}', [InfoController::class, 'showAgenda']);
+    Route::get('/berita/{id}', [InfoController::class, 'showBerita']);
     Route::get('/fasum', [FasumDashboardController::class, 'index']);
+    Route::get('/fasilitasumum/{id}', [FasumDashboardController::class, 'show']);
     Route::get('/layanandarurat', [LayananDaruratDashboardController::class, 'index']);
 });
 
