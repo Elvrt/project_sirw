@@ -21,6 +21,9 @@ class BeritaSeeder extends Seeder
             'Pencairan BST Masa Bayar 12-13',
             'Penerimaan Kartu Tani Tahun 2024 Tahap I',
             'Lurah Tasikmadu Minta Ketua RT-RW Jaga Keamanan Lingkungan Selama Ramadan',
+            'Kebakaran Rumah di RT 004',
+            'Maraknya Kasus Pencurian, Warga Dihimbau Aktif Siskamling',
+            'Pertunjukan Wayang Kulit',
         );
         $descriptions = array(
             'Dalam Pemilihan Umum (Pemilu) tahun 2024, peran ketua RT dan RW menjadi kunci penting dalam menjaga keamanan, ketertiban, serta meningkatkan partisipasi masyarakat. Keterlibatan aktif mereka (Ketua RT dan RW) diharapkan memberikan kontribusi signifikan bagi kelancaran dan kualitas pelaksanaan Pemilu. Ketua RT dan RW memiliki tanggung jawab penting dalam memastikan partisipasi pemilih di wilayahnya meningkat.',
@@ -29,6 +32,9 @@ class BeritaSeeder extends Seeder
             'Kementerian Sosial (Kemensos) RI mencairkan Bantuan Sosial Tunai (BST) masa bayar dua bulan sekaligus yaitu 12 dan 13  kepada 2.113 Keluarga Penerima Manfaat (KPM) di Kecamatan Lowokwaru Kota Malang, Senin, (25/03/2024). Masyarakat penerima BST langsung berbondong-bondong mendatangi kantor Pos Indonesia di Jalan Sukarno Hatta sejak pagi hari, sehingga dalam sekejap kantor pos telah dipadati manusia. BST ini berasal dari Kementerian Sosial (Kemensos) yang membagikan Bansos kepada Keluarga Penerima Manfaat (KPM) di Kecamatan Lowokwaru sebesar Rp 300 ribu per KPM tiap bulan.',
             'Dalam rangka menyongsong musim tanam kedua tahun 2021, Dinas Pertanian Kendal membagikan kartu tani kepada petani dari kelompok tani Pasir Maju dan Ngudi Rejo. Acara pembagian kartu tani tersebut diselenggarakan di Balai Kelurahan Tasikmadu, Kecamatan Lowokwaru, Malang. Turut hadir dalam acara tersebut Koordinator PPL BP Kelurahan Tasikmadu, Lurah, Ketua kelompok Tani, petani, dan agen pupuk Subsidi Kelurahan Tasikmadu. Acara ini berlangsung pada hari Rabu, tanggal 27 Maret 2024.',
             'Lurah Tasikmadu meminta seluruh ketua RT dan RW di wilayahnya untuk menjaga ketertiban dan keamanan lingkungan selama Bulan Suci Ramadan 1445 Hijriah. Hal tersebut agar menciptakan suasana yang aman dan tentram selama menjalankan ibadah puasa. Lurah Tasikmadu menyampaikan imbauan tersebut secara langsung. Baik dalam bentuk pengumuman saat tarawih di wilayah Kelurahan Tasikmadu maupun melalui pesan whatsapp. Adapun imbauan yang disampaikan yakni menjaga keamanan lingkungan masing-masing dengan mengunci ganda kendaraan. Sebab selama Ramadan kerap terjadi pencurian kendaraan bermotor.',
+            'Kebakaran melanda sebuah rumah di RT 004, menghanguskan sebagian besar bangunan dan menyebabkan kerugian materiil yang signifikan. Tim pemadam kebakaran berhasil memadamkan api setelah berjuang selama satu jam, sementara penyebab kebakaran masih dalam penyelidikan pihak berwenang.',
+            'Kasus pencurian yang semakin marak di lingkungan RW 005 membuat warga diharapkan lebih waspada dan aktif melakukan siskamling. Langkah ini penting untuk meningkatkan keamanan dan mencegah kejadian serupa di masa mendatang.',
+            'Pertunjukan wayang kulit di RW 005 menghadirkan kisah klasik yang memukau warga dengan seni pementasan yang kaya akan budaya dan nilai tradisional. Acara ini bertujuan untuk melestarikan warisan budaya, sekaligus mempererat tali silaturahmi antar warga.',
         );
         $images = array(
             '1715782245_6644c2656a6e0.jpg',
@@ -37,6 +43,9 @@ class BeritaSeeder extends Seeder
             '1715782580_6644c3b466a3c.jpg',
             '1715782669_6644c40d43205.jpg',
             '1715782707_6644c4330302c.jpg',
+            '1716551391_66507edf73c82.jpg',
+            '1716551411_66507ef3ebe3d.jpg',
+            '1716551433_66507f095f784.jpg',
         );
         $dates = array(
             '2024-02-14 18:02:47',
@@ -45,6 +54,9 @@ class BeritaSeeder extends Seeder
             '2024-03-25 19:42:06',
             '2024-03-27 20:26:19',
             '2024-04-01 21:09:48',
+            '2024-04-23 19:21:35',
+            '2024-05-16 12:47:09',
+            '2024-06-08 20:12:37',
         );
         $i = 1;
         foreach ($titles as $title) {

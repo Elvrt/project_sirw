@@ -16,7 +16,7 @@ class DashboardController extends Controller
     {
         $berita = BeritaModel::orderBy('id_berita', 'desc')->limit(3)->get();
         $agenda = AgendaModel::orderBy('id_agenda', 'desc')->limit(2)->get();
-        $fasilitas = FasilitasUmumModel::orderBy('id_fasilitas', 'desc')->limit(3)->get();
+        $fasilitas = FasilitasUmumModel::limit(3)->get();
 
         return view('Dashboard.dashboard', ['berita' => $berita, 'agenda' => $agenda, 'fasilitas' => $fasilitas]);
     }
