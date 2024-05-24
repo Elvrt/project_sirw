@@ -22,8 +22,6 @@
                             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                             pariatu
                         </p>
-                        <button
-                            class="w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-5 mb-6">Selengkapnya</button>
                     </div>
                 </div>
             </div>
@@ -41,7 +39,7 @@
                         <div class="mr-3 block cursor-pointer antialiased">
                             <img src="{{ url('assets/img/berita/' . $data->gambar_berita) }}"
                                 width="600" class="rounded-lg" style="margin:auto">
-                            <p class="text-normal text-army-gelap">{{ $data->judul_berita }}</p>
+                            <p class="text-normal text-army-gelap text-text font-bold">{{ $data->judul_berita }}</p>
                         </div>
                     </div>
                 @endforeach
@@ -56,7 +54,7 @@
                         <div class="block cursor-pointer antialiased ">
                             <img src="{{ url('assets/img/agenda/' . $data->gambar_agenda) }}"
                                 width="600" class="rounded-lg" style="margin:auto">
-                            <p class="text-normal text-army-gelap">{{ $data->judul_agenda }}</p>
+                            <p class="text-normal text-army-gelap text-text font-bold">{{ $data->judul_agenda }}</p>
                         </div>
                     </div>
                 @endforeach
@@ -76,7 +74,7 @@
                     <div class="flex flex-col justify-center items-center relative">
                         <div class="mr-4 block cursor-pointer antialiased relative">
                             <img src="{{ url('assets/img/fasilitas/' . $data->gambar_fasilitas) }}" width="400" class="rounded-lg" style="margin:auto">
-                            <p class="overlay-text text-abu-putih font-medium text-sub absolute bottom-0 left-0 right-0 bg-white bg-opacity-75 text-left p-4">{{ $data->nama_fasilitas }}</p>
+                            <p class="overlay-text text-abu-putih font-medium text-sub absolute bottom-0 left-0 right-0 bg-gray-900 bg-opacity-75 text-left p-4">{{ $data->nama_fasilitas }}</p>
                         </div>
                     </div>
                 @endforeach
