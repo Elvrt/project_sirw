@@ -19,6 +19,8 @@ class PersuratanModel extends Model
         'keterangan_persuratan',
         'status_persuratan',
         'tanggal_persuratan',
+        'catatan_persuratan',
+
     ];
 
     public function warga()

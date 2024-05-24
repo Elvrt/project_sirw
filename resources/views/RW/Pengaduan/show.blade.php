@@ -23,17 +23,17 @@
     document.addEventListener('DOMContentLoaded', function() {
         const modal = document.getElementById('ModalShow{{ $data->id_pengaduan }}');
         const closeBtn = modal.querySelector('.close-btn');
-    
+
         function showModal() {
             modal.classList.add('active');
         }
-    
+
         function closeModal() {
             modal.classList.remove('active');
         }
-    
+
         closeBtn.addEventListener('click', closeModal);
-    
+
         const detailBtns = document.querySelectorAll('.detail');
         detailBtns.forEach(function(btn) {
             btn.addEventListener('click', function() {
@@ -44,15 +44,15 @@
                 fillModal(rowData);
             });
         });
-    
+
         // Fungsi untuk mengisi modal dengan data warga
         function fillModal(rowData) {
             const modalBody = document.querySelector('#ModalShow{{ $data->id_pengaduan }} .modal-body .popup-box');
             modalBody.innerHTML = '';
-    
+
             // Daftar data yang ingin ditampilkan di modal
-            const dataLabels = ['No', 'Nama Pelapor','Judul', 'Deskripsi', 'Tanggal', 'Status'];
-    
+            const dataLabels = ['No', 'Nama Pelapor','Judul', 'Deskripsi', 'Tanggal', 'Status', 'Catatan'];
+
             // Loop untuk setiap data yang ingin ditampilkan
             dataLabels.forEach((label, index) => {
                 const dataItem = rowData[index].textContent;

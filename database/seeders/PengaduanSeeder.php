@@ -26,6 +26,16 @@ class PengaduanSeeder extends Seeder
             'Terdapat kebocoran pipa air di Jalan Puntadewa yang telah menyebabkan genangan air di sekitar area tersebut. Mohon untuk segera diperbaiki agar tidak mengganggu aktivitas warga.',
         );
         $status = array('Selesai', 'Menunggu', 'Menunggu');
+        $catatan = array(
+            'Pohon sudah pinggirkan',
+            'Sudah koordinasi dengan PLN, akan segera diperbaiki',
+            'Sudah diatasi oleh PDAM setempat',
+        );
+        $dates = array(
+            '2024-02-14 18:02:47',
+            '2024-03-22 22:19:39',
+            '2024-03-23 21:34:25',
+        );
         $i = 1;
         foreach ($titles as $title) {
             DB::table('pengaduan')->insert(
@@ -35,8 +45,9 @@ class PengaduanSeeder extends Seeder
                     'judul_pengaduan' => $title,
                     'deskripsi_pengaduan' => $description[$i - 1],
                     'status_pengaduan' => $status[$i - 1],
-                    'tanggal_pengaduan' => now()->setTimezone('Asia/Jakarta'),
-                    'created_at' => now()->setTimezone('Asia/Jakarta'),
+                    'catatan_pengaduan' => $catatan[$i - 1],
+                    'tanggal_pengaduan' => $dates[$i - 1],
+                    'created_at' => $dates[$i - 1],
                 ]
             );
             $i++;

@@ -37,13 +37,18 @@
                     <option value="" disabled class="text-gray-400">Pilih Status</option>
                     <option value="Menunggu" {{old('status_persuratan', $data->status_persuratan) == "Menungggu" ? "selected" : ""}}>Menunggu</option>
                     <option value="Ditolak" {{old('status_persuratan', $data->status_persuratan) == "Ditolak" ? "selected" : ""}}>Ditolak</option>
-                    <option value="Dibuat di RT" {{old('status_persuratan', $data->status_persuratan) == "Dibuat di RT" ? "selected" : ""}}>Dibuat di RT</option>
-                    <option value="Verifikasi RW" {{old('status_persuratan', $data->status_persuratan) == "Verifikasi RW" ? "selected" : ""}}>Verifikasi RW</option>
-                    <option value="Diambil di RW" {{old('status_persuratan', $data->status_persuratan) == "Diambil di RW" ? "selected" : ""}}>Diambil di RW</option>
+                    <option value="Disetujui" {{old('status_persuratan', $data->status_persuratan) == "Disetujui" ? "selected" : ""}}>Disetujui</option>
                 </select>
                 @error('status_persuratan')
                 <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
             @enderror
+            </div>
+            <div class="mb-4">
+                <label for="catatan_persuratan" class="block text-sm font-bold mb-2">Catatan Persuratan</label>
+                <input type="text" name="catatan_persuratan" value="{{old('catatan_persuratan', $data->catatan_persuratan)}}" id="catatan_persuratan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                @error('catatan_persuratan')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="text-end px-10">
                 <button class="bg-hijau  text-putih font-bold py-2 px-8 rounded-lg">

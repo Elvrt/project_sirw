@@ -90,6 +90,7 @@
                                     <th class="px-4 py-2">Deskripsi</th>
                                     <th class="px-4 py-2">Tanggal Pengaduan</th>
                                     <th class="px-4 py-2">Status</th>
+                                    <th class="px-4 py-2">Catatan</th>
                                     <th class="px-4 py-2">Action</th>
                                 </tr>
                             </thead>
@@ -105,6 +106,7 @@
                                         <td class="px-4 py-2">{{$data->deskripsi_pengaduan}}</td>
                                         <td class="px-4 py-2">{{$data->tanggal_pengaduan}}</td>
                                         <td class="px-4 py-2">{{$data->status_pengaduan}}</td>
+                                        <td class="px-4 py-2">{{$data->catatan_pengaduan}}</td>
                                         <td class="px-4 py-2">
                                             <div class="flex gap-3">
                                                 <a href="/RW/Pengaduan/{{ $data->id_pengaduan }}/edit" class="bg-kuning hover:bg-kuning-gelap text-putih font-medium py-2 px-4 rounded-lg">

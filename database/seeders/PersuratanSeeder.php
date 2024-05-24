@@ -27,9 +27,19 @@ class PersuratanSeeder extends Seeder
             'Untuk keperluan administrasi kependudukan',
         );
         $status = array(
+            'Disetujui',
+            'Ditolak',
+            'Menunggu',
+        );
+        $catatan = array(
             'Diambil di RW',
-            'Menunggu',
-            'Menunggu',
+            'Ditolak karena status lokasi peternakan di dekat pemukiman',
+            'Dibuat di RT',
+        );
+        $dates = array(
+            '2024-05-11 12:24:30',
+            '2024-05-25 07:51:28',
+            '2024-03-23 09:37:45',
         );
         $i = 1;
         foreach ($types as $type) {
@@ -40,8 +50,9 @@ class PersuratanSeeder extends Seeder
                     'jenis_persuratan' => $type,
                     'keterangan_persuratan' => $note[$i - 1],
                     'status_persuratan' => $status[$i - 1],
-                    'tanggal_persuratan' => now()->setTimezone('Asia/Jakarta'),
-                    'created_at' => now()->setTimezone('Asia/Jakarta'),
+                    'catatan_persuratan' => $catatan[$i - 1],
+                    'tanggal_persuratan' => $dates[$i - 1],
+                    'created_at' => $dates[$i - 1],
                 ]
             );
             $i++;

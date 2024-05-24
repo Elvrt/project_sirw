@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('jenis_persuratan', 30);
             $table->longText('keterangan_persuratan');
             $table->string('status_persuratan', 25);
+            $table->string('catatan_persuratan', 100)->nullable();
             $table->dateTime('tanggal_persuratan');
             $table->timestamps();
 
