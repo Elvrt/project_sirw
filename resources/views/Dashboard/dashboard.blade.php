@@ -105,7 +105,7 @@
                 </a>
             </div>
             <div class="flex flex-col justify-center items-center">
-                <a href="#" class="block cursor-pointer antialiased item-center">
+                <a href="pengaduan" class="block cursor-pointer antialiased item-center">
                     <img src="{{url('assets/img/pengaduanlogo.png')}}"
                         width="150"style="margin:auto">
                     <p class="text-center font-bold text-army-gelap">PENGADUAN</p>
