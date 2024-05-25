@@ -1,16 +1,16 @@
 @extends('./layout/warga')
-
+@vite('resources/css/tabledashboard.css')
 @section('content')
 <!-- CONTENT -->
 <p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-5">STATUS PENGADUHAN</p>
+<a href="/pengaduan" class="bg-army-muda text-putih py-2 px-4 ml-20 mt-44 rounded-lg absolute top-0 left-0  flex items-center hover:bg-army-kuning">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+        <path fill-rule="evenodd" d="M7.28 7.72a.75.75 0 0 1 0 1.06l-2.47 2.47H21a.75.75 0 0 1 0 1.5H4.81l2.47 2.47a.75.75 0 1 1-1.06 1.06l-3.75-3.75a.75.75 0 0 1 0-1.06l3.75-3.75a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
+    </svg>
+</a>
 
 <div class="bg-login2 mx-16 px-4 py-3 rounded-md shadow-md flex flex-col items-center relative">
-    <a href="/pengaduan" class="bg-kuning text-putih py-2 px-4 rounded-lg absolute top-0 left-0 mt-4 ml-4 flex items-center hover:bg-kuning-gelap">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-            <path fill-rule="evenodd" d="M7.28 7.72a.75.75 0 0 1 0 1.06l-2.47 2.47H21a.75.75 0 0 1 0 1.5H4.81l2.47 2.47a.75.75 0 1 1-1.06 1.06l-3.75-3.75a.75.75 0 0 1 0-1.06l3.75-3.75a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
-        </svg>
-    </a>
-    <div class="form-group p-5 mt-10 w-full flex justify-between items-center">
+    <div class="form-group p-5 mt-5 w-full flex justify-between items-center">
         <form id="filter-form" method="GET" action="{{ url('statuspengaduan') }}" class="flex w-full justify-between">
             <div class="flex items-center">
                 <label class="control-label col-form-label mr-2">Filter:</label>
@@ -32,7 +32,7 @@
             </div>
         </form>
     </div>
-    <div class="w-full overflow-x-auto">
+    <div class="w-full overflow-x-auto pl-10 pr-10 pb-10">
         <table class="table-auto text-center w-full">
             <thead>
                 <tr>
@@ -76,10 +76,13 @@
             </tbody>
         </table>
     </div>
-    <div class="m-5 w-full flex justify-center">
-        {{ $pengaduan->appends(request()->query())->links() }}
-    </div>
+ 
 </div>
+<div class=" text-left pl-20 pr-20 mt-5">
+    {{ $pengaduan->appends(request()->query())->links() }}
+</div>
+
+
 <script>
     document.addEventListener('DOMContentLoaded', (event) => {
         const filterForm = document.getElementById('filter-form');

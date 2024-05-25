@@ -1,0 +1,12 @@
+td, th {
+    border: 0.1px solid #dadada;
+    padding: auto;
+}
+th {
+    background-color:  #e7e0d1;
+}
+
+tr:hover {
+    background-color: #e7e0d1;
+}
+
