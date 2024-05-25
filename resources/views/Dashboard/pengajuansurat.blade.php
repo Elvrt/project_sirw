@@ -7,7 +7,7 @@
   <p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-10 mb-10">PENGAJUAN SURAT</p>
   <div class="grid grid-cols-2 gap-4 item-center text-text text-center rounded-lg mx-56 bg-login2 px-20 py-20 ">
     <div class="">
-        <a href="ajukansurat" class="mr-4 block cursor-pointer antialiased rounded-lg">
+        <a href="surat" class="mr-4 block cursor-pointer antialiased rounded-lg">
           <img src="{{url('/assets/img/ajukansurat.png')}}"width="500" style="margin:auto">
           <p class="font-bold text-army-gelap ">Ajukan Surat</p>
     </a>

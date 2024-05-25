@@ -341,7 +341,7 @@ Route::get('tambahWargaRW', function () {
 });
 
 Route::get('ajukansurat', function () {
-    return view('Warga.ajukansurat');
+    return view('Warga.surat.ajukansurat');
 });
 
 Route::get('statussurat', function () {
@@ -361,3 +361,10 @@ Route::get('agenda', function () {
     return view('dashboard.agenda');
 });
 
+Route::get('surat', function () {
+    return view('warga.surat.pilihansurat');
+});
+
+Route::get('suratkurangmampu', function () {
+    return view('warga.surat.suratkurangmampu');
+});
