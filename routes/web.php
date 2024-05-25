@@ -16,12 +16,14 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\InfoController;
+use App\Http\Controllers\LayananController;
+use App\Http\Controllers\FasumDashboardController;
+use App\Http\Controllers\PengaduanDashboardController;
+use App\Http\Controllers\LayananDaruratDashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthRWController;
 use App\Http\Controllers\AuthRtController;
 use App\Http\Controllers\AuthWargaController;
-use App\Http\Controllers\FasumDashboardController;
-use App\Http\Controllers\LayananDaruratDashboardController;
 use App\Http\Controllers\RedirectController;
 use Illuminate\Console\View\Components\Info;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +35,6 @@ use App\Http\Controllers\PersuratanRTController;
 use App\Http\Controllers\IuranRTController;
 use App\Http\Controllers\BeritaRTController;
 use App\Http\Controllers\AgendaRTController;
-use App\Http\Controllers\KartuKeluargRTController;
 use App\Http\Controllers\WargaRTController;
 
 
@@ -315,15 +316,16 @@ Route::group(['prefix' => ''], function (){
     Route::get('/', [DashboardController::class, 'index']);
     Route::get('/profil', [ProfilController::class, 'index']);
     Route::get('/info', [InfoController::class, 'index']);
+    Route::get('/layanan', [LayananController::class, 'index']);
     Route::get('/agenda/{id}', [InfoController::class, 'showAgenda']);
     Route::get('/berita/{id}', [InfoController::class, 'showBerita']);
     Route::get('/fasum', [FasumDashboardController::class, 'index']);
     Route::get('/fasilitasumum/{id}', [FasumDashboardController::class, 'show']);
+    Route::get('/pengaduan', [PengaduanDashboardController::class, 'index']);
+    Route::get('/laporpengaduan', [PengaduanDashboardController::class, 'create']);
+    Route::post('/laporpengaduan', [PengaduanDashboardController::class, 'store']);
+    Route::get('/statuspengaduan', [PengaduanDashboardController::class, 'indexStatus']);
     Route::get('/layanandarurat', [LayananDaruratDashboardController::class, 'index']);
-});
-
-Route::get('/layanan', function () {
-    return view('Dashboard.layanan');
 });
 
 Route::get('pengajuansurat', function () {
@@ -348,10 +350,6 @@ Route::get('statussurat', function () {
 
 Route::get('statusIuran', function () {
     return view('Warga.statusiuran');
-});
-
-Route::get('pengaduan', function () {
-    return view('Warga.pengaduan');
 });
 
 Route::get('berita', function () {

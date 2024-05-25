@@ -34,14 +34,15 @@ class PengaduanController extends Controller
                         $query->where('nama_warga', 'like', '%' . $search . '%');
                      })
                     ->orWhere('judul_pengaduan', 'like', '%' . $search . '%')
-                    ->orWhere('deskripsi_pengaduan', 'like', '%' . $search . '%');
+                    ->orWhere('deskripsi_pengaduan', 'like', '%' . $search . '%')
+                    ->orWhere('catatan_pengaduan', 'like', '%' . $search . '%');
             });
         }
 
         // Paginate the result
-        $pengaduan = $pengaduanQuery->paginate($perPage);
+        $pengaduan = $pengaduanQuery->orderBy('id_pengaduan', 'desc')->paginate($perPage);
 
-        return view('RW.Pengaduan.index', ['pengaduan' => $pengaduan ,'startNumber' => $startNumber]);
+        return view('RW.Pengaduan.index', ['pengaduan' => $pengaduan, 'startNumber' => $startNumber]);
     }
 
     /**

@@ -13,11 +13,11 @@
     <div class="p-4 sm:ml-64">
         <p class="text-army-gelap font-bold text-header drop-shadow-md container mb-10 mt-10 ml-4">Data Pengaduan</p>
         <div class="bg-putih drop-shadow-md mx-2 px-10 p-4">
-            <a href="Pengaduan/create">
+            {{-- <a href="Pengaduan/create">
                 <button class="bg-hijau hover:bg-hijau-gelap text-putih font-bold py-2 px-4 rounded-lg float-right">
                     + Tambah Data Pengaduan
                 </button>
-            </a>
+            </a> --}}
             <p class="text-sub ml-4">Data</p>
         </div>
         <div class="flex justify-center data-center">
@@ -85,6 +85,7 @@
                             <thead>
                                 <tr>
                                     <th class="px-4 py-2">No.</th>
+                                    <th class="px-4 py-2">NIK</th>
                                     <th class="px-4 py-2">Nama Pelapor</th>
                                     <th class="px-4 py-2">Judul Pengaduan</th>
                                     <th class="px-4 py-2">Deskripsi</th>
@@ -101,6 +102,7 @@
                                 @forelse ($pengaduan as $data)
                                     <tr>
                                         <td class="px-4 py-2">{{$i++}}</td>
+                                        <td class="px-4 py-2">{{$data->warga->nik}}</td>
                                         <td class="px-4 py-2">{{$data->warga->nama_warga}}</td>
                                         <td class="px-4 py-2">{{$data->judul_pengaduan}}</td>
                                         <td class="px-4 py-2">{{$data->deskripsi_pengaduan}}</td>

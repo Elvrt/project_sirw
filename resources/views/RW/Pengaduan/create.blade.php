@@ -17,12 +17,7 @@
             @method('POST')
             <div class="mb-4">
                 <label for="id_warga" class="block text-sm font-bold mb-2">Nama Pelapor</label>
-                <select name="id_warga" id="id_warga" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                    <option value="" disabled selected class="text-gray-400">Pilih Nama</option>
-                    @foreach($niks as $nik)
-                        <option value="{{$nik->id_warga}}" {{old('id_warga') == $nik->id_warga ? "selected" : ""}}>{{$nik->nama_warga}}</option>
-                    @endforeach
-                </select>
+                cc
                 @error('id_warga')
                     <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                 @enderror
