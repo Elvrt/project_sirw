@@ -21,7 +21,7 @@ class PersuratanController extends Controller
         $status = $request->query('status');
         $search = $request->query('search');
 
-        // Query the WargaModel based on the parameters
+        // Query the PersuratanModel based on the parameters
         $persuratanQuery = PersuratanModel::query();
 
         if ($status) {
@@ -34,7 +34,8 @@ class PersuratanController extends Controller
                         $query->where('nama_warga', 'like', '%' . $search . '%');
                      })
                     ->orWhere('jenis_persuratan', 'like', '%' . $search . '%')
-                    ->orWhere('keterangan_persuratan', 'like', '%' . $search . '%');
+                    ->orWhere('keterangan_persuratan', 'like', '%' . $search . '%')
+                    ->orWhere('catatan_persuratan', 'like', '%' . $search . '%');
             });
         }
 
