@@ -38,9 +38,8 @@
                                                     <option value="" selected>-  Semua -</option>
                                                     <option value="Menunggu" {{request('status') == "Menunggu" ? "selected" : ""}}>Menunggu</option>
                                                     <option value="Ditolak" {{request('status') == "Ditolak" ? "selected" : ""}}>Ditolak</option>
-                                                    <option value="Dibuat di RT" {{request('status') == "Dibuat di RT" ? "selected" : ""}}>Dibuat di RT</option>
-                                                    <option value="Verifikasi RW" {{request('status') == "Verifikasi RW" ? "selected" : ""}}>Verifikasi RW</option>
-                                                    <option value="Diambil di RW" {{request('status') == "Diambil di RW" ? "selected" : ""}}>Diambil di RW</option>
+                                                    <option value="Disetujui" {{request('status') == "Disetujui" ? "selected" : ""}}>Disetujui</option>
+
                                                 </select>
                                             </div>
                                         </div>

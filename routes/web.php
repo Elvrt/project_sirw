@@ -17,6 +17,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\PersuratanDashboardController;
 use App\Http\Controllers\FasumDashboardController;
 use App\Http\Controllers\PengaduanDashboardController;
 use App\Http\Controllers\LayananDaruratDashboardController;
@@ -213,11 +214,11 @@ Route::group(['middleware' => ['auth', 'checkrole:9'], 'prefix' => 'RW'], functi
 });
 
 // untuk rt
-Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4,5,6,7,8']], function() {
-    Route::get('/RT', [AuthRtController::class, 'index']);
+Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4,5,6,7,8'], 'prefix' => 'RT'], function() {
+    Route::get('/', [AuthRtController::class, 'index']);
 
 
-    Route::group(['prefix' => 'RT/KartuKeluarga'], function (){
+    Route::group(['prefix' => 'KartuKeluarga'], function (){
         Route::get('/', [KartuKeluargaRTController::class, 'index']); // Halaman awal user
         Route::post('/index', [KartuKeluargaRTController::class, 'index']); // Halaman data user dalam bentuk json
         Route::get('/create', [KartuKeluargaRTController::class, 'create']); // Halaman form tambah user
@@ -229,7 +230,7 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4,5,6,7,8']], function()
     });
 
     // Warga
-    Route::group(['prefix' => 'RT/Warga'], function (){
+    Route::group(['prefix' => 'Warga'], function (){
         Route::get('/', [WargaRTController::class, 'index']); // Halaman awal user
         Route::post('/index', [WargaRTController::class, 'index']); // Halaman data user dalam bentuk json
         Route::get('/create', [WargaRTController::class, 'create']); // Halaman form tambah user
@@ -241,7 +242,7 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4,5,6,7,8']], function()
     });
 
     // Iuran
-    Route::group(['prefix' => 'RT/Iuran'], function (){
+    Route::group(['prefix' => 'Iuran'], function (){
         Route::get('/', [IuranRTController::class, 'index']); // Halaman awal user
         Route::post('/index', [IuranRTController::class, 'index']); // Halaman data user dalam bentuk json
         Route::get('/create', [IuranRTController::class, 'create']); // Halaman form tambah user
@@ -253,7 +254,7 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4,5,6,7,8']], function()
     });
 
     // Persuratan
-    Route::group(['prefix' => 'RT/Persuratan'], function (){
+    Route::group(['prefix' => 'Persuratan'], function (){
         Route::get('/', [PersuratanRTController::class, 'index']); // Halaman awal user
         Route::post('/index', [PersuratanRTController::class, 'index']); // Halaman data user dalam bentuk json
         Route::get('/create', [PersuratanRTController::class, 'create']); // Halaman form tambah user
@@ -265,7 +266,7 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4,5,6,7,8']], function()
     });
 
     // Agenda
-    Route::group(['prefix' => 'RT/Agenda'], function (){
+    Route::group(['prefix' => 'Agenda'], function (){
         Route::get('/', [AgendaRTController::class, 'index']); // Halaman awal user
         Route::post('/index', [AgendaRTController::class, 'index']); // Halaman data user dalam bentuk json
         Route::get('/create', [AgendaRTController::class, 'create']); // Halaman form tambah user
@@ -277,7 +278,7 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4,5,6,7,8']], function()
     });
 
     // Berita
-    Route::group(['prefix' => 'RT/Berita'], function (){
+    Route::group(['prefix' => 'Berita'], function (){
         Route::get('/', [BeritaRTController::class, 'index']); // Halaman awal user
         Route::post('/index', [BeritaRTController::class, 'index']); // Halaman data user dalam bentuk json
         Route::get('/create', [BeritaRTController::class, 'create']); // Halaman form tambah user
@@ -289,7 +290,7 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4,5,6,7,8']], function()
     });
 
     // Fasilitas Umum
-    Route::group(['prefix' => 'RT/FasilitasUmum'], function (){
+    Route::group(['prefix' => 'FasilitasUmum'], function (){
         Route::get('/', [FasilitasUmumRTController::class, 'index']); // Halaman awal user
         Route::post('/index', [FasilitasUmumRTController::class, 'index']); // Halaman data user dalam bentuk json
         Route::get('/create', [FasilitasUmumRTController::class, 'create']); // Halaman form tambah user
@@ -321,15 +322,21 @@ Route::group(['prefix' => ''], function (){
     Route::get('/berita/{id}', [InfoController::class, 'showBerita']);
     Route::get('/fasum', [FasumDashboardController::class, 'index']);
     Route::get('/fasilitasumum/{id}', [FasumDashboardController::class, 'show']);
+
+    // persuratan
+    Route::get('/pengajuansurat', [PersuratanDashboardController::class, 'index']);
+    Route::get('/pilihrequestsurat', [PersuratanDashboardController::class, 'indexPilihRequest']);
+    Route::get('/requestsurat', [PersuratanDashboardController::class, 'create']);
+    Route::post('/requestsurat', [PersuratanDashboardController::class, 'store']);
+    Route::get('/pilihstatussurat', [PersuratanDashboardController::class, 'indexPilihStatus']);
+    Route::get('/statussurat', [PersuratanDashboardController::class, 'indexStatus']);
+    // pengaduan
     Route::get('/pengaduan', [PengaduanDashboardController::class, 'index']);
     Route::get('/laporpengaduan', [PengaduanDashboardController::class, 'create']);
     Route::post('/laporpengaduan', [PengaduanDashboardController::class, 'store']);
     Route::get('/statuspengaduan', [PengaduanDashboardController::class, 'indexStatus']);
-    Route::get('/layanandarurat', [LayananDaruratDashboardController::class, 'index']);
-});
 
-Route::get('pengajuansurat', function () {
-    return view('Dashboard.pengajuansurat');
+    Route::get('/layanandarurat', [LayananDaruratDashboardController::class, 'index']);
 });
 
 Route::get('daftaRWargaRW', function () {
@@ -344,10 +351,6 @@ Route::get('ajukansurat', function () {
     return view('Warga.surat.ajukansurat');
 });
 
-Route::get('statussurat', function () {
-    return view('Warga.statussurat');
-});
-
 Route::get('statusIuran', function () {
     return view('Warga.statusiuran');
 });
@@ -356,13 +359,8 @@ Route::get('berita', function () {
     return view('dashboard.berita');
 });
 
-
 Route::get('agenda', function () {
     return view('dashboard.agenda');
-});
-
-Route::get('surat', function () {
-    return view('warga.surat.pilihansurat');
 });
 
 Route::get('suratkurangmampu', function () {
