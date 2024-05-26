@@ -39,7 +39,7 @@ class PersuratanController extends Controller
         }
 
         // Paginate the result
-        $persuratan = $persuratanQuery->paginate($perPage);
+        $persuratan = $persuratanQuery->orderBy('id_persuratan', 'desc')->paginate($perPage);
 
         return view('RW.Persuratan.index', ['persuratan' => $persuratan ,'startNumber' => $startNumber]);
     }
