@@ -70,13 +70,13 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="8" class="text-center py-3">No data found</td>
+                        <td colspan="7" class="text-center py-3">No data found</td>
                     </tr>
                 @endforelse
             </tbody>
         </table>
     </div>
- 
+
 </div>
 <div class=" text-left pl-20 pr-20 mt-5">
     {{ $pengaduan->appends(request()->query())->links() }}
