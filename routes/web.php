@@ -12,6 +12,7 @@ use App\Http\Controllers\WargaController;
 use App\Http\Controllers\StrukturRWController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PersuratanController;
+use App\Http\Controllers\SktmController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfilController;
@@ -126,6 +127,18 @@ Route::group(['middleware' => ['auth', 'checkrole:9'], 'prefix' => 'RW'], functi
         Route::get('/{id}/edit', [PersuratanController::class, 'edit'])->name('RW.Persuratan.edit'); // Menampilkan halaman form edit user
         Route::put('/{id}', [PersuratanController::class, 'update'])->name('RW.Persuratan.update'); // Menampilkan perubahan data user
         Route::delete('/{id}', [PersuratanController::class, 'destroy'])->name('RW.Persuratan.destroy'); // Menghapus data user
+    });
+
+    // Sktm
+    Route::group(['prefix' => 'Sktm'], function (){
+        Route::get('/', [SktmController::class, 'index']); // Halaman awal user
+        Route::post('/index', [SktmController::class, 'index']); // Halaman data user dalam bentuk json
+        Route::get('/create', [SktmController::class, 'create']); // Halaman form tambah user
+        Route::post('/', [SktmController::class, 'store'])->name('RW.Sktm.store'); // Menyimpan data user baru
+        Route::get('/{id}/show', [SktmController::class, 'show'])->name('RW.Sktm.show'); // Menampilkan detail user
+        Route::get('/{id}/edit', [SktmController::class, 'edit'])->name('RW.Sktm.edit'); // Menampilkan halaman form edit user
+        Route::put('/{id}', [SktmController::class, 'update'])->name('RW.Sktm.update'); // Menampilkan perubahan data user
+        Route::delete('/{id}', [SktmController::class, 'destroy'])->name('RW.Sktm.destroy'); // Menghapus data user
     });
 
     // Pengaduan

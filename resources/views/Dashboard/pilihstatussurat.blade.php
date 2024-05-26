@@ -9,7 +9,7 @@
     </a>
     <div class="text-center mb-10">
         <a href="statussktm">
-            <button class="bg-transparent hover:bg-coklat text-army-gelap font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded">Surat Kurang Tidak Mampu</button>
+            <button class="bg-transparent hover:bg-coklat text-army-gelap font-semibold hover:text-white py-2 px-4 border hover:border-transparent rounded">Surat Keterangan Tidak Mampu</button>
         </a>
         <a href="statussurat">
             <button class="bg-transparent hover:bg-coklat text-army-gelap font-semibold hover:text-white py-2 px-14 border hover:border-transparent rounded">Surat Lainnya</button></p>

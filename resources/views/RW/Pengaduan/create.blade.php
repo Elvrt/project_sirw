@@ -36,25 +36,6 @@
                     <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                 @enderror
             </div>
-            {{-- <div class="mb-4">
-                <label for="tanggal_pengaduan" class="block text-sm font-bold mb-2">Tanggal Pengaduan</label>
-                <input type="datetime-local" name="tanggal_pengaduan" id="tanggal_pengaduan" value="{{old('tanggal_pengaduan')}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                @error('tanggal_pengaduan')
-                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="mb-4">
-                <label for="status_pengaduan" class="block text-sm font-bold mb-2">Status Pengaduan</label>
-                <select name="status_pengaduan" id="status_pengaduan" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                    <option value="" disabled selected class="text-gray-400">Pilih Status</option>
-                    <option value="Menunggu" {{old('status_pengaduan') == "Menunggu" ? "selected" : ""}}>Menunggu</option>
-                    <option value="Ditolak" {{old('status_pengaduan') == "Ditolak" ? "selected" : ""}}>Ditolak</option>
-                    <option value="Selesai" {{old('status_pengaduan') == "Selesai" ? "selected" : ""}}>Selesai</option>
-                </select>
-                @error('status_pengaduan')
-                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
-                @enderror
-            </div> --}}
             <div class="text-end px-10">
                 <button class="bg-hijau  text-putih font-bold py-2 px-8 rounded-lg">
                     Simpan
