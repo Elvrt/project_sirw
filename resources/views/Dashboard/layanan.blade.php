@@ -11,7 +11,7 @@
                 </figure>
                 <div class="flex flex-col ml-30 w-[44%] max-md:ml-0 max-md:w-full">
                     <p class="text-center text-army-gelap font-medium text-sub drop-shadow-md">PENGAJUAN SURAT</p>
-                    <div class="flex relative flex-col grow px-2 mt-14text-xl text-white ">
+                    <div class="flex relative flex-col grow px-2 mt-14 text-xl text-white ">
                         <p class="max-md:max-w-full text-normal text-justify text-army-gelap ">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis velit excepturi incidunt obcaecati, asperiores at necessitatibus explicabo harum rerum maiores molestiae iste ea? Dicta natus quae, dolore perspiciatis accusantium tempora optio maxime quasi cupiditate eius repudiandae blanditiis libero.
                         </p>
@@ -36,7 +36,7 @@
                         <p class="max-md:max-w-full text-normal text-justify text-army-gelap ">
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit temporibus dignissimos perferendis, reiciendis magnam consequuntur veritatis quisquam sequi commodi facere ad provident at ipsum magni sint sunt. Possimus nam quaerat illum, quidem veniam ipsa saepe laboriosam molestiae eum quod corporis.
                         </p>
-                        <a href="statusIuran">
+                        <a href="statusiuran">
                             <button class="w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-5 mb-6">Selengkapnya</button>
                         </a>
                     </div>

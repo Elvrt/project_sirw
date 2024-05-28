@@ -17,10 +17,27 @@ class StrukturRwController extends Controller
         $currentPage = $request->query('page', 1);
         $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        $struktur = StrukturRwModel::paginate($perPage);
+        // Retrieve filter and search parameters from the request
+        $search = $request->query('search');
+
+        // Query the WargaModel based on the parameters
+        $strukturQuery = StrukturRwModel::query();
+
+        if ($search) {
+            $strukturQuery->where(function ($query) use ($search) {
+                $query->where('kode_struktur', 'like', '%' . $search . '%')
+                    ->orWhere('nama_struktur', 'like', '%' . $search . '%')
+                    ->orWhereHas('warga', function ($query) use ($search) {
+                        $query->where('nama_warga', 'like', '%' . $search . '%')
+                            ->orWhere('nomor_telepon', 'like', '%' . $search . '%');
+                     });
+            });
+        }
+
+        // Paginate the result
+        $struktur = $strukturQuery->paginate($perPage);
 
         return view('RW.StrukturRw.index', ['struktur' => $struktur, 'startNumber' => $startNumber]);
-
     }
 
     /**

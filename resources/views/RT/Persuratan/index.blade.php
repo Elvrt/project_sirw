@@ -83,6 +83,8 @@
                             <thead>
                                 <tr>
                                     <th class="px-4 py-2">No.</th>
+                                    <th class="px-4 py-2">RT</th>
+                                    <th class="px-4 py-2">NIK</th>
                                     <th class="px-4 py-2">Nama Pengaju</th>
                                     <th class="px-4 py-2">Jenis Surat</th>
                                     <th class="px-4 py-2">Keterangan</th>
@@ -99,6 +101,8 @@
                                 @forelse ($persuratan as $data)
                                     <tr>
                                         <td class="px-4 py-2">{{$i++}}</td>
+                                        <td class="px-4 py-2">{{$data->warga->kartuKeluarga->rt->nomor_rt}}</td>
+                                        <td class="px-4 py-2">{{$data->warga->nik}}</td>
                                         <td class="px-4 py-2">{{$data->warga->nama_warga}}</td>
                                         <td class="px-4 py-2">{{$data->jenis_persuratan}}</td>
                                         <td class="px-4 py-2">{{$data->keterangan_persuratan}}</td>
@@ -134,7 +138,7 @@
                                     </tr>
                                     @empty
                                     <tr>
-                                        <td colspan="7" class="text-center px-4 py-2">No data found</td>
+                                        <td colspan="10" class="text-center px-4 py-2">No data found</td>
                                     </tr>
                                 @endforelse
                             </tbody>

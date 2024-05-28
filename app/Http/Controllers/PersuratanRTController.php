@@ -36,10 +36,12 @@ class PersuratanRTController extends Controller
         if ($search) {
             $persuratanQuery->where(function ($query) use ($search) {
                 $query->whereHas('warga', function ($query) use ($search) {
-                        $query->where('nama_warga', 'like', '%' . $search . '%');
-                     })
+                    $query->where('nik', 'like', '%' . $search . '%')
+                        ->orWhere('nama_warga', 'like', '%' . $search . '%');
+                    })
                     ->orWhere('jenis_persuratan', 'like', '%' . $search . '%')
-                    ->orWhere('keterangan_persuratan', 'like', '%' . $search . '%');
+                    ->orWhere('keterangan_persuratan', 'like', '%' . $search . '%')
+                    ->orWhere('catatan_persuratan', 'like', '%' . $search . '%');
             });
         }
 

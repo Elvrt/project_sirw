@@ -28,31 +28,30 @@
                     <div class="card-body">
                         <div class="row ">
                             <div class="col-md-12">
-                                <div class="form-group ">
-                                    <label class="col-1 control-label col-form-label">Filter:</label>
-                                    <div class="max-w-xs relative">
-                                        <div class="border cursor-pointer">
-                                            <div class="col-3">
-                                                <select class="form-control w-full" id="id_rt" name="id_rt" required>
-                                                    <option value="">-  Semua -</option>
-                                                    {{-- @foreach($Berita as $data)
-                                                        <option value="{{ $data->id_berita }}">{{ $data->id_berita }}</option>
-                                                    @endforeach --}}
+                                <div class="form-group p-5">
+                                    <form id="filter-form" method="GET" action="{{ url('/RT/Iuran') }}">
+                                        <label class="col-1 control-label col-form-label">Filter:</label>
+                                        <div class="flex justify-between max-w-xs relative">
+                                            <div class="cursor-pointer flex-grow ml-2">
+                                                <small class="form-text text-muted">Status</small>
+                                                <select class="border form-control w-full" id="status" name="status">
+                                                    <option value="" selected>-  Semua -</option>
+                                                    <option value="Lunas" {{request('status') == "Lunas" ? "selected" : ""}}>Lunas</option>
+                                                    <option value="Belum Lunas" {{request('status') == "Belum Lunas" ? "selected" : ""}}>Belum Lunas</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <small class="form-text text-muted">Nomor RT</small>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 offset-md-6">
-                                            <div class="form-group text-right pr-10">
-                                                <div class="col-md-6 offset-md-6">
-                                                    <label class="col-1 control-label col-form-label">Search:</label>
-                                                    <input type="search" class="form-control rounded border pl-2" id="search" placeholder="Masukkan Pencarian">
+                                        <div class="row">
+                                            <div class="col-md-6 offset-md-6">
+                                                <div class="form-group text-right pr-10">
+                                                    <div class="col-md-6 offset-md-6">
+                                                        <label class="col-1 control-label col-form-label">Search:</label>
+                                                        <input type="search" class="form-control rounded border pl-2" id="search" name="search" value="{{ request('search') }}" placeholder="Masukkan Pencarian">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -147,8 +146,8 @@
                         </table>
                     </div>
                         <div class="mt-5  ">
-                            {{ $iuran->links() }}
-                            </div>
+                            {{ $iuran->appends(request()->query())->links() }}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -156,9 +155,21 @@
     </div>
 </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const filterForm = document.getElementById('filter-form');
+        const status = document.getElementById('status');
+        const search = document.getElementById('search');
 
+        status.addEventListener('change', () => {
+            filterForm.submit();
+        });
 
-
+        search.addEventListener('input', () => {
+            filterForm.submit();
+        });
+    });
+</script>
 </body>
 </html>
 @if(isset($data))
