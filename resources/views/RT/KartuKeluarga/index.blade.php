@@ -31,18 +31,6 @@
                             <div class="col-md-12">
                                 <div class="form-group ">
                                     <form id="filter-form" method="GET" action="{{ url('/RT/KartuKeluarga') }}">
-                                        <label class="col-1 control-label col-form-label">Filter:</label>
-                                            <div class="flex justify-between max-w-xs relative">
-                                                <div class="cursor-pointer flex-grow mr-2">
-                                                    <small class="form-text text-muted">Nomor RT</small>
-                                                    <select class="border form-control w-full" id="id_rt" name="id_rt">
-                                                        <option value="" selected>-  Semua -</option>
-                                                        @foreach($rt as $data)
-                                                            <option value="{{ $data->id_rt }}" {{ request('id_rt') == $data->id_rt ? 'selected' : '' }}>{{ $data->nomor_rt }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
                                         <div class="row">
                                             <div class="col-md-6 offset-md-6">
                                                 <div class="form-group text-right pr-10">
@@ -151,12 +139,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             const filterForm = document.getElementById('filter-form');
-            const idRt = document.getElementById('id_rt');
             const search = document.getElementById('search');
-
-            idRt.addEventListener('change', () => {
-                filterForm.submit();
-            });
 
             search.addEventListener('input', () => {
                 filterForm.submit();

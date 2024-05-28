@@ -27,11 +27,10 @@ class WargaRTController extends Controller
         // Query the WargaModel based on the parameters
         $wargaQuery = WargaModel::query();
 
-        if ($idRt) {
-            $wargaQuery->whereHas('kartuKeluarga.rt', function ($query) use ($idRt) {
-                $query->where('id_rt', $idRt);
-            });
-        }
+        $idRt = auth()->user()->warga->kartuKeluarga->rt->id_rt;
+        $wargaQuery->whereHas('kartuKeluarga.rt', function ($query) use ($idRt) {
+            $query->where('id_rt', $idRt);
+        });
 
         if ($jk) {
             $wargaQuery->where('jenis_kelamin', $jk);
@@ -70,10 +69,10 @@ class WargaRTController extends Controller
      */
     public function create()
     {
-        $rts = RtModel::all();
-        $kks = KartuKeluargaModel::all();
+        $rts = auth()->user()->warga->kartuKeluarga->rt->id_rt;
+        $kks = KartuKeluargaModel::where('id_rt', $rts)->orderBy('no_kk', 'asc')->get();
 
-        return view('RT.Warga.create', compact('rts', 'kks'));
+        return view('RT.Warga.create', compact('kks'));
     }
 
     /**
@@ -130,11 +129,11 @@ class WargaRTController extends Controller
      */
     public function edit(string $id)
     {
-        $rts = RtModel::all();
-        $kks = KartuKeluargaModel::all();
+        $rts = auth()->user()->warga->kartuKeluarga->rt->id_rt;
+        $kks = KartuKeluargaModel::where('id_rt', $rts)->orderBy('no_kk', 'asc')->get();
         $warga = WargaModel::find($id);
 
-        return view('RT.Warga.edit', $data = ['data' => $warga], compact('rts', 'kks'));
+        return view('RT.Warga.edit', $data = ['data' => $warga], compact('kks'));
     }
 
     /**

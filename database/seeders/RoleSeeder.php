@@ -14,8 +14,8 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        $codes = array('RT1A','RT2A','RT3A', 'RT4A', 'RT5A', 'RT6A', 'RT7A', 'RT8A','RWA', 'WRG',);
-        $names = array('RT1 Admin', 'RT2 Admin', 'RT3 Admin', 'RT4 Admin', 'RT5 Admin', 'RT6 Admin', 'RT7 Admin', 'RT8 Admin', 'RW Admin', 'Warga',);
+        $codes = array('RT1A','RT2A','RT3A', 'RT4A', 'RT5A', 'RT6A', 'RT7A', 'RT8A','RWA',);
+        $names = array('RT1 Admin', 'RT2 Admin', 'RT3 Admin', 'RT4 Admin', 'RT5 Admin', 'RT6 Admin', 'RT7 Admin', 'RT8 Admin', 'RW Admin',);
         $i = 1;
         foreach ($codes as $code) {
             DB::table('role')->insert(

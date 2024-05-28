@@ -24,6 +24,11 @@ class PersuratanRTController extends Controller
         // Query the WargaModel based on the parameters
         $persuratanQuery = PersuratanModel::query();
 
+        $idRt = auth()->user()->warga->kartuKeluarga->rt->id_rt;
+        $persuratanQuery->whereHas('warga.kartuKeluarga.rt', function ($query) use ($idRt) {
+            $query->where('id_rt', $idRt);
+        });
+
         if ($status) {
             $persuratanQuery->where('status_persuratan', $status);
         }

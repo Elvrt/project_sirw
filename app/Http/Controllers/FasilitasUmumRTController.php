@@ -24,11 +24,10 @@ class FasilitasUmumRTController extends Controller
         // Query the WargaModel based on the parameters
         $fasilitasQuery = FasilitasUmumModel::query();
 
-        if ($idRt) {
-            $fasilitasQuery->whereHas('rt', function ($query) use ($idRt) {
-                $query->where('id_rt', $idRt);
-            });
-        }
+        $idRt = auth()->user()->warga->kartuKeluarga->rt->id_rt;
+        $fasilitasQuery->whereHas('rt', function ($query) use ($idRt) {
+            $query->where('id_rt', $idRt);
+        });
 
         if ($search) {
             $fasilitasQuery->where(function ($query) use ($search) {
@@ -50,7 +49,7 @@ class FasilitasUmumRTController extends Controller
      */
     public function create()
     {
-        $rts = RtModel::all();
+        $rts = auth()->user()->warga->kartuKeluarga->rt->id_rt;
 
         return view('RT.FasilitasUmum.create', compact('rts'));
     }
@@ -104,7 +103,7 @@ class FasilitasUmumRTController extends Controller
      */
     public function edit(string $id)
     {
-        $rts = RtModel::all();
+        $rts = auth()->user()->warga->kartuKeluarga->rt->id_rt;
         $fasilitasUmum = FasilitasUmumModel::find($id);
 
         return view('RT.FasilitasUmum.edit', $data = ['data' => $fasilitasUmum], compact('rts'));

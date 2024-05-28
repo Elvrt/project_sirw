@@ -33,15 +33,6 @@
                                     <form id="filter-form" method="GET" action="{{ url('/RT/Warga') }}">
                                         <label class="col-1 control-label col-form-label">Filter:</label>
                                         <div class="flex justify-between max-w-xs relative">
-                                            <div class="cursor-pointer flex-grow mr-2">
-                                                <small class="form-text text-muted">Nomor RT</small>
-                                                <select class="border form-control w-full" id="id_rt" name="id_rt">
-                                                    <option value="" selected>-  Semua -</option>
-                                                    @foreach($rt as $data)
-                                                        <option value="{{ $data->id_rt }}" {{ request('id_rt') == $data->id_rt ? 'selected' : '' }}>{{ $data->nomor_rt }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
                                             <div class="cursor-pointer flex-grow ml-2">
                                                 <small class="form-text text-muted">Jenis Kelamin</small>
                                                 <select class="border form-control w-full" id="jk" name="jk">
@@ -70,14 +61,14 @@
 
                 <div class="col-span-14 mt-4 p-10 sm:ml-68 drop-shadow-md text-center mr-9">
                     @if (session('success'))
-                        <div class="bg-green-100 border border-green-400 texbg-abu-tua px-4 py-3 rounded relative" role="alert">
+                        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
                             <strong class="font-bold">Success!</strong>
                             <span class="block sm:inline">{{ session('success') }}</span>
                         </div>
                     @endif
 
                     @if (session('error'))
-                        <div class="bg-red-100 border border-red-400 tbg-abu-tua px-4 py-3 rounded relative" role="alert">
+                        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
                             <strong class="font-bold">Error!</strong>
                             <span class="block sm:inline">{{ session('error') }}</span>
                         </div>
@@ -174,13 +165,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             const filterForm = document.getElementById('filter-form');
-            const idRt = document.getElementById('id_rt');
             const jk = document.getElementById('jk');
             const search = document.getElementById('search');
-
-            idRt.addEventListener('change', () => {
-                filterForm.submit();
-            });
 
             jk.addEventListener('change', () => {
                 filterForm.submit();
