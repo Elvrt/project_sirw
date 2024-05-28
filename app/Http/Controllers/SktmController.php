@@ -33,7 +33,6 @@ class SktmController extends Controller
                 $query->whereHas('warga', function ($query) use ($search) {
                         $query->where('nama_warga', 'like', '%' . $search . '%');
                      })
-                    ->orWhere('jenis_sktm', 'like', '%' . $search . '%')
                     ->orWhere('keterangan_sktm', 'like', '%' . $search . '%')
                     ->orWhere('jumlah_penghasilan', 'like', '%' . $search . '%')
                     ->orWhere('jumlah_anggota', 'like', '%' . $search . '%')
@@ -71,7 +70,6 @@ class SktmController extends Controller
             'gambar_slip' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'jumlah_anggota' => 'required|numeric|min:0',
             'jumlah_kendaraan' => 'required|numeric|min:0',
-            'gambar_kendaraan' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
 
         // Handle the image upload
@@ -91,14 +89,6 @@ class SktmController extends Controller
             return back()->withErrors(['gambar_slip' => 'Failed to upload image.']);
         }
 
-        if ($request->hasFile('gambar_kendaraan')) {
-            $image = $request->file('gambar_kendaraan');
-            $imageKendaraan = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/kendaraan'), $imageKendaraan);
-        } else {
-            return back()->withErrors(['gambar_kendaraan' => 'Failed to upload image.']);
-        }
-
         SktmModel::create([
             'id_warga' => $request->id_warga,
             'keterangan_sktm' => $request->keterangan_sktm,
@@ -107,7 +97,6 @@ class SktmController extends Controller
             'gambar_slip' => $imageSlip,
             'jumlah_anggota' => $request->jumlah_anggota,
             'jumlah_kendaraan' => $request->jumlah_kendaraan,
-            'gambar_kendaraan' => $imageKendaraan,
             'status_sktm' => 'Menunggu',
             'tanggal_sktm' => now()->setTimezone('Asia/Jakarta'),
         ]);
@@ -170,9 +159,6 @@ class SktmController extends Controller
         }
         if ($check->gambar_slip && file_exists(public_path('assets/img/slip/' . $check->gambar_slip))) {
             unlink(public_path('assets/img/slip/' . $check->gambar_slip));
-        }
-        if ($check->gambar_kendaraaan && file_exists(public_path('assets/img/kendaraan/' . $check->gambar_kendaraaan))) {
-            unlink(public_path('assets/img/kendaraan/' . $check->gambar_kendaraaan));
         }
 
         try {

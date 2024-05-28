@@ -15,7 +15,7 @@
         <form action="{{url('/RW/User/'.$data->id_user)}}" method="POST">
             @csrf
             @method('PUT')
-            <div class="mb-4">
+            {{-- <div class="mb-4">
                 <label for="id_role" class="block text-sm font-bold mb-2">Role</label>
                 <select name="id_role" id="id_role" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     <option value="" disabled class="text-gray-400">Pilih Role</option>
@@ -26,10 +26,26 @@
                 @error('id_role')
                     <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                 @enderror
+            </div> --}}
+            <div class="mb-4">
+                <label for="id_role" class="block text-sm font-bold mb-2">Role</label>
+                <p class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{$data->role->nama_role}}</p>
             </div>
             <div class="mb-4">
-                <label for="id_warga" class="block text-sm font-bold mb-2">Nama</label>
-                <p class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{$data->warga->nama_warga}}</p>
+                <label for="id_warga" class="block text-sm font-bold mb-2">Nama Warga</label>
+                <select name="id_warga" id="id_warga" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="" disabled selected class="text-gray-400">Pilih Nama</option>
+                    @foreach($niks as $nik)
+                        @if($data->warga->id_warga == $nik->id_warga)
+                            <option value="{{$nik->id_warga}}" selected>{{$nik->nama_warga}}</option>
+                        @elseif(!in_array($nik->id_warga, $existingIds))
+                            <option value="{{$nik->id_warga}}">{{$nik->nama_warga}}</option>
+                        @endif
+                    @endforeach
+                </select>
+                @error('id_warga')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-4">
                 <label for="username" class="block text-sm font-bold mb-2">Username</label>

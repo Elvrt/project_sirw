@@ -13,18 +13,11 @@
     <div class="p-4 sm:ml-64">
         <p class="text-army-gelap font-bold text-header drop-shadow-md container mb-10 mt-10 ml-4">Data SKTM</p>
         <div class="bg-putih drop-shadow-md mx-2 px-10 p-4">
-            <div class="button-group float-right">
-                <a href="/RW/Persuratan" class="mr-4">
-                    <button class="bg-blue-500 hover:bg-blue-700 text-putih font-bold py-2 px-4 rounded-l-lg">
-                        Pindah ke Halaman Surat Lainnya
-                    </button>
-                </a>
-                <a href="Sktm/create">
-                    <button class="bg-hijau hover:bg-hijau-gelap text-putih font-bold py-2 px-4 rounded-r-lg">
-                        + Tambah Data SKTM
-                    </button>
-                </a>
-            </div>
+            <a href="/RW/Persuratan">
+                <button class="bg-blue-500 hover:bg-blue-700 text-putih font-bold py-2 px-4 rounded-lg float-right">
+                    Halaman Surat Lainnya
+                </button>
+            </a>
             <p class="text-sub ml-4">Data</p>
         </div>
         <div class="flex justify-center data-center">
@@ -98,7 +91,6 @@
                                     <th class="px-4 py-2">Foto Slip Gaji</th>
                                     <th class="px-4 py-2">Jumlah Anggota Keluarga</th>
                                     <th class="px-4 py-2">Jumlah Kendaraaan</th>
-                                    <th class="px-4 py-2">Foto Kendaraan</th>
                                     <th class="px-4 py-2">Tanggal Diajukan</th>
                                     <th class="px-4 py-2">Status</th>
                                     <th class="px-4 py-2">Catatan</th>
@@ -123,9 +115,6 @@
                                         </td>
                                         <td class="px-4 py-2">{{$data->jumlah_anggota}}</td>
                                         <td class="px-4 py-2">{{$data->jumlah_kendaraan}}</td>
-                                        <td class="px-4 py-2">
-                                            <img src="{{ url('assets/img/kendaraan/' . $data->gambar_kendaraan) }}" width="200px" alt="foto rumah" class="border rounded">
-                                        </td>
                                         <td class="px-4 py-2">{{$data->tanggal_sktm}}</td>
                                         <td class="px-4 py-2">{{$data->status_sktm}}</td>
                                         <td class="px-4 py-2">{{$data->catatan_sktm}}</td>

@@ -29,7 +29,7 @@ class BeritaController extends Controller
             });
         }
 
-        $berita = $beritaQuery->paginate($perPage);
+        $berita = $beritaQuery->orderBy('id_berita', 'desc')->paginate($perPage);
 
         return view('RW.Berita.index', ['berita' => $berita ,'startNumber' => $startNumber]);
     }
