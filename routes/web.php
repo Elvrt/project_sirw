@@ -19,6 +19,7 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PersuratanDashboardController;
+use App\Http\Controllers\SktmDashboardController;
 use App\Http\Controllers\FasumDashboardController;
 use App\Http\Controllers\PengaduanDashboardController;
 use App\Http\Controllers\LayananDaruratDashboardController;
@@ -32,12 +33,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\KartuKeluargaRTController;
-use App\Http\Controllers\FasilitasUmumRTController;
+use App\Http\Controllers\WargaRTController;
 use App\Http\Controllers\PersuratanRTController;
+use App\Http\Controllers\SktmRTController;
 use App\Http\Controllers\IuranRTController;
 use App\Http\Controllers\BeritaRTController;
 use App\Http\Controllers\AgendaRTController;
-use App\Http\Controllers\WargaRTController;
+use App\Http\Controllers\FasilitasUmumRTController;
 
 
 /*
@@ -278,6 +280,18 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4,5,6,7,8'], 'prefix' =>
         Route::delete('/{id}', [PersuratanRTController::class, 'destroy'])->name('RT.Persuratan.destroy'); // Menghapus data user
     });
 
+    // Sktm
+    Route::group(['prefix' => 'Sktm'], function (){
+        Route::get('/', [SktmRTController::class, 'index']); // Halaman awal user
+        Route::post('/index', [SktmRTController::class, 'index']); // Halaman data user dalam bentuk json
+        Route::get('/create', [SktmRTController::class, 'create']); // Halaman form tambah user
+        Route::post('/', [SktmRTController::class, 'store'])->name('RT.Sktm.store'); // Menyimpan data user baru
+        Route::get('/{id}/show', [SktmRTController::class, 'show'])->name('RT.Sktm.show'); // Menampilkan detail user
+        Route::get('/{id}/edit', [SktmRTController::class, 'edit'])->name('RT.Sktm.edit'); // Menampilkan halaman form edit user
+        Route::put('/{id}', [SktmRTController::class, 'update'])->name('RT.Sktm.update'); // Menampilkan perubahan data user
+        Route::delete('/{id}', [SktmRTController::class, 'destroy'])->name('RT.Sktm.destroy'); // Menghapus data user
+    });
+
     // Agenda
     Route::group(['prefix' => 'Agenda'], function (){
         Route::get('/', [AgendaRTController::class, 'index']); // Halaman awal user
@@ -339,9 +353,12 @@ Route::group(['prefix' => ''], function (){
     // persuratan
     Route::get('/pengajuansurat', [PersuratanDashboardController::class, 'index']);
     Route::get('/pilihrequestsurat', [PersuratanDashboardController::class, 'indexPilihRequest']);
+    Route::get('/requestsktm', [SktmDashboardController::class, 'create']);
+    Route::post('/requestsktm', [SktmDashboardController::class, 'store']);
     Route::get('/requestsurat', [PersuratanDashboardController::class, 'create']);
     Route::post('/requestsurat', [PersuratanDashboardController::class, 'store']);
     Route::get('/pilihstatussurat', [PersuratanDashboardController::class, 'indexPilihStatus']);
+    Route::get('/statussktm', [SktmDashboardController::class, 'index']);
     Route::get('/statussurat', [PersuratanDashboardController::class, 'indexStatus']);
     // pengaduan
     Route::get('/pengaduan', [PengaduanDashboardController::class, 'index']);

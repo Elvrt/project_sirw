@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('tempat_lahir', 50);
             $table->date('tanggal_lahir');
             $table->string('alamat', 100);
-            $table->string('nomor_telepon', 15)->unique();
+            $table->string('nomor_telepon', 15)->unique()->nullable();
             $table->string('agama', 20);
             $table->string('pekerjaan', 40);
             $table->bigInteger('penghasilan');

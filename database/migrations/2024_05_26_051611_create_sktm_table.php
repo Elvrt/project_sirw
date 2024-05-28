@@ -20,7 +20,6 @@ return new class extends Migration
             $table->longText('gambar_slip')->nullable();
             $table->bigInteger('jumlah_anggota');
             $table->bigInteger('jumlah_kendaraan');
-            $table->longText('gambar_kendaraan')->nullable();
             $table->string('status_sktm', 25);
             $table->string('catatan_sktm', 100)->nullable();
             $table->dateTime('tanggal_sktm');

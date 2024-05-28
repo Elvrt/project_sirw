@@ -12,7 +12,7 @@
     <div class="bg-backgroundform md:mx-10 mr-3 md:mr-32 ml-4 md:ml-32 p-5 rounded-lg">
         <p class="font-medium text-sub">Edit Data SKTM</p>
 
-        <form action="{{url('/RW/Sktm/'.$data->id_sktm)}}" method="POST">
+        <form action="{{url('/RT/Sktm/'.$data->id_sktm)}}" method="POST">
             @csrf
             @method('PUT')
             <div class="mb-4">

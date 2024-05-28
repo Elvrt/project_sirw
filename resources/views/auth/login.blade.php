@@ -67,9 +67,9 @@
                         <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="mb-6">
+                {{-- <div class="mb-6">
                     <a href="forgotpassword" class="block text-right text-sm text-cyan-600 mt-2">Lupa Password?</a>
-                </div>
+                </div> --}}
                 <button type="submit" class="w-32 bg-coklat-muda text-cream-muda font-bold py-2 rounded-lg mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-4 mb-6">Login</button>
             </form>
         </div>

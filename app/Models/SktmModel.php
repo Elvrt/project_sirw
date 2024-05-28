@@ -21,7 +21,6 @@ class SktmModel extends Model
         'gambar_slip',
         'jumlah_anggota',
         'jumlah_kendaraan',
-        'gambar_kendaraan',
         'status_sktm',
         'tanggal_sktm',
         'catatan_sktm',

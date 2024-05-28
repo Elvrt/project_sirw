@@ -16,22 +16,19 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         $i = 1;
+        $id = array('3', '1', '5', '9', '13', '17', '21', '25', '29',);
         $role = array(
-            '1', '10', '9', '10', '2', '10', '10', '10', '3', '10',
-            '10', '10', '4', '10', '10', '10', '5', '10', '10', '10',
-            '6', '10', '10', '10', '7', '10', '10', '10', '8', '10',
+            '9', '1', '2', '3', '4', '5', '6', '7', '8',
         );
         $username = array(
-            'rt1a', 'nafiul', 'rwaa', 'elva', 'rt2a', 'octa', 'aria', 'albyan', 'rt3a', 'anabel',
-            'avicenna', 'byan', 'rt4a', 'daffay', 'denny', 'deaputri', 'rt5a', 'fanes', 'ferdi', 'ihza',
-            'rt6a', 'jihan', 'bagus', 'ridlo', 'rt7a', 'nadila', 'ricky', 'putri', 'rt8a', 'thoriq',
+            'rwaa', 'rt1a', 'rt2a', 'rt3a', 'rt4a', 'rt5a', 'rt6a', 'rt7a', 'rt8a',
         );
         foreach ($username as $user) {
             DB::table('user')->insert(
                 [
                     'id_user' => $i,
                     'id_role' => $role[$i - 1],
-                    'id_warga' => $i,
+                    'id_warga' => $id[$i - 1],
                     'username' => $user,
                     'password' => Hash::make('12345678'),
                     'created_at' => now()->setTimezone('Asia/Jakarta'),

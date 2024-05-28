@@ -108,15 +108,15 @@ class UserController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'id_role' => 'required',
-            // 'id_warga' => 'required|unique:user,id_warga,'.$id.',id_user',
+            // 'id_role' => 'required',
+            'id_warga' => 'required|unique:user,id_warga,'.$id.',id_user',
             'username' => 'required|max:50|unique:user,username,'.$id.',id_user',
             'password' => 'nullable',
         ]);
 
         User::find($id)->update([
-            'id_role' => $request->id_role,
-            // 'id_warga' => $request->id_warga,
+            // 'id_role' => $request->id_role,
+            'id_warga' => $request->id_warga,
             'username' => $request->username,
             'password' => $request->password ? bcrypt($request->password) : User::find($id)->password,
         ]);

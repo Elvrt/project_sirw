@@ -31,7 +31,7 @@ class AgendaRTController extends Controller
         }
 
         // Paginate the result
-        $agenda = $agendaQuery->paginate($perPage);
+        $agenda = $agendaQuery->orderBy('id_agenda', 'desc')->paginate($perPage);
 
         return view('RT.Agenda.index', ['agenda' => $agenda,'startNumber' => $startNumber]);
     }
