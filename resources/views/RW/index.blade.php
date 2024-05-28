@@ -129,7 +129,7 @@
                     series: [{
                         name: "Income",
                         color: "#31C48D",
-                        data: ["350000", "350000", "350000", "350000", "350000", "350000", "350000"],
+                        data: ["50000", "150000", "250000", "350000", "450000", "550000", "650000"],
                       },
                       // {
                       //   name: "Expense",
@@ -178,7 +178,7 @@
                     },
                     xaxis: {
                       labels: {
-                        show: true,
+                        show: false,
                         style: {
                           fontFamily: "Inter, sans-serif",
                           cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
