@@ -35,11 +35,18 @@ class PersuratanDashboardController extends Controller
         $startNumber = ($currentPage - 1) * $perPage + 1;
 
         // Retrieve filter and search parameters from the request
+        $idRt = $request->query('id_rt');
         $status = $request->query('status');
         $search = $request->query('search');
 
         // Query the WargaModel based on the parameters
         $persuratanQuery = PersuratanModel::query();
+
+        if ($idRt) {
+            $persuratanQuery->whereHas('warga.kartuKeluarga.rt', function ($query) use ($idRt) {
+                $query->where('id_rt', $idRt);
+            });
+        }
 
         if ($status) {
             $persuratanQuery->where('status_persuratan', $status);
@@ -60,7 +67,9 @@ class PersuratanDashboardController extends Controller
         // Paginate the result
         $persuratan = $persuratanQuery->orderBy('id_persuratan', 'desc')->paginate($perPage);
 
-        return view('Dashboard.statussurat', ['persuratan' => $persuratan, 'startNumber' => $startNumber]);
+        $rt = RtModel::all();
+
+        return view('Dashboard.statussurat', ['persuratan' => $persuratan, 'rt' => $rt, 'startNumber' => $startNumber]);
     }
 
     /**

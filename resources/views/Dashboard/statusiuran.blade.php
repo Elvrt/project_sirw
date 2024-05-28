@@ -14,7 +14,6 @@
                         <small class="form-text text-muted">Nomor RT</small>
                         <select class="border form-control w-full" id="id_rt" name="id_rt">
                             <option value="" selected>- Semua -</option>
-                            <option value="" selected>-  Semua -</option>
                             @foreach($rt as $data)
                                 <option value="{{ $data->id_rt }}" {{ request('id_rt') == $data->id_rt ? 'selected' : '' }}>{{ $data->nomor_rt }}</option>
                             @endforeach
@@ -57,7 +56,7 @@
                 @endphp
                 @forelse ($iuran as $data)
                     <tr>
-                        <td scope="col" class="px-4 py-3 text-justify">{{$i++}}</td>
+                        <td scope="col" class="px-4 py-3 text-justify">{{ $i++ }}</td>
                         <td scope="col" class="px-4 py-3 text-justify">{{ $data->kartuKeluarga->rt->nomor_rt }}</td>
                         <td scope="col" class="px-4 py-3 text-justify">{{ $data->kartuKeluarga->no_kk }}</td>
                         <td scope="col" class="px-4 py-3 text-justify">
@@ -100,8 +99,13 @@
 <script>
     document.addEventListener('DOMContentLoaded', (event) => {
         const filterForm = document.getElementById('filter-form');
+        const idRt = document.getElementById('id_rt');
         const status = document.getElementById('status');
         const search = document.getElementById('search');
+
+        idRt.addEventListener('change', () => {
+            filterForm.submit();
+        });
 
         status.addEventListener('change', () => {
             filterForm.submit();

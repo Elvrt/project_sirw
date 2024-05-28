@@ -120,7 +120,19 @@
                                         <td class="px-4 py-2">{{$data->jumlah_anggota}}</td>
                                         <td class="px-4 py-2">{{$data->jumlah_kendaraan}}</td>
                                         <td class="px-4 py-2">{{$data->tanggal_sktm}}</td>
-                                        <td class="px-4 py-2">{{$data->status_sktm}}</td>
+                                        <td class="px-4 py-2">
+                                            @php
+                                                $statusClass = '';
+                                                if ($data->status_sktm == 'Menunggu') {
+                                                    $statusClass = 'bg-kuning';
+                                                } elseif ($data->status_sktm == 'Disetujui') {
+                                                    $statusClass = 'bg-hijau';
+                                                } elseif ($data->status_sktm == 'Ditolak') {
+                                                    $statusClass = 'bg-merah';
+                                                }
+                                            @endphp
+                                            <button type="button" class="text-putih {{ $statusClass }} font-medium rounded-lg text-sm px-5 py-2.5 text-center" disabled>{{ $data->status_sktm }}</button>
+                                        </td>
                                         <td class="px-4 py-2">{{$data->catatan_sktm}}</td>
                                         <td class="px-4 py-2">
                                             <div class="flex gap-3">

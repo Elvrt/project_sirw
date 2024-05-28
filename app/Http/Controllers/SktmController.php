@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\RtModel;
 use App\Models\WargaModel;
 use App\Models\SktmModel;
 use Illuminate\Http\Request;
@@ -18,11 +19,18 @@ class SktmController extends Controller
         $startNumber = ($currentPage - 1) * $perPage + 1;
 
         // Retrieve filter and search parameters from the request
+        $idRt = $request->query('id_rt');
         $status = $request->query('status');
         $search = $request->query('search');
 
         // Query the SktmModel based on the parameters
         $sktmQuery = SktmModel::query();
+
+        if ($idRt) {
+            $sktmQuery->whereHas('warga.kartuKeluarga.rt', function ($query) use ($idRt) {
+                $query->where('id_rt', $idRt);
+            });
+        }
 
         if ($status) {
             $sktmQuery->where('status_sktm', $status);
@@ -45,7 +53,9 @@ class SktmController extends Controller
         // Paginate the result
         $sktm = $sktmQuery->orderBy('id_sktm', 'desc')->paginate($perPage);
 
-        return view('RW.Sktm.index', ['sktm' => $sktm, 'startNumber' => $startNumber]);
+        $rt = RtModel::all();
+
+        return view('RW.Sktm.index', ['sktm' => $sktm, 'rt' => $rt, 'startNumber' => $startNumber]);
     }
 
     /**

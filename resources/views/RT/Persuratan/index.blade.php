@@ -107,7 +107,19 @@
                                         <td class="px-4 py-2">{{$data->jenis_persuratan}}</td>
                                         <td class="px-4 py-2">{{$data->keterangan_persuratan}}</td>
                                         <td class="px-4 py-2">{{$data->tanggal_persuratan}}</td>
-                                        <td class="px-4 py-2">{{$data->status_persuratan}}</td>
+                                        <td class="px-4 py-2">
+                                            @php
+                                                $statusClass = '';
+                                                if ($data->status_persuratan == 'Menunggu') {
+                                                    $statusClass = 'bg-kuning';
+                                                } elseif ($data->status_persuratan == 'Disetujui') {
+                                                    $statusClass = 'bg-hijau';
+                                                } elseif ($data->status_persuratan == 'Ditolak') {
+                                                    $statusClass = 'bg-merah';
+                                                }
+                                            @endphp
+                                            <button type="button" class="text-putih {{ $statusClass }} font-medium rounded-lg text-sm px-5 py-2.5 text-center" disabled>{{ $data->status_persuratan }}</button>
+                                        </td>
                                         <td class="px-4 py-2">{{$data->catatan_persuratan}}</td>
 
                                         <td class="px-4 py-2">
