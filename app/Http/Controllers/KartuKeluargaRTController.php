@@ -24,11 +24,10 @@ class KartuKeluargaRTController extends Controller
         // Query the WargaModel based on the parameters
         $kkQuery = KartuKeluargaModel::query();
 
-        if ($idRt) {
-            $kkQuery->whereHas('rt', function ($query) use ($idRt) {
-                $query->where('id_rt', $idRt);
-            });
-        }
+        $idRt = auth()->user()->warga->kartuKeluarga->rt->id_rt;
+        $kkQuery->whereHas('rt', function ($query) use ($idRt) {
+            $query->where('id_rt', $idRt);
+        });
 
         if ($search) {
             $kkQuery->where(function ($query) use ($search) {
@@ -57,7 +56,7 @@ class KartuKeluargaRTController extends Controller
      */
     public function create()
     {
-        $rts = RtModel::all();
+        $rts = auth()->user()->warga->kartuKeluarga->rt->id_rt;
 
         return view('RT.KartuKeluarga.create', compact('rts'));
     }
@@ -95,7 +94,7 @@ class KartuKeluargaRTController extends Controller
      */
     public function edit(string $id)
     {
-        $rts = RtModel::all();
+        $rts = auth()->user()->warga->kartuKeluarga->rt->id_rt;
         $kartuKeluarga = KartuKeluargaModel::find($id);
 
         return view('RT.KartuKeluarga.edit', $data = ['data' => $kartuKeluarga], compact('rts'));

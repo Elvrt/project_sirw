@@ -61,7 +61,7 @@ Route::group(['middleware' => 'guest'], function() {
 });
 
 // untuk RW, rt, Warga
-Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4,5,6,7,8,9,10']], function() {
+Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4,5,6,7,8,9']], function() {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/redirect', [RedirectController::class, 'cek']);
 });

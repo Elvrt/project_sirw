@@ -25,7 +25,7 @@
             <img src="{{url('/assets/img/logoDashboard.png')}}" alt="Logo" class="h-22 w-auto mb-2 ml-10">
         </div>
         <div class="mb-4 border-b border-gray-300 text-putih"></div>
-        <div class="text-white text-center font-medium text-putih m-5">Selamat Datang, RW05</div>
+        <div class="text-white text-center font-medium text-putih m-5">Selamat Datang, {{ auth()->user()->role->nama_role }}</div>
         <div class="mb-4 border-b border-gray-300 text-putih mt-4"></div>
         <ul class="space-y-2 font-medium">
             <li>

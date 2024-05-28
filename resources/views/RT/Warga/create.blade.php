@@ -17,12 +17,7 @@
             @method('POST')
             <div class="mb-4">
                 <label for="id_rt" class="block text-sm font-bold mb-2">RT</label>
-                <select name="id_rt" id="id_rt" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                    <option value="" disabled selected class="text-gray-400">Pilih RT</option>
-                    @foreach($rts as $rt)
-                        <option value="{{$rt->id_rt}}" {{old('id_rt') == $rt->id_rt ? "selected" : ""}}>{{$rt->nomor_rt}}</option>
-                    @endforeach
-                </select>
+                <input type="id_rt" name="id_rt" id="id_rt" value="{{ auth()->user()->warga->kartuKeluarga->rt->nomor_rt }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" readonly>
                 @error('id_rt')
                     <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                 @enderror
@@ -140,38 +135,12 @@
         </form>
     </div>
 
-        <!-- FOOTER -->
-        <footer class="bg-zinc-50 dark:bg-neutral-700 text-center lg:text-left">
-            <div class="bg-black/5 p-4 text-center text-surface dark:text-white">
-                Copyright 2024 © : SiRW</a>
-            </div>
-        </footer>
-
-        <script>
-            // Menggunakan JavaScript untuk mengatur opsi dropdown No. KK berdasarkan RT yang dipilih
-            document.getElementById('id_rt').addEventListener('change', function() {
-                var idRt = this.value; // Mendapatkan nilai id_rt yang dipilih
-                var idKkSelect = document.getElementById('id_kk'); // Dropdown No. KK
-                idKkSelect.innerHTML = ''; // Menghapus semua opsi yang ada
-                // Menambahkan opsi default
-                var defaultOption = document.createElement('option');
-                defaultOption.value = '';
-                defaultOption.text = 'Pilih No. KK';
-                defaultOption.disabled = true;
-                defaultOption.selected = true;
-                defaultOption.classList.add('text-gray-400');
-                idKkSelect.appendChild(defaultOption);
-                // Menambahkan opsi No. KK berdasarkan id_rt yang dipilih
-                @foreach($kks as $kk)
-                    if ('{{$kk->id_rt}}' == idRt) {
-                        var option = document.createElement('option');
-                        option.value = '{{$kk->id_kk}}';
-                        option.text = '{{$kk->no_kk}}';
-                        idKkSelect.appendChild(option);
-                    }
-                @endforeach
-            });
-        </script>
+    <!-- FOOTER -->
+    <footer class="bg-zinc-50 dark:bg-neutral-700 text-center lg:text-left">
+        <div class="bg-black/5 p-4 text-center text-surface dark:text-white">
+            Copyright 2024 © : SiRW</a>
+        </div>
+    </footer>
     </body>
 </html>
 

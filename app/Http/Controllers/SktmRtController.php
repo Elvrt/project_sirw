@@ -24,6 +24,11 @@ class SktmRTController extends Controller
         // Query the SktmModel based on the parameters
         $sktmQuery = SktmModel::query();
 
+        $idRt = auth()->user()->warga->kartuKeluarga->rt->id_rt;
+        $sktmQuery->whereHas('warga.kartuKeluarga.rt', function ($query) use ($idRt) {
+            $query->where('id_rt', $idRt);
+        });
+
         if ($status) {
             $sktmQuery->where('status_sktm', $status);
         }
