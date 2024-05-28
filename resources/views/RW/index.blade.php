@@ -9,7 +9,6 @@
     <title>Dashboard</title>
     @vite('resources/css/app.css')
 </head>
-
 <body>
     <div class="justify-center flex sm:block">
         <div class="p-4 sm:ml-64 ">
