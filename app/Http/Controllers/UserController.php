@@ -20,8 +20,6 @@ class UserController extends Controller
         $startNumber = ($currentPage - 1) * $perPage + 1;
 
         // Retrieve filter and search parameters from the request
-        $idRt = $request->query('id_rt');
-        $jk = $request->query('jk');
         $search = $request->query('search');
 
         // Query the WargaModel based on the parameters

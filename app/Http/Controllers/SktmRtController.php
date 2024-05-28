@@ -36,8 +36,9 @@ class SktmRTController extends Controller
         if ($search) {
             $sktmQuery->where(function ($query) use ($search) {
                 $query->whereHas('warga', function ($query) use ($search) {
-                        $query->where('nama_warga', 'like', '%' . $search . '%');
-                     })
+                    $query->where('nik', 'like', '%' . $search . '%')
+                        ->orWhere('nama_warga', 'like', '%' . $search . '%');
+                    })
                     ->orWhere('keterangan_sktm', 'like', '%' . $search . '%')
                     ->orWhere('jumlah_penghasilan', 'like', '%' . $search . '%')
                     ->orWhere('jumlah_anggota', 'like', '%' . $search . '%')

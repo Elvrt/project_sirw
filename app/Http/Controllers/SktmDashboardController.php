@@ -20,11 +20,18 @@ class SktmDashboardController extends Controller
         $startNumber = ($currentPage - 1) * $perPage + 1;
 
         // Retrieve filter and search parameters from the request
+        $idRt = $request->query('id_rt');
         $status = $request->query('status');
         $search = $request->query('search');
 
         // Query the WargaModel based on the parameters
         $sktmQuery = SktmModel::query();
+
+        if ($idRt) {
+            $sktmQuery->whereHas('warga.kartuKeluarga.rt', function ($query) use ($idRt) {
+                $query->where('id_rt', $idRt);
+            });
+        }
 
         if ($status) {
             $sktmQuery->where('status_sktm', $status);
@@ -44,7 +51,9 @@ class SktmDashboardController extends Controller
         // Paginate the result
         $sktm = $sktmQuery->orderBy('id_sktm', 'desc')->paginate($perPage);
 
-        return view('Dashboard.statussktm', ['sktm' => $sktm, 'startNumber' => $startNumber]);
+        $rt = RtModel::all();
+
+        return view('Dashboard.statussktm', ['sktm' => $sktm, 'rt' => $rt, 'startNumber' => $startNumber]);
     }
 
     /**
@@ -104,37 +113,5 @@ class SktmDashboardController extends Controller
         ]);
 
         return redirect('/statussktm')->with('success', 'Data berhasil ditambah');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

@@ -16,6 +16,17 @@
                 <label class="control-label col-form-label mr-2">Filter:</label>
                 <div class="max-w-xs relative">
                     <div class="cursor-pointer flex-grow mr-2">
+                        <small class="form-text text-muted">Nomor RT</small>
+                        <select class="border form-control w-full" id="id_rt" name="id_rt">
+                            <option value="" selected>- Semua -</option>
+                            @foreach($rt as $data)
+                                <option value="{{ $data->id_rt }}" {{ request('id_rt') == $data->id_rt ? 'selected' : '' }}>{{ $data->nomor_rt }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="max-w-xs relative">
+                    <div class="cursor-pointer flex-grow mr-2">
                         <small class="form-text text-muted">Status</small>
                         <select class="border form-control w-full" id="status" name="status">
                             <option value="" selected>- Semua -</option>
@@ -36,6 +47,8 @@
         <table class="table-auto text-center w-full">
             <thead>
                 <tr>
+                    <th scope="col" class="px-4 py-3">No.</th>
+                    <th scope="col" class="px-4 py-3">RT</th>
                     <th scope="col" class="px-4 py-3">NIK</th>
                     <th scope="col" class="px-4 py-3">Nama Pengaju</th>
                     <th scope="col" class="px-4 py-3">Jenis Surat</th>
@@ -46,8 +59,13 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                    $i = $startNumber;
+                @endphp
                 @forelse ($persuratan as $data)
                     <tr>
+                        <td scope="col" class="px-4 py-3 text-justify">{{ $i++ }}</td>
+                        <td scope="col" class="px-4 py-3 text-justify">{{ $data->warga->kartuKeluarga->rt->nomor_rt }}</td>
                         <td scope="col" class="px-4 py-3 text-justify">{{ $data->warga->nik }}</td>
                         <td scope="col" class="px-4 py-3 text-justify">{{ $data->warga->nama_warga }}</td>
                         <td scope="col" class="px-4 py-3 text-justify">{{ $data->jenis_persuratan }}</td>
@@ -64,13 +82,13 @@
                                     $statusClass = 'bg-merah';
                                 }
                             @endphp
-                            <button type="button" class="text-putih {{ $statusClass }} cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center" disabled>{{ $data->status_persuratan }}</button>
+                            <button type="button" class="text-putih {{ $statusClass }} font-medium rounded-lg text-sm px-5 py-2.5 text-center" disabled>{{ $data->status_persuratan }}</button>
                         </td>
                         <td scope="col" class="px-4 py-3 text-justify">{{ $data->catatan_persuratan }}</td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="7" class="text-center py-3">No data found</td>
+                        <td colspan="9" class="text-center py-3">No data found</td>
                     </tr>
                 @endforelse
             </tbody>
@@ -86,8 +104,13 @@
 <script>
     document.addEventListener('DOMContentLoaded', (event) => {
         const filterForm = document.getElementById('filter-form');
+        const idRt = document.getElementById('id_rt');
         const status = document.getElementById('status');
         const search = document.getElementById('search');
+
+        idRt.addEventListener('change', () => {
+            filterForm.submit();
+        });
 
         status.addEventListener('change', () => {
             filterForm.submit();

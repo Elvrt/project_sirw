@@ -20,6 +20,7 @@ use App\Http\Controllers\InfoController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PersuratanDashboardController;
 use App\Http\Controllers\SktmDashboardController;
+use App\Http\Controllers\IuranDashboardController;
 use App\Http\Controllers\FasumDashboardController;
 use App\Http\Controllers\PengaduanDashboardController;
 use App\Http\Controllers\LayananDaruratDashboardController;
@@ -330,12 +331,6 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4,5,6,7,8'], 'prefix' =>
 
 });
 
-// untuk warga
-Route::group(['middleware' => ['auth', 'checkrole:10']], function() {
-    Route::get('/Warga', [AuthWargaController::class, 'index']);
-
-});
-
 Route::get('/forgotpassword', function () {
     return view('auth.LupaPass');
 });
@@ -347,9 +342,11 @@ Route::group(['prefix' => ''], function (){
     Route::get('/layanan', [LayananController::class, 'index']);
     Route::get('/agenda/{id}', [InfoController::class, 'showAgenda']);
     Route::get('/berita/{id}', [InfoController::class, 'showBerita']);
+    // fasilitas umum
     Route::get('/fasum', [FasumDashboardController::class, 'index']);
     Route::get('/fasilitasumum/{id}', [FasumDashboardController::class, 'show']);
-
+    // iuran
+    Route::get('/statusiuran', [IuranDashboardController::class, 'indexStatus']);
     // persuratan
     Route::get('/pengajuansurat', [PersuratanDashboardController::class, 'index']);
     Route::get('/pilihrequestsurat', [PersuratanDashboardController::class, 'indexPilihRequest']);
@@ -365,34 +362,6 @@ Route::group(['prefix' => ''], function (){
     Route::get('/laporpengaduan', [PengaduanDashboardController::class, 'create']);
     Route::post('/laporpengaduan', [PengaduanDashboardController::class, 'store']);
     Route::get('/statuspengaduan', [PengaduanDashboardController::class, 'indexStatus']);
-
+    // layanan darurat
     Route::get('/layanandarurat', [LayananDaruratDashboardController::class, 'index']);
-});
-
-Route::get('daftaRWargaRW', function () {
-    return view('RW.daftaRWarga');
-});
-
-Route::get('tambahWargaRW', function () {
-    return view('RW.tambahWarga');
-});
-
-Route::get('ajukansurat', function () {
-    return view('Warga.surat.ajukansurat');
-});
-
-Route::get('statusIuran', function () {
-    return view('Warga.statusiuran');
-});
-
-Route::get('berita', function () {
-    return view('dashboard.berita');
-});
-
-Route::get('agenda', function () {
-    return view('dashboard.agenda');
-});
-
-Route::get('suratkurangmampu', function () {
-    return view('warga.surat.suratkurangmampu');
 });

@@ -33,13 +33,21 @@
                                         <label class="col-1 control-label col-form-label">Filter:</label>
                                         <div class="flex justify-between max-w-xs relative">
                                             <div class="cursor-pointer flex-grow mr-2">
+                                                <small class="form-text text-muted">Nomor RT</small>
+                                                <select class="border form-control w-full" id="id_rt" name="id_rt" required>
+                                                    <option value="" selected>- Semua -</option>
+                                                    @foreach($rt as $data)
+                                                        <option value="{{ $data->id_rt }}" {{ request('id_rt') == $data->id_rt ? 'selected' : '' }}>{{ $data->nomor_rt }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="cursor-pointer flex-grow mr-2">
                                                 <small class="form-text text-muted">Status</small>
                                                 <select class="border form-control w-full" id="status" name="status" required>
-                                                    <option value="" selected>-  Semua -</option>
+                                                    <option value="" selected>- Semua -</option>
                                                     <option value="Menunggu" {{request('status') == "Menunggu" ? "selected" : ""}}>Menunggu</option>
                                                     <option value="Ditolak" {{request('status') == "Ditolak" ? "selected" : ""}}>Ditolak</option>
                                                     <option value="Disetujui" {{request('status') == "Disetujui" ? "selected" : ""}}>Disetujui</option>
-
                                                 </select>
                                             </div>
                                         </div>
@@ -84,6 +92,8 @@
                             <thead>
                                 <tr>
                                     <th class="px-4 py-2">No.</th>
+                                    <th class="px-4 py-2">RT</th>
+                                    <th class="px-4 py-2">NIK</th>
                                     <th class="px-4 py-2">Nama Pengaju</th>
                                     <th class="px-4 py-2">Jenis Surat</th>
                                     <th class="px-4 py-2">Keterangan</th>
@@ -100,11 +110,25 @@
                                 @forelse ($persuratan as $data)
                                     <tr>
                                         <td class="px-4 py-2">{{$i++}}</td>
+                                        <td class="px-4 py-2">{{$data->warga->kartuKeluarga->rt->nomor_rt}}</td>
+                                        <td class="px-4 py-2">{{$data->warga->nik}}</td>
                                         <td class="px-4 py-2">{{$data->warga->nama_warga}}</td>
                                         <td class="px-4 py-2">{{$data->jenis_persuratan}}</td>
                                         <td class="px-4 py-2">{{$data->keterangan_persuratan}}</td>
                                         <td class="px-4 py-2">{{$data->tanggal_persuratan}}</td>
-                                        <td class="px-4 py-2">{{$data->status_persuratan}}</td>
+                                        <td class="px-4 py-2">
+                                            @php
+                                                $statusClass = '';
+                                                if ($data->status_persuratan == 'Menunggu') {
+                                                    $statusClass = 'bg-kuning';
+                                                } elseif ($data->status_persuratan == 'Disetujui') {
+                                                    $statusClass = 'bg-hijau';
+                                                } elseif ($data->status_persuratan == 'Ditolak') {
+                                                    $statusClass = 'bg-merah';
+                                                }
+                                            @endphp
+                                            <button type="button" class="text-putih {{ $statusClass }} font-medium rounded-lg text-sm px-5 py-2.5 text-center" disabled>{{ $data->status_persuratan }}</button>
+                                        </td>
                                         <td class="px-4 py-2">{{$data->catatan_persuratan}}</td>
                                         <td class="px-4 py-2">
                                             <div class="flex gap-3">
@@ -134,7 +158,7 @@
                                     </tr>
                                     @empty
                                     <tr>
-                                        <td colspan="7" class="text-center px-4 py-2">No data found</td>
+                                        <td colspan="10" class="text-center px-4 py-2">No data found</td>
                                     </tr>
                                 @endforelse
                             </tbody>
@@ -153,8 +177,13 @@
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             const filterForm = document.getElementById('filter-form');
+            const idRt = document.getElementById('id_rt');
             const status = document.getElementById('status');
             const search = document.getElementById('search');
+
+            idRt.addEventListener('change', () => {
+                filterForm.submit();
+            });
 
             status.addEventListener('change', () => {
                 filterForm.submit();

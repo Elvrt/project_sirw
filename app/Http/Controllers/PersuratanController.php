@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\RtModel;
 use App\Models\WargaModel;
 use App\Models\PersuratanModel;
 use Illuminate\Http\Request;
@@ -18,11 +19,18 @@ class PersuratanController extends Controller
         $startNumber = ($currentPage - 1) * $perPage + 1;
 
         // Retrieve filter and search parameters from the request
+        $idRt = $request->query('id_rt');
         $status = $request->query('status');
         $search = $request->query('search');
 
         // Query the PersuratanModel based on the parameters
         $persuratanQuery = PersuratanModel::query();
+
+        if ($idRt) {
+            $persuratanQuery->whereHas('warga.kartuKeluarga.rt', function ($query) use ($idRt) {
+                $query->where('id_rt', $idRt);
+            });
+        }
 
         if ($status) {
             $persuratanQuery->where('status_persuratan', $status);
@@ -31,7 +39,8 @@ class PersuratanController extends Controller
         if ($search) {
             $persuratanQuery->where(function ($query) use ($search) {
                 $query->whereHas('warga', function ($query) use ($search) {
-                        $query->where('nama_warga', 'like', '%' . $search . '%');
+                        $query->where('nik', 'like', '%' . $search . '%')
+                            ->orWhere('nama_warga', 'like', '%' . $search . '%');
                      })
                     ->orWhere('jenis_persuratan', 'like', '%' . $search . '%')
                     ->orWhere('keterangan_persuratan', 'like', '%' . $search . '%')
@@ -42,7 +51,9 @@ class PersuratanController extends Controller
         // Paginate the result
         $persuratan = $persuratanQuery->orderBy('id_persuratan', 'desc')->paginate($perPage);
 
-        return view('RW.Persuratan.index', ['persuratan' => $persuratan ,'startNumber' => $startNumber]);
+        $rt = RtModel::all();
+
+        return view('RW.Persuratan.index', ['persuratan' => $persuratan, 'rt' => $rt, 'startNumber' => $startNumber]);
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\RtModel;
 use App\Models\KartuKeluargaModel;
+use App\Models\WargaModel;
 use App\Models\IuranModel;
 use Illuminate\Http\Request;
 
@@ -18,9 +19,43 @@ class IuranController extends Controller
         $currentPage = $request->query('page', 1);
         $startNumber = ($currentPage - 1) * $perPage + 1;
 
-        $iuran = IuranModel::paginate($perPage);
+        // Retrieve filter and search parameters from the request
+        $idRt = $request->query('id_rt');
+        $status = $request->query('status');
+        $search = $request->query('search');
 
-        return view('RW.Iuran.index', ['iuran' => $iuran,'startNumber' => $startNumber]);
+        // Query the WargaModel based on the parameters
+        $iuranQuery = IuranModel::query();
+
+        if ($idRt) {
+            $iuranQuery->whereHas('kartuKeluarga.rt', function ($query) use ($idRt) {
+                $query->where('id_rt', $idRt);
+            });
+        }
+
+        if ($status) {
+            $iuranQuery->where('status_iuran', $status);
+        }
+
+        if ($search) {
+            $iuranQuery->where(function ($query) use ($search) {
+                $query->whereHas('kartuKeluarga.warga', function ($query) use ($search) {
+                        $query->where('nama_warga', 'like', '%' . $search . '%')
+                            ->where('status_hubungan', 'Kepala Keluarga');
+                    })
+                    ->orWhereHas('kartuKeluarga', function ($query) use ($search) {
+                        $query->where('no_kk', 'like', '%' . $search . '%');
+                     })
+                    ->orWhere('nominal', 'like', '%' . $search . '%');
+            });
+        }
+
+        // Paginate the result
+        $iuran = $iuranQuery->orderBy('id_iuran', 'desc')->paginate($perPage);
+
+        $rt = RtModel::all();
+
+        return view('RW.Iuran.index', ['iuran' => $iuran, 'rt' => $rt, 'startNumber' => $startNumber]);
     }
 
     /**
@@ -29,7 +64,10 @@ class IuranController extends Controller
     public function create()
     {
         $rts = RtModel::all();
-        $kks = KartuKeluargaModel::all();
+        $kks = KartuKeluargaModel::join('warga', 'kartu_keluarga.id_kk', '=', 'warga.id_kk')
+                               ->where('warga.status_hubungan', 'Kepala Keluarga')
+                               ->select('kartu_keluarga.*', 'warga.nama_warga')
+                               ->get();
 
         return view('RW.Iuran.create', compact('rts', 'kks'));
     }

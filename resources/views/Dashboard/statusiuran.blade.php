@@ -2,16 +2,11 @@
 @vite('resources/css/tabledashboard.css')
 @section('content')
 <!-- CONTENT -->
-<p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-5">STATUS SURAT KETERANGAN TIDAK MAMPU</p>
-<a href="/pilihstatussurat" class="bg-army-muda text-putih py-2 px-4 ml-20 mt-44 rounded-lg absolute top-0 left-0  flex items-center hover:bg-army-kuning">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-        <path fill-rule="evenodd" d="M7.28 7.72a.75.75 0 0 1 0 1.06l-2.47 2.47H21a.75.75 0 0 1 0 1.5H4.81l2.47 2.47a.75.75 0 1 1-1.06 1.06l-3.75-3.75a.75.75 0 0 1 0-1.06l3.75-3.75a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
-    </svg>
-</a>
+<p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-5">STATUS IURAN</p>
 
 <div class="bg-login2 mx-16 px-4 py-3 rounded-md shadow-md flex flex-col items-center relative">
     <div class="form-group p-5 mt-5 w-full flex justify-between items-center">
-        <form id="filter-form" method="GET" action="{{ url('statussktm') }}" class="flex w-full justify-between">
+        <form id="filter-form" method="GET" action="{{ url('statusiuran') }}" class="flex w-full justify-between">
             <div class="flex items-center">
                 <label class="control-label col-form-label mr-2">Filter:</label>
                 <div class="max-w-xs relative">
@@ -30,9 +25,8 @@
                         <small class="form-text text-muted">Status</small>
                         <select class="border form-control w-full" id="status" name="status">
                             <option value="" selected>- Semua -</option>
-                            <option value="Menunggu" {{request('status') == "Menunggu" ? "selected" : ""}}>Menunggu</option>
-                            <option value="Ditolak" {{request('status') == "Ditolak" ? "selected" : ""}}>Ditolak</option>
-                            <option value="Disetujui" {{request('status') == "Disetujui" ? "selected" : ""}}>Disetujui</option>
+                            <option value="Lunas" {{request('status') == "Lunas" ? "selected" : ""}}>Lunas</option>
+                            <option value="Belum Lunas" {{request('status') == "Belum Lunas" ? "selected" : ""}}>Belum Lunas</option>
                         </select>
                     </div>
                 </div>
@@ -49,44 +43,47 @@
                 <tr>
                     <th scope="col" class="px-4 py-3">No.</th>
                     <th scope="col" class="px-4 py-3">RT</th>
-                    <th scope="col" class="px-4 py-3">NIK</th>
-                    <th scope="col" class="px-4 py-3">Nama Pengaju</th>
-                    <th scope="col" class="px-4 py-3">Keterangan</th>
-                    <th scope="col" class="px-4 py-3">Tanggal Diajukan</th>
+                    <th scope="col" class="px-4 py-3">No. KK</th>
+                    <th scope="col" class="px-4 py-3">Kepala Keluarga</th>
+                    <th scope="col" class="px-4 py-3">Nominal</th>
+                    <th scope="col" class="px-4 py-3">Tanggal</th>
                     <th scope="col" class="px-4 py-3">Status</th>
-                    <th scope="col" class="px-4 py-3">Catatan</th>
                 </tr>
             </thead>
             <tbody>
                 @php
                     $i = $startNumber;
                 @endphp
-                @forelse ($sktm as $data)
+                @forelse ($iuran as $data)
                     <tr>
                         <td scope="col" class="px-4 py-3 text-justify">{{ $i++ }}</td>
-                        <td scope="col" class="px-4 py-3 text-justify">{{ $data->warga->kartuKeluarga->rt->nomor_rt }}</td>
-                        <td scope="col" class="px-4 py-3 text-justify">{{ $data->warga->nik }}</td>
-                        <td scope="col" class="px-4 py-3 text-justify">{{ $data->warga->nama_warga }}</td>
-                        <td scope="col" class="px-4 py-3 text-justify">{{ $data->keterangan_sktm }}</td>
-                        <td scope="col" class="px-4 py-3 text-justify">{{ \Carbon\Carbon::parse($data->tanggal_sktm)->format('d M y H:i') }} WIB</td>
+                        <td scope="col" class="px-4 py-3 text-justify">{{ $data->kartuKeluarga->rt->nomor_rt }}</td>
+                        <td scope="col" class="px-4 py-3 text-justify">{{ $data->kartuKeluarga->no_kk }}</td>
+                        <td scope="col" class="px-4 py-3 text-justify">
+                            @php
+                                $kepalaKeluarga = $data->kartuKeluarga->warga->firstWhere('status_hubungan', 'Kepala Keluarga');
+                                if ($kepalaKeluarga) {
+                                    echo $kepalaKeluarga->nama_warga;
+                                }
+                            @endphp
+                        </td>
+                        <td scope="col" class="px-4 py-3 text-justify">{{ $data->nominal }}</td>
+                        <td scope="col" class="px-4 py-3 text-justify">{{ \Carbon\Carbon::parse($data->tanggal_iuran)->format('d M y H:i') }} WIB</td>
                         <td scope="col" class="px-4 py-3">
                             @php
                                 $statusClass = '';
-                                if ($data->status_sktm == 'Menunggu') {
-                                    $statusClass = 'bg-kuning';
-                                } elseif ($data->status_sktm == 'Disetujui') {
+                                if ($data->status_iuran == 'Lunas') {
                                     $statusClass = 'bg-hijau';
-                                } elseif ($data->status_sktm == 'Ditolak') {
+                                } elseif ($data->status_iuran == 'Belum Lunas') {
                                     $statusClass = 'bg-merah';
                                 }
                             @endphp
-                            <button type="button" class="text-putih {{ $statusClass }} font-medium rounded-lg text-sm px-5 py-2.5 text-center" disabled>{{ $data->status_sktm }}</button>
+                            <button type="button" class="text-putih {{ $statusClass }} cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center" disabled>{{ $data->status_iuran }}</button>
                         </td>
-                        <td scope="col" class="px-4 py-3 text-justify">{{ $data->catatan_sktm }}</td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="8" class="text-center py-3">No data found</td>
+                        <td colspan="7" class="text-center py-3">No data found</td>
                     </tr>
                 @endforelse
             </tbody>
@@ -95,7 +92,7 @@
 
 </div>
 <div class=" text-left pl-20 pr-20 mt-5">
-    {{ $sktm->appends(request()->query())->links() }}
+    {{ $iuran->appends(request()->query())->links() }}
 </div>
 
 

@@ -83,6 +83,8 @@
                             <thead>
                                 <tr>
                                     <th class="px-4 py-2">No.</th>
+                                    <th class="px-4 py-2">RT</th>
+                                    <th class="px-4 py-2">NIK</th>
                                     <th class="px-4 py-2">Nama Pengaju</th>
                                     <th class="px-4 py-2">Jenis Surat</th>
                                     <th class="px-4 py-2">Keterangan</th>
@@ -99,11 +101,25 @@
                                 @forelse ($persuratan as $data)
                                     <tr>
                                         <td class="px-4 py-2">{{$i++}}</td>
+                                        <td class="px-4 py-2">{{$data->warga->kartuKeluarga->rt->nomor_rt}}</td>
+                                        <td class="px-4 py-2">{{$data->warga->nik}}</td>
                                         <td class="px-4 py-2">{{$data->warga->nama_warga}}</td>
                                         <td class="px-4 py-2">{{$data->jenis_persuratan}}</td>
                                         <td class="px-4 py-2">{{$data->keterangan_persuratan}}</td>
                                         <td class="px-4 py-2">{{$data->tanggal_persuratan}}</td>
-                                        <td class="px-4 py-2">{{$data->status_persuratan}}</td>
+                                        <td class="px-4 py-2">
+                                            @php
+                                                $statusClass = '';
+                                                if ($data->status_persuratan == 'Menunggu') {
+                                                    $statusClass = 'bg-kuning';
+                                                } elseif ($data->status_persuratan == 'Disetujui') {
+                                                    $statusClass = 'bg-hijau';
+                                                } elseif ($data->status_persuratan == 'Ditolak') {
+                                                    $statusClass = 'bg-merah';
+                                                }
+                                            @endphp
+                                            <button type="button" class="text-putih {{ $statusClass }} font-medium rounded-lg text-sm px-5 py-2.5 text-center" disabled>{{ $data->status_persuratan }}</button>
+                                        </td>
                                         <td class="px-4 py-2">{{$data->catatan_persuratan}}</td>
 
                                         <td class="px-4 py-2">
@@ -134,7 +150,7 @@
                                     </tr>
                                     @empty
                                     <tr>
-                                        <td colspan="7" class="text-center px-4 py-2">No data found</td>
+                                        <td colspan="10" class="text-center px-4 py-2">No data found</td>
                                     </tr>
                                 @endforelse
                             </tbody>

@@ -107,7 +107,19 @@
                                         <td class="px-4 py-2">{{$data->judul_pengaduan}}</td>
                                         <td class="px-4 py-2">{{$data->deskripsi_pengaduan}}</td>
                                         <td class="px-4 py-2">{{$data->tanggal_pengaduan}}</td>
-                                        <td class="px-4 py-2">{{$data->status_pengaduan}}</td>
+                                        <td class="px-4 py-2">
+                                            @php
+                                                $statusClass = '';
+                                                if ($data->status_pengaduan == 'Menunggu') {
+                                                    $statusClass = 'bg-kuning';
+                                                } elseif ($data->status_pengaduan == 'Selesai') {
+                                                    $statusClass = 'bg-hijau';
+                                                } elseif ($data->status_pengaduan == 'Ditolak') {
+                                                    $statusClass = 'bg-merah';
+                                                }
+                                            @endphp
+                                            <button type="button" class="text-putih {{ $statusClass }} cursor-not-allowed font-medium rounded-lg text-sm px-5 py-2.5 text-center" disabled>{{ $data->status_pengaduan }}</button>
+                                        </td>
                                         <td class="px-4 py-2">{{$data->catatan_pengaduan}}</td>
                                         <td class="px-4 py-2">
                                             <div class="flex gap-3">
@@ -137,7 +149,7 @@
                                     </tr>
                                     @empty
                                     <tr>
-                                        <td colspan="7" class="text-center px-4 py-2">No data found</td>
+                                        <td colspan="9" class="text-center px-4 py-2">No data found</td>
                                     </tr>
                                 @endforelse
                             </tbody>

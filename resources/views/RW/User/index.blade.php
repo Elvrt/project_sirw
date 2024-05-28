@@ -35,7 +35,7 @@
                                                 <div class="form-group text-right pr-10">
                                                     <div class="col-md-6 offset-md-6">
                                                         <label class="col-1 control-label col-form-label">Search:</label>
-                                                        <input type="search" class="form-control rounded border pl-2" id="search" name="search" value="{{ request('search') }} " placeholder="Masukkan Pencarian">
+                                                        <input type="search" class="form-control rounded border pl-2" id="search" name="search" value="{{ request('search') }}" placeholder="Masukkan Pencarian">
                                                     </div>
                                                 </div>
                                             </div>
