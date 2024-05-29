@@ -26,6 +26,9 @@ class WargaSeeder extends Seeder
             'Muhammad Alfanul', 'Sheva Eka', 'Dony Bagas', 'Nur Alisyatul', 'Dimas Pramudia', 'Natasya Adelia', 'Dwisma Sandiawan', 'Nabila Alin', 'Dian Sumbaga', 'Lyra Yasmine',
             'Dany Kristiawan', 'Iin Indayanti',
         );
+        // $names3 = array(
+        //     'Deva Firnanda', 'Hilyah Aulia', 'Feby Adelia', 'Erica Putri', 'Chaidar Danial', 'Elin Dwi', 'Tatha Amelia', 'Trias Politica',
+        // );
         $jk = array('L', 'P', 'L', 'P', 'L', 'P', 'L', 'P', 'L', 'P', 'L', 'P', 'L', 'P', 'L', 'P', 'L', 'P', 'L', 'P', 'L', 'P', 'L', 'P', 'L', 'P', 'L', 'P', 'L', 'P', 'L', 'P',);
         $place = array('Malang', 'Mojokerto', 'Pasuruan', 'Sidoarjo', 'Surabaya', 'Gresik', 'Bojonegoro', 'Tuban', 'Lamongan', 'Kediri',);
         $date = array(
@@ -40,6 +43,9 @@ class WargaSeeder extends Seeder
             '070124', '070217', '070308', '070403', '070525', '070603', '070725', '070812', '070919', '071006',
             '050101', '050203',
         );
+        // $date3 = array(
+        //     '050117', '050212', '050309', '050402', '050501', '050618', '050722', '050813',
+        // );
         $address = array('Jl. Mawar No. ', 'Jl. Renang No. ', 'Jl. Mataram No. ', 'Jl. Diponegoro No. ', ' Jl. Puntadewa No. ', 'Jl. Pelita No. ', 'Jl. Angklung No. ', 'Jl. Kaktus No. ');
         $nomor = array(
             '08122333444', '081222333555', '081222333666', '081222333777', '081222333888', '081222333999', '081222333000', '089777666555', '089777666444', '089777666333',
@@ -139,5 +145,6 @@ class WargaSeeder extends Seeder
             $b++;
             $s++;
         }
+
     }
 }
