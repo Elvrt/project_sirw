@@ -23,7 +23,7 @@
               </svg>
             </div>
             <div>
-              <span class="block text-2xl font-bold">35</span>
+              <span class="block text-2xl font-bold">{{ $kkCount }}</span>
               <span class="block text-gray-500">Jumlah Kepala Keluarga</span>
             </div>
           </div>
@@ -34,7 +34,7 @@
               </svg>
             </div>
             <div>
-              <span class="block text-2xl font-bold">140</span>
+              <span class="block text-2xl font-bold">{{ $wargaCount }}</span>
               <span class="block text-gray-500">Jumlah Warga</span>
             </div>
           </div>
@@ -45,7 +45,7 @@
               </svg>
             </div>
             <div>
-              <span class="block text-2xl font-bold">14</span>
+              <span class="block text-2xl font-bold">{{ $suratCount }}</span>
               <span class="block text-gray-500">Jumlah Permintaan Surat</span>
             </div>
           </div>
@@ -56,7 +56,7 @@
               </svg>
             </div>
             <div>
-              <span class="inline-block text-2xl font-bold">9</span>
+              <span class="inline-block text-2xl font-bold">{{ $pengaduanCount }}</span>
               <span class="block text-gray-500">Jumlah Pengaduan</span>
             </div>
           </div>
@@ -80,7 +80,7 @@
                     labels: ["Laki - Laki", "Perempuan", ],
                     datasets: [{
                       label: "Data Warga",
-                      data: [80, 60],
+                      data: [{{ $lakiCount }}, {{ $perempuanCount }}],
                       backgroundColor: [
                         "rgb(133, 105, 241)",
                         "rgb(164, 101, 241)",
