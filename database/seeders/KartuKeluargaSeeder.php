@@ -27,5 +27,25 @@ class KartuKeluargaSeeder extends Seeder
                 );
             }
         }
+        // Generate random data using Faker
+        $base_id_kk = 16;
+        $generated_no_kk = [];
+        for ($i = 1; $i <= 8; $i++) {
+            for ($j = 1; $j <= 30; $j++) {
+                do {
+                    $no = sprintf('%06d', mt_rand(17, 999999));
+                    $full_no_kk = '3573051012' . $no;
+                } while (in_array($full_no_kk, $generated_no_kk) || DB::table('kartu_keluarga')->where('no_kk', $full_no_kk)->exists());
+                DB::table('kartu_keluarga')->insert(
+                    [
+                        'id_kk' => $base_id_kk + (($i - 1) * 30) + $j,
+                        'id_rt' => $i,
+                        'no_kk' => $full_no_kk,
+                        'created_at' => now()->setTimezone('Asia/Jakarta'),
+                    ]
+                );
+                $generated_no_kk[] = $full_no_kk;
+            }
+        }
     }
 }
