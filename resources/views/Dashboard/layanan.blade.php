@@ -13,7 +13,7 @@
                     <p class="text-center text-army-gelap font-medium text-sub drop-shadow-md">PENGAJUAN SURAT</p>
                     <div class="flex relative flex-col grow px-2 mt-14 text-xl text-white ">
                         <p class="max-md:max-w-full text-normal text-justify text-army-gelap ">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis velit excepturi incidunt obcaecati, asperiores at necessitatibus explicabo harum rerum maiores molestiae iste ea? Dicta natus quae, dolore perspiciatis accusantium tempora optio maxime quasi cupiditate eius repudiandae blanditiis libero.
+                            Segera ajukan surat Anda dengan mudah melalui platform kami untuk memperoleh layanan yang cepat dan efisien dalam mengurus berbagai keperluan administratif.
                         </p>
                         <a href="pengajuansurat">
                             <button class="w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-5 mb-6">Selengkapnya</button>
@@ -34,7 +34,7 @@
                     <p class="text-center text-army-gelap font-medium text-sub drop-shadow-md">CATATAN IURAN</p>
                     <div class="flex relative flex-col grow px-2 mt-14 text-xl text-white ">
                         <p class="max-md:max-w-full text-normal text-justify text-army-gelap ">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit temporibus dignissimos perferendis, reiciendis magnam consequuntur veritatis quisquam sequi commodi facere ad provident at ipsum magni sint sunt. Possimus nam quaerat illum, quidem veniam ipsa saepe laboriosam molestiae eum quod corporis.
+                            Dapatkan informasi terkini tentang catatan iuran Anda, termasuk detail pembayaran dan status keanggotaan, untuk memastikan keteraturan dalam kontribusi Anda.
                         </p>
                         <a href="statusiuran">
                             <button class="w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-5 mb-6">Selengkapnya</button>
@@ -56,7 +56,7 @@
                     <p class="text-center text-army-gelap font-medium text-sub drop-shadow-md">FASILITAS UMUM</p>
                     <div class="flex relative flex-col grow px-2 mt-14 text-xl text-white ">
                         <p class="max-md:max-w-full text-normal text-justify text-army-gelap ">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. A quia rem cupiditate odit, itaque perspiciatis unde reiciendis harum quasi ab doloremque tempore illum rerum ducimus repellendus est fugit dolorem distinctio illo reprehenderit numquam. Nam, vero.
+                            Temukan fasilitas umum yang tersedia di lingkungan Anda dan manfaatkan layanan-layanan yang disediakan untuk kenyamanan dan kebutuhan sehari-hari Anda.
                         </p>
                         <a href="fasum">
                             <button class="w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-5 mb-6">Selengkapnya</button>
@@ -78,7 +78,7 @@
                     <p class="text-center text-army-gelap font-medium text-sub drop-shadow-md">PENGADUAN</p>
                     <div class="flex relative flex-col grow px-2 mt-14 text-xl text-white ">
                         <p class="max-md:max-w-full text-normal text-justify text-army-gelap ">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quidem totam neque veritatis asperiores, suscipit mollitia sequi maxime laboriosam consectetur minus, doloribus sit animi soluta vitae maiores omnis nihil nobis. Expedita eaque quas tenetur inventore aut cumque est nihil consequatur!
+                            Laporkan keluhan atau saran Anda melalui sistem pengaduan kami untuk memastikan keamanan, ketertiban, dan kenyamanan bersama di lingkungan tempat tinggal Anda.
                         </p>
                         <a href="pengaduan">
                             <button class="w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-5 mb-6">Selengkapnya</button>
@@ -100,7 +100,7 @@
                     <p class="text-center text-army-gelap font-medium text-sub drop-shadow-md">LAYANAN DARURAT</p>
                     <div class="flex relative flex-col grow px-2 mt-14 text-xl text-white ">
                         <p class="max-md:max-w-full text-normal text-justify text-army-gelap ">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed perspiciatis, odio possimus tenetur quasi aliquam ipsum voluptatibus magni deleniti error quisquam, distinctio quae saepe voluptas eum velit. Odio, ipsum reiciendis?
+                            Akses layanan darurat yang siap membantu Anda dalam situasi mendesak atau darurat yang memerlukan tanggapan cepat dan tepat dari pihak berwenang.
                         </p>
                         <a href="layanandarurat">
                             <button class="w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-5 mb-6">Selengkapnya</button>

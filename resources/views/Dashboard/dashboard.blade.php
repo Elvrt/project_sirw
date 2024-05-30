@@ -15,12 +15,7 @@
                     <div
                         class="flex relative flex-col grow px-2 mt-14 text-xl text-white max-md:mt-5 max-md:max-w-full">
                         <p class="max-md:max-w-full text-normal text-army-gelap ">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore<br />
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo con<br />
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                            pariatu
+                            Selamat datang di portal <span class="font-bold">Sistem Informasi Rukun Warga</span>, tempat di mana informasi terkini dan layanan tersedia untuk memenuhi kebutuhan Anda. Temukan berita terbaru, agenda kegiatan, fasilitas umum, serta layanan penting lainnya untuk mendukung kenyamanan dan keamanan lingkungan tempat tinggal Anda. Mari jelajahi dan manfaatkan layanan-layanan yang kami sediakan untuk kesejahteraan bersama.
                         </p>
                     </div>
                 </div>
