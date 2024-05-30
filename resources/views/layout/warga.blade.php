@@ -27,22 +27,22 @@
                         </a>
                     </li>
                     <li class="flex items-center p-1 font-sans text-lg antialiased font-semibold leading-normal gap-x-2  text-army-gelap">
-                        <a href="profil" class="flex items-center">
+                        <a href="/profil" class="flex items-center">
                             Profil
                         </a>
                     </li>
                     <li class="flex items-center p-1 font-sans text-lg antialiased font-semibold leading-normal gap-x-2  text-army-gelap">
-                        <a href="info" class="flex items-center">
+                        <a href="/info" class="flex items-center">
                             Info
                         </a>
                     </li>
                     <li class="flex items-center p-1 font-sans text-lg antialiased font-semibold leading-normal gap-x-2  text-army-gelap">
-                        <a href="layanan" class="flex items-center">
+                        <a href="/layanan" class="flex items-center">
                             Layanan
                         </a>
                     </li>
                     <li class="flex items-center p-1 font-sans text-lg antialiased font-semibold leading-normal gap-x-2  text-army-gelap">
-                        <a href="login" class="flex items-center">
+                        <a href="/login" class="flex items-center">
                             Login
                         </a>
                     </li>
