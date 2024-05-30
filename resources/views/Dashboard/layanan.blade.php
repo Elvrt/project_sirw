@@ -111,4 +111,26 @@
         </main>
     </div>
 
+    <!-- Bantuan Sosial -->
+    <div class="container mx-auto px-40 mt-20 bg-gradient-to-r from-linear2 to-linear1 py-1 rounded-lg">
+        <main class="relative self-center mt-10 mb-10 w-full max-w-[1080px] max-md:my-10 max-md:max-w-full">
+            <div class="flex gap-5 max-md:flex-col max-md:gap-0">
+                <figure class="flex flex-col w-[56%] max-md:ml-0 max-md:w-full">
+                    <img src="{{url('assets/img/bansos.png')}}" alt="Main image" class="w-full aspect-[1.79] max-md:mt-10 max-md:max-w-full rounded-lg" />
+                </figure>
+                <div class="flex flex-col ml-30 w-[44%] max-md:ml-0 max-md:w-full">
+                    <p class="text-center text-army-gelap font-medium text-sub drop-shadow-md">BANTUAN SOSIAL</p>
+                    <div class="flex relative flex-col grow px-2 mt-14 text-xl text-white ">
+                        <p class="max-md:max-w-full text-normal text-justify text-army-gelap ">
+                            Bantuan Sosial atau BANSOS adalah saluran yang siap memberikan pertolongan kepada individu atau keluarga dalam situasi darurat atau keadaan mendesak.
+                        </p>
+                        <a href="pengajuanbansos">
+                            <button class="w-max px-6 bg-coklat-muda text-abu-putih font-semibold py-2 rounded-xl mx-auto block hover:bg-coklat focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 mt-5 mb-6">Selengkapnya</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
   @endsection

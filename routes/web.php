@@ -40,6 +40,8 @@ use App\Http\Controllers\SktmRTController;
 use App\Http\Controllers\IuranRTController;
 use App\Http\Controllers\BeritaRTController;
 use App\Http\Controllers\AgendaRTController;
+use App\Http\Controllers\BansosController;
+use App\Http\Controllers\BansosDashboardController;
 use App\Http\Controllers\FasilitasUmumRTController;
 
 
@@ -340,6 +342,8 @@ Route::group(['prefix' => ''], function (){
     Route::get('/profil', [ProfilController::class, 'index']);
     Route::get('/info', [InfoController::class, 'index']);
     Route::get('/layanan', [LayananController::class, 'index']);
+    Route::get('/requestbansos', [BansosController::class, 'index']);
+
     Route::get('/agenda/{id}', [InfoController::class, 'showAgenda']);
     Route::get('/berita/{id}', [InfoController::class, 'showBerita']);
     // fasilitas umum
@@ -364,4 +368,6 @@ Route::group(['prefix' => ''], function (){
     Route::get('/statuspengaduan', [PengaduanDashboardController::class, 'indexStatus']);
     // layanan darurat
     Route::get('/layanandarurat', [LayananDaruratDashboardController::class, 'index']);
+    // Bansos
+    Route::get('/pengajuanbansos', [BansosDashboardController::class, 'index']);
 });
