@@ -79,7 +79,7 @@ class PersuratanDashboardController extends Controller
     {
         $rts = RtModel::all();
         $kks = KartuKeluargaModel::all();
-        $niks = WargaModel::all();
+        $niks = WargaModel::with('kartuKeluarga.rt')->get();
 
         return view('Dashboard.requestsurat', compact('rts', 'kks','niks'));
     }

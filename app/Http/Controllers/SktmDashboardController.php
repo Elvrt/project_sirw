@@ -63,7 +63,7 @@ class SktmDashboardController extends Controller
     {
         $rts = RtModel::all();
         $kks = KartuKeluargaModel::all();
-        $niks = WargaModel::all();
+        $niks = WargaModel::with('kartuKeluarga.rt')->get();
 
         return view('Dashboard.requestsktm', compact('rts', 'kks','niks'));
     }
