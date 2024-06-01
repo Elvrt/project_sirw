@@ -68,7 +68,7 @@
                         <td scope="col" class="px-4 py-3 text-justify">{{ $data->warga->kartuKeluarga->rt->nomor_rt }}</td>
                         <!-- <td scope="col" class="px-4 py-3 text-justify">{{ $data->warga->nik }}</td> -->
                         <td scope="col" class="px-4 py-3 text-justify">{{ $data->warga->nama_warga }}</td>
-                        <td scope="col" class="px-4 py-3 text-justify">{{ $data->jenis_persuratan }}</td>
+                        <td scope="col" class="px-4 py-3 text-left">{{ $data->jenis_persuratan }}</td>
                         <td scope="col" class="px-4 py-3 text-justify">{{ $data->keterangan_persuratan }}</td>
                         <td scope="col" class="px-4 py-3 text-justify">{{ \Carbon\Carbon::parse($data->tanggal_persuratan)->format('d M y H:i') }} WIB</td>
                         <td scope="col" class="px-4 py-3">

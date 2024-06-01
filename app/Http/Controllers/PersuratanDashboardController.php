@@ -17,17 +17,7 @@ class PersuratanDashboardController extends Controller
     {
         return view('Dashboard.pengajuansurat');
     }
-
-    public function indexPilihRequest()
-    {
-        return view('Dashboard.pilihrequestsurat');
-    }
-
-    public function indexPilihStatus()
-    {
-        return view('Dashboard.pilihstatussurat');
-    }
-
+    
     public function indexStatus(Request $request)
     {
         $perPage = 10;

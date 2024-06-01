@@ -17,7 +17,6 @@
             @method('POST')
             <div class="mb-4">
                 <label for="id_warga" class="block text-sm font-bold mb-2">Nama Pelapor</label>
-                cc
                 @error('id_warga')
                     <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                 @enderror

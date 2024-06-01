@@ -13,11 +13,6 @@
     <div class="p-4 sm:ml-64">
         <p class="text-army-gelap font-bold text-header drop-shadow-md container mb-10 mt-10 ml-4">Data Persuratan</p>
         <div class="bg-putih drop-shadow-md mx-2 px-10 p-4">
-            <a href="/RT/Sktm">
-                <button class="bg-blue-500 hover:bg-blue-700 text-putih font-bold py-2 px-4 rounded-lg float-right">
-                    Halaman SKTM
-                </button>
-            </a>
             <p class="text-sub ml-4">Data</p>
         </div>
         <div class="flex justify-center data-center">

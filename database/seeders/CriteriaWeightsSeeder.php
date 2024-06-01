@@ -15,24 +15,24 @@ class CriteriaWeightsSeeder extends Seeder
     public function run(): void
     {
         $names = array(
-            'Total Pendapatan',
-            'Luas Tanah',
-            'Tagihan Listrik',
+            'Gaji',
             'Jumlah Tanggungan',
+            'Luas Bangunan',
             'Jumlah Kendaraan',
+            'Daya Listrik',
         );
         $type = array(
-            'cost', 'cost', 'cost', 'benefit', 'cost',
+            'cost', 'benefit', 'cost', 'cost', 'cost',
         );
         $weight = array(
-            '0.30', '0.20', '0.15', '0.25', '0.10',
+            '0.30', '0.25', '0.20', '0.15', '0.10',
         );
         $description = array(
-            'Kriteria ini cenderung menjadi kriteria cost karena menunjukkan tingkat pendapatan finansial keluarga. Semakin tinggi total pendapatan, semakin besar kemampuan finansial keluarga tersebut.',
-            'Kriteria ini cenderung menjadi kriteria cost karena menunjukkan aset yang dimiliki. Semakin luas tanah yang dimiliki, semakin besar keluarga tersebut memiliki sumber daya yang cukup.',
-            'Kriteria ini cenderung menjadi kriteria cost karena menunjukkan kemampuan untuk membayar tagihan listrik. Semakin rendah tagihan listrik, semakin besar kemampuan finansial keluarga tersebut.',
+            'Kriteria ini cenderung menjadi kriteria cost karena menunjukkan tingkat pendapatan finansial. Semakin tinggi total pendapatan, semakin besar kemampuan finansial keluarga tersebut.',
             'Kriteria ini cenderung menjadi kriteria benefit karena menunjukkan jumlah orang yang tergantung pada penghasilan tersebut. Semakin tinggi jumlah tanggungan, semakin besar kebutuhan untuk bantuan.',
+            'Kriteria ini cenderung menjadi kriteria cost karena menunjukkan aset yang dimiliki. Semakin luas tanah yang dimiliki, semakin besar keluarga tersebut memiliki sumber daya yang cukup.',
             'Kriteria ini bisa menjadi kriteria cost. Jika memiliki banyak kendaraan menunjukkan kemampuan finansial yang baik.',
+            'Kriteria ini cenderung menjadi kriteria cost karena menunjukkan kemampuan untuk membayar tagihan listrik. Semakin rendah tagihan listrik, semakin besar kemampuan finansial keluarga tersebut.',
         );
         $i = 1;
         foreach ($names as $name) {
