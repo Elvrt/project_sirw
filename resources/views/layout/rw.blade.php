@@ -77,15 +77,15 @@
                 </a>
                 <ul x-show="open" x-transition class="space-y-2 ml-4">
                     <li>
-                        <a href="#" class=" text-putih flex items-center p-2 text-gray-900  dark:text-white hover:bg-cream dark:hover:bg-cream group">
+                        <a href="/RW/criteriaweights" class=" text-putih flex items-center p-2 text-gray-900  dark:text-white hover:bg-cream dark:hover:bg-cream group">
                             <i class="nav-icon fas fa-cube text-putih transition duration-75 group-hover:text-army"></i>
                             <span class=" text-putih flex-1 ms-3 whitespace-nowrap  group-hover:text-army">Kriteria & Bobot</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class=" text-putih flex items-center p-2 text-gray-900  dark:text-white hover:bg-cream dark:hover:bg-cream group">
+                        <a href="/RW/criteriaratings" class=" text-putih flex items-center p-2 text-gray-900  dark:text-white hover:bg-cream dark:hover:bg-cream group">
                             <i class="nav-icon fas fa-cubes text-putih transition duration-75 group-hover:text-army"></i>
-                            <span class=" text-putih flex-1 ms-3 whitespace-nowrap  group-hover:text-army">Peringkat Kriteria</span>
+                            <span class=" text-putih flex-1 ms-3 whitespace-nowrap  group-hover:text-army">Rating Kriteria</span>
                         </a>
                     </li>
                     <li>
