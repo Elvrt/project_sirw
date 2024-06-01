@@ -36,7 +36,7 @@
         <table class="table-auto text-center w-full">
             <thead>
                 <tr>
-                    <th scope="col" class="px-4 py-3">NIK</th>
+                    <!-- <th scope="col" class="px-4 py-3">NIK</th> -->
                     <th scope="col" class="px-4 py-3">Nama Pelapor</th>
                     <th scope="col" class="px-4 py-3">Judul Pengaduan</th>
                     <th scope="col" class="px-4 py-3">Deskripsi</th>
@@ -48,7 +48,7 @@
             <tbody>
                 @forelse ($pengaduan as $data)
                     <tr>
-                        <td scope="col" class="px-4 py-3 text-justify">{{ $data->warga->nik }}</td>
+                        <!-- <td scope="col" class="px-4 py-3 text-justify">{{ $data->warga->nik }}</td> -->
                         <td scope="col" class="px-4 py-3 text-justify">{{ $data->warga->nama_warga }}</td>
                         <td scope="col" class="px-4 py-3 text-justify">{{ $data->judul_pengaduan }}</td>
                         <td scope="col" class="px-4 py-3 text-justify">{{ $data->deskripsi_pengaduan }}</td>
