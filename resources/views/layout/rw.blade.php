@@ -93,14 +93,20 @@
                             <i class="nav-icon fas fa-database text-putih transition duration-75 group-hover:text-army"></i>
                             <span class=" text-putih flex-1 ms-3 whitespace-nowrap  group-hover:text-army">Alternatif dan Skor</span>
                         </a>
+                    </li>
+                    <li>
                         <a href="#" class=" text-putih flex items-center p-2 text-gray-900  dark:text-white hover:bg-cream dark:hover:bg-cream group">
                             <i class="nav-icon fas fa-table text-putih transition duration-75 group-hover:text-army"></i>
                             <span class=" text-putih flex-1 ms-3 whitespace-nowrap  group-hover:text-army">Matriks Keputusan</span>
                         </a>
+                    </li>
+                    <li>
                         <a href="#" class=" text-putih flex items-center p-2 text-gray-900  dark:text-white hover:bg-cream dark:hover:bg-cream group">
                             <i class="nav-icon far fa-chart-bar text-putih transition duration-75 group-hover:text-army"></i>
                             <span class=" text-putih flex-1 ms-3 whitespace-nowrap  group-hover:text-army">Normalisasi</span>
                         </a>
+                    </li>
+                    <li>
                         <a href="#" class=" text-putih flex items-center p-2 text-gray-900  dark:text-white hover:bg-cream dark:hover:bg-cream group">
                             <i class="nav-icon fas fa-chart-line text-putih transition duration-75 group-hover:text-army"></i>
                             <span class=" text-putih flex-1 ms-3 whitespace-nowrap  group-hover:text-army">Peringkat</span>
