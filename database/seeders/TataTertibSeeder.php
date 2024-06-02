@@ -22,7 +22,7 @@ class TataTertibSeeder extends Seeder
             'Setiap warga (KK/Rumah) wajib membayar iuran bulanan',
             'Warga wajib mematuhi hasil rapat pengurus RT, pengurus RW dan Peraturan Tata Tertib di lingkungan RW 005.',
             'Setiap warga wajib berpartisipasi aktif dalam hal menciptakan dan menjaga keamanan, ketertiban, ketentraman, kenyamanan, kerukunan bersama, kepedulian sosial dan kebersihan lingkungan.',
-            'Setiap warga berkewajiban untuk berperan aktif di lingkungan RW011 dan RT dalam masalah sosial kemasyarakatan, saling tolong menolong sesama warga di saat ada yang tertimpa musibah dan saat mendapatkan ancaman keamanan.',
+            'Setiap warga berkewajiban untuk berperan aktif di lingkungan RW 005 dan RT dalam masalah sosial kemasyarakatan, saling tolong menolong sesama warga di saat ada yang tertimpa musibah dan saat mendapatkan ancaman keamanan.',
             'Bagi warga yang tidak menjalankan kewajibannya dengan baik, maka pengurus RT/RW dapat untuk tidak melayani hak-hak warga tersebut sampai semua kewajibannya diselesaikan.'
         );
         $i = 1;
