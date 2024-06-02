@@ -58,7 +58,10 @@
                     </li>
                 </ul>
             </div>
-            <div class="items-center hidden gap-x-2 lg:flex">
+            <div class="items-center hidden gap-x-2 lg:flex border border-solid border-army-gelap rounded-lg p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-army-gelap">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
                 <div id="current-time" class="text-lg font-bold text-army-gelap"></div>
             </div>
             <button class="relative ml-auto h-6 max-h-[40px] w-6 max-w-[40px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-inherit transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:hidden" type="button">
