@@ -106,7 +106,7 @@
                                         <td class="px-4 py-2">{{$data->warga->nama_warga}}</td>
                                         <td class="px-4 py-2">{{$data->judul_pengaduan}}</td>
                                         <td class="px-4 py-2">{{$data->deskripsi_pengaduan}}</td>
-                                        <td class="px-4 py-2">{{$data->tanggal_pengaduan}}</td>
+                                        <td class="px-4 py-2">{{\Carbon\Carbon::parse($data->tanggal_pengaduan)->format('d M Y H:i')}} WIB</td>
                                         <td class="px-4 py-2">
                                             @php
                                                 $statusClass = '';

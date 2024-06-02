@@ -68,7 +68,7 @@
                             @endphp
                         </td>
                         <td scope="col" class="px-4 py-3 text-justify">{{ $data->nominal }}</td>
-                        <td scope="col" class="px-4 py-3 text-justify">{{ \Carbon\Carbon::parse($data->tanggal_iuran)->format('d M y H:i') }} WIB</td>
+                        <td scope="col" class="px-4 py-3 text-justify">{{ \Carbon\Carbon::parse($data->tanggal_iuran)->format('d M Y H:i') }} WIB</td>
                         <td scope="col" class="px-4 py-3">
                             @php
                                 $statusClass = '';

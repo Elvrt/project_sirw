@@ -17,7 +17,7 @@
       <div class="bg-putih drop-shadow-md mx-2 px-10 p-4">
         <section class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
           <div class="flex items-center p-8 bg-white shadow rounded-lg">
-            <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-purple-600 bg-purple-100 rounded-full mr-6">
+            <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-blue-600 bg-blue-100 rounded-full mr-6">
               <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
@@ -82,7 +82,7 @@
                       label: "Data Warga",
                       data: [{{ $lakiCount }}, {{ $perempuanCount }}],
                       backgroundColor: [
-                        "rgb(133, 105, 241)",
+                        "rgb(0, 128, 255)",
                         "rgb(164, 101, 241)",
                       ],
                       hoverOffset: 4,
@@ -106,17 +106,9 @@
                   <div class="flex justify-between border-gray-200 border-b dark:border-gray-700 pb-3">
                     <dl>
                       <dt class="text-base font-normal text-gray-500 dark:text-gray-400 pb-1">Jumlah</dt>
-                      <dd class="leading-none text-3xl font-bold text-gray-900 dark:text-white">Rp 20.000.000</dd>
+                      <dd class="leading-none text-3xl font-bold text-gray-900 dark:text-white">Rp{{ $sumIuran }}</dd>
                     </dl>
                   </div>
-
-                  <div class="grid grid-cols-2 py-3">
-                    <dl>
-                      <dt class="text-base font-normal text-gray-500 dark:text-gray-400 pb-1">Bulan November</dt>
-                      <dd class="leading-none text-xl font-bold text-green-500 dark:text-green-400">Rp 350.000</dd>
-                    </dl>
-                  </div>
-
                   <div id="bar-chart"></div>
                   <div class="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
                     <div class="flex justify-between items-center pt-5">
@@ -129,7 +121,7 @@
                     series: [{
                         name: "Income",
                         color: "#31C48D",
-                        data: ["50000", "150000", "250000", "350000", "450000", "550000", "650000"],
+                        data: ["{{ $sumIuranJan }}", "{{ $sumIuranFeb }}", "{{ $sumIuranMar }}", "{{ $sumIuranApr }}", "{{ $sumIuranMay }}", "{{ $sumIuranJun }}", "{{ $sumIuranJul }}", "{{ $sumIuranAug }}", "{{ $sumIuranSep }}", "{{ $sumIuranOct }}", "{{ $sumIuranNov }}", "{{ $sumIuranDec }}"],
                       },
                       // {
                       //   name: "Expense",

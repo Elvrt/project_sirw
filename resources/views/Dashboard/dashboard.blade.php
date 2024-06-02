@@ -15,7 +15,7 @@
                     <div
                          class="flex relative flex-col grow px-2 mt-6 text-xl text-white max-md:mt-5 max-md:max-w-full">
                         <p class="max-md:max-w-full text-normal text-army-gelap ">
-                            Selamat datang di portal <span class="font-bold">Sistem Informasi Rukun Warga 05 Tasikmadu, Kota Malang, Jawa Timur</span>. Tempat di mana informasi terkini dan layanan tersedia untuk memenuhi kebutuhan Anda. Temukan berita terbaru, agenda kegiatan, fasilitas umum, serta layanan penting lainnya untuk mendukung kenyamanan dan keamanan lingkungan tempat tinggal Anda. Mari jelajahi dan manfaatkan layanan-layanan yang kami sediakan untuk kesejahteraan bersama.
+                            Selamat datang di portal <span class="font-bold">Sistem Informasi Rukun Warga 005  Tasikmadu, Kec. Lowokwaru, Kota Malang, Jawa Timur</span>. Tempat di mana informasi terkini dan layanan tersedia untuk memenuhi kebutuhan Anda. Temukan berita terbaru, agenda kegiatan, fasilitas umum, serta layanan penting lainnya untuk mendukung kenyamanan dan keamanan lingkungan tempat tinggal Anda. Mari jelajahi dan manfaatkan layanan-layanan yang kami sediakan untuk kesejahteraan bersama.
                         </p>
                     </div>
                 </div>
@@ -93,7 +93,7 @@
                 </a>
             </div>
             <div class="flex flex-col justify-center items-center">
-                <a href="#" class="block cursor-pointer antialiased ">
+                <a href="statusiuran" class="block cursor-pointer antialiased ">
                     <img src="{{url('assets/img/catataniuranlogo.png')}}"
                         width="150"style="margin:auto">
                     <p class="text-center font-bold text-army-gelap">CATATAN IURAN</p>

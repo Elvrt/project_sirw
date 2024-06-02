@@ -70,7 +70,7 @@
                         <td scope="col" class="px-4 py-3 text-justify">{{ $data->warga->nama_warga }}</td>
                         <td scope="col" class="px-4 py-3 text-left">{{ $data->jenis_persuratan }}</td>
                         <td scope="col" class="px-4 py-3 text-justify">{{ $data->keterangan_persuratan }}</td>
-                        <td scope="col" class="px-4 py-3 text-justify">{{ \Carbon\Carbon::parse($data->tanggal_persuratan)->format('d M y H:i') }} WIB</td>
+                        <td scope="col" class="px-4 py-3 text-justify">{{ \Carbon\Carbon::parse($data->tanggal_persuratan)->format('d M Y H:i') }} WIB</td>
                         <td scope="col" class="px-4 py-3">
                             @php
                                 $statusClass = '';

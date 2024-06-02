@@ -109,7 +109,7 @@
                                             @endphp
                                         </td>
                                         <td class="px-4 py-2">{{$data->nominal}}</td>
-                                        <td class="px-4 py-2">{{$data->tanggal_iuran}}</td>
+                                        <td class="px-4 py-2">{{\Carbon\Carbon::parse($data->tanggal_iuran)->format('d M Y')}}</td>
                                         <td class="px-4 py-2">
                                             @php
                                                 $statusClass = '';
