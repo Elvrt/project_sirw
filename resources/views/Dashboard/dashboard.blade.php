@@ -13,9 +13,9 @@
                 </figure>
                 <div class="flex flex-col ml-5 w-[44%] max-md:ml-0 max-md:w-full">
                     <div
-                        class="flex relative flex-col grow px-2 mt-14 text-xl text-white max-md:mt-5 max-md:max-w-full">
+                         class="flex relative flex-col grow px-2 mt-6 text-xl text-white max-md:mt-5 max-md:max-w-full">
                         <p class="max-md:max-w-full text-normal text-army-gelap ">
-                            Selamat datang di portal <span class="font-bold">Sistem Informasi Rukun Warga</span>, tempat di mana informasi terkini dan layanan tersedia untuk memenuhi kebutuhan Anda. Temukan berita terbaru, agenda kegiatan, fasilitas umum, serta layanan penting lainnya untuk mendukung kenyamanan dan keamanan lingkungan tempat tinggal Anda. Mari jelajahi dan manfaatkan layanan-layanan yang kami sediakan untuk kesejahteraan bersama.
+                            Selamat datang di portal <span class="font-bold">Sistem Informasi Rukun Warga 05 Tasikmadu, Kota Malang, Jawa Timur</span>. Tempat di mana informasi terkini dan layanan tersedia untuk memenuhi kebutuhan Anda. Temukan berita terbaru, agenda kegiatan, fasilitas umum, serta layanan penting lainnya untuk mendukung kenyamanan dan keamanan lingkungan tempat tinggal Anda. Mari jelajahi dan manfaatkan layanan-layanan yang kami sediakan untuk kesejahteraan bersama.
                         </p>
                     </div>
                 </div>

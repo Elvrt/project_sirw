@@ -43,7 +43,7 @@
                 <tr>
                     <th scope="col" class="px-4 py-3">No.</th>
                     <th scope="col" class="px-4 py-3">RT</th>
-                    <th scope="col" class="px-4 py-3">No. KK</th>
+                    <!-- <th scope="col" class="px-4 py-3">No. KK</th> -->
                     <th scope="col" class="px-4 py-3">Kepala Keluarga</th>
                     <th scope="col" class="px-4 py-3">Nominal</th>
                     <th scope="col" class="px-4 py-3">Tanggal</th>
@@ -58,7 +58,7 @@
                     <tr>
                         <td scope="col" class="px-4 py-3 text-justify">{{ $i++ }}</td>
                         <td scope="col" class="px-4 py-3 text-justify">{{ $data->kartuKeluarga->rt->nomor_rt }}</td>
-                        <td scope="col" class="px-4 py-3 text-justify">{{ $data->kartuKeluarga->no_kk }}</td>
+                        <!-- <td scope="col" class="px-4 py-3 text-justify">{{ $data->kartuKeluarga->no_kk }}</td> -->
                         <td scope="col" class="px-4 py-3 text-justify">
                             @php
                                 $kepalaKeluarga = $data->kartuKeluarga->warga->firstWhere('status_hubungan', 'Kepala Keluarga');

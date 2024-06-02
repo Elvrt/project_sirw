@@ -30,6 +30,10 @@ class DatabaseSeeder extends Seeder
             PengaduanSeeder::class,
             PersuratanSeeder::class,
             SktmSeeder::class,
+            AlternativesSeeder::class,
+            CriteriaWeightsSeeder::class,
+            CriteriaRatingsSeeder::class,
+            AlternativesCoresSeeder::class,
         ]);
     }
 }

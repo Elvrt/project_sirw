@@ -4,7 +4,6 @@ use App\Http\Controllers\TataTertibController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\LayananDaruratController;
-use App\Http\Controllers\RtController;
 use App\Http\Controllers\KartuKeluargaController;
 use App\Http\Controllers\IuranController;
 use App\Http\Controllers\FasilitasUmumController;
@@ -12,14 +11,12 @@ use App\Http\Controllers\WargaController;
 use App\Http\Controllers\StrukturRWController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PersuratanController;
-use App\Http\Controllers\SktmController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PersuratanDashboardController;
-use App\Http\Controllers\SktmDashboardController;
 use App\Http\Controllers\IuranDashboardController;
 use App\Http\Controllers\FasumDashboardController;
 use App\Http\Controllers\PengaduanDashboardController;
@@ -27,7 +24,6 @@ use App\Http\Controllers\LayananDaruratDashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthRWController;
 use App\Http\Controllers\AuthRtController;
-use App\Http\Controllers\AuthWargaController;
 use App\Http\Controllers\RedirectController;
 use Illuminate\Console\View\Components\Info;
 use Illuminate\Support\Facades\Auth;
@@ -36,13 +32,15 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\KartuKeluargaRTController;
 use App\Http\Controllers\WargaRTController;
 use App\Http\Controllers\PersuratanRTController;
-use App\Http\Controllers\SktmRTController;
 use App\Http\Controllers\IuranRTController;
 use App\Http\Controllers\BeritaRTController;
 use App\Http\Controllers\AgendaRTController;
 use App\Http\Controllers\BansosController;
 use App\Http\Controllers\BansosDashboardController;
 use App\Http\Controllers\FasilitasUmumRTController;
+use App\Http\Controllers\CriteriaWeightsController;
+use App\Http\Controllers\CriteriaRatingsController;
+use App\Http\Controllers\AlternativesController;
 
 
 /*
@@ -73,6 +71,31 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4,5,6,7,8,9']], function
 // untuk RW
 Route::group(['middleware' => ['auth', 'checkrole:9'], 'prefix' => 'RW'], function() {
     Route::get('/', [AuthRWController::class, 'index']);
+
+    // Bansos
+    Route::resources([
+        '/alternatives' => AlternativesController::class,
+        // '/criteriaratings' => CriteriaRatingsController::class,
+        // '/criteriaweights' => CriteriaWeightsController::class,
+    ]);
+    Route::group(['prefix' => 'criteriaweights'], function (){
+        Route::get('/', [CriteriaWeightsController::class, 'index'])->name('RW.criteriaweights.index');
+        Route::post('/index', [CriteriaWeightsController::class, 'index']);
+        Route::get('/create', [CriteriaWeightsController::class, 'create'])->name('RW.criteriaweights.create');
+        Route::post('/', [CriteriaWeightsController::class, 'store'])->name('RW.criteriaweights.store');
+        Route::get('/{criteriaweight}/edit', [CriteriaWeightsController::class, 'edit'])->name('RW.criteriaweights.edit');
+        Route::put('/{criteriaweight}', [CriteriaWeightsController::class, 'update'])->name('RW.criteriaweights.update');
+        Route::delete('/{criteriaweight}', [CriteriaWeightsController::class, 'destroy'])->name('RW.criteriaweights.destroy');
+    });
+    Route::group(['prefix' => 'criteriaratings'], function (){
+        Route::get('/', [CriteriaRatingsController::class, 'index'])->name('RW.criteriaratings.index');
+        Route::post('/index', [CriteriaRatingsController::class, 'index']);
+        Route::get('/create', [CriteriaRatingsController::class, 'create'])->name('RW.criteriaratings.create');
+        Route::post('/', [CriteriaRatingsController::class, 'store'])->name('RW.criteriaratings.store');
+        Route::get('/{criteriarating}/edit', [CriteriaRatingsController::class, 'edit'])->name('RW.criteriaratings.edit');
+        Route::put('/{criteriarating}', [CriteriaRatingsController::class, 'update'])->name('RW.criteriaratings.update');
+        Route::delete('/{criteriarating}', [CriteriaRatingsController::class, 'destroy'])->name('RW.criteriaratings.destroy');
+    });
 
     // Kartu Keluarga
     Route::group(['prefix' => 'KartuKeluarga'], function (){
@@ -132,18 +155,6 @@ Route::group(['middleware' => ['auth', 'checkrole:9'], 'prefix' => 'RW'], functi
         Route::get('/{id}/edit', [PersuratanController::class, 'edit'])->name('RW.Persuratan.edit'); // Menampilkan halaman form edit user
         Route::put('/{id}', [PersuratanController::class, 'update'])->name('RW.Persuratan.update'); // Menampilkan perubahan data user
         Route::delete('/{id}', [PersuratanController::class, 'destroy'])->name('RW.Persuratan.destroy'); // Menghapus data user
-    });
-
-    // Sktm
-    Route::group(['prefix' => 'Sktm'], function (){
-        Route::get('/', [SktmController::class, 'index']); // Halaman awal user
-        Route::post('/index', [SktmController::class, 'index']); // Halaman data user dalam bentuk json
-        Route::get('/create', [SktmController::class, 'create']); // Halaman form tambah user
-        Route::post('/', [SktmController::class, 'store'])->name('RW.Sktm.store'); // Menyimpan data user baru
-        Route::get('/{id}/show', [SktmController::class, 'show'])->name('RW.Sktm.show'); // Menampilkan detail user
-        Route::get('/{id}/edit', [SktmController::class, 'edit'])->name('RW.Sktm.edit'); // Menampilkan halaman form edit user
-        Route::put('/{id}', [SktmController::class, 'update'])->name('RW.Sktm.update'); // Menampilkan perubahan data user
-        Route::delete('/{id}', [SktmController::class, 'destroy'])->name('RW.Sktm.destroy'); // Menghapus data user
     });
 
     // Pengaduan
@@ -283,18 +294,6 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4,5,6,7,8'], 'prefix' =>
         Route::delete('/{id}', [PersuratanRTController::class, 'destroy'])->name('RT.Persuratan.destroy'); // Menghapus data user
     });
 
-    // Sktm
-    Route::group(['prefix' => 'Sktm'], function (){
-        Route::get('/', [SktmRTController::class, 'index']); // Halaman awal user
-        Route::post('/index', [SktmRTController::class, 'index']); // Halaman data user dalam bentuk json
-        Route::get('/create', [SktmRTController::class, 'create']); // Halaman form tambah user
-        Route::post('/', [SktmRTController::class, 'store'])->name('RT.Sktm.store'); // Menyimpan data user baru
-        Route::get('/{id}/show', [SktmRTController::class, 'show'])->name('RT.Sktm.show'); // Menampilkan detail user
-        Route::get('/{id}/edit', [SktmRTController::class, 'edit'])->name('RT.Sktm.edit'); // Menampilkan halaman form edit user
-        Route::put('/{id}', [SktmRTController::class, 'update'])->name('RT.Sktm.update'); // Menampilkan perubahan data user
-        Route::delete('/{id}', [SktmRTController::class, 'destroy'])->name('RT.Sktm.destroy'); // Menghapus data user
-    });
-
     // Agenda
     Route::group(['prefix' => 'Agenda'], function (){
         Route::get('/', [AgendaRTController::class, 'index']); // Halaman awal user
@@ -353,13 +352,8 @@ Route::group(['prefix' => ''], function (){
     Route::get('/statusiuran', [IuranDashboardController::class, 'indexStatus']);
     // persuratan
     Route::get('/pengajuansurat', [PersuratanDashboardController::class, 'index']);
-    Route::get('/pilihrequestsurat', [PersuratanDashboardController::class, 'indexPilihRequest']);
-    Route::get('/requestsktm', [SktmDashboardController::class, 'create']);
-    Route::post('/requestsktm', [SktmDashboardController::class, 'store']);
     Route::get('/requestsurat', [PersuratanDashboardController::class, 'create']);
     Route::post('/requestsurat', [PersuratanDashboardController::class, 'store']);
-    Route::get('/pilihstatussurat', [PersuratanDashboardController::class, 'indexPilihStatus']);
-    Route::get('/statussktm', [SktmDashboardController::class, 'index']);
     Route::get('/statussurat', [PersuratanDashboardController::class, 'indexStatus']);
     // pengaduan
     Route::get('/pengaduan', [PengaduanDashboardController::class, 'index']);

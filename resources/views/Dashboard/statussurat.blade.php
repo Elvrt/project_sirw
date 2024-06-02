@@ -3,7 +3,7 @@
 @section('content')
 <!-- CONTENT -->
 <p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-5">STATUS SURAT</p>
-<a href="/pilihstatussurat" class="bg-army-muda text-putih py-2 px-4 ml-20 mt-44 rounded-lg absolute top-0 left-0  flex items-center hover:bg-army-kuning">
+<a href="/pengajuansurat" class="bg-army-muda text-putih py-2 px-4 ml-20 mt-44 rounded-lg absolute top-0 left-0  flex items-center hover:bg-army-kuning">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
         <path fill-rule="evenodd" d="M7.28 7.72a.75.75 0 0 1 0 1.06l-2.47 2.47H21a.75.75 0 0 1 0 1.5H4.81l2.47 2.47a.75.75 0 1 1-1.06 1.06l-3.75-3.75a.75.75 0 0 1 0-1.06l3.75-3.75a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
     </svg>
@@ -49,7 +49,7 @@
                 <tr>
                     <th scope="col" class="px-4 py-3">No.</th>
                     <th scope="col" class="px-4 py-3">RT</th>
-                    <th scope="col" class="px-4 py-3">NIK</th>
+                    <!-- <th scope="col" class="px-4 py-3">NIK</th> -->
                     <th scope="col" class="px-4 py-3">Nama Pengaju</th>
                     <th scope="col" class="px-4 py-3">Jenis Surat</th>
                     <th scope="col" class="px-4 py-3">Keterangan</th>
@@ -66,9 +66,9 @@
                     <tr>
                         <td scope="col" class="px-4 py-3 text-justify">{{ $i++ }}</td>
                         <td scope="col" class="px-4 py-3 text-justify">{{ $data->warga->kartuKeluarga->rt->nomor_rt }}</td>
-                        <td scope="col" class="px-4 py-3 text-justify">{{ $data->warga->nik }}</td>
+                        <!-- <td scope="col" class="px-4 py-3 text-justify">{{ $data->warga->nik }}</td> -->
                         <td scope="col" class="px-4 py-3 text-justify">{{ $data->warga->nama_warga }}</td>
-                        <td scope="col" class="px-4 py-3 text-justify">{{ $data->jenis_persuratan }}</td>
+                        <td scope="col" class="px-4 py-3 text-left">{{ $data->jenis_persuratan }}</td>
                         <td scope="col" class="px-4 py-3 text-justify">{{ $data->keterangan_persuratan }}</td>
                         <td scope="col" class="px-4 py-3 text-justify">{{ \Carbon\Carbon::parse($data->tanggal_persuratan)->format('d M y H:i') }} WIB</td>
                         <td scope="col" class="px-4 py-3">
