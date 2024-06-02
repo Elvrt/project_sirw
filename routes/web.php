@@ -35,13 +35,13 @@ use App\Http\Controllers\PersuratanRTController;
 use App\Http\Controllers\IuranRTController;
 use App\Http\Controllers\BeritaRTController;
 use App\Http\Controllers\AgendaRTController;
-use App\Http\Controllers\BansosController;
-use App\Http\Controllers\BansosDashboardController;
 use App\Http\Controllers\FasilitasUmumRTController;
 use App\Http\Controllers\CriteriaWeightsController;
 use App\Http\Controllers\CriteriaRatingsController;
 use App\Http\Controllers\AlternativesController;
-
+use App\Http\Controllers\DecisionController;
+use App\Http\Controllers\NormalizationController;
+use App\Http\Controllers\RankController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,11 +73,6 @@ Route::group(['middleware' => ['auth', 'checkrole:9'], 'prefix' => 'RW'], functi
     Route::get('/', [AuthRWController::class, 'index']);
 
     // Bansos
-    Route::resources([
-        '/alternatives' => AlternativesController::class,
-        // '/criteriaratings' => CriteriaRatingsController::class,
-        // '/criteriaweights' => CriteriaWeightsController::class,
-    ]);
     Route::group(['prefix' => 'criteriaweights'], function (){
         Route::get('/', [CriteriaWeightsController::class, 'index'])->name('RW.criteriaweights.index');
         Route::post('/index', [CriteriaWeightsController::class, 'index']);
@@ -96,6 +91,18 @@ Route::group(['middleware' => ['auth', 'checkrole:9'], 'prefix' => 'RW'], functi
         Route::put('/{criteriarating}', [CriteriaRatingsController::class, 'update'])->name('RW.criteriaratings.update');
         Route::delete('/{criteriarating}', [CriteriaRatingsController::class, 'destroy'])->name('RW.criteriaratings.destroy');
     });
+    Route::group(['prefix' => 'alternatives'], function (){
+        Route::get('/', [AlternativesController::class, 'index'])->name('RW.alternatives.index');
+        Route::post('/index', [AlternativesController::class, 'index']);
+        Route::get('/create', [AlternativesController::class, 'create'])->name('RW.alternatives.create');
+        Route::post('/', [AlternativesController::class, 'store'])->name('RW.alternatives.store');
+        Route::get('/{alternative}/edit', [AlternativesController::class, 'edit'])->name('RW.alternatives.edit');
+        Route::put('/{alternative}', [AlternativesController::class, 'update'])->name('RW.alternatives.update');
+        Route::delete('/{alternative}', [AlternativesController::class, 'destroy'])->name('RW.alternatives.destroy');
+    });
+    Route::get('/decision', [DecisionController::class, 'index'])->name('RW.decision.index');
+    Route::get('/normalization', [NormalizationController::class, 'index'])->name('RW.normalization.index');
+    Route::get('/rank', [RankController::class, 'index'])->name('RW.rank.index');
 
     // Kartu Keluarga
     Route::group(['prefix' => 'KartuKeluarga'], function (){
@@ -341,8 +348,6 @@ Route::group(['prefix' => ''], function (){
     Route::get('/profil', [ProfilController::class, 'index']);
     Route::get('/info', [InfoController::class, 'index']);
     Route::get('/layanan', [LayananController::class, 'index']);
-    Route::get('/requestbansos', [BansosController::class, 'index']);
-
     Route::get('/agenda/{id}', [InfoController::class, 'showAgenda']);
     Route::get('/berita/{id}', [InfoController::class, 'showBerita']);
     // fasilitas umum
@@ -362,6 +367,4 @@ Route::group(['prefix' => ''], function (){
     Route::get('/statuspengaduan', [PengaduanDashboardController::class, 'indexStatus']);
     // layanan darurat
     Route::get('/layanandarurat', [LayananDaruratDashboardController::class, 'index']);
-    // Bansos
-    Route::get('/pengajuanbansos', [BansosDashboardController::class, 'index']);
 });

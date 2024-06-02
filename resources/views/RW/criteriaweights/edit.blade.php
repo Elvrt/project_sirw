@@ -17,7 +17,7 @@
             @method('PUT')
             <div class="mb-4">
                 <label for="name" class="block text-sm font-bold mb-2">Nama Kriteria</label>
-                <input type="text" name="name" id="name" value="{{old('name', $criteriaweight->name)}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="text" name="name" id="name" value="{{old('name', $criteriaweight->name)}}" placeholder="Masukkan nama kriteria" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 @error('name')
                     <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                 @enderror
@@ -35,14 +35,14 @@
             </div>
             <div class="mb-4">
                 <label for="weight" class="block text-sm font-bold mb-2">Bobot</label>
-                <input type="text" name="weight" id="weight" value="{{old('weight', $criteriaweight->weight)}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="text" name="weight" id="weight" value="{{old('weight', $criteriaweight->weight)}}" placeholder="0.00" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 @error('weight')
                     <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-4">
                 <label for="description" class="block text-sm font-bold mb-2">Deskripsi</label>
-                <input type="text" name="description" id="description" value="{{old('description', $criteriaweight->description)}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="text" name="description" id="description" value="{{old('description', $criteriaweight->description)}}" placeholder="Masukkan deskripsi" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 @error('description')
                     <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                 @enderror
