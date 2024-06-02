@@ -39,9 +39,13 @@ use App\Http\Controllers\FasilitasUmumRTController;
 use App\Http\Controllers\CriteriaWeightsController;
 use App\Http\Controllers\CriteriaRatingsController;
 use App\Http\Controllers\AlternativesController;
+<<<<<<< Updated upstream
 use App\Http\Controllers\DecisionController;
 use App\Http\Controllers\NormalizationController;
 use App\Http\Controllers\RankController;
+=======
+use App\Http\Controllers\BansosRTController;
+>>>>>>> Stashed changes
 
 /*
 |--------------------------------------------------------------------------
@@ -367,4 +371,14 @@ Route::group(['prefix' => ''], function (){
     Route::get('/statuspengaduan', [PengaduanDashboardController::class, 'indexStatus']);
     // layanan darurat
     Route::get('/layanandarurat', [LayananDaruratDashboardController::class, 'index']);
+<<<<<<< Updated upstream
+=======
+    // Bansos
+    Route::get('/pengajuanbansos', [BansosDashboardController::class, 'index']);
+    Route::get('/pengajuanbansos/create', [BansosController::class, 'create']);
+    Route::post('/pengajuanbansoss', [BansosController::class, 'store'])->name('bansos.store');
+    Route::get('/statusbansos', [BansosController::class, 'status']);
+    Route::get('/RT/Bansos', [BansosRTController::class, 'index']);
+>>>>>>> Stashed changes
 });
+ 
