@@ -90,7 +90,7 @@
                                         </td>
                                         <td class=" px-4 py-2">{{$data->judul_berita}}</td>
                                         <td class=" px-4 py-2">{{$data->deskripsi_berita}}</td>
-                                        <td class=" px-4 py-2">{{$data->tanggal_berita}}</td>
+                                        <td class=" px-4 py-2">{{\Carbon\Carbon::parse($data->tanggal_berita)->format('d M Y H:i')}} WIB</td>
                                         <td class=" px-4 py-2">
                                             <div class="flex gap-3">
                                                 <a href="/RT/Berita/{{ $data->id_berita }}/edit" class="bg-kuning hover:bg-kuning-gelap text-putih font-medium py-2 px-4 rounded-lg">

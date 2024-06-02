@@ -17,14 +17,14 @@
             @method('PUT')
             <div class="mb-4">
                 <label for="kode_struktur" class="block text-sm font-bold mb-2">Kode</label>
-                <input type="text" name="kode_struktur" id="kode_struktur" value="{{old('kode_struktur', $data->kode_struktur)}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="text" name="kode_struktur" id="kode_struktur" value="{{old('kode_struktur', $data->kode_struktur)}}" readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 @error('kode_struktur')
                     <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                 @enderror
             </div>
             <div class="mb-4">
                 <label for="nama_struktur" class="block text-sm font-bold mb-2">Nama Struktur</label>
-                <input type="text" name="nama_struktur" id="nama_struktur" value="{{old('nama_struktur', $data->nama_struktur)}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="text" name="nama_struktur" id="nama_struktur" value="{{old('nama_struktur', $data->nama_struktur)}}" readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 @error('nama_struktur')
                     <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                 @enderror
