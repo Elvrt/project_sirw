@@ -113,6 +113,13 @@
                     <p class="text-center font-bold text-army-gelap">LAYANAN DARURAT</p>
                 </a>
             </div>
+            <div class="flex flex-col justify-center items-center">
+                <a href="DanaBansos" class="block cursor-pointer antialiased ">
+                    <img src="{{url('assets/img/DANABANSOS.jpeg')}}"
+                        width="150"style="margin:auto">
+                    <p class="text-center font-bold text-army-gelap">BANSOS</p>
+                </a>
+            </div>
         </div>
     </div>
 </div>
