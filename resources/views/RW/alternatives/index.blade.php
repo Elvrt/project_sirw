@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewpoAgenda" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Rating Kriteria</title>
+    <title>Alternatif dan Skor</title>
     @vite('resources/css/table.css')
 </head>
 <body>
     <div class="justify-center flex sm:block">
     <div class="p-4 sm:ml-64">
-        <p class="text-army-gelap font-bold text-header drop-shadow-md container mb-10 mt-10 ml-4">Rating Kriteria</p>
+        <p class="text-army-gelap font-bold text-header drop-shadow-md container mb-10 mt-10 ml-4">Alternatif dan Skor</p>
         <div class="bg-putih drop-shadow-md mx-2 px-10 p-4">
-            <a href="{{route('RW.criteriaratings.create')}}">
+            <a href="{{route('RW.alternatives.create')}}">
                 <button class="bg-hijau hover:bg-hijau-gelap text-putih font-bold py-2 px-4 rounded-lg float-right">
-                    + Tambah Rating Kriteria
+                    + Tambah Alternatif
                 </button>
             </a>
             <p class="text-sub ml-4">Metode Simple Additive Weighting (SAW)</p>
@@ -44,13 +44,15 @@
                     <div class="flex justify-center">
                         <div class="overflow-x-auto">
                     <div class="table-responsive">
-                        <table id="table_criteriaratings" class="table-auto">
+                        <table id="table_alternatives" class="table-auto">
                             <thead>
                                 <tr>
                                     <th class="px-4 py-2">No.</th>
-                                    <th class="px-4 py-2">Nama Kriteria</th>
-                                    <th class="px-4 py-2">Rating</th>
-                                    <th class="px-4 py-2">Deskripsi</th>
+                                    <th class="px-4 py-2">No. KK</th>
+                                    <th class="px-4 py-2">Kepala Keluarga</th>
+                                    @foreach ($criteriaweights as $c)
+                                        <th class="px-4 py-2">{{$c->name}}</th>
+                                    @endforeach
                                     <th class="px-4 py-2">Action</th>
                                 </tr>
                             </thead>
@@ -58,21 +60,26 @@
                                 @php
                                     $i = $startNumber;
                                 @endphp
-                                @forelse ($criteriaratings as $c)
+                                @forelse ($alternatives as $a)
                                     <tr>
                                         <td class="px-4 py-2">{{$i++}}</td>
-                                        <td class="px-4 py-2">{{$c->name}}</td>
-                                        <td class="px-4 py-2">{{$c->rating}}</td>
-                                        <td class="px-4 py-2">{{$c->description}}</td>
+                                        <td class="px-4 py-2">{{$a->no_kk}}</td>
+                                        <td class="px-4 py-2">{{$a->kepala_keluarga}}</td>
+                                        @php
+                                            $scr = $scores->where('ida', $a->id)->all();
+                                        @endphp
+                                        @foreach ($scr as $s)
+                                            <td class="px-4 py-2">{{$s->description}}</td>
+                                        @endforeach
                                         <td class="px-4 py-2">
                                             <div class="flex gap-3">
-                                                <a href="{{ route('RW.criteriaratings.edit',$c->id) }}" class="bg-kuning hover:bg-kuning-gelap text-putih font-medium py-2 px-4 rounded-lg">
+                                                <a href="{{ route('RW.alternatives.edit',$a->id) }}" class="bg-kuning hover:bg-kuning-gelap text-putih font-medium py-2 px-4 rounded-lg">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                                                         <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32l8.4-8.4Z" />
                                                         <path d="M5.25 5.25a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3V13.5a.75.75 0 0 0-1.5 0v5.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V8.25a1.5 1.5 0 0 1 1.5-1.5h5.25a.75.75 0 0 0 0-1.5H5.25Z" />
                                                     </svg>
                                                 </a>
-                                                <form action="{{ route('RW.criteriaratings.destroy',$c->id) }}" method="POST">
+                                                <form action="{{ route('RW.alternatives.destroy',$a->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="bg-merah hover:bg-merah-gelap text-putih font-medium py-2 px-4 rounded-lg" onclick="return confirm('Apakah anda ingin menghapus data ini ?')">
@@ -86,14 +93,14 @@
                                     </tr>
                                     @empty
                                     <tr>
-                                        <td colspan="5" class="text-center px-4 py-2">No data found</td>
+                                        <td colspan="9" class="text-center px-4 py-2">No data found</td>
                                     </tr>
                                 @endforelse
                             </tbody>
                         </table>
                     </div>
                         <div class="mt-5  ">
-                            {{ $criteriaratings->appends(request()->query())->links() }}
+                            {{ $alternatives->appends(request()->query())->links() }}
                         </div>
                     </div>
                 </div>

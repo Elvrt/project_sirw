@@ -35,7 +35,7 @@ class CriteriaWeightsController extends Controller
         $request->validate([
             'name' => 'required|max:100',
             'type' => 'required',
-            'weight' => 'required',
+            'weight' => 'required|numeric',
             'description' => 'required|max:200',
         ]);
 
@@ -61,7 +61,7 @@ class CriteriaWeightsController extends Controller
         $request->validate([
             'name' => 'required|max:100',
             'type' => 'required',
-            'weight' => 'required',
+            'weight' => 'required|numeric',
             'description' => 'required|max:200',
         ]);
 

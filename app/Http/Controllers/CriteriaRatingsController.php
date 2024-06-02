@@ -16,7 +16,6 @@ class CriteriaRatingsController extends Controller
         $perPage = 10;
         $currentPage = $request->query('page', 1);
         $startNumber = ($currentPage - 1) * $perPage + 1;
-        $criteriaweights = CriteriaWeightsModel::paginate($perPage);
         $criteriaratings = CriteriaRatingsModel::leftJoin('criteriaweights', 'criteriaratings.criteria_id', '=', 'criteriaweights.id')
         ->select(
             'criteriaratings.id as id',
@@ -44,14 +43,14 @@ class CriteriaRatingsController extends Controller
     {
         $request->validate([
             'criteria_id' => 'required',
-            'rating' => 'required',
-            'description' => 'required',
+            'rating' => 'required|numeric',
+            'description' => 'required|max:200',
         ]);
 
         CriteriaRatingsModel::create($request->all());
 
         return redirect()->route('RW.criteriaratings.index')
-                        ->with('success','Criteria created successfully.');
+                        ->with('success','Data berhasil ditambah');
     }
 
     /**
@@ -68,14 +67,14 @@ class CriteriaRatingsController extends Controller
     public function update(Request $request, CriteriaRatingsModel $criteriarating)
     {
         $request->validate([
-            'rating' => 'required',
-            'description' => 'required',
+            'rating' => 'required|numeric',
+            'description' => 'required|max:200',
         ]);
 
         $criteriarating->update($request->all());
 
         return redirect()->route('RW.criteriaratings.index')
-                        ->with('success','Criteria updated successfully');
+                        ->with('success','Data berhasil diupdate');
     }
 
     /**

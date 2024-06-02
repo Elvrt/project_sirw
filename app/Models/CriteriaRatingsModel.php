@@ -18,4 +18,9 @@ class CriteriaRatingsModel extends Model
         'rating',
         'description',
     ];
+
+    public function criteriaWeights()
+    {
+        return $this->belongsTo(CriteriaWeightsModel::class, 'criteria_id');
+    }
 }
