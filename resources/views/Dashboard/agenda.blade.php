@@ -10,7 +10,7 @@
                     </svg>
                 </a>
                 <p class="text-center font-bold text-sub my-5">{{ $data->judul_agenda }}</p>
-                <img src="{{ url('assets/img/agenda/' . $data->gambar_agenda) }}" alt="agenda" class="rounded-lg" width="500">
+                <img src="{{$data->gambar_agenda}}" alt="agenda" class="rounded-lg" width="500">
                 <table class="min-w-full mt-10 text-justify">
                     <tbody>
                         <tr>
