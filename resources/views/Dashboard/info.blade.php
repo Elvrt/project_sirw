@@ -20,7 +20,7 @@
             <div class="item-center ml-10 mr-10 pt-10 pb-10">
                 <a href="agenda/{{ $data->id_agenda }}" class="mr-4 block cursor-pointer antialiased ">
                 <img src="{{$data->gambar_agenda}}" class="rounded-lg" alt="berita">
-                    <p class="text-army-gelap text-text font-bold">{{ $data->judul_agenda }}</p>
+                    <p class="text-army-gelap text-text font-bold">{{ $data->judul_agenda }} <br> Tanggal dan Waktu : {{ $data->tanggal_agenda }}</p>
                 </a>
             </div>
         @endforeach

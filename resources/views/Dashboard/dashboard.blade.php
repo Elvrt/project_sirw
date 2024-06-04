@@ -49,7 +49,7 @@
                         <div class="block cursor-pointer antialiased ">
                             <img src="{{$data->gambar_agenda}}"
                                 width="600" class="rounded-lg" style="margin:auto">
-                            <p class="text-normal text-army-gelap text-text font-bold">{{ $data->judul_agenda }}</p>
+                            <p class="text-normal text-army-gelap text-text font-bold">{{ $data->judul_agenda }} <br> Tanggal dan Waktu : {{ $data->tanggal_agenda }}</p>
                         </div>
                     </div>
                 @endforeach
