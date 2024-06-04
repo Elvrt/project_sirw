@@ -12,13 +12,13 @@
     <div class="bg-backgroundform md:mx-10 mr-3 md:mr-32 ml-4 md:ml-32 p-5 rounded-lg">
         <p class="font-medium text-sub">Edit Data Fasilitas Umum</p>
 
-        <form action="{{url('/RT/FasilitasUmum/'.$data->id_fasilitas)}}" method="POST" enctype="multipart/form-data">>
+        <form action="{{url('/RT/FasilitasUmum/'.$data->id_fasilitas)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-4">
                 <label for="gambar_fasilitas" class="block text-sm font-bold mb-2">Gambar</label>
                 @if ($data->gambar_fasilitas)
-                    <img src="{{ url('assets/img/fasilitas/' . $data->gambar_fasilitas) }}" class="border rounded mb-2" width="200px" alt="">
+                    <img src="{{$data->gambar_fasilitas}}" class="border rounded mb-2" width="200px" alt="">
                 @else
                     <Span>No Picture</Span>
                 @endif

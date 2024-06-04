@@ -19,7 +19,7 @@ class BeritaRTController extends Controller
         // Retrieve filter and search parameters from the request
         $search = $request->query('search');
 
-        // Query the AgendaModel based on the parameters
+        // Query the BeritaModel based on the parameters
         $beritaQuery = BeritaModel::query();
 
         if ($search) {
@@ -54,11 +54,10 @@ class BeritaRTController extends Controller
             'tanggal_berita' => 'required',
         ]);
 
-        // Handle the image upload
+        // Handle the image upload to Cloudinary
         if ($request->hasFile('gambar_berita')) {
             $image = $request->file('gambar_berita');
-            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/berita'), $imageName);
+            $result = CloudinaryStorage::upload($image->getRealPath(), $image->getClientOriginalName());
         } else {
             return back()->withErrors(['gambar_berita' => 'Failed to upload image.']);
         }
@@ -67,7 +66,7 @@ class BeritaRTController extends Controller
         BeritaModel::create([
             'judul_berita' => $request->judul_berita,
             'deskripsi_berita' => $request->deskripsi_berita,
-            'gambar_berita' => $imageName,
+            'gambar_berita' => $result, // Save the Cloudinary URL
             'tanggal_berita' => $request->tanggal_berita,
         ]);
 
@@ -111,25 +110,24 @@ class BeritaRTController extends Controller
 
         // If a new image is uploaded
         if ($request->hasFile('gambar_berita')) {
-            // Delete the old image if it exists
-            if ($berita->gambar_berita && file_exists(public_path('assets/img/berita/' . $berita->gambar_berita))) {
-                unlink(public_path('assets/img/berita/' . $berita->gambar_berita));
+            // Delete the old image from Cloudinary if it exists
+            if ($berita->gambar_berita) {
+                CloudinaryStorage::delete($berita->gambar_berita);
             }
 
-            // Handle the new image upload
+            // Handle the new image upload to Cloudinary
             $image = $request->file('gambar_berita');
-            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/berita'), $imageName);
+            $result = CloudinaryStorage::upload($image->getRealPath(), $image->getClientOriginalName());
         } else {
-            // If no new image is uploaded, keep the old image name
-            $imageName = $berita->gambar_berita;
+            // If no new image is uploaded, keep the old image URL
+            $result = $berita->gambar_berita;
         }
 
         // Update the record in the database
         $berita->update([
             'judul_berita' => $request->judul_berita,
             'deskripsi_berita' => $request->deskripsi_berita,
-            'gambar_berita' => $imageName,
+            'gambar_berita' => $result,
             'tanggal_berita' => $request->tanggal_berita,
         ]);
 
@@ -146,9 +144,9 @@ class BeritaRTController extends Controller
             return redirect('/RT/Berita')->with('error', 'Data tidak ditemukan');
         }
 
-        // Delete the old image if it exists
-        if ($check->gambar_berita && file_exists(public_path('assets/img/berita/' . $check->gambar_berita))) {
-            unlink(public_path('assets/img/berita/' . $check->gambar_berita));
+        // Delete the old image from Cloudinary if it exists
+        if ($check->gambar_berita) {
+            CloudinaryStorage::delete($check->gambar_berita);
         }
 
         try {

@@ -22,7 +22,7 @@
 
     <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 bg-army" aria-label="Sidebar">
         <div class="flex flex-col items-center justify-center mb-2 mx-auto">
-            <img src="{{url('/assets/img/logoDashboard.png')}}" alt="Logo" class="h-22 w-auto mb-2 ml-10">
+            <img src="{{url('/assets/img/LogoDashboard.png')}}" alt="Logo" class="h-22 w-auto mb-2 ml-10">
         </div>
         <div class="mb-4 border-b border-gray-300 text-putih"></div>
         <div class="text-white text-center font-medium text-putih m-5">Selamat Datang, {{ auth()->user()->role->nama_role }}</div>

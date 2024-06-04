@@ -86,7 +86,7 @@
                                     <tr>
                                         <td class=" px-4 py-2">{{$i++}}</td>
                                         <td class="px-4 py-2">
-                                            <img src="{{ url('assets/img/berita/' . $data->gambar_berita) }}" width="200px" alt="gambar berita" class="border rounded">
+                                            <img src="{{$data->gambar_berita}}" width="200px" alt="gambar berita" class="border rounded">
                                         </td>
                                         <td class=" px-4 py-2">{{$data->judul_berita}}</td>
                                         <td class=" px-4 py-2">{{$data->deskripsi_berita}}</td>

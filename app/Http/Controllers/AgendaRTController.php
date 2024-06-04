@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AgendaModel;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
-
+use App\Http\Controllers\CloudinaryStorage;
 class AgendaRTController extends Controller
 {
     /**
@@ -56,11 +56,10 @@ class AgendaRTController extends Controller
             'tanggal_agenda' => 'required|date',
         ]);
 
-        // Handle the image upload
+        // Handle the image upload to Cloudinary
         if ($request->hasFile('gambar_agenda')) {
             $image = $request->file('gambar_agenda');
-            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/agenda'), $imageName);
+            $result = CloudinaryStorage::upload($image->getRealPath(), $image->getClientOriginalName());
         } else {
             return back()->withErrors(['gambar_agenda' => 'Failed to upload image.']);
         }
@@ -69,7 +68,7 @@ class AgendaRTController extends Controller
         AgendaModel::create([
             'judul_agenda' => $request->judul_agenda,
             'deskripsi_agenda' => $request->deskripsi_agenda,
-            'gambar_agenda' => $imageName,
+            'gambar_agenda' => $result, // Save the Cloudinary URL
             'tanggal_agenda' => $request->tanggal_agenda,
         ]);
 
@@ -113,25 +112,24 @@ class AgendaRTController extends Controller
 
         // If a new image is uploaded
         if ($request->hasFile('gambar_agenda')) {
-            // Delete the old image if it exists
-            if ($agenda->gambar_agenda && file_exists(public_path('assets/img/agenda/' . $agenda->gambar_agenda))) {
-                unlink(public_path('assets/img/agenda/' . $agenda->gambar_agenda));
+            // Delete the old image from Cloudinary if it exists
+            if ($agenda->gambar_agenda) {
+                CloudinaryStorage::delete($agenda->gambar_agenda);
             }
 
-            // Handle the new image upload
+            // Handle the new image upload to Cloudinary
             $image = $request->file('gambar_agenda');
-            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/agenda'), $imageName);
+            $result = CloudinaryStorage::upload($image->getRealPath(), $image->getClientOriginalName());
         } else {
-            // If no new image is uploaded, keep the old image name
-            $imageName = $agenda->gambar_agenda;
+            // If no new image is uploaded, keep the old image URL
+            $result = $agenda->gambar_agenda;
         }
 
         // Update the record in the database
         $agenda->update([
             'judul_agenda' => $request->judul_agenda,
             'deskripsi_agenda' => $request->deskripsi_agenda,
-            'gambar_agenda' => $imageName,
+            'gambar_agenda' => $result,
             'tanggal_agenda' => $request->tanggal_agenda,
         ]);
 
@@ -148,9 +146,9 @@ class AgendaRTController extends Controller
             return redirect('/RT/Agenda')->with('error', 'Data tidak ditemukan');
         }
 
-        // Delete the old image if it exists
-        if ($check->gambar_agenda && file_exists(public_path('assets/img/agenda/' . $check->gambar_agenda))) {
-            unlink(public_path('assets/img/agenda/' . $check->gambar_agenda));
+        // Delete the old image from Cloudinary if it exists
+        if ($check->gambar_agenda) {
+            CloudinaryStorage::delete($check->gambar_agenda);
         }
 
         try {
