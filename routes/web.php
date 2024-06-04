@@ -22,7 +22,7 @@ use App\Http\Controllers\FasumDashboardController;
 use App\Http\Controllers\PengaduanDashboardController;
 use App\Http\Controllers\LayananDaruratDashboardController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\AuthRWController;
+use App\Http\Controllers\AuthRwController;
 use App\Http\Controllers\AuthRtController;
 use App\Http\Controllers\RedirectController;
 use Illuminate\Console\View\Components\Info;
@@ -70,7 +70,7 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4,5,6,7,8,9']], function
 
 // untuk RW
 Route::group(['middleware' => ['auth', 'checkrole:9'], 'prefix' => 'RW'], function() {
-    Route::get('/', [AuthRWController::class, 'index']);
+    Route::get('/', [AuthRwController::class, 'index']);
 
     // Bansos
     Route::group(['prefix' => 'criteriaweights'], function (){
