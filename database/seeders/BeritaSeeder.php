@@ -37,15 +37,15 @@ class BeritaSeeder extends Seeder
             'Pertunjukan wayang kulit di RW 005 menghadirkan kisah klasik yang memukau warga dengan seni pementasan yang kaya akan budaya dan nilai tradisional. Acara ini bertujuan untuk melestarikan warisan budaya, sekaligus mempererat tali silaturahmi antar warga.',
         );
         $images = array(
-            '1715782245_6644c2656a6e0.jpg',
-            '1715782449_6644c33155f93.jpg',
-            '1715782516_6644c3741c0cb.jpg',
-            '1715782580_6644c3b466a3c.jpg',
-            '1715782669_6644c40d43205.jpg',
-            '1715782707_6644c4330302c.jpg',
-            '1716551391_66507edf73c82.jpg',
-            '1716551411_66507ef3ebe3d.jpg',
-            '1716551433_66507f095f784.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1717509816/sirw/2024-06-04_140328_berita1.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1717509836/sirw/2024-06-04_140348_berita2.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1717509878/sirw/2024-06-04_140429_berita3.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1717509898/sirw/2024-06-04_140449_berita4.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1717509914/sirw/2024-06-04_140505_berita5.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1717509931/sirw/2024-06-04_140522_berita6.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1717509948/sirw/2024-06-04_140539_berita7.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1717509969/sirw/2024-06-04_140600_berita8.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1717509987/sirw/2024-06-04_140618_berita9.jpg',
         );
         $dates = array(
             '2024-02-14 18:02:47',

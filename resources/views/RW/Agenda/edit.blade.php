@@ -18,7 +18,7 @@
             <div class="mb-4">
                 <label for="gambar_agenda" class="block text-sm font-bold mb-2">Gambar</label>
                 @if ($data->gambar_agenda)
-                    <img src="{{ url('assets/img/agenda/' . $data->gambar_agenda) }}" class="border rounded mb-2" width="200px" alt="">
+                    <img src="{{$data->gambar_agenda}}" class="border rounded mb-2" width="200px" alt="">
                 @else
                     <Span>No Picture</Span>
                 @endif

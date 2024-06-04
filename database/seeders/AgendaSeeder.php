@@ -38,15 +38,15 @@ class AgendaSeeder extends Seeder
             'Agenda pemotongan hewan kurban adalah kegiatan rutin yang dilaksanakan pada hari raya Idul Adha untuk menyembelih hewan kurban sebagai wujud ketaatan dan kepedulian sosial. Daging kurban kemudian dibagikan kepada masyarakat yang membutuhkan, memperkuat semangat solidaritas dan kebersamaan.',
         );
         $images = array(
-            '1715778009_6644b1d9a501b.jpg',
-            '1715778029_6644b1edc1f29.jpg',
-            '1715778090_6644b22ab69a9.jpg',
-            '1715778105_6644b2394f966.jpg',
-            '1715778173_6644b27d65464.jpg',
-            '1715778235_6644b2bb2ee74.jpg',
-            '1716550054_665079a6b11ea.jpg',
-            '1716550137_665079f94cce9.jpg',
-            '1716550325_66507ab528d85.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1717508956/sirw/2024-06-04_134907_agenda1.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1717508974/sirw/2024-06-04_134925_agenda2.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1717509003/sirw/2024-06-04_134954_agenda3.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1717509023/sirw/2024-06-04_135015_agenda4.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1717509057/sirw/2024-06-04_135048_agenda5.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1717509220/sirw/2024-06-04_135332_agenda6.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1717509236/sirw/2024-06-04_135347_agenda7.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1717509277/sirw/2024-06-04_135429_agenda8.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1717509294/sirw/2024-06-04_135446_agenda9.jpg',
         );
         $dates = array(
             '2024-02-14 07:00:00',

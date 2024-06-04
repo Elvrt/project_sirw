@@ -8,7 +8,7 @@
                 @foreach ($fasilitas as $data)
                     <div class="flex flex-col justify-center items-center relative">
                         <a href="fasilitasumum/{{ $data->id_fasilitas }}" class="mr-4 block cursor-pointer antialiased relative">
-                            <img src="{{ url('assets/img/fasilitas/' . $data->gambar_fasilitas) }}" alt="fasilitas umum" width="400" class="rounded-lg" style="margin:auto">
+                            <img src="{{$data->gambar_fasilitas}}" alt="fasilitas umum" width="400" class="rounded-lg" style="margin:auto">
                             <p class="overlay-text text-abu-putih font-medium text-sub absolute bottom-0 left-0 right-0 bg-gray-900 bg-opacity-75 text-left p-4">{{ $data->nama_fasilitas }}</p>
                         </a>
                     </div>

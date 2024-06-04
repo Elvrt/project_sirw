@@ -32,7 +32,7 @@
                 @foreach ($berita as $data)
                     <div class="flex flex-col justify-center items-center">
                         <div class="mr-3 block cursor-pointer antialiased">
-                            <img src="{{ url('assets/img/berita/' . $data->gambar_berita) }}"
+                            <img src="{{$data->gambar_berita}}"
                                 width="600" class="rounded-lg" style="margin:auto">
                             <p class="text-normal text-army-gelap text-text font-bold">{{ $data->judul_berita }}</p>
                         </div>
@@ -47,7 +47,7 @@
                 @foreach ($agenda as $data)
                     <div class="flex flex-col justify-center items-center">
                         <div class="block cursor-pointer antialiased ">
-                            <img src="{{ url('assets/img/agenda/' . $data->gambar_agenda) }}"
+                            <img src="{{$data->gambar_agenda}}"
                                 width="600" class="rounded-lg" style="margin:auto">
                             <p class="text-normal text-army-gelap text-text font-bold">{{ $data->judul_agenda }}</p>
                         </div>
@@ -68,7 +68,7 @@
                 @foreach ($fasilitas as $data)
                     <div class="flex flex-col justify-center items-center relative">
                         <div class="mr-4 block cursor-pointer antialiased relative">
-                            <img src="{{ url('assets/img/fasilitas/' . $data->gambar_fasilitas) }}" width="400" class="rounded-lg" style="margin:auto">
+                            <img src="{{$data->gambar_fasilitas}}" width="400" class="rounded-lg" style="margin:auto">
                             <p class="overlay-text text-abu-putih font-medium text-sub absolute bottom-0 left-0 right-0 bg-gray-900 bg-opacity-75 text-left p-4">{{ $data->nama_fasilitas }}</p>
                         </div>
                     </div>

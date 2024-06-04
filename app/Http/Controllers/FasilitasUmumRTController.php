@@ -21,7 +21,7 @@ class FasilitasUmumRTController extends Controller
         $idRt = $request->query('id_rt');
         $search = $request->query('search');
 
-        // Query the WargaModel based on the parameters
+        // Query the FasilitasModel based on the parameters
         $fasilitasQuery = FasilitasUmumModel::query();
 
         $idRt = auth()->user()->warga->kartuKeluarga->rt->id_rt;
@@ -67,11 +67,10 @@ class FasilitasUmumRTController extends Controller
             'id_rt' => 'required',
         ]);
 
-        // Handle the image upload
+        // Handle the image upload to Cloudinary
         if ($request->hasFile('gambar_fasilitas')) {
             $image = $request->file('gambar_fasilitas');
-            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/fasilitas'), $imageName);
+            $result = CloudinaryStorage::upload($image->getRealPath(), $image->getClientOriginalName());
         } else {
             return back()->withErrors(['gambar_fasilitas' => 'Failed to upload image.']);
         }
@@ -81,7 +80,7 @@ class FasilitasUmumRTController extends Controller
             'nama_fasilitas' => $request->nama_fasilitas,
             'keterangan_fasilitas' => $request->keterangan_fasilitas,
             'alamat_fasilitas' => $request->alamat_fasilitas,
-            'gambar_fasilitas' => $imageName,
+            'gambar_fasilitas' => $result, // Save the Cloudinary URL
             'id_rt' => $request->id_rt,
         ]);
 
@@ -127,25 +126,24 @@ class FasilitasUmumRTController extends Controller
 
         // If a new image is uploaded
         if ($request->hasFile('gambar_fasilitas')) {
-            // Delete the old image if it exists
-            if ($fasilitas->gambar_fasilitas && file_exists(public_path('assets/img/fasilitas/' . $fasilitas->gambar_fasilitas))) {
-                unlink(public_path('assets/img/fasilitas/' . $fasilitas->gambar_fasilitas));
+            // Delete the old image from Cloudinary if it exists
+            if ($fasilitas->gambar_fasilitas) {
+                CloudinaryStorage::delete($fasilitas->gambar_fasilitas);
             }
 
-            // Handle the new image upload
+            // Handle the new image upload to Cloudinary
             $image = $request->file('gambar_fasilitas');
-            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('assets/img/fasilitas'), $imageName);
+            $result = CloudinaryStorage::upload($image->getRealPath(), $image->getClientOriginalName());
         } else {
-            // If no new image is uploaded, keep the old image name
-            $imageName = $fasilitas->gambar_fasilitas;
+            // If no new image is uploaded, keep the old image URL
+            $result = $fasilitas->gambar_fasilitas;
         }
 
         $fasilitas->update([
             'nama_fasilitas' => $request->nama_fasilitas,
             'keterangan_fasilitas' => $request->keterangan_fasilitas,
             'alamat_fasilitas' => $request->alamat_fasilitas,
-            'gambar_fasilitas' => $imageName,
+            'gambar_fasilitas' => $result,
             'id_rt' => $request->id_rt,
         ]);
 
@@ -162,9 +160,9 @@ class FasilitasUmumRTController extends Controller
             return redirect('/RT/FasilitasUmum')->with('error', 'Data tidak ditemukan');
         }
 
-        // Delete the old image if it exists
-        if ($check->gambar_fasilitas && file_exists(public_path('assets/img/fasilitas/' . $check->gambar_fasilitas))) {
-            unlink(public_path('assets/img/fasilitas/' . $check->gambar_fasilitas));
+        // Delete the old image from Cloudinary if it exists
+        if ($check->gambar_fasilitas) {
+            CloudinaryStorage::delete($check->gambar_fasilitas);
         }
 
         try {

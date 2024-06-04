@@ -48,15 +48,15 @@ class FasilitasUmumSeeder extends Seeder
             'Jl. Jambu',
         );
         $images = array(
-           '1715794351_6644f1afb46a6.jpg',
-           '1715794375_6644f1c77203e.jpg',
-           '1715794399_6644f1df2f827.jpg',
-           '1715794437_6644f2052db40.jpg',
-           '1715794473_6644f22969765.jpg',
-           '1715794501_6644f24545a40.jpg',
-           '1716551641_66507fd991f20.jpg',
-           '1716551662_66507fee27074.jpg',
-           '1716551680_6650800045c9f.jpg',
+           'https://res.cloudinary.com/dxbu302v5/image/upload/v1717511044/sirw/2024-06-04_142355_fasum1.jpg',
+           'https://res.cloudinary.com/dxbu302v5/image/upload/v1717511068/sirw/2024-06-04_142420_fasum2.jpg',
+           'https://res.cloudinary.com/dxbu302v5/image/upload/v1717511087/sirw/2024-06-04_142439_fasum3.jpg',
+           'https://res.cloudinary.com/dxbu302v5/image/upload/v1717511105/sirw/2024-06-04_142456_fasum4.jpg',
+           'https://res.cloudinary.com/dxbu302v5/image/upload/v1717511125/sirw/2024-06-04_142516_fasum5.jpg',
+           'https://res.cloudinary.com/dxbu302v5/image/upload/v1717511187/sirw/2024-06-04_142618_fasum6.jpg',
+           'https://res.cloudinary.com/dxbu302v5/image/upload/v1717511207/sirw/2024-06-04_142638_fasum7.jpg',
+           'https://res.cloudinary.com/dxbu302v5/image/upload/v1717511231/sirw/2024-06-04_142702_fasum8.jpg',
+           'https://res.cloudinary.com/dxbu302v5/image/upload/v1717511307/sirw/2024-06-04_142816_fasum9.jpg',
         );
         $rt = array('1', '6', '3', '7', '4', '8', '2', '5', '1',);
         $i = 1;
