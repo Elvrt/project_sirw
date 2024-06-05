@@ -64,7 +64,7 @@
         <div class="mt-10">
           <section class="grid md:grid-cols-2 xl:grid-cols-4 xl:grid-rows-3 xl:grid-flow-col gap-6">
             <div class="flex flex-col md:col-span-2 md:row-span-2 bg-white shadow rounded-lg">
-              <div class="px-6 py-5 font-semibold border-b border-gray-100">Data Warga Per RT</div>
+              <div class="px-6 py-5 font-semibold border-b border-gray-100">Jumlah Warga Per RT</div>
               <div class="p-4 flex-grow">
                 <div class="shadow-lg rounded-lg overflow-hidden">
                   <div class="py-3 px-5 bg-gray-50 text-center">Data Warga</div>
@@ -80,7 +80,7 @@
                     labels: ["RT1", "RT2", "RT3", "RT4", "RT5",  "RT6",  "RT7",  "RT8",],
                     datasets: [{
                       label: "Data Warga",
-                      data: [{{ $wargaCount}}, {{ $wargaCount }},{{ $wargaCount}}, {{ $wargaCount }},{{ $wargaCount}}, {{ $wargaCount }},{{ $wargaCount}}, {{ $wargaCount }}],
+                      data: [{{ $wargaRt1Count }}, {{ $wargaRt2Count }},{{ $wargaRt3Count }}, {{ $wargaRt4Count }},{{ $wargaRt5Count }}, {{ $wargaRt6Count }},{{ $wargaRt7Count }}, {{ $wargaRt8Count }}],
                       backgroundColor: [
                         "rgb(255, 153, 153)",
                         "rgb(255, 204, 153)",

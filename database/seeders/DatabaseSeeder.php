@@ -29,7 +29,6 @@ class DatabaseSeeder extends Seeder
             StrukturRwSeeder::class,
             PengaduanSeeder::class,
             PersuratanSeeder::class,
-            SktmSeeder::class,
             AlternativesSeeder::class,
             CriteriaWeightsSeeder::class,
             CriteriaRatingsSeeder::class,

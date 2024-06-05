@@ -48,7 +48,7 @@
             modalBody.innerHTML = '';
 
             // Daftar data yang ingin ditampilkan di modal
-            const dataLabels = ['No', 'Gambar', 'Judul', 'Deskripsi', 'Tanggal'];
+            const dataLabels = ['No', 'Gambar', 'Judul', 'Deskripsi', 'Tanggal Upload'];
 
 
             // Loop untuk setiap data yang ingin ditampilkan

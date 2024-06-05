@@ -74,7 +74,7 @@
                                     <th class="px-4 py-2">Gambar</th>
                                     <th class="px-4 py-2">Judul</th>
                                     <th class="px-4 py-2">Deskripsi</th>
-                                    <th class="px-4 py-2">Tanggal</th>
+                                    <th class="px-4 py-2">Tanggal Upload</th>
                                     <th class="px-4 py-2">Action</th>
                                 </tr>
                             </thead>

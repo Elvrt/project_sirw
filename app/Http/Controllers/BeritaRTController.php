@@ -51,7 +51,7 @@ class BeritaRTController extends Controller
             'judul_berita' => 'required|max:100',
             'deskripsi_berita' => 'required',
             'gambar_berita' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-            'tanggal_berita' => 'required',
+            // 'tanggal_berita' => 'required',
         ]);
 
         // Handle the image upload to Cloudinary
@@ -67,7 +67,7 @@ class BeritaRTController extends Controller
             'judul_berita' => $request->judul_berita,
             'deskripsi_berita' => $request->deskripsi_berita,
             'gambar_berita' => $result, // Save the Cloudinary URL
-            'tanggal_berita' => $request->tanggal_berita,
+            'tanggal_berita' => now()->setTimezone('Asia/Jakarta'),
         ]);
 
         return redirect('/RT/Berita')->with('success', 'Data berhasil ditambah');
@@ -102,7 +102,7 @@ class BeritaRTController extends Controller
             'judul_berita' => 'required|max:100',
             'deskripsi_berita' => 'required',
             'gambar_berita' => 'sometimes|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-            'tanggal_berita' => 'required',
+            // 'tanggal_berita' => 'required',
         ]);
 
         // Find the existing record
@@ -128,7 +128,7 @@ class BeritaRTController extends Controller
             'judul_berita' => $request->judul_berita,
             'deskripsi_berita' => $request->deskripsi_berita,
             'gambar_berita' => $result,
-            'tanggal_berita' => $request->tanggal_berita,
+            // 'tanggal_berita' => $request->tanggal_berita,
         ]);
 
         return redirect('/RT/Berita')->with('success', 'Data berhasil diupdate');

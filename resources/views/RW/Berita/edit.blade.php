@@ -42,11 +42,8 @@
                 @enderror
             </div>
             <div class="mb-4">
-                <label for="tanggal_berita" class="block text-sm font-bold mb-2">Tanggal</label>
-                <input type="datetime-local" name="tanggal_berita" value="{{old('tanggal_berita', $data->tanggal_berita)}}" id="tanggal_berita" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                @error('tanggal_berita')
-                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
-                @enderror
+                <label for="tanggal_berita" class="block text-sm font-bold mb-2">Tanggal Upload</label>
+                <p class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{\Carbon\Carbon::parse($data->tanggal_berita)->format('d M Y H:i')}} WIB</p>
             </div>
             <div class="text-end px-10">
                 <button class="bg-hijau  text-putih font-bold py-2 px-8 rounded-lg">
