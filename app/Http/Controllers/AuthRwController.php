@@ -20,6 +20,31 @@ class AuthRwController extends Controller
 
         $lakiCount = WargaModel::where('jenis_kelamin', 'L')->count();
         $perempuanCount = WargaModel::where('jenis_kelamin', 'P')->count();
+        
+        $wargaRt1Count = WargaModel::whereHas('kartuKeluarga', function ($query) {
+            $query->where('id_rt', 1);
+        })->count();
+        $wargaRt2Count = WargaModel::whereHas('kartuKeluarga', function ($query) {
+            $query->where('id_rt', 2);
+        })->count();
+        $wargaRt3Count = WargaModel::whereHas('kartuKeluarga', function ($query) {
+            $query->where('id_rt', 3);
+        })->count();
+        $wargaRt4Count = WargaModel::whereHas('kartuKeluarga', function ($query) {
+            $query->where('id_rt', 4);
+        })->count();
+        $wargaRt5Count = WargaModel::whereHas('kartuKeluarga', function ($query) {
+            $query->where('id_rt', 5);
+        })->count();
+        $wargaRt6Count = WargaModel::whereHas('kartuKeluarga', function ($query) {
+            $query->where('id_rt', 6);
+        })->count();
+        $wargaRt7Count = WargaModel::whereHas('kartuKeluarga', function ($query) {
+            $query->where('id_rt', 7);
+        })->count();
+        $wargaRt8Count = WargaModel::whereHas('kartuKeluarga', function ($query) {
+            $query->where('id_rt', 8);
+        })->count();
 
         $sumIuran = IuranModel::whereYear('tanggal_iuran', 2024)->sum('nominal');
         $sumIuranJan = IuranModel::whereYear('tanggal_iuran', 2024)->whereMonth('tanggal_iuran', 1)->sum('nominal');
@@ -44,6 +69,14 @@ class AuthRwController extends Controller
                 'lakiCount' => $lakiCount,
                 'perempuanCount' => $perempuanCount,
                 'sumIuran' => $sumIuran,
+                'wargaRt1Count' => $wargaRt1Count,
+                'wargaRt2Count' => $wargaRt2Count,
+                'wargaRt3Count' => $wargaRt3Count,
+                'wargaRt4Count' => $wargaRt4Count,
+                'wargaRt5Count' => $wargaRt5Count,
+                'wargaRt6Count' => $wargaRt6Count,
+                'wargaRt7Count' => $wargaRt7Count,
+                'wargaRt8Count' => $wargaRt8Count,
                 'sumIuranJan' => $sumIuranJan,
                 'sumIuranFeb' => $sumIuranFeb,
                 'sumIuranMar' => $sumIuranMar,

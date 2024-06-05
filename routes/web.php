@@ -58,7 +58,6 @@ use App\Http\Controllers\RankController;
 Route::group(['middleware' => 'guest'], function() {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/login', [AuthController::class, 'dologin']);
-
 });
 
 // untuk RW, rt, Warga

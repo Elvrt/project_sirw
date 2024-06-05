@@ -77,13 +77,13 @@ class IuranSeeder extends Seeder
                 ]
             );
         }
-        for ($i = 1; $i <= 7; $i++) {
+        for ($i = 1; $i <= 16; $i++) {
             DB::table('iuran')->insert(
                 [
                     // 'id_iuran' => $i,
                     'id_kk' => $i,
-                    'nominal' => 15000,
-                    'status_iuran' => 'Lunas',
+                    'nominal' => 7500,
+                    'status_iuran' => 'Belum Lunas',
                     'tanggal_iuran' => $faker->dateTimeBetween('2024-06-01', '2024-06-09')->format('Ymd'),
                     'created_at' => $faker->dateTimeBetween('2024-06-01', '2024-06-09')->format('Ymd'),
                 ]

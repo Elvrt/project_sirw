@@ -36,13 +36,13 @@
                     <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                 @enderror
             </div>
-            <div class="mb-4">
+            {{-- <div class="mb-4">
                 <label for="tanggal_berita" class="block text-sm font-bold mb-2">Tanggal</label>
                 <input type="datetime-local" name="tanggal_berita" id="tanggal_berita" value="{{old('tanggal_berita')}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 @error('tanggal_berita')
                     <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                 @enderror
-            </div>
+            </div> --}}
             <div class="text-end px-10">
                 <button class="bg-hijau  text-putih font-bold py-2 px-8 rounded-lg">
                     Simpan
