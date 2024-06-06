@@ -14,7 +14,7 @@
   <div class="justify-center flex sm:block">
     <div class="p-4 sm:ml-64 ">
       <p class="text-army-gelap font-bold text-header drop-shadow-md container mb-10 mt-10 ml-4">Dashboard</p>
-      <div class="bg-putih drop-shadow-md mx-2 px-10 p-4">
+      <div class="bg-putih drop-shadow-md mx-2 pt-10 p-4">
         <section class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
           <div class="flex items-center p-8 bg-white shadow rounded-lg">
             <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-blue-600 bg-blue-100 rounded-full mr-6">
@@ -105,10 +105,10 @@
                 </script>
               </div>
             </div>
-            <div class="flex flex-col row-span-2 col-span-2 bg-white shadow rounded-lg">
+            <div class="flex flex-col row-span-2 col-span-2  bg-white shadow rounded-lg">
               <div class="px-6 py-5 font-semibold border-b border-gray-100">Jumlah Iuran Warga</div>
-              <div class="p-4 flex-grow">
-                <div class="max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+              <div class="p-4 ">
+                <div class="w-full bg-white rounded-lg shadow dark:bg-gray-800 md:p-6 ">
                   <div class="flex justify-between border-gray-200 border-b dark:border-gray-700 pb-3">
                     <dl>
                       <dt class="text-base font-normal text-gray-500 dark:text-gray-400 pb-1">Jumlah</dt>
@@ -125,7 +125,7 @@
                 <script>
                   const options = {
                     series: [{
-                        name: "Income",
+                        name: "Pemasukkan",
                         color: "#31C48D",
                         data: ["{{ $sumIuranJan }}", "{{ $sumIuranFeb }}", "{{ $sumIuranMar }}", "{{ $sumIuranApr }}", "{{ $sumIuranMay }}", "{{ $sumIuranJun }}", "{{ $sumIuranJul }}", "{{ $sumIuranAug }}", "{{ $sumIuranSep }}", "{{ $sumIuranOct }}", "{{ $sumIuranNov }}", "{{ $sumIuranDec }}"],
                       },
@@ -140,7 +140,7 @@
                         enabled: false,
                       },
                       type: "bar",
-                      width: "100%",
+                      width: "600px",
                       height: 400,
                       toolbar: {
                         show: false,
@@ -151,8 +151,8 @@
                     },
                     plotOptions: {
                       bar: {
-                        horizontal: true,
-                        columnWidth: "100%",
+                        horizontal: false,
+                        columnWidth: "60%",
                         borderRadiusApplication: "end",
                         borderRadius: 6,
                         dataLabels: {
@@ -176,14 +176,12 @@
                     },
                     xaxis: {
                       labels: {
-                        show: false,
+                        show: true,
                         style: {
                           fontFamily: "Inter, sans-serif",
                           cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
                         },
-                        formatter: function(value) {
-                          return "$" + value
-                        }
+              
                       },
                       categories: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
                       axisTicks: {
@@ -199,7 +197,10 @@
                         style: {
                           fontFamily: "Inter, sans-serif",
                           cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
-                        }
+                        },
+                        formatter: function(value) {
+                          return "Rp" + value
+                        },
                       }
                     },
                     grid: {

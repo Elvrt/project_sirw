@@ -99,10 +99,10 @@
                 </script>
               </div>
             </div>
-            <div class="flex flex-col row-span-2 col-span-2 bg-white shadow rounded-lg">
+            <div class="flex flex-col row-span-2 col-span-2  bg-white shadow rounded-lg">
               <div class="px-6 py-5 font-semibold border-b border-gray-100">Jumlah Iuran Warga</div>
-              <div class="p-4 flex-grow">
-                <div class="max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+              <div class="p-4 ">
+                <div class="w-full bg-white rounded-lg shadow dark:bg-gray-800 md:p-6 ">
                   <div class="flex justify-between border-gray-200 border-b dark:border-gray-700 pb-3">
                     <dl>
                       <dt class="text-base font-normal text-gray-500 dark:text-gray-400 pb-1">Jumlah</dt>
@@ -119,7 +119,7 @@
                 <script>
                   const options = {
                     series: [{
-                        name: "Income",
+                        name: "Pemasukan",
                         color: "#31C48D",
                         data: ["{{ $sumIuranJan }}", "{{ $sumIuranFeb }}", "{{ $sumIuranMar }}", "{{ $sumIuranApr }}", "{{ $sumIuranMay }}", "{{ $sumIuranJun }}", "{{ $sumIuranJul }}", "{{ $sumIuranAug }}", "{{ $sumIuranSep }}", "{{ $sumIuranOct }}", "{{ $sumIuranNov }}", "{{ $sumIuranDec }}"],
                       },
@@ -134,7 +134,7 @@
                         enabled: false,
                       },
                       type: "bar",
-                      width: "100%",
+                      width: "600",
                       height: 400,
                       toolbar: {
                         show: false,
@@ -145,8 +145,8 @@
                     },
                     plotOptions: {
                       bar: {
-                        horizontal: true,
-                        columnWidth: "100%",
+                        horizontal: false,
+                        columnWidth: "60%",
                         borderRadiusApplication: "end",
                         borderRadius: 6,
                         dataLabels: {
@@ -170,14 +170,12 @@
                     },
                     xaxis: {
                       labels: {
-                        show: false,
+                        show: true,
                         style: {
                           fontFamily: "Inter, sans-serif",
                           cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
                         },
-                        formatter: function(value) {
-                          return "$" + value
-                        }
+                
                       },
                       categories: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
                       axisTicks: {
@@ -193,7 +191,10 @@
                         style: {
                           fontFamily: "Inter, sans-serif",
                           cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
-                        }
+                        },
+                        formatter: function(value) {
+                          return "$" + value
+                        },
                       }
                     },
                     grid: {
