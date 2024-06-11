@@ -140,7 +140,7 @@
                         enabled: false,
                       },
                       type: "bar",
-                      width: "100%",
+                      width: "20%",
                       height: 400,
                       toolbar: {
                         show: false,
@@ -152,7 +152,7 @@
                     plotOptions: {
                       bar: {
                         horizontal: true,
-                        columnWidth: "100%",
+                        columnWidth: "20%",
                         borderRadiusApplication: "end",
                         borderRadius: 6,
                         dataLabels: {
@@ -171,7 +171,7 @@
                       shared: true,
                       intersect: false,
                       formatter: function(value) {
-                        return "$" + value
+                        return "Rp" + value
                       }
                     },
                     xaxis: {
@@ -182,7 +182,7 @@
                           cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
                         },
                         formatter: function(value) {
-                          return "$" + value
+                  return "Rp" + value
                         }
                       },
                       categories: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
