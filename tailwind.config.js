@@ -50,7 +50,8 @@ export default {
             'red-700' : '#B91C1C',
             'red-600' : '#DC2626',
             'red-500' : '#EF4444',
-            'abu-army': '#EEEDEB'
+            'abu-army': '#EEEDEB',
+            'hitam': '#000000'
         },
         fontFamily: {
 
