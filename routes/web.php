@@ -8,7 +8,7 @@ use App\Http\Controllers\KartuKeluargaController;
 use App\Http\Controllers\IuranController;
 use App\Http\Controllers\FasilitasUmumController;
 use App\Http\Controllers\WargaController;
-use App\Http\Controllers\StrukturRWController;
+use App\Http\Controllers\StrukturRwController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PersuratanController;
 use App\Http\Controllers\UserController;
@@ -225,14 +225,14 @@ Route::group(['middleware' => ['auth', 'checkrole:9'], 'prefix' => 'RW'], functi
 
     // Struktur Rw
     Route::group(['prefix' => 'StrukturRw'], function (){
-        Route::get('/', [StrukturRWController::class, 'index']); // Halaman awal user
-        Route::post('/index', [StrukturRWController::class, 'index']); // Halaman data user dalam bentuk json
-        Route::get('/create', [StrukturRWController::class, 'create']); // Halaman form tambah user
-        Route::post('/', [StrukturRWController::class, 'store'])->name('RW.StrukturRw.store'); // Menyimpan data user baru
-        Route::get('/{id}/show', [StrukturRWController::class, 'show'])->name('RW.StrukturRw.show'); // Menampilkan detail user
-        Route::get('/{id}/edit', [StrukturRWController::class, 'edit'])->name('RW.StrukturRw.edit'); // Menampilkan halaman form edit user
-        Route::put('/{id}', [StrukturRWController::class, 'update'])->name('RW.StrukturRw.update'); // Menampilkan perubahan data user
-        Route::delete('/{id}', [StrukturRWController::class, 'destroy'])->name('RW.StrukturRw.destroy'); // Menghapus data user
+        Route::get('/', [StrukturRwController::class, 'index']); // Halaman awal user
+        Route::post('/index', [StrukturRwController::class, 'index']); // Halaman data user dalam bentuk json
+        Route::get('/create', [StrukturRwController::class, 'create']); // Halaman form tambah user
+        Route::post('/', [StrukturRwController::class, 'store'])->name('RW.StrukturRw.store'); // Menyimpan data user baru
+        Route::get('/{id}/show', [StrukturRwController::class, 'show'])->name('RW.StrukturRw.show'); // Menampilkan detail user
+        Route::get('/{id}/edit', [StrukturRwController::class, 'edit'])->name('RW.StrukturRw.edit'); // Menampilkan halaman form edit user
+        Route::put('/{id}', [StrukturRwController::class, 'update'])->name('RW.StrukturRw.update'); // Menampilkan perubahan data user
+        Route::delete('/{id}', [StrukturRwController::class, 'destroy'])->name('RW.StrukturRw.destroy'); // Menghapus data user
     });
 
     // Tata Tertib
