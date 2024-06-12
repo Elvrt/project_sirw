@@ -64,15 +64,25 @@ class PengaduanController extends Controller
             'id_warga' => 'required',
             'judul_pengaduan' => 'required|max:50',
             'deskripsi_pengaduan' => 'required',
+            'gambar_pengaduan' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             // 'status_pengaduan' => 'required',
             // 'tanggal_pengaduan' => 'required',
         ]);
+
+        // Handle the image upload to Cloudinary
+        if ($request->hasFile('gambar_pengaduan')) {
+            $image = $request->file('gambar_pengaduan');
+            $result = CloudinaryStorage::upload($image->getRealPath(), $image->getClientOriginalName());
+        } else {
+            return back()->withErrors(['pengaduan' => 'Failed to upload image.']);
+        }
 
         PengaduanModel::create([
             'id_warga' => $request->id_warga,
             'judul_pengaduan' => $request->judul_pengaduan,
             'deskripsi_pengaduan' => $request->deskripsi_pengaduan,
             'status_pengaduan' => 'Menunggu',
+            'gambar_pengaduan' => $result, // Save the Cloudinary URL
             'tanggal_pengaduan' => now()->setTimezone('Asia/Jakarta'),
         ]);
 
@@ -111,8 +121,27 @@ class PengaduanController extends Controller
             // 'deskripsi_pengaduan' => 'required',
             'status_pengaduan' => 'required',
             'catatan_pengaduan' => 'max:100',
+            // 'gambar_pengaduan' => 'sometimes|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             // 'tanggal_pengaduan' => 'required',
         ]);
+
+        // // Find the existing record
+        // $pengaduan = PengaduanModel::find($id);
+
+        // // If a new image is uploaded
+        // if ($request->hasFile('gambar_pengaduan')) {
+        //     // Delete the old image from Cloudinary if it exists
+        //     if ($pengaduan->gambar_pengaduan) {
+        //         CloudinaryStorage::delete($pengaduan->gambar_pengaduan);
+        //     }
+
+        //     // Handle the new image upload to Cloudinary
+        //     $image = $request->file('gambar_pengaduan');
+        //     $result = CloudinaryStorage::upload($image->getRealPath(), $image->getClientOriginalName());
+        // } else {
+        //     // If no new image is uploaded, keep the old image URL
+        //     $result = $pengaduan->gambar_pengaduan;
+        // }
 
         PengaduanModel::find($id)->update([
             // 'id_warga' => $request->id_warga,
@@ -120,6 +149,7 @@ class PengaduanController extends Controller
             // 'deskripsi_pengaduan' => $request->deskripsi_pengaduan,
             'status_pengaduan' => $request->status_pengaduan,
             'catatan_pengaduan' => $request->catatan_pengaduan,
+            // 'gambar_pengaduan' => $result,
             // 'tanggal_pengaduan' => $request->tanggal_pengaduan,
         ]);
 
@@ -134,6 +164,11 @@ class PengaduanController extends Controller
         $check = PengaduanModel::find($id);
         if (!$check) {
             return redirect('/RW/Pengaduan')->with('error', 'Data tidak ditemukan');
+        }
+
+        // Delete the old image from Cloudinary if it exists
+        if ($check->gambar_pengaduan) {
+            CloudinaryStorage::delete($check->gambar_pengaduan);
         }
 
         try {

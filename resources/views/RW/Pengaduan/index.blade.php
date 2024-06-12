@@ -87,6 +87,7 @@
                                     <th class="px-4 py-2">No.</th>
                                     <th class="px-4 py-2">NIK</th>
                                     <th class="px-4 py-2">Nama Pelapor</th>
+                                    <th class="px-4 py-2">Gambar Pengaduan</th>
                                     <th class="px-4 py-2">Judul Pengaduan</th>
                                     <th class="px-4 py-2">Deskripsi</th>
                                     <th class="px-4 py-2">Tanggal Pengaduan</th>
@@ -104,6 +105,9 @@
                                         <td class="px-4 py-2">{{$i++}}</td>
                                         <td class="px-4 py-2">{{$data->warga->nik}}</td>
                                         <td class="px-4 py-2">{{$data->warga->nama_warga}}</td>
+                                        <td class="px-4 py-2">
+                                            <img src="{{$data->gambar_pengaduan}}" width="200px" alt="gambar agenda" class="border rounded">
+                                        </td>
                                         <td class="px-4 py-2">{{$data->judul_pengaduan}}</td>
                                         <td class="px-4 py-2">{{$data->deskripsi_pengaduan}}</td>
                                         <td class="px-4 py-2">{{\Carbon\Carbon::parse($data->tanggal_pengaduan)->format('d M Y H:i')}} WIB</td>

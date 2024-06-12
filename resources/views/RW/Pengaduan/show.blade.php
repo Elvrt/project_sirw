@@ -51,11 +51,20 @@
             modalBody.innerHTML = '';
 
             // Daftar data yang ingin ditampilkan di modal
-            const dataLabels = ['No', 'Nama Pelapor','Judul', 'Deskripsi', 'Tanggal', 'Status', 'Catatan'];
+            const dataLabels = ['No', 'NIK', 'Nama Pelapor', 'Gambar', 'Judul', 'Deskripsi', 'Tanggal', 'Status', 'Catatan'];
 
             // Loop untuk setiap data yang ingin ditampilkan
             dataLabels.forEach((label, index) => {
-                const dataItem = rowData[index].textContent;
+                let dataItem = rowData[index].textContent;
+
+                // Untuk gambar, perlu diperiksa apakah data tersebut berupa tag <img> atau teks biasa
+                if (index === 3) {
+                    const imgTag = rowData[index].querySelector('img');
+                    if (imgTag) {
+                        dataItem = imgTag.outerHTML;
+                    }
+                }
+
                 const html = `
                 <div class="mb-3 flex">
                     <label for="data_${index}" class="block text-lg font-semibold mb-3 w-40">${label}</label>

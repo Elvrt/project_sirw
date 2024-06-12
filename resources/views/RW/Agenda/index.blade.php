@@ -86,7 +86,7 @@
                                     <tr>
                                         <td class="px-4 py-2">{{$i++}}</td>
                                         <td class="px-4 py-2">
-                                            <img src="{{$data->gambar_agenda }}" width="200px" alt="gambar agenda" class="border rounded">
+                                            cc
                                         </td>
                                         <td class="px-4 py-2">{{$data->judul_agenda}}</td>
                                         <td class="px-4 py-2">{{$data->deskripsi_agenda}}</td>

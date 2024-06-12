@@ -13,7 +13,7 @@
     </div>
 
     <div class="bg-putih shadow-md mx-5 py-10 px-8 relative">
-        <form action="/laporpengaduan" method="POST">
+        <form action="/laporpengaduan" method="POST" enctype="multipart/form-data">
             @csrf
             @method('POST')
             <div class="mb-10">
@@ -37,6 +37,14 @@
                     @endforeach
                 </select>
                 @error('id_warga')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-10">
+                <label for="c" class="block text-sm font-bold mb-2">Gambar Pengaduan</label>
+                <input type="file" name="gambar_pengaduan" id="gambar_pengaduan" value="" accept="image/*" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="gambar_pengaduan">SVG, PNG, JPG, JPEG (MAX. 2MB).</p>
+                @error('gambar_pengaduan')
                     <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                 @enderror
             </div>
