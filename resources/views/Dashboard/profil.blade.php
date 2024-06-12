@@ -13,10 +13,10 @@
                             <img src="{{ url('assets/img/profile.png') }}" alt="profile" width="100">
                         </div>
                         <div class="bg-gradient-to-r from-abu-putih to-abu-putih-muda  rounded-lg col-span-2">
-                            <p class="text-left ml-2 text-hitam ">Nama‎ ‎ ‎ ‎ : {{ $data->warga->nama_warga }}</p>
-                            <p class="text-left ml-2 text-hitam ">Jabatan‎ : {{ $data->nama_struktur }}</p>
-                            <p class="text-left ml-2 text-hitam ">Alamat ‎ : {{ $data->warga->alamat }}</p>
-                            <p class="text-left ml-2 text-hitam ">No.Telp : {{ $data->warga->nomor_telepon }}</p>
+                            <p class="text-left font-normal ml-2 text-hitam ">Nama‎ ‎ ‎ ‎ : {{ $data->warga->nama_warga }}</p>
+                            <p class="text-left font-normal ml-2 text-hitam ">Jabatan‎ : {{ $data->nama_struktur }}</p>
+                            <p class="text-left font-normal ml-2 text-hitam ">Alamat ‎ : {{ $data->warga->alamat }}</p>
+                            <p class="text-left font-normal ml-2 text-hitam ">No.Telp : {{ $data->warga->nomor_telepon }}</p>
                         </div>
                     </div>
                 </div>
@@ -30,10 +30,10 @@
                         <img src="{{ url('assets/img/profile.png') }}" alt="profile" width="100">
                     </div>
                     <div class="bg-gradient-to-r from-abu-putih to-abu-putih-muda rounded-lg col-span-2 mt-5">
-                        <p class="text-left ml-2 text-hitam ">Nama‎ ‎ ‎ ‎ : {{ $data->warga->nama_warga }}</p>
-                        <p class="text-left ml-2 text-hitam ">Jabatan‎ : {{ $data->nama_struktur }}</p>
-                        <p class="text-left ml-2 text-hitam ">Alamat ‎ : {{ $data->warga->alamat }}</p>
-                        <p class="text-left ml-2 text-hitam ">No.Telp : {{ $data->warga->nomor_telepon }}</p>
+                        <p class="text-left font-normal ml-2 text-hitam ">Nama‎ ‎ ‎ ‎ : {{ $data->warga->nama_warga }}</p>
+                        <p class="text-left font-normal ml-2 text-hitam ">Jabatan‎ : {{ $data->nama_struktur }}</p>
+                        <p class="text-left font-normal ml-2 text-hitam ">Alamat ‎ : {{ $data->warga->alamat }}</p>
+                        <p class="text-left font-normal ml-2 text-hitam ">No.Telp : {{ $data->warga->nomor_telepon }}</p>
                     </div>
                 @endforeach
             </div>

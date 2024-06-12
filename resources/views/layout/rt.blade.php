@@ -146,7 +146,8 @@
     <!-- FOOTER -->
     <footer class="bg-abu-army text-center sticky footer bottom-0 w-full">
         <div class="p-4 text-center text-surface dark:text-white">
-            Copyright 2024 © : SiRW
+            Copyright 2024 © :
+            <a href="https://projectsirw-production-56c4.up.railway.app/">SiRW</a>
         </div>
     </footer>
 
