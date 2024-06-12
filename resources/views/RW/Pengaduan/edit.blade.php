@@ -12,12 +12,24 @@
     <div class="bg-backgroundform md:mx-10 mr-3 md:mr-32 ml-4 md:ml-32 p-5 rounded-lg">
         <p class="font-medium text-sub">Edit Data Pengaduan</p>
 
-        <form action="{{url('/RW/Pengaduan/'.$data->id_pengaduan)}}" method="POST">
+        <form action="{{url('/RW/Pengaduan/'.$data->id_pengaduan)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-4">
                 <label for="id_warga" class="block text-sm font-bold mb-2">Nama Pelapor</label>
                 <p class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">{{$data->warga->nama_warga}}</p>
+            </div>
+            <div class="mb-4">
+                <label for="gambar_pengaduan" class="block text-sm font-bold mb-2">Gambar Pengaduan</label>
+                @if ($data->gambar_pengaduan)
+                    <img src="{{$data->gambar_pengaduan}}" class="border rounded mb-2" width="500px" alt="">
+                @else
+                    <Span>No Picture</Span>
+                @endif
+                {{-- <input type="file" name="gambar_pengaduan" value="" id="gambar_pengaduan" accept="image/*" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                @error('gambar_pengaduan')
+                    <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
+                @enderror --}}
             </div>
             <div class="mb-4">
                 <label for="judul_pengaduan" class="block text-sm font-bold mb-2">Judul Pengaduan</label>

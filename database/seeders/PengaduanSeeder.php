@@ -55,6 +55,19 @@ class PengaduanSeeder extends Seeder
             'Sudah koordinasi dengan PLN, akan segera diperbaiki',
             'Sudah diatasi oleh PDAM setempat',
         );
+        $images = array(
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1718172640/sirw/2024-06-12_061003_pengaduan1.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1718172666/sirw/2024-06-12_061029_pengaduan2.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1718172698/sirw/2024-06-12_061102_pengaduan3.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1718172722/sirw/2024-06-12_061126_pengaduan4.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1718172739/sirw/2024-06-12_061143_pengaduan5.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1718172758/sirw/2024-06-12_061202_pengaduan6.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1718172784/sirw/2024-06-12_061227_pengaduan7.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1718172820/sirw/2024-06-12_061304_pengaduan8.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1718172854/sirw/2024-06-12_061338_pengaduan9.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1718172873/sirw/2024-06-12_061357_pengaduan10.jpg',
+            'https://res.cloudinary.com/dxbu302v5/image/upload/v1718172906/sirw/2024-06-12_061430_pengaduan11.jpg',
+        );
         $dates = array(
             '2024-02-14 18:02:47',
             '2024-03-22 22:19:39',
@@ -78,6 +91,7 @@ class PengaduanSeeder extends Seeder
                     'deskripsi_pengaduan' => $description[$i - 1],
                     'status_pengaduan' => $status[$i - 1],
                     'catatan_pengaduan' => $catatan[$i - 1],
+                    'gambar_pengaduan' => $images[$i - 1],
                     'tanggal_pengaduan' => $dates[$i - 1],
                     'created_at' => $dates[$i - 1],
                 ]

@@ -18,6 +18,7 @@ class PengaduanModel extends Model
         'judul_pengaduan',
         'deskripsi_pengaduan',
         'status_pengaduan',
+        'gambar_pengaduan',
         'tanggal_pengaduan',
         'catatan_pengaduan',
     ];

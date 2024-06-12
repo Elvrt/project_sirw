@@ -6,6 +6,7 @@ use App\Models\RtModel;
 use App\Models\KartuKeluargaModel;
 use App\Models\WargaModel;
 use App\Models\PengaduanModel;
+use App\Http\Controllers\CloudinaryStorage;
 use Illuminate\Http\Request;
 
 class PengaduanDashboardController extends Controller
@@ -75,15 +76,25 @@ class PengaduanDashboardController extends Controller
             'id_warga' => 'required',
             'judul_pengaduan' => 'required|max:50',
             'deskripsi_pengaduan' => 'required',
+            'gambar_pengaduan' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             // 'status_pengaduan' => 'required',
             // 'tanggal_pengaduan' => 'required',
         ]);
+
+        // Handle the image upload to Cloudinary
+        if ($request->hasFile('gambar_pengaduan')) {
+            $image = $request->file('gambar_pengaduan');
+            $result = CloudinaryStorage::upload($image->getRealPath(), $image->getClientOriginalName());
+        } else {
+            return back()->withErrors(['pengaduan' => 'Failed to upload image.']);
+        }
 
         PengaduanModel::create([
             'id_warga' => $request->id_warga,
             'judul_pengaduan' => $request->judul_pengaduan,
             'deskripsi_pengaduan' => $request->deskripsi_pengaduan,
             'status_pengaduan' => 'Menunggu',
+            'gambar_pengaduan' => $result, // Save the Cloudinary URL
             'tanggal_pengaduan' => now()->setTimezone('Asia/Jakarta'),
         ]);
 
