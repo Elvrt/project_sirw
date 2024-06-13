@@ -57,7 +57,7 @@
             </div>
             <div class="mb-4">
                 <label for="link_maps" class="block text-sm font-bold mb-2">Link Alamat Maps</label>
-                <input type="text" name="link_maps" value="{{old('link_maps', $data->link_maps)}}" id="link_maps" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Masukkan link sematkan peta ukuran kecil">>
+                <input type="text" name="link_maps" value="{{old('link_maps', $data->link_maps)}}" id="link_maps" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Masukkan link sematkan peta ukuran kecil">
                 @error('alamat_fasilitas')
                     <div class="text-red-500 mt-1 text-sm">{{ $message }}</div>
                 @enderror
