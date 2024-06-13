@@ -17,6 +17,7 @@ return new class extends Migration
             $table->longText('keterangan_fasilitas');
             $table->string('alamat_fasilitas', 100);
             $table->longText('gambar_fasilitas')->nullable();
+            $table->longText('link_maps')->nullable();
             $table->unsignedBigInteger('id_rt')->index();
             $table->timestamps();
 

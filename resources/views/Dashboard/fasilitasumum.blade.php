@@ -13,10 +13,10 @@
                 <div class="grid grid-cols-2 gap-5 bg-putih p-6 rounded-lg shadow-xl">
                     <img src="{{$data->gambar_fasilitas}}" alt="fasilitas umum" class="rounded-lg" width="400">
                     <div class="flex justify-center item-center mt-20">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3758.0343640039187!2d112.62446019536922!3d-7.925010802351728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd629680281c349%3A0x7b3f8c86e82f371a!2sBalai%20RW%2005%20Kelurahan%20Tasikmadu!5e0!3m2!1sen!2sid!4v1718244821874!5m2!1sen!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        {!! $data->link_maps !!}
                     </div>
                     </div>
-                
+
                 <table class="mt-10 text-justify">
                     <tbody>
                         <tr>

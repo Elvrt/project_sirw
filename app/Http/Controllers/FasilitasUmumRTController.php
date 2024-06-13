@@ -64,6 +64,7 @@ class FasilitasUmumRTController extends Controller
             'keterangan_fasilitas' => 'required',
             'alamat_fasilitas' => 'required|max:100',
             'gambar_fasilitas' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'link_maps' => 'required',
             'id_rt' => 'required',
         ]);
 
@@ -81,6 +82,7 @@ class FasilitasUmumRTController extends Controller
             'keterangan_fasilitas' => $request->keterangan_fasilitas,
             'alamat_fasilitas' => $request->alamat_fasilitas,
             'gambar_fasilitas' => $result, // Save the Cloudinary URL
+            'link_maps' => $request->link_maps,
             'id_rt' => $request->id_rt,
         ]);
 
@@ -118,6 +120,7 @@ class FasilitasUmumRTController extends Controller
             'keterangan_fasilitas' => 'required',
             'alamat_fasilitas' => 'required|max:100',
             'gambar_fasilitas' => 'sometimes|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'link_maps' => 'required',
             'id_rt' => 'required',
         ]);
 
@@ -144,6 +147,7 @@ class FasilitasUmumRTController extends Controller
             'keterangan_fasilitas' => $request->keterangan_fasilitas,
             'alamat_fasilitas' => $request->alamat_fasilitas,
             'gambar_fasilitas' => $result,
+            'link_maps' => $request->link_maps,
             'id_rt' => $request->id_rt,
         ]);
 

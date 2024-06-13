@@ -18,6 +18,7 @@ class FasilitasUmumModel extends Model
         'keterangan_fasilitas',
         'alamat_fasilitas',
         'gambar_fasilitas',
+        'link_maps',
         'id_rt',
     ];
 
