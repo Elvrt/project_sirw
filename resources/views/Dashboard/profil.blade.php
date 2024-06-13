@@ -57,4 +57,12 @@
             </table>
         </div>
     </div>
+
+    <p class="text-center text-army-gelap font-bold text-header drop-shadow-md mt-10 mb-10">LOKASI BALAI RW 05 TASIKMADU</p>
+    <div class="bg-gradient-to-b from-cream to-cream-muda mx-96 py-10 rounded-lg ">
+        <div class="flex justify-center items-center">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15806.907023436597!2d112.6255961!3d-7.9235829!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd629680281c349%3A0x7b3f8c86e82f371a!2sBalai%20RW%2005%20Kelurahan%20Tasikmadu!5e0!3m2!1sen!2sid!4v1718213223083!5m2!1sen!2sid" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    
 @endsection
